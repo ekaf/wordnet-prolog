@@ -9,6 +9,6 @@ It fixes some known problems, including the transitive hyponym bug.
 
 WNprolog-3.1 is a Prolog version of WordNet 3.1.
 
-The accompanying wnprolog.pl program implements common
-WordNet use cases, and is intended later to also include
-more formal checks, like f. ex. transitive loop detection.
+The accompanying wnprolog.pl file is a SWI-prolog program 
+implementing some common WordNet use cases, and a few formal checks, 
+like symmetry and transitive loop detection.
