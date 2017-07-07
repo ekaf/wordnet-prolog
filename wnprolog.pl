@@ -22,6 +22,9 @@ loadrels:-
 
 :-loadrels.
 
+% Synonyms have the same identifier:
+syn(A,A).
+
 /* ------------------------------------------------------------------
 Transitive hypernymy and hyponymy
 --------------------------------------------------------------------*/
@@ -47,14 +50,14 @@ wordrel(R,A,B):-
 relset(R,A,L):-
 % Find all related words
   setof(B, wordrel(R,A,B), L),
-  writef('%w %w : ', [A,R]),
+  writef('%w %w: ', [A,R]),
   print(L),
   nl.
 
 irelset(R,A,L):-
 % Inverse relation
   setof(B, wordrel(R,B,A), L),
-  writef('%w inverse %w : ', [A,R]),
+  writef('%w inverse %w: ', [A,R]),
   print(L),
   nl.
 
@@ -63,11 +66,7 @@ irel(R,W):-
   (relset(R,W,L1),!; true), 
   (irelset(R,W,L2),!; true),
 % If both sets are identical, the relation is symmetric
-  (L1==L2 -> writef('Both sets are identical, so "%w %w X" is symmetric\n', [W,R]); true).
-
-synset(W):-
-% Synonyms
-  relset(=,W).
+  (L1==L2 -> writef('Both sets are identical, so %w(%w,X) is symmetric\n', [R,W]); true).
 
 /* ------------------------------------------
 Word query
@@ -75,7 +74,7 @@ Word query
 
 qword(W):-
 % Synonymy is symmetric
-  irel(=,W),
+  irel(syn,W),
   irel(thyp,W),
   semrels(L),
   member(R,L),
