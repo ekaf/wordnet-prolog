@@ -11,18 +11,20 @@ loadrels:-
   writef('Consulting %w relation: %w\n',[R,F]),
   consult(F),
   fail.
-loadrels.
+loadrels:-
+  nl.
 
 :-loadrels.
 
 /* -------------------------------------------------------------
-Transitive hypernymy and hyponymy (need to increase stack size)
----------------------------------
+Transitive hypernymy and hyponymy
+---------------------------------*/
 
-hyp(A,C):-
+thyp(A,B):-
+  hyp(A,B).
+thyp(A,C):-
   hyp(A,B),
-  hyp(B,C).
-*/
+  thyp(B,C).
 
 /* ------------------------------------------
 Word relations
@@ -63,6 +65,7 @@ Word query
 
 qword(W):-
   synset(W),
+  irel(thyp,W),
   semrels(L),
   member(R,L),
   irel(R,W),
@@ -74,8 +77,9 @@ TEST
 --------------- */
 
 test:-
-  member(W,['car','tree','guitar','Lennon','London','Shakespeare']),
+  member(W,['car','tree','house','check']),
   qword(W),
+  nl,
   fail.
 test.
 
