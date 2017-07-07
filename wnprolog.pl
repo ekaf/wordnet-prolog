@@ -1,4 +1,11 @@
-% SWI-prolog program by Eric Kafe
+/* 
+https://github.com/ekaf/wordnet-prolog/wnprolog.pl
+(c) 2017 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+
+SWI-prolog program implementing common WordNet use cases, 
+and intended later to also include more formal checks, 
+like f. ex. transitive loop detection.
+*/
 
 :-consult('wn_s.pl').
 
@@ -16,15 +23,18 @@ loadrels:-
 
 :-loadrels.
 
-/* -------------------------------------------------------------
+/* ------------------------------------------------------------------
 Transitive hypernymy and hyponymy
----------------------------------*/
+Loops forever on the transitive bug in original WordNet 3.0 database
+--------------------------------------------------------------------*/
 
 thyp(A,B):-
   hyp(A,B).
 thyp(A,C):-
   hyp(A,B),
   thyp(B,C).
+% Evt. prevent the WordNet 3.0 transitive loop:
+%  (A=C->(!,fail);true).
 
 /* ------------------------------------------
 Word relations
