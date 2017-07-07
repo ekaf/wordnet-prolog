@@ -60,10 +60,10 @@ irelset(R,A,L):-
 
 irel(R,W):-
 % Apply relation in both directions
-  relset(R,W,L1),
-  irelset(R,W,L2),
+  (relset(R,W,L1),!; true), 
+  (irelset(R,W,L2),!; true),
 % If both sets are identical, the relation is symmetric
-  (L1=L2 -> writef('Both sets are identical, so %w %w is symmetric\n', [R,W]); true).
+  (L1==L2 -> writef('Both sets are identical, so %w %w is symmetric\n', [R,W]); true).
 
 synset(W):-
 % Synonyms
@@ -88,7 +88,7 @@ TEST
 --------------- */
 
 test:-
-  member(W,['car','tree','house','check','line']),
+  member(W,['car','tree','house','check','line','ukulele','London','Shakespeare']),
   qword(W),
   nl,
   false.
