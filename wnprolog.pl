@@ -22,22 +22,23 @@ loadrels:-
 
 :-loadrels.
 
-% Synonyms have the same identifier:
+/* ------------------------------------------------------------------
+Synonyms have the same identifier: */
+
 syn(A,A).
 
 /* ------------------------------------------------------------------
-Transitive hypernymy and hyponymy
---------------------------------------------------------------------*/
+Transitive hypernymy and hyponymy: */
 
 thyp(A,B):-
   hyp(A,B).
 thyp(A,C):-
   hyp(A,B),
   thyp(B,C),
-% Prevent transitive loops, like in WordNet 3.0:
- (A=C -> (writef('Transitive loop: %w %w %w\n', [A,B,C]),!,false); true).
+% Prevent transitive loops (f. ex. in original WordNet 3.0):
+ (A=C -> writef('Transitive loop: %w %w %w\n', [A,B,C]), !; true).
 
-/* ------------------------------------------
+/* ------------------------------------------------------------------
 Word relations
 ------------------------- */
 
@@ -47,26 +48,32 @@ wordrel(R,A,B):-
   apply(R,[I,J]),
   s(J,_,B,_,_,_).
 
-relset(R,A,L):-
-% Find all related words
-  setof(B, wordrel(R,A,B), L),
+outset([],_,_).
+outset([H|T],A,R):-
   writef('%w %w: ', [A,R]),
-  print(L),
-  nl.
-
-irelset(R,A,L):-
-% Inverse relation
-  setof(B, wordrel(R,B,A), L),
-  writef('%w inverse %w: ', [A,R]),
-  print(L),
+  print([H|T]),
   nl.
 
 irel(R,W):-
 % Apply relation in both directions
-  (relset(R,W,L1),!; true), 
-  (irelset(R,W,L2),!; true),
-% If both sets are identical, the relation is symmetric
-  (L1==L2 -> writef('Both sets are identical, so %w(%w,X) is symmetric\n', [R,W]); true).
+% 1) Find all related words
+  findall(X, wordrel(R,W,X), L1),
+  sort(L1,S1),
+  outset(S1,W,R),
+% 2) Inverse relation
+  findall(Y, wordrel(R,Y,W), L2),
+  swritef(Ri,'inverse %w',[R]),
+  sort(L2,S2),
+  outset(S2,W,Ri),
+% Check symmetric R
+  samesets(S1,S2,R,W).
+
+samesets(S,S,R,W):-
+% If both sets are identical and non-empty, the relation is symmetric
+  dif(S,[]),
+  !,
+  writef('Both sets are identical, so %w(%w,X) is symmetric\n', [R,W]).
+samesets(_,_,_,_).
 
 /* ------------------------------------------
 Word query
@@ -83,7 +90,7 @@ qword(W):-
 qword(_).
 
 /* ------------------------------------------
-TEST 
+Tests
 --------------- */
 
 test:-
