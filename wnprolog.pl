@@ -43,37 +43,41 @@ Word relations
 ------------------------- */
 
 wordrel(R,A,B):-
-% R is a relation between synsets
+% R is a relation between synsets, A and B are words
   s(I,_,A,_,_,_),
   apply(R,[I,J]),
   s(J,_,B,_,_,_).
 
-outset([],_,_).
-outset([H|T],A,R):-
-  writef('%w %w: ', [A,R]),
-  print([H|T]),
-  nl.
+out2set([],_,_,[]).
+out2set([H|T],W,R,S):-
+  sort([H|T],S),
+  outset(S,'',O),
+  writef('%w %w: [%w]\n',[W,R,O]).
+
+outset([H],A,B):-
+  swritef(B,'%w%w', [A,H]).
+outset([H|T],A,C):-
+  swritef(B,'%w%w,', [A,H]),
+  outset(T,B,C).
 
 irel(R,W):-
 % Apply relation in both directions
 % 1) Find all related words
   findall(X, wordrel(R,W,X), L1),
-  sort(L1,S1),
-  outset(S1,W,R),
+  out2set(L1,W,R,S1),
 % 2) Inverse relation
   findall(Y, wordrel(R,Y,W), L2),
   swritef(Ri,'inverse %w',[R]),
-  sort(L2,S2),
-  outset(S2,W,Ri),
-% Check symmetric R
-  samesets(S1,S2,R,W).
+  out2set(L2,W,Ri,S2),
+% 3) Check if R is symmetric
+  sameset(S1,S2,R,W).
 
-samesets(S,S,R,W):-
-% If both sets are identical and non-empty, the relation is symmetric
+sameset(S,S,R,W):-
   dif(S,[]),
   !,
+% If both sets are identical and non-empty, the relation is symmetric
   writef('Both sets are identical, so %w(%w,X) is symmetric\n', [R,W]).
-samesets(_,_,_,_).
+sameset(_,_,_,_).
 
 /* ------------------------------------------
 Word query
