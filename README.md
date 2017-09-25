@@ -1,4 +1,4 @@
-#wordnet-prolog
+# wordnet-prolog
 
 https://github.com/ekaf/wordnet-prolog
 
