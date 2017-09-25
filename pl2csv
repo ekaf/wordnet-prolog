@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for f in wn_*pl
+do
+rel=`echo $f|sed 's/^wn_//
+s/\.pl$//'`
+
+echo $f, $rel
+
+cat $f|
+sed 's/^'$rel'(//
+s/).$//'>wn_$rel.csv
+done
