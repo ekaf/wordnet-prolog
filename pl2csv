@@ -1,13 +1,11 @@
 #!/bin/sh
+# Convert Prolog facts to CSV records
 
-for f in wn_*pl
+for f in *".pl"
 do
-rel=`echo $f|sed 's/^wn_//
-s/\.pl$//'`
+of=`echo $f|sed 's/\.pl$/.csv/'`
 
-echo $f, $rel
+echo Converting $f to $of
 
-cat $f|
-sed 's/^'$rel'(//
-s/).$//'>wn_$rel.csv
+cat $f|sed 's/^[a-z]*(\(.*\)).$/\1/'>$of
 done

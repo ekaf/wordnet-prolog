@@ -1,0 +1,4 @@
+#!/bin/sh
+# Convert CSV records to tab
+
+python ./csv2tab.py
