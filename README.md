@@ -17,12 +17,10 @@ like symmetry and transitive loop detection.
 
 ## Other formats
 
-For convenient inter-operation with other projects, the included  
-_pl2csv_ and _csv2tab_ scripts convert the Prolog databases to 
-repectively comma- and tab-separated CSV files, which can be
+For convenient inter-operation with other projects, the included  _pl2csv_ and _csv2tab_ scripts
+convert the Prolog databases to repectively comma- and tab-separated CSV files, which can be
 easily imported into most database systems.
-The resulting output constitutes full WordNet versions,
-and is available in the following packages:
+The resulting output constitutes full WordNet versions, and is available in the following packages:
 
 * _WNcsv-3.0BF.tar.gz_
 * _WNtab-3.0BF.tar.gz_
