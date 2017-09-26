@@ -15,7 +15,7 @@ The accompanying _wnprolog.pl_ file is a SWI-prolog program
 implementing some common WordNet use cases, and a few formal checks, 
 like symmetry and transitive loop detection.
 
-## Other formats
+## CSV and TAB versions
 
 For convenient inter-operation with other projects, the included  _pl2csv_ and _csv2tab_ scripts
 convert the Prolog databases to repectively comma- and tab-separated CSV files, which can be
