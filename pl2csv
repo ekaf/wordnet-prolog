@@ -1,9 +1,17 @@
 #!/bin/sh
-# Convert Prolog facts to CSV records
+# https:/github.com/ekaf/wordnet-prolog/pl2csv
+# (c) 2017 Eric Kafe, License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+# Converts all Prolog database files in "prologdir" to comma-separated CSV files
 
-for f in *".pl"
+prologdir="./prolog"
+csvdir="./csv"
+
+mkdir $csvdir
+
+for f in $prologdir/*".pl"
 do
-of=`echo $f|sed 's/\.pl$/.csv/'`
+of=$csvdir/`echo $f|sed 's/^.*\///
+s/\.pl$/.csv/'`
 
 echo Converting $f to $of
 

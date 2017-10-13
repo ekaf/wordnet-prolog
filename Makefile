@@ -6,3 +6,4 @@ all:
 	@chmod a+x pl2csv csv2tab
 	./pl2csv
 	./csv2tab
+
