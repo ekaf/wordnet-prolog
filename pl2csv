@@ -1,5 +1,5 @@
 #!/bin/sh
-# https:/github.com/ekaf/wordnet-prolog/pl2csv
+# https://github.com/ekaf/wordnet-prolog/raw/master/pl2csv
 # (c) 2017 Eric Kafe, License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 # Converts all Prolog database files in "prologdir" to comma-separated CSV files
 

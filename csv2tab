@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# https:/github.com/ekaf/wordnet-prolog/csv2tab
+# https://github.com/ekaf/wordnet-prolog/raw/master/csv2tab
 # (c) 2017 Eric Kafe, License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 # Convert all comma-separated .csv files in "csvdir" to tab-separated records
 
