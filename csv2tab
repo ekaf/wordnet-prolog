@@ -1,0 +1,18 @@
+#!/usr/bin/python
+# https://github.com/ekaf/wordnet-prolog/raw/master/csv2tab
+# (c) 2017 Eric Kafe, License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+# Convert all comma-separated .csv files in "csvdir" to tab-separated records
+
+from os import listdir
+from csv import reader
+
+csvdir="./csv"
+
+for csvfile in filter(lambda x: x[-4:] == ".csv", listdir(csvdir)):
+    tabfile = csvfile[:-4] + ".tab"
+    print("Converting " + csvfile + " to " + tabfile)
+    f1=open(csvdir + "/" + csvfile, "r")
+    f2=open(csvdir + "/" + tabfile, "w")
+    f2.write("\n".join(["\t".join(row) for row in reader(f1, delimiter=",", quotechar="\'")]) + "\n")
+    f1.close()
+    f2.close()
