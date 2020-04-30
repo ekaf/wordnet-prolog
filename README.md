@@ -17,12 +17,12 @@ Some missing links were added, in order to enforce full
 symmetry of the symmetric relations. Also, this version
 avoids duplicates, and contains only unique clauses:
 
->    7988 wn_ant.pl
->    1278 wn_at.pl
->    9559 wn_cls.pl
->     221 wn_cs.pl
->   74781 wn_der.pl
-     408 wn_ent.pl
+-    7988 wn_ant.pl
+-    1278 wn_at.pl
+-    9559 wn_cls.pl
+-     221 wn_cs.pl
+-   74781 wn_der.pl
+-     408 wn_ent.pl
    21684 wn_fr.pl
   117791 wn_g.pl
    89172 wn_hyp.pl
