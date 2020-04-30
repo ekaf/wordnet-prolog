@@ -39,28 +39,28 @@ the following numbers of duplicate clauses, concerning
 The present release avoids these duplicates, and contains
 only unique clauses:
 
-    7984 wn_ant.pl
-    1278 wn_at.pl
-    9390 wn_cls.pl
-     220 wn_cs.pl
-   74821 wn_der.pl
-     408 wn_ent.pl
-   21647 wn_fr.pl
-  117659 wn_g.pl
-   89089 wn_hyp.pl
-    8577 wn_ins.pl
-   12293 wn_mm.pl
-    9097 wn_mp.pl
-     797 wn_ms.pl
-    8022 wn_per.pl
-      73 wn_ppl.pl
-    4046 wn_sa.pl
-   21386 wn_sim.pl
-  206978 wn_sk.pl
-  206978 wn_s.pl
-    1055 wn_syntax.pl
-    1750 wn_vgp.pl
-  803548 total
+- wn_ant.pl: 7984
+- wn_at.pl: 1278
+- wn_cls.pl: 9390
+- wn_cs.pl: 220
+- wn_der.pl: 74821
+- wn_ent.pl: 408
+- wn_fr.pl: 21647
+- wn_g.pl: 117659
+- wn_hyp.pl: 89089
+- wn_ins.pl: 8577
+- wn_mm.pl: 12293
+- wn_mp.pl: 9097
+- wn_ms.pl: 797
+- wn_per.pl: 8022
+- wn_ppl.pl: 73
+- wn_sa.pl: 4046
+- wn_sim.pl: 21386
+- wn_sk.pl: 206978
+- wn_s.pl: 206978
+- wn_syntax.pl: 1055
+- wn_vgp.pl: 1750
+- total: 803548
 
 ## Other Prolog versions of WordNet
 
