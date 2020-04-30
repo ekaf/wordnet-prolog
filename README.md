@@ -19,28 +19,28 @@ https://en-word.net/static/english-wordnet-2020.zip
 
 This version avoids duplicates, and contains only unique clauses:
 
-    7994 wn_ant.pl
-    1278 wn_at.pl
-    9620 wn_cls.pl
-     221 wn_cs.pl
-   74781 wn_der.pl
-     408 wn_ent.pl
-   21788 wn_fr.pl
-  120053 wn_g.pl
-   91454 wn_hyp.pl
-    8589 wn_ins.pl
-   12292 wn_mm.pl
-    9201 wn_mp.pl
-     830 wn_ms.pl
-    8070 wn_per.pl
-      73 wn_ppl.pl
-    4100 wn_sa.pl
-   21466 wn_sim.pl
-  211940 wn_sk.pl
-  211940 wn_s.pl
-    1051 wn_syntax.pl
-    1748 wn_vgp.pl
-  818897 total
+- wn_ant.pl: 7994
+- wn_at.pl: 1278
+- wn_cls.pl: 9620
+- wn_cs.pl: 221
+- wn_der.pl: 74781
+- wn_ent.pl: 408
+- wn_fr.pl: 21788
+- wn_g.pl: 120053
+- wn_hyp.pl: 91454
+- wn_ins.pl: 8589
+- wn_mm.pl: 12292
+- wn_mp.pl: 9201
+- wn_ms.pl: 830
+- wn_per.pl: 8070
+- wn_ppl.pl: 73
+- wn_sa.pl: 4100
+- wn_sim.pl: 21466
+- wn_sk.pl: 211940
+- wn_s.pl: 211940
+- wn_syntax.pl: 1051
+- wn_vgp.pl: 1748
+- total: 818897
 
 ## Other Prolog versions of WordNet
 
