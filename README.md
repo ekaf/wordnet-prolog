@@ -17,28 +17,28 @@ Some missing links were added, in order to enforce full
 symmetry of the symmetric relations. Also, this version
 avoids duplicates, and contains only unique clauses:
 
-    7988 wn_ant.pl
-    1278 wn_at.pl
-    9559 wn_cls.pl
-     221 wn_cs.pl
-   74781 wn_der.pl
-     408 wn_ent.pl
-   21684 wn_fr.pl
-  117791 wn_g.pl
-   89172 wn_hyp.pl
-    8589 wn_ins.pl
-   12288 wn_mm.pl
-    9111 wn_mp.pl
-     797 wn_ms.pl
-    8074 wn_per.pl
-      73 wn_ppl.pl
-    4054 wn_sa.pl
-   21434 wn_sim.pl
-  207272 wn_sk.pl
-  207272 wn_s.pl
-    1054 wn_syntax.pl
-    1744 wn_vgp.pl
-  804644 total
+- wn_ant.pl: 7988
+- wn_at.pl: 1278
+- wn_cls.pl: 9559
+- wn_cs.pl: 221
+- wn_der.pl: 74781
+- wn_ent.pl: 408
+- wn_fr.pl: 21684
+- wn_g.pl: 117791
+- wn_hyp.pl: 89172
+- wn_ins.pl: 8589
+- wn_mm.pl: 12288
+- wn_mp.pl: 9111
+- wn_ms.pl: 797
+- wn_per.pl: 8074
+- wn_ppl.pl: 73
+- wn_sa.pl: 4054
+- wn_sim.pl: 21434
+- wn_sk.pl: 207272
+- wn_s.pl: 207272
+- wn_syntax.pl: 1054
+- wn_vgp.pl: 1744
+- total: 804644
 
 ## Other Prolog versions of WordNet
 
