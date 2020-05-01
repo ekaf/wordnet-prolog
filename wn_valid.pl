@@ -62,6 +62,7 @@ multikey(K):-
   I\=J.
 
 check_keys:-
+  writeln('Searching for ambiguous sense keys'),
   findall(X, multikey(X), L),
   list_to_set(L,S),
   member(K,S),
