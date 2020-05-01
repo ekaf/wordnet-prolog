@@ -29,6 +29,7 @@ Loaded prolog/wn_syntax.pl (syntax/3)
 Semantic Info: [g]
 Loaded prolog/wn_g.pl (g/2)
 
+Searching for ambiguous sense keys
 OK
 
 Checking symmetry in sim relation (wn_sim.pl):
