@@ -55,6 +55,7 @@ _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordN
 - symcheck: missing symmetry in the symmetric relations
 - antisymcheck: direct loops in the antisymmetric relations
 - hypself: self-hyponymous word forms
+- check_duplicates: find duplicate clauses
 
 
 The accompanying _wn_query.pl_ file is a SWI-prolog program
