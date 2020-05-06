@@ -60,3 +60,54 @@ Looping cls-t:
     to 103082979-0 (a machine for performing calculations automatically)
 OK
 
+
+Semantic Relations: [at,cs,ent,hyp,ins,mm,mp,ms,sim,vgp]
+Checking duplicates in at/2
+OK
+Checking duplicates in cs/2
+OK
+Checking duplicates in ent/2
+OK
+Checking duplicates in hyp/2
+OK
+Checking duplicates in ins/2
+OK
+Checking duplicates in mm/2
+OK
+Checking duplicates in mp/2
+OK
+Checking duplicates in ms/2
+OK
+Checking duplicates in sim/2
+OK
+Checking duplicates in vgp/4
+OK
+
+Lexical Relations: [ant,der,per,ppl,sa]
+Checking duplicates in ant/4
+OK
+Checking duplicates in der/4
+OK
+Checking duplicates in per/4
+OK
+Checking duplicates in ppl/4
+OK
+Checking duplicates in sa/4
+OK
+
+Lexical Info: [cls,fr,s,sk,syntax]
+Checking duplicates in cls/5
+OK
+Checking duplicates in fr/3
+OK
+Checking duplicates in s/6
+OK
+Checking duplicates in sk/3
+OK
+Checking duplicates in syntax/3
+OK
+
+Semantic Info: [g]
+Checking duplicates in g/2
+OK
+

@@ -8,6 +8,7 @@ SWI-prolog program testing for some potential issues in WordNet:
 - symcheck: missing symmetry in the symmetric relations
 - antisymcheck: direct loops in the antisymmetric relations
 - hypself: self-hyponymous word forms
+- check_duplicates: find duplicate clauses
 */
 
 :-consult('db_version.pl').
@@ -156,6 +157,48 @@ hypself:-
   nl.
 
 /* ------------------------------------------
+Find Duplicates
+------------------------------------------ */
+
+size2list(2,[_,_]).
+size2list(3,[_,_,_]).
+size2list(4,[_,_,_,_]).
+size2list(5,[_,_,_,_,_]).
+size2list(6,[_,_,_,_,_,_]).
+
+pred2arity(P,A,L):-
+  current_functor(P,A),
+  size2list(A,L).
+
+:-dynamic duplicate/3.
+
+outdups(N,P):-
+  writef('Found %w duplicate %w:\n',[N,P]),
+  listing(duplicate),
+  retractall(duplicate(_,_,_)).
+
+check_dup(P,L):-
+  apply(P,L),
+  findall((P,L), apply(P,L), PL),
+  length(PL,N),
+  (N>1 -> (duplicate(N,P,L)->true; assert(duplicate(N,P,L))); true),
+  false.
+check_dup(P,_):-
+  findall((A,B,C),duplicate(A,B,C),L),
+  length(L,N),
+  (N>0 -> outdups(N,P); writeln('OK')).
+
+check_duplicates:-
+  allwn(LR),
+  member(P,LR),
+  pred2arity(P,A,L),
+  writef('Checking duplicates in %w/%w\n',[P,A]),
+  check_dup(P,L),
+  false.
+check_duplicates:-
+  nl.
+
+/* ------------------------------------------
 WN Validation
 ------------------------------------------ */
 
@@ -167,6 +210,7 @@ valid:-
   check_keys,
   symcheck,
   antisymcheck,
+  check_duplicates,
 %  hypself,
   told.
 :-valid.
