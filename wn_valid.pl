@@ -181,7 +181,7 @@ check_dup(P,L):-
   apply(P,L),
   findall((P,L), apply(P,L), PL),
   length(PL,N),
-  (N>1 -> (duplicate(N,P,L)->true; assert(duplicate(N,P,L))); true),
+  (N>1, \+ duplicate(N,P,L) -> assert(duplicate(N,P,L))),
   false.
 check_dup(P,_):-
   findall((A,B,C),duplicate(A,B,C),L),
