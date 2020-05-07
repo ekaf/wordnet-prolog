@@ -34,13 +34,13 @@ This version avoids duplicates, and contains only unique clauses:
 - wn_ms.pl: 830
 - wn_per.pl: 8070
 - wn_ppl.pl: 73
+- wn_s.pl: 211940
 - wn_sa.pl: 4100
 - wn_sim.pl: 21466
-- wn_sk.pl: 211940
-- wn_s.pl: 211940
+- wn_sk.pl: 211868
 - wn_syntax.pl: 1051
 - wn_vgp.pl: 1748
-- total: 818897
+- total: 818825
 
 ## Other Prolog versions of WordNet
 
