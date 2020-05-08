@@ -70,3 +70,10 @@ which can be easily imported into most database systems.
 
 Type "make valid" or "make query" to run the SWI-prolog programs,
 or "make csv" to generate CSV databases.
+
+
+## News (2020):
+
+CSV versions of the WordNet databases (output by _pl2csv_) are now
+available through the _wncsv_ project at:
+https://github.com/ekaf/wncsv
