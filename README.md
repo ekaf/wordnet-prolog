@@ -53,13 +53,16 @@ _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordN
 - symcheck: missing symmetry in the symmetric relations
 - antisymcheck: direct loops in the antisymmetric relations
 - hypself: self-hyponymous word forms
+- check_duplicates: find duplicate clauses
+
 
 The accompanying _wn_query.pl_ file is a SWI-prolog program
 implementing some common WordNet use cases, and a few formal checks,
 like symmetry and transitive loop detection.
 
-For convenient inter-operation with other projects, the included  _pl2csv_ and _csv2tab_ scripts
-convert the Prolog databases to repectively comma- and tab-separated CSV files, 
+
+For convenient inter-operation with other projects, the _wn2csv.pl_ program
+converts the Prolog databases to comma-separated CSV files,
 which can be easily imported into most database systems.
 
 Type "make valid" or "make query" to run the SWI-prolog programs,
@@ -68,7 +71,7 @@ or "make csv" to generate CSV databases.
 
 ## News (2020):
 
-CSV versions of the WordNet databases (output by _pl2csv_) are now
+CSV versions of the WordNet databases (output by _wn2csv.pl_) are now
 available through the _wncsv_ project at:
 
 https://github.com/ekaf/wncsv
