@@ -11,47 +11,6 @@ SWI-prolog program testing for some potential issues in WordNet:
 - check_duplicates: find duplicate clauses
 */
 
-:-consult('db_version.pl').
-
-semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
-lexrels(['ant','der','per','ppl','sa']).
-lexinfo(['cls','fr','s','sk','syntax']).
-seminfo(['g']).
-
-symrels(['sim','ant','der','vgp']).
-antisymrels(['hyp','ins','mm','mp','ms','cls']).
-
-allwn(L):-
-  semrels(L),
-  writef('\nSemantic Relations: %w\n', [L]).
-allwn(L):-
-  lexrels(L),
-  writef('\nLexical Relations: %w\n', [L]).
-allwn(L):-
-  lexinfo(L),
-  writef('\nLexical Info: %w\n', [L]).
-allwn(L):-
-  seminfo(L),
-  writef('\nSemantic Info: %w\n', [L]).
-
-/* ------------------------------------------
-Load WN
------------------------------------------- */
-
-loadpred(P):-
-  swritef(F,'prolog/wn_%w.pl',[P]),
-  consult(F),
-  current_functor(P,A),
-  writef('Loaded %w (%w/%w)\n',[F,P,A]).
-
-loadwn:-
-  allwn(L),
-  member(P,L),
-  loadpred(P),
-  false.
-loadwn:-
-  nl.
-
 
 /* ------------------------------------------
 Ambiguous sense keys
@@ -94,8 +53,11 @@ symrel(4,R):-
 symrel(_,_):-
   writeln('OK').
 
+symrels(['sim','ant','der','vgp']).
+
 symcheck:-
   symrels(L),
+  writef('Symmetric relations: %w\n',[L]),
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
   writef('Checking symmetry in %w relation (%w):\n',[R,F]),
@@ -127,8 +89,11 @@ antisymrel(R):-
 antisymrel(_):-
   writeln('OK').
 
+antisymrels(['hyp','ins','mm','mp','ms','cls']).
+
 antisymcheck:-
   antisymrels(L),
+  writef('Antisymmetric relations: %w\n',[L]),
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
   writef('Checking antisymmetry in %w relation (%w):\n',[R,F]),
@@ -160,15 +125,6 @@ hypself:-
 Find Duplicates
 ------------------------------------------ */
 
-size2list(2,[_,_]).
-size2list(3,[_,_,_]).
-size2list(4,[_,_,_,_]).
-size2list(5,[_,_,_,_,_]).
-size2list(6,[_,_,_,_,_,_]).
-
-pred2arity(P,A,L):-
-  current_functor(P,A),
-  size2list(A,L).
 
 :-dynamic duplicate/3.
 
@@ -189,6 +145,7 @@ check_dup(P,_):-
   (N>0 -> outdups(N,P); writeln('OK')).
 
 check_duplicates:-
+  consult('pred_format.pl'),
   allwn(LR),
   member(P,LR),
   pred2arity(P,A,L),
@@ -203,10 +160,11 @@ WN Validation
 ------------------------------------------ */
 
 valid:-
+  consult('db_version.pl'),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
   tell(F),
-  loadwn,
+  consult('wn_load.pl'),
   check_keys,
   symcheck,
   antisymcheck,
