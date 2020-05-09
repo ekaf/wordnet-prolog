@@ -12,13 +12,9 @@ valid:
 	swipl -c wn_valid.pl
 
 csv:
-	@chmod a+x pl2csv
+	@mkdir csv
 	@echo Converting Prolog databases to CSV
-	./pl2csv
-# Uncomment to also get TAB-formattted files:
-#	@chmod a+x csv2tab
-#	@echo Converting CSV databases to TAB
-#	./csv2tab
+	swipl -c wn2csv.pl
 
 cleanpl:
 	@echo Deleting Prolog output
