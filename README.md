@@ -3,7 +3,7 @@
 https://github.com/ekaf/wordnet-prolog
 
 *Wordnet-prolog* includes new versions of the _WNprolog_ databases,
-compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog).
+compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 

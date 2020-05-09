@@ -1,5 +1,5 @@
 /* 
-https://github.com/ekaf/wordnet-prolog/wn_queries.pl
+https://github.com/ekaf/wordnet-prolog/raw/master/wn_query.pl
 (c) 2017-20 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 
 SWI-prolog program implementing some common WordNet use cases, 
