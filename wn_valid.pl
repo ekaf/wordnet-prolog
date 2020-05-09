@@ -8,48 +8,8 @@ SWI-prolog program testing for some potential issues in WordNet:
 - symcheck: missing symmetry in the symmetric relations
 - antisymcheck: direct loops in the antisymmetric relations
 - hypself: self-hyponymous word forms
+- check_duplicates: find duplicate clauses
 */
-
-:-consult('db_version.pl').
-
-semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
-lexrels(['ant','der','per','ppl','sa']).
-lexinfo(['cls','fr','s','sk','syntax']).
-seminfo(['g']).
-
-symrels(['sim','ant','der','vgp']).
-antisymrels(['hyp','ins','mm','mp','ms','cls']).
-
-allwn(L):-
-  semrels(L),
-  writef('\nSemantic Relations: %w\n', [L]).
-allwn(L):-
-  lexrels(L),
-  writef('\nLexical Relations: %w\n', [L]).
-allwn(L):-
-  lexinfo(L),
-  writef('\nLexical Info: %w\n', [L]).
-allwn(L):-
-  seminfo(L),
-  writef('\nSemantic Info: %w\n', [L]).
-
-/* ------------------------------------------
-Load WN
------------------------------------------- */
-
-loadpred(P):-
-  swritef(F,'prolog/wn_%w.pl',[P]),
-  consult(F),
-  current_functor(P,A),
-  writef('Loaded %w (%w/%w)\n',[F,P,A]).
-
-loadwn:-
-  allwn(L),
-  member(P,L),
-  loadpred(P),
-  false.
-loadwn:-
-  nl.
 
 
 /* ------------------------------------------
@@ -93,8 +53,11 @@ symrel(4,R):-
 symrel(_,_):-
   writeln('OK').
 
+symrels(['sim','ant','der','vgp']).
+
 symcheck:-
   symrels(L),
+  writef('Symmetric relations: %w\n',[L]),
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
   writef('Checking symmetry in %w relation (%w):\n',[R,F]),
@@ -126,8 +89,11 @@ antisymrel(R):-
 antisymrel(_):-
   writeln('OK').
 
+antisymrels(['hyp','ins','mm','mp','ms','cls']).
+
 antisymcheck:-
   antisymrels(L),
+  writef('Antisymmetric relations: %w\n',[L]),
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
   writef('Checking antisymmetry in %w relation (%w):\n',[R,F]),
@@ -156,17 +122,53 @@ hypself:-
   nl.
 
 /* ------------------------------------------
+Find Duplicates
+------------------------------------------ */
+
+
+:-dynamic duplicate/3.
+
+outdups(N,P):-
+  writef('Found %w duplicate %w:\n',[N,P]),
+  listing(duplicate),
+  retractall(duplicate(_,_,_)).
+
+check_dup(P,L):-
+  apply(P,L),
+  findall((P,L), apply(P,L), PL),
+  length(PL,N),
+  (N>1, \+ duplicate(N,P,L) -> assert(duplicate(N,P,L))),
+  false.
+check_dup(P,_):-
+  findall((A,B,C),duplicate(A,B,C),L),
+  length(L,N),
+  (N>0 -> outdups(N,P); writeln('OK')).
+
+check_duplicates:-
+  consult('pred_format.pl'),
+  allwn(LR),
+  member(P,LR),
+  pred2arity(P,A,L),
+  writef('Checking duplicates in %w/%w\n',[P,A]),
+  check_dup(P,L),
+  false.
+check_duplicates:-
+  nl.
+
+/* ------------------------------------------
 WN Validation
 ------------------------------------------ */
 
 valid:-
+  consult('db_version.pl'),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
   tell(F),
-  loadwn,
+  consult('wn_load.pl'),
   check_keys,
   symcheck,
   antisymcheck,
+  check_duplicates,
 %  hypself,
   told.
 :-valid.
