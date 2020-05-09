@@ -32,6 +32,7 @@ Loaded prolog/wn_g.pl (g/2)
 Searching for ambiguous sense keys
 OK
 
+Symmetric relations: [sim,ant,der,vgp]
 Checking symmetry in sim relation (wn_sim.pl):
 OK
 Checking symmetry in ant relation (wn_ant.pl):
@@ -41,6 +42,7 @@ OK
 Checking symmetry in vgp relation (wn_vgp.pl):
 OK
 
+Antisymmetric relations: [hyp,ins,mm,mp,ms,cls]
 Checking antisymmetry in hyp relation (wn_hyp.pl):
 OK
 Checking antisymmetry in ins relation (wn_ins.pl):
