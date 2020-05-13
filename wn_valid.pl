@@ -11,6 +11,12 @@ SWI-prolog program testing for some potential issues in WordNet:
 - check_duplicates: find duplicate clauses
 */
 
+ok:-
+  writeln('OK').
+
+glosspair(A,B,G1,G2):-
+  g(A,G1),
+  g(B,G2).
 
 /* ------------------------------------------
 Ambiguous sense keys
@@ -34,12 +40,14 @@ check_keys:-
   writef("    ->%w (%w)\n",[I,G]),
   false.
 check_keys:-
-  writeln('OK'),
+  ok,
   nl.
 
 /* ------------------------------------------
 Symmetry Test
 ------------------------------------------ */
+
+symrels(['sim','ant','der','vgp']).
 
 symrel(2,R):-
   apply(R,[A,B]),
@@ -51,9 +59,7 @@ symrel(4,R):-
   (apply(R,[C,D,A,B]) -> true; (sk(C,D,K2), writef('Missing %w from %w to %w\n',[R,K2,K1]))),
   false.
 symrel(_,_):-
-  writeln('OK').
-
-symrels(['sim','ant','der','vgp']).
+  ok.
 
 symcheck:-
   symrels(L),
@@ -71,25 +77,23 @@ symcheck:-
 Antisymmetry test:
 ------------------------------------------ */
 
+antisymrels(['hyp','ins','mm','mp','ms','cls']).
+
 antisymrel(cls):-
   cls(A,AN,B,BN,T),
   cls(B,BN,A,AN,T),
-  g(A,G1),
-  g(B,G2),
+  glosspair(A,B,G1,G2),
   writef('Looping cls-%w:\n  from %w-%w (%w)\n    to %w-%w (%w)\n',[T,A,AN,G1,B,BN,G2]),
   false.
 antisymrel(R):-
   R\=cls,
   apply(R,[A,B]),
   apply(R,[B,A]),
-  g(A,G1),
-  g(B,G2),
+  glosspair(A,B,G1,G2),
   writef('Looping %w:\n  from %w (%w)\n    to %w (%w)\n',[R,A,G1,B,G2]),
   false.
 antisymrel(_):-
-  writeln('OK').
-
-antisymrels(['hyp','ins','mm','mp','ms','cls']).
+  ok.
 
 antisymcheck:-
   antisymrels(L),
@@ -113,12 +117,11 @@ hypself:-
   hyp(A,B),
   s(A,N1,W,_,_,_),
   s(B,N2,W,_,_,_),
-  g(A,G1),
-  g(B,G2),
+  glosspair(A,B,G1,G2),
   writef('"%w" hyp:\n  from %w-%w (%w)\n    to %w-%w (%w)\n',[W,A,N1,G1,B,N2,G2]),
   false.
 hypself:-
-  writeln('OK'),
+  ok,
   nl.
 
 /* ------------------------------------------
@@ -142,7 +145,7 @@ check_dup(P,L):-
 check_dup(P,_):-
   findall((A,B,C),duplicate(A,B,C),L),
   length(L,N),
-  (N>0 -> outdups(N,P); writeln('OK')).
+  (N>0 -> outdups(N,P); ok).
 
 check_duplicates:-
   consult('pred_format.pl'),
