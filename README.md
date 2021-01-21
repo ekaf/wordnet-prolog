@@ -53,7 +53,7 @@ _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordN
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
-- antisymcheck: direct loops in the antisymmetric relations
+- asymcheck: direct loops in the asymmetric relations
 - hypself: self-hyponymous word forms
 - check_duplicates: find duplicate clauses
 
