@@ -6,7 +6,7 @@ SWI-prolog program testing for some potential issues in WordNet:
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
-- antisymcheck: direct loops in the antisymmetric relations
+- asymcheck: direct loops in the asymmetric relations
 - hypself: self-hyponymous word forms
 - check_duplicates: find duplicate clauses
 */
@@ -74,36 +74,36 @@ symcheck:-
   nl.
 
 /* ------------------------------------------
-Antisymmetry test:
+Asymmetry test:
 ------------------------------------------ */
 
-antisymrels(['hyp','ins','mm','mp','ms','cls']).
+asymrels(['hyp','ins','mm','mp','ms','cls']).
 
-antisymrel(cls):-
+asymrel(cls):-
   cls(A,AN,B,BN,T),
   cls(B,BN,A,AN,T),
   glosspair(A,B,G1,G2),
   writef('Looping cls-%w:\n  from %w-%w (%w)\n    to %w-%w (%w)\n',[T,A,AN,G1,B,BN,G2]),
   false.
-antisymrel(R):-
+asymrel(R):-
   R\=cls,
   apply(R,[A,B]),
   apply(R,[B,A]),
   glosspair(A,B,G1,G2),
   writef('Looping %w:\n  from %w (%w)\n    to %w (%w)\n',[R,A,G1,B,G2]),
   false.
-antisymrel(_):-
+asymrel(_):-
   ok.
 
-antisymcheck:-
-  antisymrels(L),
-  writef('Antisymmetric relations: %w\n',[L]),
+asymcheck:-
+  asymrels(L),
+  writef('Asymmetric relations: %w\n',[L]),
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
-  writef('Checking antisymmetry in %w relation (%w):\n',[R,F]),
-  antisymrel(R),
+  writef('Checking asymmetry in %w relation (%w):\n',[R,F]),
+  asymrel(R),
   false.
-antisymcheck:-
+asymcheck:-
   nl.
 
 /* ------------------------------------------
@@ -170,7 +170,7 @@ valid:-
   consult('wn_load.pl'),
   check_keys,
   symcheck,
-  antisymcheck,
+  asymcheck,
   check_duplicates,
 %  hypself,
   told.
