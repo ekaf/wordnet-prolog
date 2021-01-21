@@ -8,7 +8,7 @@ query:
 	swipl -c wn_query.pl
 
 valid:
-	@echo Checking symmetry and antisymmetry ...
+	@echo Checking symmetry and asymmetry ...
 	swipl -c wn_valid.pl
 
 csv:
