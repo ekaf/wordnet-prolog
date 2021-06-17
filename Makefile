@@ -1,7 +1,18 @@
 # wordnet-prolog utilities (c) 2017-20 Eric Kafe
 # License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 
-all: valid query csv
+all: doc valid query csv
+
+doc: html pdf ps
+
+html:
+	@groff -mandoc -Thtml doc/prologdb.5>doc/prologdb.5WN.html
+
+pdf:
+	@groff -mandoc -Tpdf doc/prologdb.5>doc/prologdb.pdf
+
+ps:
+	@groff -mandoc -Tps doc/prologdb.5>doc/prologdb.ps
 
 query:
 	@echo Testing example queries...
