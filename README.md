@@ -27,7 +27,7 @@ This version avoids duplicates, and contains only unique clauses:
  - 408 wn_ent.pl
  - 4467 wn_exc.pl
  - 21780 wn_fr.pl
- - 120069 wn_g.pl
+ - 120068 wn_g.pl
  - 91551 wn_hyp.pl
  - 8590 wn_ins.pl
  - 12296 wn_mm.pl
@@ -41,7 +41,7 @@ This version avoids duplicates, and contains only unique clauses:
  - 212009 wn_s.pl
  - 1052 wn_syntax.pl
  - 1736 wn_vgp.pl
- - 824414 total
+ - 824413 total
 
 ## Other Prolog versions of WordNet
 
