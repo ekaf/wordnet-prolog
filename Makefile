@@ -3,15 +3,19 @@
 
 all: doc valid query csv
 
+# Groff is required for building the documentation
 doc: html pdf ps
 
 html:
+# Needs the 'groff' package
 	@groff -mandoc -Thtml doc/prologdb.5>doc/prologdb.5WN.html
 
 pdf:
+# Needs the 'groff' package
 	@groff -mandoc -Tpdf doc/prologdb.5>doc/prologdb.pdf
 
 ps:
+# Needs the 'groff' package
 	@groff -mandoc -Tps doc/prologdb.5>doc/prologdb.ps
 
 query:

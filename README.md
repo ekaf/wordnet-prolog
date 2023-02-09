@@ -7,45 +7,52 @@ compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 
-## WNprolog-3.1
+## WNprolog-OEWN-2022
 
-WNprolog-3.1 is a Prolog version of WordNet 3.1.
-The Prolog databases were generated from the original
-WordNet 3.1 databases (c) 2011 Princeton University,
+WNprolog-EWN-2022 is a Prolog version of Open English WordNet, Edition 2022.
 
-Some missing links were added, in order to enforce full
-symmetry of the symmetric relations. Also, this version
-avoids duplicates, and contains only unique clauses:
+The Prolog databases were generated from the official "wndb" export,
+retrieved from:
 
-- wn_ant.pl: 7988
-- wn_at.pl: 1278
-- wn_cls.pl: 9559
-- wn_cs.pl: 221
-- wn_der.pl: 74781
-- wn_ent.pl: 408
-- wn_fr.pl: 21684
-- wn_g.pl: 117791
-- wn_hyp.pl: 89172
-- wn_ins.pl: 8589
-- wn_mm.pl: 12288
-- wn_mp.pl: 9111
-- wn_ms.pl: 797
-- wn_per.pl: 8074
-- wn_ppl.pl: 73
-- wn_sa.pl: 4054
-- wn_sim.pl: 21434
-- wn_sk.pl: 207272
-- wn_s.pl: 207272
-- wn_syntax.pl: 1054
-- wn_vgp.pl: 1744
-- total: 804644
+https://en-word.net/static/english-wordnet-2022.zip
+
+
+This version avoids duplicates, and contains only unique clauses:
+
+ - 8000 wn_ant.pl
+ - 1278 wn_at.pl
+ - 10536 wn_cls.pl
+ - 221 wn_cs.pl
+ - 74688 wn_der.pl
+ - 408 wn_ent.pl
+ - 4467 wn_exc.pl
+ - 21780 wn_fr.pl
+ - 120069 wn_g.pl
+ - 91551 wn_hyp.pl
+ - 8590 wn_ins.pl
+ - 12296 wn_mm.pl
+ - 9199 wn_mp.pl
+ - 830 wn_ms.pl
+ - 8072 wn_per.pl
+ - 73 wn_ppl.pl
+ - 4100 wn_sa.pl
+ - 21450 wn_sim.pl
+ - 212009 wn_sk.pl
+ - 212009 wn_s.pl
+ - 1052 wn_syntax.pl
+ - 1736 wn_vgp.pl
+ - 824414 total
 
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
-with Prolog versions of WordNet 3.0 and English WordNet 2020.
+with Prolog versions of WordNet 3.0, WordNet 3.1, and Open English Wordnet.
 
 ## Utilities:
+
+_wn_morphy.pl_ is a SWI-prolog lemmatizer, similar to _morphy_,
+the morphological processor from WordNet.
+
 
 _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordNet:
 

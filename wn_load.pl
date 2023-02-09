@@ -9,6 +9,7 @@ semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
 lexrels(['ant','der','per','ppl','sa']).
 lexinfo(['cls','fr','s','sk','syntax']).
 seminfo(['g']).
+morphinfo(['exc']).
 
 allwn(L):-
   semrels(L),
@@ -22,6 +23,9 @@ allwn(L):-
 allwn(L):-
   seminfo(L),
   writef('\nSemantic Info: %w\n', [L]).
+allwn(L):-
+  morphinfo(L),
+  writef('\nMorphological Info: %w\n', [L]).
 
 /* ------------------------------------------
 Load WN
