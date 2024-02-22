@@ -44,7 +44,7 @@ avoids duplicates, and contains only unique clauses:
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
-with Prolog versions of WordNet 3.0 and English WordNet 2020.
+with Prolog versions of WordNet 3.0 and Open English WordNet 2022.
 
 ## Utilities:
 
