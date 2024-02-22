@@ -66,7 +66,7 @@ only unique clauses:
 ## Other Prolog versions of WordNet
 
 This repository also includes alternative branches with
-Prolog versions of WordNet 3.1 and English WordNet 2020.
+Prolog versions of WordNet 3.1 and Open English WordNet 2022.
 
 ## Utilities:
 
