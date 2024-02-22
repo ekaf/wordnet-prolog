@@ -23,6 +23,7 @@ avoids duplicates, and contains only unique clauses:
 - wn_cs.pl: 221
 - wn_der.pl: 74781
 - wn_ent.pl: 408
+- wn_exc.pl: 6053
 - wn_fr.pl: 21684
 - wn_g.pl: 117791
 - wn_hyp.pl: 89172
@@ -46,6 +47,9 @@ The wordnet-prolog repository also includes alternative branches
 with Prolog versions of WordNet 3.0 and English WordNet 2020.
 
 ## Utilities:
+
+_wn_morphy.pl_ is a SWI-prolog lemmatizer, similar to _morphy_,
+the morphological processor from WordNet.
 
 _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordNet:
 
