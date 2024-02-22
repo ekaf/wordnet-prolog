@@ -45,6 +45,7 @@ only unique clauses:
 - wn_cs.pl: 220
 - wn_der.pl: 74821
 - wn_ent.pl: 408
+- wn_exc.pl: 6050
 - wn_fr.pl: 21647
 - wn_g.pl: 117659
 - wn_hyp.pl: 89089
@@ -68,6 +69,9 @@ This repository also includes alternative branches with
 Prolog versions of WordNet 3.1 and English WordNet 2020.
 
 ## Utilities:
+
+_wn_morphy.pl_ is a SWI-prolog lemmatizer, similar to _morphy_,
+the morphological processor from WordNet.
 
 _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordNet:
 

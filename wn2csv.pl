@@ -1,11 +1,10 @@
 /* 
 # https://github.com/ekaf/wordnet-prolog/raw/master/wn2csv.pl
-(c) 2020 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 
 SWI-prolog program to convert all WordNet databases to comma-separated CSV files
 */
 
-:-consult('pred_format.pl').
 :-consult('wn_load.pl').
 
 pred2file(P):-
@@ -21,8 +20,7 @@ list2csv([A,B|T],S0,S2):-
   list2csv([B|T],S1,S2).
 
 out2csv(P):-
-  current_functor(P,A),
-  pred2arity(P,A,L),
+  pred2arity(P,_,L),
   apply(P,L),
   list2csv(L,'',S),
   writeln(S),

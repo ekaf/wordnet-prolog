@@ -1,6 +1,6 @@
 /* 
 # https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
-(c) 2020 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 
 SWI-prolog program testing for some potential issues in WordNet:
 
@@ -67,7 +67,7 @@ symcheck:-
   member(R,L),
   swritef(F,'wn_%w.pl',[R]),
   writef('Checking symmetry in %w relation (%w):\n',[R,F]),
-  current_functor(R,N),
+  pred2arity(R,N,_),
   symrel(N,R),
   false.
 symcheck:-
@@ -148,7 +148,6 @@ check_dup(P,_):-
   (N>0 -> outdups(N,P); ok).
 
 check_duplicates:-
-  consult('pred_format.pl'),
   allwn(LR),
   member(P,LR),
   pred2arity(P,A,L),
