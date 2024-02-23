@@ -21,13 +21,15 @@ Loaded prolog/wn_sa.pl (sa/4)
 Lexical Info: [cls,fr,s,sk,syntax]
 Loaded prolog/wn_cls.pl (cls/5)
 Loaded prolog/wn_fr.pl (fr/3)
-Loaded prolog/wn_s.pl (s/1)
 Loaded prolog/wn_s.pl (s/6)
 Loaded prolog/wn_sk.pl (sk/3)
 Loaded prolog/wn_syntax.pl (syntax/3)
 
 Semantic Info: [g]
 Loaded prolog/wn_g.pl (g/2)
+
+Morphological Info: [exc]
+Loaded prolog/wn_exc.pl (exc/3)
 
 Searching for ambiguous sense keys
 OK
@@ -112,4 +114,14 @@ OK
 Semantic Info: [g]
 Checking duplicates in g/2
 OK
+
+Morphological Info: [exc]
+Checking duplicates in exc/3
+Found 3 duplicate exc:
+:- dynamic duplicate/3.
+
+duplicate(2, exc, [n, diastemata, diastema]).
+duplicate(2, exc, [n, sudatoria, sudatorium]).
+duplicate(2, exc, [n, vagi, vagus]).
+
 
