@@ -13,34 +13,36 @@ morphinfo(['exc']).
 
 allwn(L):-
   semrels(L),
-  writef('\nSemantic Relations: %w\n', [L]).
+  format('\nSemantic Relations: ~w\n', [L]).
 allwn(L):-
   lexrels(L),
-  writef('\nLexical Relations: %w\n', [L]).
+  format('\nLexical Relations: ~w\n', [L]).
 allwn(L):-
   lexinfo(L),
-  writef('\nLexical Info: %w\n', [L]).
+  format('\nLexical Info: ~w\n', [L]).
 allwn(L):-
   seminfo(L),
-  writef('\nSemantic Info: %w\n', [L]).
+  format('\nSemantic Info: ~w\n', [L]).
 allwn(L):-
   morphinfo(L),
-  writef('\nMorphological Info: %w\n', [L]).
+  format('\nMorphological Info: ~w\n', [L]).
 
 /* ------------------------------------------
 Load WN
 ------------------------------------------ */
 
+pred2arity(P,A):-
+  current_predicate(P/A), !.	% should be deterministic !
+
 pred2arity(P,A,L):-
-  current_predicate(P,Term),
-  Term =.. [P|L],
+  pred2arity(P,A),
   length(L,A).
 
 loadpred(P):-
-  swritef(F,'prolog/wn_%w.pl',[P]),
-  consult(F),
+  atom_concat('prolog/wn_', P, F),
+  loadfile(F),
   pred2arity(P,A,_),
-  writef('Loaded %w (%w/%w)\n',[F,P,A]).
+  format('Loaded ~w.pl (~w/~w)\n',[F,P,A]).
 
 loadwn:-
   allwn(L),
@@ -50,4 +52,29 @@ loadwn:-
 loadwn:-
   nl.
 
-:-loadwn.
+:- if((current_predicate(use_term_expansion/0), current_prolog_flag(dialect, D), D \== swi)).
+:- if(current_prolog_flag(dialect, gprolog)).
+
+loadfile(F) :-
+  decompose_file_name(F,_,wn_sk,_), !,
+  consult(F, [include(wn_term_expans)]).
+
+loadfile(F) :-
+  consult(F).
+
+:- else.
+
+:- include(wn_term_expans).
+
+loadfile(F) :-
+  consult(F).
+
+:- endif.
+
+:- else.
+
+loadfile(F) :-
+  consult(F).
+
+:- endif.
+

@@ -7,8 +7,9 @@ the morphological processor from WordNet.
 
 -------------------------------------------------------------------------------*/
 
-:-consult(prolog/wn_exc).
-:-consult(prolog/wn_s).
+:- include(wn_compat).
+:- include('prolog/wn_exc').
+:- include('prolog/wn_s').
 
 % Since v. 7.0, swipl requires this flag for double quotes to produce bytelists:
 :-set_prolog_flag(double_quotes,codes).
@@ -64,4 +65,7 @@ morphy(Wordform, Set):-
     Set).
 
 % Example usage:
-%:-morphy(advertizing, S), writeln(S).
+%go:-morphy(advertizing, S), write(S), nl.
+% :- initialization(go).
+
+

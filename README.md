@@ -79,3 +79,31 @@ CSV versions of the WordNet databases (output by _wn2csv.pl_) are now
 available through the _wncsv_ project at:
 
 https://github.com/ekaf/wncsv
+
+## News (2025):
+
+The programs have been made less specific to SWI by Daniel Diaz. 
+To achieve this, we have favored ISO Prolog and commonly supported extensions
+(such as format/2). The corresponding git commit includes a detailed description 
+of the changes.  
+
+The Makefile design has been revised so that the desired Prolog can be passed as
+a parameter with: 
+
+make <target> PL=<system>
+
+Currently, in addition to SWI Prolog (swi), GNU Prolog (gprolog) or Trealla
+Prolog (tpl) can also be used. It should be easy to add support for other
+systems (see wn_compat.pl for system-specific definitions).
+
+For gprolog, the following environment variables must be defined:
+
+export LOCALSZ=200000
+export TRAILSZ=100000
+export GLOBALSZ=700000
+export MAX_ATOM=500000
+
+Then to run valid:
+
+make valid PL=gprolog
+
