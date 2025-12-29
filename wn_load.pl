@@ -1,9 +1,14 @@
-/* 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
-(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+/* --------------------------------------------------------------------
+
+https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
 
 SWI-prolog program to load all WordNet databases
-*/
+
+Copyright 2025 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+-------------------------------------------------------------------- */
 
 semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
 lexrels(['ant','der','per','ppl','sa']).

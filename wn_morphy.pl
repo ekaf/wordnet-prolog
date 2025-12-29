@@ -1,9 +1,13 @@
 /* ----------------------------------------------------------------------------- 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn_morphy.pl
-(c) 2020 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+
+https://github.com/ekaf/wordnet-prolog/raw/master/wn_morphy.pl
 
 SWI-prolog lemmatizer, similar to "morphy",
 the morphological processor from WordNet.
+
+Copyright 2025 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
 
 -------------------------------------------------------------------------------*/
 

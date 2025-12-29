@@ -1,15 +1,23 @@
-/* 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
-(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+/* ----------------------------------------------------------------------------
 
-SWI-prolog program testing for some potential issues in WordNet:
+# https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+
+SWI-prolog program testing for some potential issues in WordNet
+
+Copyright 2025 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+
+Included tests:
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
 - asymcheck: direct loops in the asymmetric relations
 - hypself: self-hyponymous word forms
 - check_duplicates: find duplicate clauses
-*/
+
+---------------------------------------------------------------------------- */
 
 ok:-
   writeln('OK').

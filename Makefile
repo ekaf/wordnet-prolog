@@ -1,5 +1,6 @@
-# wordnet-prolog utilities (c) 2017-20 Eric Kafe
-# License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+# wordnet-prolog utilities (c) 2017-25 Eric Kafe
+# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0
 
 all: doc valid query csv
 
