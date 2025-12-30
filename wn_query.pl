@@ -1,10 +1,15 @@
-/* 
+/* ----------------------------------------------------------------------------
+
 https://github.com/ekaf/wordnet-prolog/raw/master/wn_query.pl
-(c) 2017-20 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
 
 SWI-prolog program implementing some common WordNet use cases, 
 and a few formal checks, like symmetry and transitive loop detection.
-*/
+
+Copyright 2025 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+----------------------------------------------------------------------------*/
 
 :-consult('db_version.pl').
 :-consult('prolog/wn_s.pl').

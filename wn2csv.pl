@@ -1,9 +1,14 @@
-/* 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn2csv.pl
-(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+/* ---------------------------------------------------------------------------------
+
+https://github.com/ekaf/wordnet-prolog/raw/master/wn2csv.pl
 
 SWI-prolog program to convert all WordNet databases to comma-separated CSV files
-*/
+
+Copyright 2025 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+--------------------------------------------------------------------------------- */
 
 :-consult('wn_load.pl').
 
