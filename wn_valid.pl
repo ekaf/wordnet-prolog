@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+ https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
 
 SWI-prolog program testing for some potential issues in WordNet
 
