@@ -1,18 +1,17 @@
-/* ----------------------------------------------------------------------------- 
+/* -----------------------------------------------------------------
 
 https://github.com/ekaf/wordnet-prolog/raw/master/wn_morphy.pl
 
-SWI-prolog lemmatizer, similar to "morphy",
-the morphological processor from WordNet.
+Prolog lemmatizer, similar to "morphy", the morphological processor from WordNet.
 
-Copyright 2025 Eric Kafe
+Copyright 2017-25 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
--------------------------------------------------------------------------------*/
+----------------------------------------------------------------- */
 
-:-consult(prolog/wn_exc).
-:-consult(prolog/wn_s).
+:- include(prolog/wn_exc).
+:- include(prolog/wn_s).
 
 % Since v. 7.0, swipl requires this flag for double quotes to produce bytelists:
 :-set_prolog_flag(double_quotes,codes).

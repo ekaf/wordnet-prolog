@@ -1,8 +1,8 @@
 /* -----------------------------------------------------------------
 
-https://github.com/ekaf/wordnet-prolog/raw/master/db_version.pl
+https://github.com/ekaf/wordnet-prolog/raw/master/utils.pl
 
-Database version identifier for wordnet-prolog
+Interoperable utility predicates
 
 Copyright 2017-25 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
@@ -10,4 +10,8 @@ Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
 
-wn_version('3.1').
+:- include(timeit).
+
+apply_call(P,L):-
+  Term =..[P|L],
+  call(Term).

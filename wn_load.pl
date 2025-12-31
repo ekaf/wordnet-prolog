@@ -1,58 +1,74 @@
-/* --------------------------------------------------------------------
+/* -----------------------------------------------------------------
 
 https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
 
-SWI-prolog program to load all WordNet databases
+Prolog program to load the WordNet databases.
 
-Copyright 2025 Eric Kafe
+Copyright 2017-25 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
--------------------------------------------------------------------- */
+----------------------------------------------------------------- */
 
-semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
-lexrels(['ant','der','per','ppl','sa']).
-lexinfo(['cls','fr','s','sk','syntax']).
-seminfo(['g']).
-morphinfo(['exc']).
+/*
+Use loadwn/0 to load everything, or load_pred/1 to load a single relation, or
+load_type/1, to load selected groups of relations, f. ex. semantic (semrels)
+or lexical (lexrels).
+*/
 
-allwn(L):-
-  semrels(L),
-  writef('\nSemantic Relations: %w\n', [L]).
-allwn(L):-
-  lexrels(L),
-  writef('\nLexical Relations: %w\n', [L]).
-allwn(L):-
-  lexinfo(L),
-  writef('\nLexical Info: %w\n', [L]).
-allwn(L):-
-  seminfo(L),
-  writef('\nSemantic Info: %w\n', [L]).
-allwn(L):-
-  morphinfo(L),
-  writef('\nMorphological Info: %w\n', [L]).
+:- include(utils).
+
+% --------------------------------------------------------------------------------
+
+semrels('Semantic Relations', ['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
+lexrels('Lexical Relations', ['ant','der','per','ppl','sa','vgp']).
+lexinfo('Lexical Info', ['cls','fr','s','sk','syntax']).
+seminfo('Semantic Info', ['g']).
+morphinfo('Morphological Info', ['exc']).
+
+wndata([semrels,lexrels,lexinfo,seminfo,morphinfo]).
+
+% --------------------------------------------------------------------------------
+
+type_info(Type,Rels):-
+  Term=..[Type,Label,Rels],
+  call(Term),
+  format(`~n~w: ~w~n`, [Label,Rels]).
+
+allwn(Rels):-
+  wndata(Reltypes),
+  member(Type, Reltypes),
+  type_info(Type,Rels).
 
 /* ------------------------------------------
 Load WN
 ------------------------------------------ */
 
-pred2arity(P,A,L):-
-  current_predicate(P,Term),
-  Term =.. [P|L],
-  length(L,A).
+pred2term(P,A,Term):-
+  current_predicate(P/A),
+  functor(Term,P,A).
 
-loadpred(P):-
-  swritef(F,'prolog/wn_%w.pl',[P]),
-  consult(F),
-  pred2arity(P,A,_),
-  writef('Loaded %w (%w/%w)\n',[F,P,A]).
+load_pred(P):-
+  atom_concat('prolog/wn_',P,F),
+%  time_call(consult(F)).
+  consult(F).
 
-loadwn:-
+ensure_pred(P):-
+  ( current_predicate(P/A) 
+    -> format(`Already loaded prolog/wn_~w.pl (~w/~w)~n`,[P,P,A])
+     ; load_pred(P) ).
+
+load_type(Type):-
+  type_info(Type,Rels),
+  member(P,Rels),
+  ensure_pred(P),
+  false.
+load_type(_).
+
+load_wn:-
   allwn(L),
   member(P,L),
-  loadpred(P),
+  ensure_pred(P),
   false.
-loadwn:-
+load_wn:-
   nl.
-
-:-loadwn.
