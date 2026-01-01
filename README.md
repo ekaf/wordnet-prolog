@@ -92,6 +92,9 @@ https://github.com/ekaf/wncsv
 
 ## News (2025):
 
+- Added utils.pl: system-independent implementations of non-standard predicates.
+- Added timeit.pl to time predicate calls.
+
 The programs have been made less specific to SWI by Daniel Diaz and Eric Kafe.
 To achieve this, we have favored ISO Prolog and commonly supported extensions
 (such as format/2). The corresponding PRs (#8 and #10) include more info
@@ -104,9 +107,18 @@ make <target> PL=<system>
 
 Currently, in addition to SWI Prolog (swi), GNU Prolog (gprolog) or Trealla
 Prolog (tpl) can also be used. It should be easy to add support for other
-systems (see wn_compat.pl for system-specific definitions).
+systems.
 
-Then to run valid:
+For ex. to run wn_valid.pl with the default SWI-Prolog:
+
+make valid
+
+Or specify PL=gprolog to use gprolog instead of the default:
 
 make valid PL=gprolog
 
+
+## News (2026):
+
+Speed up the derivation of transitive relation closures:
+see _thyp_ in wn_query.pl.

@@ -22,11 +22,21 @@ Prevent transitive loops (f. ex. in original WordNet 3.0)
 
 closure(R, A, B, V):-
   apply_call(R, [A, B]),
-  \+ member(B, V).
+  insort(B, V, _).
 closure(R, A, B, V):-
   apply_call(R, [A, C]),
-  \+ member(C, V),
-  closure(R, C, B, [C|V]).
+  insort(C, V, V2),
+  closure(R, C, B, V2).
+
+insort(_, [], []).
+insort(E,[A|T], O):-
+  % Insert E in ordered list, fail if already member
+  E < A -> O = [E,A|T]
+  ;
+  E > A,
+  O = [A|T2],
+  insort(E, T, T2).
+
 
 /* ------------------------------------------------------------------
 Transitive closure of hypernymy, from Node A:
@@ -81,7 +91,7 @@ Word query
 qword(W):-
 % Synonymy is symmetric
   irel(syn,W),
-  irel(thyp,W),
+  time_call(irel(thyp,W)),
   semrels(_,L),
   member(R,L),
   irel(R,W),

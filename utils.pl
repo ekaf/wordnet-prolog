@@ -13,5 +13,8 @@ Licensed under the Apache License, Version 2.0
 :- include(timeit).
 
 apply_call(P,L):-
-  Term =..[P|L],
+  Term =.. [P|L],
   call(Term).
+
+for_all(Cond, Action):-
+  \+ (Cond, \+ Action).

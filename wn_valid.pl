@@ -39,7 +39,7 @@ Ambiguous sense keys
 
 mk_ski:-
   % Make inverse of sk, for prologs that only index first arg
-  forall(sk(I,_,K), assertz(ski(K,I))).
+  for_all(sk(I,_,K), assertz(ski(K,I))).
 
 multikey(K):-
   ski(K,I),
