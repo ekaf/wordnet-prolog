@@ -8,17 +8,14 @@ Copyright 2017-25 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
+
+Use load_wn/0 to load everything, load_pred/1 (or rather ensure_pred/1) to
+load a single relation, load_type/1, to load selected groups of relations,
+f. ex. semantic (semrels) or lexical (lexrels).
+
 ----------------------------------------------------------------- */
 
-/*
-Use loadwn/0 to load everything, or load_pred/1 to load a single relation, or
-load_type/1, to load selected groups of relations, f. ex. semantic (semrels)
-or lexical (lexrels).
-*/
-
 :- include(utils).
-
-% --------------------------------------------------------------------------------
 
 semrels('Semantic Relations', ['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
 lexrels('Lexical Relations', ['ant','der','per','ppl','sa','vgp']).

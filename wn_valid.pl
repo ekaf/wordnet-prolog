@@ -8,9 +8,7 @@ Copyright 2017-25 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
------------------------------------------------------------------ */
 
-/*
 These problems sometimes occurred in past Wordnet versions,
 but usually don't happen anymore:
 
@@ -20,7 +18,8 @@ but usually don't happen anymore:
 - check_duplicates: find duplicate clauses
 
 Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
-*/
+
+----------------------------------------------------------------- */
 
 ok:-
   write('OK'),

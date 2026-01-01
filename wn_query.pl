@@ -10,12 +10,11 @@ Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------
-Synonyms have the same identifier: */
+% Synonyms have the same identifier: 
 
 syn(A,A).
 
-/* ------------------------------------------------------------------
+/* ------------------------------------------------------
 Transitive closure of Relation R, starting at Node A
 Prevent transitive loops (f. ex. in original WordNet 3.0)
 -------------------------------------------------------- */
