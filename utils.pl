@@ -18,3 +18,17 @@ apply_call(P,L):-
 
 for_all(Cond, Action):-
   \+ (Cond, \+ Action).
+
+% Minimal implementation of ordsets
+ord_memberchk(E, [H|_]) :-
+    E == H, !. % Membership check succeeds if found
+ord_memberchk(E, [H|T]) :-
+    E > H, % Continue searching (only if E > H, due to ordering)
+    ord_memberchk(E, T).
+
+ord_add_element([], E, [E]). % Add to empty set
+ord_add_element([H|T], E, [E,H|T]) :-
+    E < H, !. % Insert before element that is larger
+ord_add_element([H|T], E, [H|NT]) :-
+    E > H, % Continue checking
+    ord_add_element(T, E, NT).

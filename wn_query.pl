@@ -18,27 +18,17 @@ syn(A,A).
 /* ------------------------------------------------------------------
 Transitive closure of Relation R, starting at Node A
 Prevent transitive loops (f. ex. in original WordNet 3.0)
-*/
+-------------------------------------------------------- */
 
-closure(R, A, B, V):-
-  apply_call(R, [A, B]),
-  insort(B, V, _).
-closure(R, A, B, V):-
-  apply_call(R, [A, C]),
-  insort(C, V, V2),
-  closure(R, C, B, V2).
+closure(R, A, B, Visited) :-
+    call(R, A, B),
+    \+ ord_memberchk(B, Visited).
+closure(R, A, B, Visited) :-
+    call(R, A, C),
+    ord_add_element(Visited, C, UpdatedVisited),
+    closure(R, C, B, UpdatedVisited).
 
-insort(_, [], []).
-insort(E,[A|T], O):-
-  % Insert E in ordered list, fail if already member
-  E < A -> O = [E,A|T]
-  ;
-  E > A,
-  O = [A|T2],
-  insort(E, T, T2).
-
-
-/* ------------------------------------------------------------------
+/* ------------------------------------------
 Transitive closure of hypernymy, from Node A:
 */
 
