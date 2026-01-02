@@ -4,7 +4,7 @@ https://github.com/ekaf/wordnet-prolog/raw/master/wn_query.pl
 
 Some common WordNet use cases and formal checks
 
-Copyright 2017-25 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -19,20 +19,26 @@ Transitive closure of Relation R, starting at Node A
 Prevent transitive loops (f. ex. in original WordNet 3.0)
 -------------------------------------------------------- */
 
-closure(R, A, B, Visited) :-
-    call(R, A, B),
-    \+ ord_memberchk(B, Visited).
-closure(R, A, B, Visited) :-
-    call(R, A, C),
-    ord_add_element(Visited, C, UpdatedVisited),
-    closure(R, C, B, UpdatedVisited).
+closure(Rel, Start, Visited, Result) :-
+    % 1. Find an immediate neighbour
+    call(Rel, Start, Next),
+    % 2. Check for cycles using your new utility
+    \+ ord_memberchk(Next, Visited),
+    % 3. Branch: Either this is a result, or we recurse deeper
+    (   Result = Next
+    ;   ord_insert(Visited, Next, NewVisited),
+        closure(Rel, Next, NewVisited, Result)
+    ).
 
-/* ------------------------------------------
-Transitive closure of hypernymy, from Node A:
+/* ----------------------------------------------
+Transitive closure of hypernymy, from Start node
+
+thyp(?Start, ?Hypo)
+Finds transitive hyponyms of Start.
 */
 
-thyp(A, B):-
-  closure(hyp, A, B, [A]).
+thyp(Start, Hypo) :-
+    closure(hyp, Start, [], Hypo).
 
 /* ------------------------------------------------------------------
 Word relations
@@ -49,7 +55,7 @@ out2set([],_,_,[]).
 out2set([H|T],W,R,S):-
   sort([H|T],S),
   outset(S,'',O),
-  format(`~w ~w: [~w]~n`,[W,R,O]).
+  format('~w ~w: [~w]~n',[W,R,O]).
 
 outset([H],A,B):-
   atom_concat(A,H,B).
@@ -71,7 +77,7 @@ irel(R,W):-
   out2set(L2,W,Ri,S2),
 % 3) Check if R is symmetric
 % If both sets are identical and non-empty, the relation is symmetric w.r.t. the query word:
-  (sameset(S1,S2) -> format(`Both sets are identical, so ~w(~w,X) is symmetric~n`, [R,W]); true).
+  (sameset(S1,S2) -> format('Both sets are identical, so ~w(~w,X) is symmetric~n', [R,W]); true).
 
 /* ------------------------------------------
 Word query
@@ -98,6 +104,9 @@ qini:-
   atom_concat('output/wn_query.pl-Output-',WV,F),
   tell(F),
   consult(wn_load),
+%  load_pred(ant),
+%  time_call(tant),
+%(105974062-1)),
   ensure_pred(s),
   load_type(semrels),
   member(W,['car','tree','house','check','line','London']),

@@ -4,7 +4,7 @@ https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
 
 Prolog program to load the WordNet databases.
 
-Copyright 2017-25 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -15,7 +15,6 @@ f. ex. semantic (semrels) or lexical (lexrels).
 
 ----------------------------------------------------------------- */
 
-:- include(utils).
 
 semrels('Semantic Relations', ['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
 lexrels('Lexical Relations', ['ant','der','per','ppl','sa','vgp']).
@@ -52,7 +51,7 @@ load_pred(P):-
 
 ensure_pred(P):-
   ( current_predicate(P/A) 
-    -> format(`Already loaded prolog/wn_~w.pl (~w/~w)~n`,[P,P,A])
+    -> format('Already loaded prolog/wn_~w.pl (~w/~w)~n',[P,P,A])
      ; load_pred(P) ).
 
 load_type(Type):-
@@ -69,3 +68,5 @@ load_wn:-
   false.
 load_wn:-
   nl.
+
+:- initialization(consult(utils)).

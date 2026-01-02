@@ -4,7 +4,7 @@ https://github.com/ekaf/wordnet-prolog/raw/master/wn2csv.pl
 
 Convert all WordNet databases to comma-separated CSV files
 
-Copyright 2017-25 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -13,7 +13,7 @@ Licensed under the Apache License, Version 2.0
 pred2file(P):-
   atom_concat('csv/wn_',P,C1),
   atom_concat(C1,'.csv',C),
-  format(`Writing ~w~n`,[C]),
+  format('Writing ~w~n',[C]),
   tell(C).
 
 % escape_quotes(+Input, -Output)
@@ -30,11 +30,14 @@ escape_chars([H|T], O) :-
     ),
     escape_chars(T, R).
 
-list2csv([A],P):-
-  P=g -> (escape_quotes(A,A1), format(`"~w"~n`,[A1])); format(`~w~n`,[A]).
-list2csv([A,B|T],P):-
-  format(`~w,`,[A]),
-  list2csv([B|T],P).
+list2csv([A], P) :-
+  ( P == g -> 
+    (escape_quotes(A, A1), format('"~w"~n', [A1]))
+  ; format('~w~n', [A])
+  ).
+list2csv([A, B|T], P) :-
+  format('~w,', [A]),
+  list2csv([B|T], P).
 
 out2csv(P):-
   pred2file(P),

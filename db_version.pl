@@ -4,7 +4,7 @@ https://github.com/ekaf/wordnet-prolog/raw/master/db_version.pl
 
 Database version identifier for wordnet-prolog
 
-Copyright 2017-25 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 

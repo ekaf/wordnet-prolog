@@ -1,11 +1,15 @@
-# wordnet-prolog utilities (c) 2017-25 Eric Kafe
-# License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+# -----------------------------------------------------------------------------
+# https://github.com/ekaf/wordnet-prolog/raw/master/Makefile
+# Copyright 2017-26 Eric Kafe
+# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0
+# -----------------------------------------------------------------------------
 
 # 2025-12: extended by Daniel Diaz for other Prolog systems (swi, gprolog, tpl)
 
 PL ?= swi
 
-# --- fonctions to run Prolog on given file and halt ---
+# --- functions to run Prolog on given file and halt ---
 define run_swi
 swipl -q -s $(1) -g 'halt'
 endef
