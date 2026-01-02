@@ -66,7 +66,7 @@ Symmetry Test
 ------------------------------------------ */
 
 % Symmetric relations:
-symrels(['sim','ant','der','vgp']).
+symrels(['sim', 'ant', 'der', 'vgp']).
 
 symrel(2,R):-
   apply_call(R,[A,B]),
@@ -177,7 +177,7 @@ check_dup(P,_):-
 check_duplicates:-
   allwn(LR),
   member(P,LR),
-  ensure_pred(P), 
+  ensure_pred(P),
   pred2term(P,A,Term),
   format('Checking duplicates in ~w/~w~n',[P,A]),
   Term =.. [P|L],

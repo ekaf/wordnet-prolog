@@ -28,7 +28,7 @@ tpl -q -g 'halt' $(1)
 endef
 
 
-# Add others Prolog system here
+# Add other Prolog systems here
 
 # -----------------------------------------------------
 
