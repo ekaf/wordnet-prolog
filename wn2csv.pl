@@ -43,9 +43,8 @@ list2csv([A, B|T], P) :-
 
 out2csv(P):-
   pred2file(P),
-  pred2term(P,_,Term),
-  call(Term),
-  Term=..[P|L],
+  current_predicate(P/A),
+  dispatch_call(A,P,L),
   list2csv(L,P),
   false.
 out2csv(_):-

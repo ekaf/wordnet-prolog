@@ -29,8 +29,7 @@ wndata([semrels,lexrels,lexinfo,seminfo,morphinfo]).
 % --------------------------------------------------------------------------------
 
 type_info(Type,Rels):-
-  Term=..[Type,Label,Rels],
-  call(Term),
+  call(Type,Label,Rels),
   format(`~n~w: ~w~n`, [Label,Rels]).
 
 allwn(Rels):-
@@ -41,10 +40,6 @@ allwn(Rels):-
 /* ------------------------------------------
 Load WN
 ------------------------------------------ */
-
-pred2term(P,A,Term):-
-  current_predicate(P/A),
-  functor(Term,P,A).
 
 ensure_pred(P):-
   atom_concat('prolog/wn_',P,F),

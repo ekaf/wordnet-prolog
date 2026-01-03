@@ -167,7 +167,6 @@ outdups(N,P):-
 
 check_dup(P):-
   current_predicate(P/A),
-%  pred2term(P,A,Term),
   format('Checking duplicates in ~w/~w~n',[P,A]),
   dispatch_call(A,P,L),
   findall((P,L), dispatch_call(A,P,L), PL),
@@ -183,7 +182,6 @@ check_duplicates:-
   allwn(LR),
   member(P,LR),
   ensure_pred(P),
-%  Term =.. [P|L],
   check_dup(P),
   false.
 check_duplicates:-
