@@ -24,7 +24,7 @@ WNprolog-OEWN-2025+ is a Prolog version of Open English WordNet, Edition 2025+.
 The Prolog databases were generated from the official "wndb" export,
 retrieved from:
 
-https://en-word.net/static/english-wordnet-2025.zip
+https://en-word.net/static/english-wordnet-2025-plus.zip
 
 This version contains the following numbers of unique facts:
 
