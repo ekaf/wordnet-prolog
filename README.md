@@ -17,39 +17,40 @@ The database files are subject to the following third-party licenses:
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
 
-## WNprolog-3.1
+## WNprolog-OEWN-2025+
 
-WNprolog-3.1 is a Prolog version of WordNet 3.1.
-The Prolog databases were generated from the original
-WordNet 3.1 databases (c) 2011 Princeton University,
+WNprolog-OEWN-2025+ is a Prolog version of Open English WordNet, Edition 2025+.
 
-Some missing links were added, in order to enforce full
-symmetry of the symmetric relations. Also, this version
-avoids duplicates, and contains only unique clauses:
+The Prolog databases were generated from the official "wndb" export,
+retrieved from:
 
-- wn_ant.pl: 7988
-- wn_at.pl: 1278
-- wn_cls.pl: 9559
-- wn_cs.pl: 221
-- wn_der.pl: 74781
-- wn_ent.pl: 408
-- wn_exc.pl: 6053
-- wn_fr.pl: 21684
-- wn_g.pl: 117791
-- wn_hyp.pl: 89172
-- wn_ins.pl: 8589
-- wn_mm.pl: 12288
-- wn_mp.pl: 9111
-- wn_ms.pl: 797
-- wn_per.pl: 8074
-- wn_ppl.pl: 73
-- wn_sa.pl: 4054
-- wn_sim.pl: 21434
-- wn_sk.pl: 207272
-- wn_s.pl: 207272
-- wn_syntax.pl: 1054
-- wn_vgp.pl: 1744
-- total: 804644
+https://en-word.net/static/english-wordnet-2025.zip
+
+This version contains the following numbers of unique facts:
+
+    7990 wn_ant.pl
+    1278 wn_at.pl
+   16591 wn_cls.pl
+     221 wn_cs.pl
+   74606 wn_der.pl
+     407 wn_ent.pl
+    4467 wn_exc.pl
+   21833 wn_fr.pl
+  120565 wn_g.pl
+   93395 wn_hyp.pl
+    8599 wn_ins.pl
+   12292 wn_mm.pl
+    9194 wn_mp.pl
+     826 wn_ms.pl
+    8067 wn_per.pl
+      73 wn_ppl.pl
+    4098 wn_sa.pl
+   21452 wn_sim.pl
+  203366 wn_sk.pl
+  203366 wn_s.pl
+     929 wn_syntax.pl
+    1726 wn_vgp.pl
+  815341 total
 
 ## Other Prolog versions of WordNet
 
@@ -120,5 +121,7 @@ make valid PL=gprolog
 
 ## News (2026):
 
-Speed up the derivation of transitive relation closures:
-see _thyp_ in wn_query.pl.
+- Add loader.pl, to only load files once.
+- Use call/N instead of univ (=..)
+- Speed up the derivation of transitive relation closures (see _thyp_ in wn_query.pl).
+- Remove the last hard cut from this project.

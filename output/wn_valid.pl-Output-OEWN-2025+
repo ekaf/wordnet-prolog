@@ -53,11 +53,11 @@ Morphological Info: [exc]
 Loading prolog/wn_exc
 % Consulting: prolog/wn_exc ... Done.
 
-mk_ski executed in 0.11 seconds.
+mk_ski executed in 0.13 seconds.
 Searching for ambiguous sense keys
 OK
 
-check_keys executed in 0.22 seconds.
+check_keys executed in 0.24 seconds.
 Loading prolog/wn_sk
 % Info: prolog/wn_sk already loaded. Skipping.
 Symmetric relations: [sim,ant,der,vgp]
@@ -82,7 +82,7 @@ Checking symmetry in vgp relation (wn_vgp.pl):
 OK
 
 
-symcheck executed in 0.27 seconds.
+symcheck executed in 0.28 seconds.
 Loading prolog/wn_g
 % Info: prolog/wn_g already loaded. Skipping.
 Asymmetric relations: [hyp,ins,mm,mp,ms,cls]
@@ -114,16 +114,10 @@ OK
 Loading prolog/wn_cls
 % Info: prolog/wn_cls already loaded. Skipping.
 Checking asymmetry in cls relation (wn_cls.pl):
-Looping cls-t:
-  from 103086983-0 (a machine for performing calculations automatically)
-    to 106138021-0 (the branch of engineering science that studies (with the aid of computers) computable processes and structures)
-Looping cls-t:
-  from 106138021-0 (the branch of engineering science that studies (with the aid of computers) computable processes and structures)
-    to 103086983-0 (a machine for performing calculations automatically)
 OK
 
 
-asymcheck executed in 0.11 seconds.
+asymcheck executed in 0.09 seconds.
 
 Semantic Relations: [at,cs,ent,hyp,ins,mm,mp,ms,sim]
 Loading prolog/wn_at
@@ -242,12 +236,7 @@ Morphological Info: [exc]
 Loading prolog/wn_exc
 % Info: prolog/wn_exc already loaded. Skipping.
 Checking duplicates in exc/3
-Found 3 duplicate exc:
-:- dynamic duplicate/3.
-
-duplicate(2, exc, [n, diastemata, diastema]).
-duplicate(2, exc, [n, sudatoria, sudatorium]).
-duplicate(2, exc, [n, vagi, vagus]).
+OK
 
 
-check_duplicates executed in 2.42 seconds.
+check_duplicates executed in 2.25 seconds.
