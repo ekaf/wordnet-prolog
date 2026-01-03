@@ -15,6 +15,8 @@ f. ex. semantic (semrels) or lexical (lexrels).
 
 ----------------------------------------------------------------- */
 
+:- include(db_version).
+:- include(utils).
 
 semrels('Semantic Relations', ['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
 lexrels('Lexical Relations', ['ant','der','per','ppl','sa','vgp']).
@@ -44,15 +46,11 @@ pred2term(P,A,Term):-
   current_predicate(P/A),
   functor(Term,P,A).
 
-load_pred(P):-
-  atom_concat('prolog/wn_',P,F),
-%  time_call(consult(F)).
-  consult(F).
-
 ensure_pred(P):-
-  ( current_predicate(P/A) 
-    -> format('Already loaded prolog/wn_~w.pl (~w/~w)~n',[P,P,A])
-     ; load_pred(P) ).
+  atom_concat('prolog/wn_',P,F),
+  format('Loading ~w~n',[F]),
+  safe_consult(F).
+%  time_call(safe_consult(F)).
 
 load_type(Type):-
   type_info(Type,Rels),
@@ -68,5 +66,3 @@ load_wn:-
   false.
 load_wn:-
   nl.
-
-:- initialization(consult(utils)).

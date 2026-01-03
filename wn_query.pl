@@ -10,6 +10,8 @@ Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
 
+:- include(loader).
+
 % Synonyms have the same identifier: 
 
 syn(A,A).
@@ -99,11 +101,10 @@ Test some word queries
 ------------------------------------------ */
 
 qini:-
-  consult(db_version),
+  safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_query.pl-Output-',WV,F),
   tell(F),
-  consult(wn_load),
   ensure_pred(s),
   load_type(semrels),
   member(W,['car','tree','house','check','line','London']),

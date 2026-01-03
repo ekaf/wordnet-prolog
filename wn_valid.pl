@@ -21,6 +21,8 @@ Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
 
 ----------------------------------------------------------------- */
 
+:- include(loader).
+
 ok:-
   write('OK'),
   nl, nl.
@@ -69,13 +71,13 @@ Symmetry Test
 symrels(['sim', 'ant', 'der', 'vgp']).
 
 symrel(2,R):-
-  apply_call(R,[A,B]),
-  (apply_call(R,[B,A]) -> true; format('Missing ~w(~w,~w)~n',[R,B,A])),
+  call(R,A,B),
+  (call(R,B,A) -> true; format('Missing ~w(~w,~w)~n',[R,B,A])),
   false.
 symrel(4,R):-
-  apply_call(R,[A,B,C,D]),
+  call(R,A,B,C,D),
   sk(A,B,K1),
-  (apply_call(R,[C,D,A,B]) -> true; (sk(C,D,K2), format('Missing ~w from ~w to ~w~n',[R,K2,K1]))),
+  (call(R,C,D,A,B) -> true; (sk(C,D,K2), format('Missing ~w from ~w to ~w~n',[R,K2,K1]))),
   false.
 symrel(_,_):-
   ok.
@@ -110,8 +112,8 @@ asymrel(cls):-
   false.
 asymrel(R):-
   R\=cls,
-  apply_call(R,[A,B]),
-  apply_call(R,[B,A]),
+  call(R,A,B),
+  call(R,B,A),
   glosspair(A,B,G1,G2),
   format('Looping ~w:~n  from ~w (~w)~n    to ~w (~w)~n',[R,A,G1,B,G2]),
   false.
@@ -163,13 +165,16 @@ outdups(N,P):-
   listing(duplicate),
   retractall(duplicate(_,_,_)).
 
-check_dup(P,L):-
-  apply_call(P,L),
-  findall((P,L), apply_call(P,L), PL),
+check_dup(P):-
+  current_predicate(P/A),
+%  pred2term(P,A,Term),
+  format('Checking duplicates in ~w/~w~n',[P,A]),
+  dispatch_call(A,P,L),
+  findall((P,L), dispatch_call(A,P,L), PL),
   length(PL,N),
   (N>1, \+ duplicate(N,P,L) -> assertz(duplicate(N,P,L))),
   false.
-check_dup(P,_):-
+check_dup(P):-
   findall((A,B,C),duplicate(A,B,C),L),
   length(L,N),
   (N>0 -> outdups(N,P); ok).
@@ -178,10 +183,8 @@ check_duplicates:-
   allwn(LR),
   member(P,LR),
   ensure_pred(P),
-  pred2term(P,A,Term),
-  format('Checking duplicates in ~w/~w~n',[P,A]),
-  Term =.. [P|L],
-  check_dup(P,L),
+%  Term =.. [P|L],
+  check_dup(P),
   false.
 check_duplicates:-
   nl.
@@ -202,11 +205,10 @@ run_tests:-
 run_tests.
 
 validation:-
-  consult(db_version),
+  safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
   tell(F),
-  consult(wn_load),
   load_wn,
   run_tests,
 %  hypself,

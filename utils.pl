@@ -10,10 +10,22 @@ Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
 
+:- include(timeit).
 
-apply_call(P,L):-
+apply_call(P, L):-
   Term =.. [P|L],
   call(Term).
+
+dispatch_call(1, P, [A1])                 :- call(P, A1).
+dispatch_call(2, P, [A1, A2])             :- call(P, A1, A2).
+dispatch_call(3, P, [A1, A2, A3])         :- call(P, A1, A2, A3).
+dispatch_call(4, P, [A1, A2, A3, A4])     :- call(P, A1, A2, A3, A4).
+dispatch_call(5, P, [A1, A2, A3, A4, A5]) :- call(P, A1, A2, A3, A4, A5).
+dispatch_call(6, P, [A1, A2, A3, A4, A5, A6]) :- call(P, A1, A2, A3, A4, A5, A6).
+% Fallback:
+%dispatch_call(N, P, L)                 :- N>6 -> apply_call(P, L).
+
+/* ----------------------------------------------------------------- */
 
 for_all(Cond, Action):-
   \+ (Cond, \+ Action).
@@ -37,6 +49,3 @@ ord_insert([H|T], E, NewSet) :-
     ;   ord_insert(T, E, T1),   % Keep looking
         NewSet = [H|T1]
     ).
-
-:- initialization(consult(timeit)).
-

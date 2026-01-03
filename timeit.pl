@@ -34,8 +34,7 @@ current_time(T) :-
 time_to_seconds(T0, T) :-
   % Convert time to seconds if necessary (e.g., for GNU Prolog, which reports milliseconds).
   (
-  current_prolog_flag(version_data, Data),
-  Data =.. [gprolog | _]  % Detects GNU Prolog
+  current_prolog_flag(dialect, gprolog)  % Detects GNU Prolog
   -> T is T0 / 1000
   ; T = T0
   ).

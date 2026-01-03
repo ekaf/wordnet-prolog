@@ -58,18 +58,15 @@ valid:
 	@echo "Checking symmetry and asymmetry with $(PL)..."
 	@$(call run_$(PL),wn_valid.pl)
 
-csv: cleancsv
-	@mkdir csv
+.PHONY: csv
+
+csv:
+	@mkdir -p csv
 	@echo "Converting Prolog databases to CSV with $(PL)..."
 	@$(call run_$(PL),wn2csv.pl)
-
-cleanpl:
-	@echo Deleting Prolog output
-	@rm -rf a.out
-#	@rm -rf output/wn*Output*
 
 cleancsv:
 	@echo Deleting CSV files
 	@rm -rf csv
 
-clean: cleanpl cleancsv
+clean: cleancsv

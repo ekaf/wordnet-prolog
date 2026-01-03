@@ -9,6 +9,9 @@ SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
+
+:- include(loader).
+
 % Since v. 7.0, swipl requires this flag for double quotes to produce bytelists:
 % Please note that some Prolog systems may lack set_prolog_flag/2
 :- set_prolog_flag(double_quotes, codes).
@@ -66,7 +69,7 @@ morphy(Wordform, Set):-
     Set).
 
 morph_ini:-
-  consult('prolog/wn_exc'),
-  consult('prolog/wn_s').
+  safe_consult('prolog/wn_exc'),
+  safe_consult('prolog/wn_s').
 
 :- initialization(morph_ini).

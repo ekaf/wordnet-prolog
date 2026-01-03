@@ -10,6 +10,8 @@ Licensed under the Apache License, Version 2.0
 
 ----------------------------------------------------------------- */
 
+:- include(loader).
+
 pred2file(P):-
   atom_concat('csv/wn_',P,C1),
   atom_concat(C1,'.csv',C),
@@ -58,7 +60,7 @@ convert_wn:-
 convert_wn.
 
 inicsv:-
-  consult(wn_load),
+  safe_consult(wn_load),
   load_wn, 
   % loaded all dbs first, to time the conversion independently of consulting:
   time_call(convert_wn).
