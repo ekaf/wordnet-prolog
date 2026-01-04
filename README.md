@@ -25,7 +25,7 @@ WordNet 3.1 databases (c) 2011 Princeton University,
 
 Some missing links were added, in order to enforce full
 symmetry of the symmetric relations. Also, this version
-avoids duplicates, and contains only unique clauses:
+avoids duplicates, and contains only unique facts:
 
 - wn_ant.pl: 7988
 - wn_at.pl: 1278
@@ -54,14 +54,17 @@ avoids duplicates, and contains only unique clauses:
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
-with Prolog versions of WordNet 3.0 and Open English WordNet 2022.
+with Prolog versions of WordNet 3.0 and Open English Wordnet.
 
 ## Utilities:
 
-_wn_morphy.pl_ is a SWI-prolog lemmatizer, similar to _morphy_,
+The following are standard Prolog programs, intended for compatibility
+with the ISO-Prolog standard:
+
+_wn_morphy.pl_ is a Prolog lemmatizer, similar to _morphy_,
 the morphological processor from WordNet.
 
-_wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordNet:
+_wn_valid.pl_ is a Prolog program testing for some potential issues in WordNet:
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
@@ -70,7 +73,7 @@ _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordN
 - check_duplicates: find duplicate clauses
 
 
-The accompanying _wn_query.pl_ file is a SWI-prolog program
+The accompanying _wn_query.pl_ file is a Prolog program
 implementing some common WordNet use cases, and a few formal checks,
 like symmetry and transitive loop detection.
 
@@ -79,7 +82,7 @@ For convenient inter-operation with other projects, the _wn2csv.pl_ program
 converts the Prolog databases to comma-separated CSV files,
 which can be easily imported into most database systems.
 
-Type "make valid" or "make query" to run the SWI-prolog programs,
+Type "make valid" or "make query" to run the Prolog programs,
 or "make csv" to generate CSV databases.
 
 
@@ -120,5 +123,7 @@ make valid PL=gprolog
 
 ## News (2026):
 
-Speed up the derivation of transitive relation closures:
-see _thyp_ in wn_query.pl.
+- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
+- Remove the last hard cut.
+- Use call/N instead of univ (=..).
+- Add loader.pl, to load files only once.
