@@ -7,6 +7,7 @@ compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 
+
 ## License
 
 The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSE)**.
@@ -16,6 +17,7 @@ The database files are subject to the following third-party licenses:
 * **Open English WordNet:** Distributed under a dual-license requiring attribution to both Princeton and the OEWN team (See [LICENSE-OEWN](LICENSE-OEWN)).
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
+
 
 ## WNprolog-3.1
 
@@ -51,10 +53,15 @@ avoids duplicates, and contains only unique facts:
 - wn_vgp.pl: 1744
 - total: 804644
 
+
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
 with Prolog versions of WordNet 3.0 and Open English Wordnet.
+
+These are available for download as compressed packages,
+from the Github Releases menu.
+
 
 ## Utilities:
 
@@ -93,6 +100,7 @@ available through the _wncsv_ project at:
 
 https://github.com/ekaf/wncsv
 
+
 ## News (2025):
 
 - Added utils.pl: system-independent implementations of non-standard predicates.
@@ -124,6 +132,7 @@ make valid PL=gprolog
 ## News (2026):
 
 - Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
-- Remove the last hard cut.
+- Use no hard cut.
 - Use call/N instead of univ (=..).
 - Add loader.pl, to load files only once.
+- Quote strings and fix quotes in CSV output.
