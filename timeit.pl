@@ -40,7 +40,7 @@ time_to_seconds(T0, T) :-
   ).
 
 time_call(Goal) :-
-  % Measure the time taken to execute a given Goal and print the elapsed time.
+  % Measure the time taken to execute a given Goal once, and print the elapsed time.
   current_time(StartTime),
   call(Goal),  % Always execute the Goal
   (

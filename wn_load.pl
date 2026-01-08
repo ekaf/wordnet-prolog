@@ -30,7 +30,7 @@ wndata([semrels,lexrels,lexinfo,seminfo,morphinfo]).
 
 type_info(Type,Rels):-
   call(Type,Label,Rels),
-  format(`~n~w: ~w~n`, [Label,Rels]).
+  format('~n~w: ~w~n', [Label,Rels]).
 
 allwn(Rels):-
   wndata(Reltypes),
