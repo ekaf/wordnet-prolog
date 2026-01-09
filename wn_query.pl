@@ -24,7 +24,7 @@ Prevent transitive loops (f. ex. in original WordNet 3.0)
 closure(Rel, Start, Visited, Result) :-
     % 1. Find an immediate neighbour
     call(Rel, Start, Next),
-    % 2. Check for cycles using ordered sets 
+    % 2. Check for cycles using ordered membercheck of the Visited set
     \+ ord_memberchk(Next, Visited),
     % 3. Branch: Either this is a result, or we recurse deeper
     (   Result = Next
@@ -35,7 +35,7 @@ closure(Rel, Start, Visited, Result) :-
 /* ----------------------------------------------
 Transitive closure of hypernymy, from Start node
 
-thyp(?Start, ?Hypo)
+thyp(?Start, ?Hyper)
 Finds transitive hypernyms of Start.
 */
 

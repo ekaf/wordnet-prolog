@@ -21,7 +21,7 @@ escape_codes([H|T], O):-
   ),
   escape_codes(T, R).
 
-escape_quotes(S, Escaped):-
+escape_double_quotes(S, Escaped):-
   atom_codes(S, Codes),
   escape_codes(Codes, EscapedCodes),
   atom_codes(Escaped, EscapedCodes).
@@ -34,7 +34,7 @@ escape_index(sk, 3).  % Sense key
 
 handle_index(P, N, S):-
   escape_index(P,N)
-  -> escape_quotes(S, S1),
+  -> escape_double_quotes(S, S1),
      format('"~w"', [S1])  % double quote string
   ; format('~w', [S]).
 
