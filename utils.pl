@@ -22,10 +22,10 @@ dispatch_call(6, P, [A1, A2, A3, A4, A5, A6]) :- call(P, A1, A2, A3, A4, A5, A6)
 /* ----------------------------------------------------------------- */
 
 def_forall:-
-  current_predicate(ord_memberchk/2) -> true
+  current_predicate(forall/2) -> true
   ;
   assertz((
-    for_all(Cond, Action):-
+    forall(Cond, Action):-
       \+ (Cond, \+ Action)
     )).
 
