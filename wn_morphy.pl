@@ -1,21 +1,20 @@
-/* ----------------------------------------------------------------------------- 
+/* -----------------------------------------------------------------
 
 https://github.com/ekaf/wordnet-prolog/raw/master/wn_morphy.pl
 
-SWI-prolog lemmatizer, similar to "morphy",
-the morphological processor from WordNet.
+Prolog lemmatizer, similar to "morphy", the morphological processor from WordNet.
 
-Copyright 2025 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
--------------------------------------------------------------------------------*/
+----------------------------------------------------------------- */
 
-:-consult(prolog/wn_exc).
-:-consult(prolog/wn_s).
+:- include(loader).
 
 % Since v. 7.0, swipl requires this flag for double quotes to produce bytelists:
-:-set_prolog_flag(double_quotes,codes).
+% Please note that some Prolog systems may lack set_prolog_flag/2
+:- catch(set_prolog_flag(double_quotes, codes), _, true).
 
 ending(n, "s", "").
 ending(n, "ses", "s").
@@ -61,11 +60,16 @@ wordform2lemma(Form,Pos,Lemma,Synset,WordNr):-
   morph(Pos,Form,Lemma),
   lemma_pos_in_wn(Lemma,Pos,Synset,WordNr).
 
+% Example usage:
+%:-morphy(advertizing, S), writeln(S).
 morphy(Wordform, Set):-
 % Output the set of possible Lemmas:
   setof((Synset,WordNr,Lemma,Pos),
     wordform2lemma(Wordform,Pos,Lemma,Synset,WordNr),
     Set).
 
-% Example usage:
-%:-morphy(advertizing, S), writeln(S).
+morph_ini:-
+  safe_consult('prolog/wn_exc'),
+  safe_consult('prolog/wn_s').
+
+:- initialization(morph_ini).

@@ -1,48 +1,46 @@
-/* ----------------------------------------------------------------------------
+/* -----------------------------------------------------------------
 
 https://github.com/ekaf/wordnet-prolog/raw/master/wn_query.pl
 
-SWI-prolog program implementing some common WordNet use cases, 
-and a few formal checks, like symmetry and transitive loop detection.
+Some common WordNet use cases and formal checks
 
-Copyright 2025 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
-----------------------------------------------------------------------------*/
+----------------------------------------------------------------- */
 
-:-consult('db_version.pl').
-:-consult('prolog/wn_s.pl').
+:- include(loader).
 
-semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
-
-loadrels:-
-  semrels(L),
-  member(R,L),
-  swritef(F,'prolog/wn_%w.pl',[R]),
-  writef('Consulting %w relation: %w\n',[R,F]),
-  consult(F),
-  false.
-loadrels:-
-  nl.
-
-:-loadrels.
-
-/* ------------------------------------------------------------------
-Synonyms have the same identifier: */
+% Synonyms have the same identifier: 
 
 syn(A,A).
 
-/* ------------------------------------------------------------------
-Transitive hypernymy and hyponymy: */
+/* ------------------------------------------------------
+Transitive closure of Relation R, starting at Node A
+Prevent transitive loops (f. ex. in original WordNet 3.0)
+-------------------------------------------------------- */
 
-thyp(A,B):-
-  hyp(A,B).
-thyp(A,C):-
-  hyp(A,B),
-  thyp(B,C),
-% Prevent transitive loops (f. ex. in original WordNet 3.0):
- (A=C, !, writef('Transitive loop: %w %w %w\n', [A,B,C]); true).
+closure(Rel, Start, Visited, Result) :-
+    % 1. Find an immediate neighbour
+    call(Rel, Start, Next),
+    % 2. Check for cycles using ordered membercheck of the Visited set
+    \+ ord_memberchk(Next, Visited),
+    % 3. Branch: Either this is a result, or we recurse deeper
+    (   Result = Next
+    ;   ord_insert(Visited, Next, NewVisited),
+        closure(Rel, Next, NewVisited, Result)
+    ).
+
+/* ----------------------------------------------
+Transitive closure of hypernymy, from Start node
+
+thyp(?Start, ?Hyper)
+Finds transitive hypernyms of Start.
+*/
+
+thyp(Start, Hyper) :-
+    closure(hyp, Start, [], Hyper).
 
 /* ------------------------------------------------------------------
 Word relations
@@ -51,20 +49,21 @@ Word relations
 wordrel(R,A,B):-
 % R is a relation between synsets, A and B are words
   s(I,_,A,_,_,_),
-  apply(R,[I,J]),
+  call(R,I,J),
   s(J,_,B,_,_,_).
 
 out2set([],_,_,[]).
 out2set([H|T],W,R,S):-
   sort([H|T],S),
   outset(S,'',O),
-  writef('%w %w: [%w]\n',[W,R,O]).
+  format('~w ~w: [~w]~n',[W,R,O]).
 
 outset([H],A,B):-
-  swritef(B,'%w%w', [A,H]).
+  atom_concat(A,H,B).
 outset([H|T],A,C):-
-  swritef(B,'%w%w,', [A,H]),
-  outset(T,B,C).
+  atom_concat(A,H,B),
+  atom_concat(B,',',B2),
+  outset(T,B2,C).
 
 sameset([H|T],[H|T]).
 
@@ -75,11 +74,11 @@ irel(R,W):-
   out2set(L1,W,R,S1),
 % 2) Inverse relation
   findall(Y, wordrel(R,Y,W), L2),
-  swritef(Ri,'inverse %w',[R]),
+  atom_concat('inverse ',R,Ri),
   out2set(L2,W,Ri,S2),
 % 3) Check if R is symmetric
 % If both sets are identical and non-empty, the relation is symmetric w.r.t. the query word:
-  (sameset(S1,S2) -> writef('Both sets are identical, so %w(%w,X) is symmetric\n', [R,W]); true).
+  (sameset(S1,S2) -> format('Both sets are identical, so ~w(~w,X) is symmetric~n', [R,W]); true).
 
 /* ------------------------------------------
 Word query
@@ -88,25 +87,30 @@ Word query
 qword(W):-
 % Synonymy is symmetric
   irel(syn,W),
-  irel(thyp,W),
-  semrels(L),
+  time_call(irel(thyp,W)),
+  semrels(_,L),
   member(R,L),
   irel(R,W),
   false.
-qword(_).
+qword(_):-
+  nl.
 
 /* ------------------------------------------
 Test some word queries
 ------------------------------------------ */
 
-go:-
+qini:-
+  safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_query.pl-Output-',WV,F),
   tell(F),
+  ensure_pred(s),
+  load_type(semrels),
   member(W,['car','tree','house','check','line','London']),
+%  time_call(qword(W)),
   qword(W),
-  nl,
   false.
-go:-
+qini:-
   told.
-:-go.
+
+:- initialization(qini).

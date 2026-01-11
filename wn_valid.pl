@@ -1,132 +1,154 @@
-/* ----------------------------------------------------------------------------
+/* -----------------------------------------------------------------
 
- https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
 
-SWI-prolog program testing for some potential issues in WordNet
+Tests for a few potential Wordnet database bugs
 
-Copyright 2025 Eric Kafe
+Copyright 2017-26 Eric Kafe
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
 
-Included tests:
+These problems sometimes occurred in past Wordnet versions,
+but usually don't happen anymore:
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
 - asymcheck: direct loops in the asymmetric relations
-- hypself: self-hyponymous word forms
 - check_duplicates: find duplicate clauses
 
----------------------------------------------------------------------------- */
+Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
+
+----------------------------------------------------------------- */
+
+:- include(loader).
 
 ok:-
-  writeln('OK').
+  write('OK'),
+  nl, nl.
 
 glosspair(A,B,G1,G2):-
   g(A,G1),
   g(B,G2).
 
+
 /* ------------------------------------------
 Ambiguous sense keys
 ------------------------------------------ */
 
+:- dynamic(ski/2).
+
+mk_ski:-
+  % Build Sense Key Index as the inverse of sk/3,
+  % for Prolog systems that only index the first argument:
+  forall(sk(I,_,K), assertz(ski(K,I))).
+
 multikey(K):-
-  sk(I,_,K),
-  sk(J,_,K),
-  I\=J.
+  ski(K,I),
+  ski(K,J),
+  I < J.
 
 check_keys:-
-  writeln('Searching for ambiguous sense keys'),
-  findall(X, multikey(X), L),
-  list_to_set(L,S),
-  member(K,S),
-  writef("Ambiguous key: %w\n",[K]),
-  findall(I, sk(I,_,K), IL),
-  list_to_set(IL,IS),
+  write('Searching for ambiguous sense keys'),
+  nl,
+  setof(X, multikey(X), KS),
+  member(K,KS),
+  format('Ambiguous key: ~w~n',[K]),
+  setof(I, ski(K,I), IS),
   member(I,IS),
   g(I,G),
-  writef("    ->%w (%w)\n",[I,G]),
+  format('    ->~w (~w)~n',[I,G]),
   false.
 check_keys:-
-  ok,
-  nl.
+  retractall(ski(_,_)),
+  ok.
+
 
 /* ------------------------------------------
 Symmetry Test
 ------------------------------------------ */
 
-symrels(['sim','ant','der','vgp']).
+% Symmetric relations:
+symrels(['sim', 'ant', 'der', 'vgp']).
 
 symrel(2,R):-
-  apply(R,[A,B]),
-  (apply(R,[B,A]) -> true; writef('Missing %w(%w,%w)\n',[R,B,A])),
+  call(R,A,B),
+  (call(R,B,A) -> true; format('Missing ~w(~w,~w)~n',[R,B,A])),
   false.
 symrel(4,R):-
-  apply(R,[A,B,C,D]),
+  call(R,A,B,C,D),
   sk(A,B,K1),
-  (apply(R,[C,D,A,B]) -> true; (sk(C,D,K2), writef('Missing %w from %w to %w\n',[R,K2,K1]))),
+  (call(R,C,D,A,B) -> true; (sk(C,D,K2), format('Missing ~w from ~w to ~w~n',[R,K2,K1]))),
   false.
 symrel(_,_):-
   ok.
 
 symcheck:-
+  ensure_pred(sk),
   symrels(L),
-  writef('Symmetric relations: %w\n',[L]),
+  format('Symmetric relations: ~w~n',[L]),
   member(R,L),
-  swritef(F,'wn_%w.pl',[R]),
-  writef('Checking symmetry in %w relation (%w):\n',[R,F]),
-  pred2arity(R,N,_),
+  ensure_pred(R),
+  atom_concat('wn_',R,F),
+  format('Checking symmetry in ~w relation (~w.pl):~n',[R,F]),
+  current_predicate(R/N),
   symrel(N,R),
   false.
 symcheck:-
   nl.
 
+
 /* ------------------------------------------
 Asymmetry test:
 ------------------------------------------ */
 
+% Asymmetric relations:
 asymrels(['hyp','ins','mm','mp','ms','cls']).
 
 asymrel(cls):-
   cls(A,AN,B,BN,T),
   cls(B,BN,A,AN,T),
   glosspair(A,B,G1,G2),
-  writef('Looping cls-%w:\n  from %w-%w (%w)\n    to %w-%w (%w)\n',[T,A,AN,G1,B,BN,G2]),
+  format('Looping cls-~w:~n  from ~w-~w (~w)~n    to ~w-~w (~w)~n',[T,A,AN,G1,B,BN,G2]),
   false.
 asymrel(R):-
   R\=cls,
-  apply(R,[A,B]),
-  apply(R,[B,A]),
+  call(R,A,B),
+  call(R,B,A),
   glosspair(A,B,G1,G2),
-  writef('Looping %w:\n  from %w (%w)\n    to %w (%w)\n',[R,A,G1,B,G2]),
+  format('Looping ~w:~n  from ~w (~w)~n    to ~w (~w)~n',[R,A,G1,B,G2]),
   false.
 asymrel(_):-
   ok.
 
 asymcheck:-
+  ensure_pred(g),
   asymrels(L),
-  writef('Asymmetric relations: %w\n',[L]),
+  format('Asymmetric relations: ~w~n',[L]),
   member(R,L),
-  swritef(F,'wn_%w.pl',[R]),
-  writef('Checking asymmetry in %w relation (%w):\n',[R,F]),
+  ensure_pred(R),
+  atom_concat('wn_',R,F),
+  format('Checking asymmetry in ~w relation (~w.pl):~n',[R,F]),
   asymrel(R),
   false.
 asymcheck:-
   nl.
 
-/* ------------------------------------------
+
+/* ---------------------------------------------------------------------
 Self-hyponymous words
------------------------------------------- */
+NB: this is usually not a problem, but some senses could need merging
+---------------------------------------------------------------------- */
 
 hypself:-
+  ensure_pred(s),
   write('Hyponymy between different senses of the same word:'),
-% Note: this is usually not a problem, but some senses could need merging
   nl,
   hyp(A,B),
   s(A,N1,W,_,_,_),
   s(B,N2,W,_,_,_),
   glosspair(A,B,G1,G2),
-  writef('"%w" hyp:\n  from %w-%w (%w)\n    to %w-%w (%w)\n',[W,A,N1,G1,B,N2,G2]),
+  format('"~w" hyp:~n  from ~w-~w (~w)~n    to ~w-~w (~w)~n',[W,A,N1,G1,B,N2,G2]),
   false.
 hypself:-
   ok,
@@ -137,20 +159,22 @@ Find Duplicates
 ------------------------------------------ */
 
 
-:-dynamic duplicate/3.
+:- dynamic(duplicate/3).
 
 outdups(N,P):-
-  writef('Found %w duplicate %w:\n',[N,P]),
+  format('Found ~w duplicate ~w:~n',[N,P]),
   listing(duplicate),
   retractall(duplicate(_,_,_)).
 
-check_dup(P,L):-
-  apply(P,L),
-  findall((P,L), apply(P,L), PL),
+check_dup(P):-
+  current_predicate(P/A),
+  format('Checking duplicates in ~w/~w~n',[P,A]),
+  dispatch_call(A,P,L),
+  findall((P,L), dispatch_call(A,P,L), PL),
   length(PL,N),
-  (N>1, \+ duplicate(N,P,L) -> assert(duplicate(N,P,L))),
+  (N>1, \+ duplicate(N,P,L) -> assertz(duplicate(N,P,L))),
   false.
-check_dup(P,_):-
+check_dup(P):-
   findall((A,B,C),duplicate(A,B,C),L),
   length(L,N),
   (N>0 -> outdups(N,P); ok).
@@ -158,9 +182,8 @@ check_dup(P,_):-
 check_duplicates:-
   allwn(LR),
   member(P,LR),
-  pred2arity(P,A,L),
-  writef('Checking duplicates in %w/%w\n',[P,A]),
-  check_dup(P,L),
+  ensure_pred(P),
+  check_dup(P),
   false.
 check_duplicates:-
   nl.
@@ -169,16 +192,25 @@ check_duplicates:-
 WN Validation
 ------------------------------------------ */
 
-valid:-
-  consult('db_version.pl'),
+wn_tests([check_keys, symcheck, asymcheck, check_duplicates]).
+
+run_tests:-
+  time_call(mk_ski),
+  % time check_keys independently of mk_ski
+  wn_tests(L),
+  member(T,L),
+  time_call(T),
+  false.
+run_tests.
+
+validation:-
+  safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
   tell(F),
-  consult('wn_load.pl'),
-  check_keys,
-  symcheck,
-  asymcheck,
-  check_duplicates,
+  load_wn,
+  run_tests,
 %  hypself,
   told.
-:-valid.
+
+:- initialization(validation).
