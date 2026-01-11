@@ -9,9 +9,9 @@ SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
 
-Use load_wn/0 to load everything, load_pred/1 (or rather ensure_pred/1) to
-load a single relation, load_type/1, to load selected groups of relations,
-f. ex. semantic (semrels) or lexical (lexrels).
+Use load_wn/0 to load everything, ensure_pred/1 to load a single relation,
+load_type/1, to load selected groups of relations, f. ex. semantic (semrels)
+or lexical (lexrels).
 
 ----------------------------------------------------------------- */
 
@@ -30,7 +30,7 @@ wndata([semrels,lexrels,lexinfo,seminfo,morphinfo]).
 
 type_info(Type,Rels):-
   call(Type,Label,Rels),
-  format(`~n~w: ~w~n`, [Label,Rels]).
+  format('~n~w: ~w~n', [Label,Rels]).
 
 allwn(Rels):-
   wndata(Reltypes),

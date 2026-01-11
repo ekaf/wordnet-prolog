@@ -67,6 +67,7 @@ csv:
 
 cleancsv:
 	@echo Deleting CSV files
-	@rm -rf csv
+	-@rm -f csv/*.csv
+	-@rmdir csv
 
 clean: cleancsv

@@ -121,7 +121,8 @@ make valid PL=gprolog
 
 ## News (2026):
 
-- Add loader.pl, to only load files once.
-- Use call/N instead of univ (=..)
-- Speed up the derivation of transitive relation closures (see _thyp_ in wn_query.pl).
-- Remove the last hard cut from this project.
+- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
+- Use no hard cut.
+- Use call/N instead of univ (=..).
+- Add loader.pl, to load files only once.
+- Quote strings and fix quotes in CSV output.

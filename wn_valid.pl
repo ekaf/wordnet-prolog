@@ -39,8 +39,9 @@ Ambiguous sense keys
 :- dynamic(ski/2).
 
 mk_ski:-
-  % Make inverse of sk, for prologs that only index first arg
-  for_all(sk(I,_,K), assertz(ski(K,I))).
+  % Build Sense Key Index as the inverse of sk/3,
+  % for Prolog systems that only index the first argument:
+  forall(sk(I,_,K), assertz(ski(K,I))).
 
 multikey(K):-
   ski(K,I),

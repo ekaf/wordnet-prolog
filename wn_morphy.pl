@@ -14,7 +14,7 @@ Licensed under the Apache License, Version 2.0
 
 % Since v. 7.0, swipl requires this flag for double quotes to produce bytelists:
 % Please note that some Prolog systems may lack set_prolog_flag/2
-:- set_prolog_flag(double_quotes, codes).
+:- catch(set_prolog_flag(double_quotes, codes), _, true).
 
 ending(n, "s", "").
 ending(n, "ses", "s").
