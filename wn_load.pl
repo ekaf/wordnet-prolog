@@ -1,53 +1,63 @@
-/* 
-# https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
-(c) 2020-24 Eric Kafe, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+/* -----------------------------------------------------------------
 
-SWI-prolog program to load all WordNet databases
-*/
+https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
 
-semrels(['at','cs','ent','hyp','ins','mm','mp','ms','sim','vgp']).
-lexrels(['ant','der','per','ppl','sa']).
-lexinfo(['cls','fr','s','sk','syntax']).
-seminfo(['g']).
-morphinfo(['exc']).
+Prolog program to load the WordNet databases.
 
-allwn(L):-
-  semrels(L),
-  writef('\nSemantic Relations: %w\n', [L]).
-allwn(L):-
-  lexrels(L),
-  writef('\nLexical Relations: %w\n', [L]).
-allwn(L):-
-  lexinfo(L),
-  writef('\nLexical Info: %w\n', [L]).
-allwn(L):-
-  seminfo(L),
-  writef('\nSemantic Info: %w\n', [L]).
-allwn(L):-
-  morphinfo(L),
-  writef('\nMorphological Info: %w\n', [L]).
+Copyright 2017-26 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+
+Use load_wn/0 to load everything, ensure_pred/1 to load a single relation,
+load_type/1, to load selected groups of relations, f. ex. semantic (semrels)
+or lexical (lexrels).
+
+----------------------------------------------------------------- */
+
+:- include(db_version).
+:- include(utils).
+
+semrels('Semantic Relations', ['at','cs','ent','hyp','ins','mm','mp','ms','sim']).
+lexrels('Lexical Relations', ['ant','der','per','ppl','sa','vgp']).
+lexinfo('Lexical Info', ['cls','fr','s','sk','syntax']).
+seminfo('Semantic Info', ['g']).
+morphinfo('Morphological Info', ['exc']).
+
+wndata([semrels,lexrels,lexinfo,seminfo,morphinfo]).
+
+% --------------------------------------------------------------------------------
+
+type_info(Type,Rels):-
+  call(Type,Label,Rels),
+  format('~n~w: ~w~n', [Label,Rels]).
+
+allwn(Rels):-
+  wndata(Reltypes),
+  member(Type, Reltypes),
+  type_info(Type,Rels).
 
 /* ------------------------------------------
 Load WN
 ------------------------------------------ */
 
-pred2arity(P,A,L):-
-  current_predicate(P,Term),
-  Term =.. [P|L],
-  length(L,A).
+ensure_pred(P):-
+  atom_concat('prolog/wn_',P,F),
+  format('Loading ~w~n',[F]),
+  safe_consult(F).
+%  time_call(safe_consult(F)).
 
-loadpred(P):-
-  swritef(F,'prolog/wn_%w.pl',[P]),
-  consult(F),
-  pred2arity(P,A,_),
-  writef('Loaded %w (%w/%w)\n',[F,P,A]).
+load_type(Type):-
+  type_info(Type,Rels),
+  member(P,Rels),
+  ensure_pred(P),
+  false.
+load_type(_).
 
-loadwn:-
+load_wn:-
   allwn(L),
   member(P,L),
-  loadpred(P),
+  ensure_pred(P),
   false.
-loadwn:-
+load_wn:-
   nl.
-
-:-loadwn.

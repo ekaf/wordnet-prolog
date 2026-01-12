@@ -1,5 +1,37 @@
-# wordnet-prolog utilities (c) 2017-20 Eric Kafe
-# License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+# -----------------------------------------------------------------------------
+# https://github.com/ekaf/wordnet-prolog/raw/master/Makefile
+# Copyright 2017-26 Eric Kafe
+# SPDX-License-Identifier: Apache-2.0
+# Licensed under the Apache License, Version 2.0
+# -----------------------------------------------------------------------------
+
+# 2025-12: extended by Daniel Diaz for other Prolog systems (swi, gprolog, tpl)
+
+PL ?= swi
+
+# --- functions to run Prolog on given file and halt ---
+define run_swi
+swipl -q -s $(1) -g 'halt'
+endef
+
+define run_gprolog
+# Needs to allocate sufficient memory:
+LOCALSZ=200000 \
+TRAILSZ=100000 \
+GLOBALSZ=700000 \
+MAX_ATOM=600000 \
+gprolog --init-goal "consult('$(1)'), halt"
+endef
+
+define run_tpl
+tpl -q -g 'halt' $(1)
+endef
+
+
+# Add other Prolog systems here
+
+# -----------------------------------------------------
+
 
 all: doc valid query csv
 
@@ -19,25 +51,23 @@ ps:
 	@groff -mandoc -Tps doc/prologdb.5>doc/prologdb.ps
 
 query:
-	@echo Testing example queries...
-	swipl -c wn_query.pl
+	@echo "Testing example queries with $(PL)..."
+	@$(call run_$(PL),wn_query.pl)
 
 valid:
-	@echo Checking symmetry and asymmetry ...
-	swipl -c wn_valid.pl
+	@echo "Checking symmetry and asymmetry with $(PL)..."
+	@$(call run_$(PL),wn_valid.pl)
+
+.PHONY: csv
 
 csv:
-	@mkdir csv
-	@echo Converting Prolog databases to CSV
-	swipl -c wn2csv.pl
-
-cleanpl:
-	@echo Deleting Prolog output
-	@rm a.out
-#	@rm output/wn*Output*
+	@mkdir -p csv
+	@echo "Converting Prolog databases to CSV with $(PL)..."
+	@$(call run_$(PL),wn2csv.pl)
 
 cleancsv:
 	@echo Deleting CSV files
-	@rm -r csv
+	-@rm -f csv/*.csv
+	-@rmdir csv
 
-clean: cleanpl cleancsv
+clean: cleancsv

@@ -1,0 +1,34 @@
+/* -----------------------------------------------------------------
+
+https://github.com/ekaf/wordnet-prolog/raw/master/loader.pl
+
+Load files only once
+
+Copyright 2017-26 Eric Kafe
+SPDX-License-Identifier: Apache-2.0
+Licensed under the Apache License, Version 2.0
+
+----------------------------------------------------------------- */
+
+
+% 1. Declare the tracking predicate as dynamic globally
+:- dynamic(already_loaded/1).
+
+% 2. Define safe_consult/1 only once
+iniloader:-
+  current_predicate(safe_consult/1) -> true
+  ; assertz((
+    safe_consult(File) :-
+      (  already_loaded(File)
+         ->  format('~N% Info: ~w already loaded. Skipping.~n', [File])
+         ; ( 
+             format('~N% Consulting: ~w ... ', [File]),
+             catch(flush_output, _, true),
+             consult(File),
+             assertz(already_loaded(File)),
+             format('Done.~n', [])
+           )
+      )
+    )).
+
+:- initialization(iniloader).
