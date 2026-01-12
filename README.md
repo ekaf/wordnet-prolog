@@ -28,29 +28,29 @@ https://en-word.net/static/english-wordnet-2025-plus.zip
 
 This version contains the following numbers of unique facts:
 
-    7990 wn_ant.pl
-    1278 wn_at.pl
-   16591 wn_cls.pl
-     221 wn_cs.pl
-   74606 wn_der.pl
-     407 wn_ent.pl
-    4467 wn_exc.pl
-   21833 wn_fr.pl
-  120565 wn_g.pl
-   93395 wn_hyp.pl
-    8599 wn_ins.pl
-   12292 wn_mm.pl
-    9194 wn_mp.pl
-     826 wn_ms.pl
-    8067 wn_per.pl
-      73 wn_ppl.pl
-    4098 wn_sa.pl
-   21452 wn_sim.pl
-  203366 wn_sk.pl
-  203366 wn_s.pl
-     929 wn_syntax.pl
-    1726 wn_vgp.pl
-  815341 total
+- wn_ant.pl: 7990
+- wn_at.pl: 1278
+- wn_cls.pl: 16591
+- wn_cs.pl: 221
+- wn_der.pl: 74606
+- wn_ent.pl: 407
+- wn_exc.pl: 4467
+- wn_fr.pl: 21833
+- wn_g.pl: 120565
+- wn_hyp.pl: 93395
+- wn_ins.pl: 8599
+- wn_mm.pl: 12292
+- wn_mp.pl: 9194
+- wn_ms.pl: 826
+- wn_per.pl: 8067
+- wn_ppl.pl: 73
+- wn_sa.pl: 4098
+- wn_sim.pl: 21452
+- wn_sk.pl: 203366
+- wn_s.pl: 203366
+- wn_syntax.pl: 929
+- wn_vgp.pl: 1726
+- total: 815341
 
 ## Other Prolog versions of WordNet
 
