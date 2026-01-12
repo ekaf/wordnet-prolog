@@ -51,7 +51,7 @@ avoids duplicates, and contains only unique facts:
 - wn_s.pl: 207272
 - wn_syntax.pl: 1054
 - wn_vgp.pl: 1744
-- total: 804644
+- total: 810697
 
 
 ## Other Prolog versions of WordNet
