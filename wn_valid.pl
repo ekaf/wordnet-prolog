@@ -154,10 +154,29 @@ hypself:-
   ok,
   nl.
 
+
+/* ------------------------------------------
+Empty (i.e. wordless) synsets
+------------------------------------------ */
+
+wordless:-
+  write('Empty (i.e. wordless) synsets:'),
+  nl,
+ g(A,G),
+ ( 
+   s(A,_,_,_,_,_)
+   -> true
+   ;  format('~w: ~w~n',[A,G])
+ ),
+ false.
+wordless:-
+  ok,
+  nl.
+
+
 /* ------------------------------------------
 Find Duplicates
 ------------------------------------------ */
-
 
 :- dynamic(duplicate/3).
 
@@ -188,11 +207,12 @@ check_duplicates:-
 check_duplicates:-
   nl.
 
+
 /* ------------------------------------------
 WN Validation
 ------------------------------------------ */
 
-wn_tests([check_keys, symcheck, asymcheck, check_duplicates]).
+wn_tests([check_keys, symcheck, asymcheck, wordless, check_duplicates]).
 
 run_tests:-
   time_call(mk_ski),

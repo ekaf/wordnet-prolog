@@ -53,11 +53,11 @@ Morphological Info: [exc]
 Loading prolog/wn_exc
 % Consulting: prolog/wn_exc ... Done.
 
-mk_ski executed in 0.11 seconds.
+mk_ski executed in 0.14 seconds.
 Searching for ambiguous sense keys
 OK
 
-check_keys executed in 0.21 seconds.
+check_keys executed in 0.23 seconds.
 Loading prolog/wn_sk
 % Info: prolog/wn_sk already loaded. Skipping.
 Symmetric relations: [sim,ant,der,vgp]
@@ -118,6 +118,11 @@ OK
 
 
 asymcheck executed in 0.09 seconds.
+Empty (i.e. wordless) synsets:
+OK
+
+
+wordless executed in 0.12 seconds.
 
 Semantic Relations: [at,cs,ent,hyp,ins,mm,mp,ms,sim]
 Loading prolog/wn_at
@@ -239,4 +244,4 @@ Checking duplicates in exc/3
 OK
 
 
-check_duplicates executed in 2.27 seconds.
+check_duplicates executed in 2.19 seconds.
