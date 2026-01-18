@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.1
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2011 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 vgp(200001740,0,200002325,0).
 vgp(200001740,0,200002573,0).
 vgp(200002325,0,200001740,0).

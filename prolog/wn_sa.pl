@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.1
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2011 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 sa(200001740,1,200004227,3).
 sa(200001740,1,200005041,3).
 sa(200004227,3,200001740,1).

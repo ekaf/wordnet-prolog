@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.1
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2011 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 at(100033914,302303673).
 at(100033914,302304841).
 at(100845915,301204643).

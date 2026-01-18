@@ -1,24 +1,28 @@
-WordNet Prolog
-Copyright 2017-26 Eric Kafe
+SPDX-License-Identifier: Apache-2.0 AND WordNet
 
-1. WordNet Prolog (Logic and Wrappers)
-   Copyright 2017-26 Eric Kafe
-   Licensed under the Apache License, Version 2.0
+wordnet-prolog
+Copyright 2017-2026 Eric Kafe and contributors.
 
-2. Princeton WordNet Release 3.1
-   Copyright 2011 by Princeton University. All rights reserved.
-   (Licensed under the WordNet License; see LICENSE-wn)
+This product includes software developed by Eric Kafe
+(https://github.com/ekaf/wordnet-prolog) and is licensed under
+the Apache License 2.0.
 
-3. WordNet Release 3.0 (Bugfix Version)
-   Copyright 2006 by Princeton University. All rights reserved.
-   This version is a bugfix release of the original Princeton 3.0 
-   Prolog databases. Modifications are limited to fixing well-known 
-   bugs, enforcing full symmetry of symmetric relations, and 
-   removing duplicate clauses.
-   (Licensed under the WordNet License; see LICENSE-wn)
+-------------------------------------------------------------------------------
+DATASET ATTRIBUTIONS
+-------------------------------------------------------------------------------
 
-4. Open English WordNet (OEWN)
-   Copyright 2019-present by the Open English Wordnet team.
-   As per OEWN dual-licensing requirements, attribution is hereby 
-   given to both the Princeton WordNet and the Open English Wordnet team.
-   (Licensed under WordNet License / CC-BY 4.0; see LICENSE-OEWN)
+Princeton WordNet (PWN)
+
+   WordNet 3.1 Copyright 2011 by Princeton University. All rights reserved.
+
+   * The name of Princeton University or Princeton may not be used in
+     advertising or publicity pertaining to distribution of the software
+     and/or database without specific, prior written permission.
+   * Title to copyright in this software, database and any associated
+     documentation shall at all times remain with Princeton University
+     and LICENSEE agrees to preserve same.
+
+   Citation: Christiane Fellbaum (1998, ed.) WordNet: An Electronic Lexical
+   Database. Cambridge, MA: MIT Press.
+
+-------------------------------------------------------------------------------

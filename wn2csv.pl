@@ -1,13 +1,11 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/wn2csv.pl
+wn2csv.pl
 
 Convert all WordNet databases to comma-separated CSV files
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
-
 ----------------------------------------------------------------- */
 
 :- include(loader).
@@ -50,11 +48,16 @@ args2csv([H|T], P, N) :-
 
 %---------------------------------------------------------
 
+spdx:-
+  wn_version(_V),
+  format('# SPDX-License-Identifier: WordNet ~n',[]).
+
 pred2file(P):-
   atom_concat('csv/wn_',P,C1),
   atom_concat(C1,'.csv',C),
   format('Writing ~w~n',[C]),
-  tell(C).
+  tell(C),
+  spdx.
 
 out2csv(P):-
   pred2file(P),

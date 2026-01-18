@@ -1,10 +1,9 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+wn_valid.pl
 
 Tests for a few potential Wordnet database bugs
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -17,7 +16,7 @@ but usually don't happen anymore:
 - asymcheck: direct loops in the asymmetric relations
 - check_duplicates: find duplicate clauses
 
-Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
+Additionally, the optional 'hypself' test finds self-hyponyms
 
 ----------------------------------------------------------------- */
 

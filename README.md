@@ -10,11 +10,10 @@ and bundled with a copy of the original WNprolog-3.0 documentation
 
 ## License
 
-The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSE)**.
+The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSES/LICENSE-Apache-2.0.txt)**.
 
-The database files are subject to the following third-party licenses:
-* **WordNet 3.1 & 3.0 (Bugfix):** Distributed under the [Princeton WordNet License](LICENSE-wn).
-* **Open English WordNet:** Distributed under a dual-license requiring attribution to both Princeton and the OEWN team (See [LICENSE-OEWN](LICENSE-OEWN)).
+The database files in this release are subject to the following third-party license:
+* **WordNet 3.1:** Distributed under the [Princeton WordNet License](LICENSES/LICENSE-WordNet.txt).
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
 

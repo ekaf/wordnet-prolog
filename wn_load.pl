@@ -1,17 +1,16 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/wn_load.pl
+wn_load.pl
 
 Prolog program to load the WordNet databases.
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
 
-Use load_wn/0 to load everything, ensure_pred/1 to load a single relation,
-load_type/1, to load selected groups of relations, f. ex. semantic (semrels)
-or lexical (lexrels).
+Use load_wn/0 to load everything, ensure_pred/1 to load a single
+relation, load_type/1, to load selected groups of relations,
+f. ex. semantic (semrels) or lexical (lexrels).
 
 ----------------------------------------------------------------- */
 

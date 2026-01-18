@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.1
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2011 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 exc(n,aardwolves,aardwolf).
 exc(n,abaci,abacus).
 exc(n,aboideaux,aboideau).
@@ -543,7 +552,6 @@ exc(n,diapophyses,diapophysis).
 exc(n,diarthroses,diarthrosis).
 exc(n,diastalses,diastalsis).
 exc(n,diastases,diastasis).
-exc(n,diastemata,diastema).
 exc(n,diastemata,diastema).
 exc(n,diathses,diathesis).
 exc(n,diazoes,diazo).
@@ -1895,7 +1903,6 @@ exc(n,suckerfishes,suckerfish).
 exc(n,suckfishes,suckfish).
 exc(n,sudaria,sudarium).
 exc(n,sudatoria,sudatorium).
-exc(n,sudatoria,sudatorium).
 exc(n,sulci,sulcus).
 exc(n,summae,summa).
 exc(n,sunfishes,sunfish).
@@ -2047,7 +2054,6 @@ exc(n,uteri,uterus).
 exc(n,utriculi,utriculus).
 exc(n,uvulae,uvula).
 exc(n,vacua,vacuum).
-exc(n,vagi,vagus).
 exc(n,vagi,vagus).
 exc(n,vaginae,vagina).
 exc(n,valleculae,vallecula).
