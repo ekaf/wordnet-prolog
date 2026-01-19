@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 cls(100006741,0,106127926,0,t).
 cls(100011488,0,106156983,0,t).
 cls(100016276,1,115617305,3,u).

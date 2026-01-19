@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 per(302620943,1,114793878,1).
 per(302620943,2,114793878,1).
 per(302621103,1,102712388,1).

@@ -1,10 +1,9 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+wn_valid.pl
 
 Tests for a few potential Wordnet database bugs
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -15,9 +14,10 @@ but usually don't happen anymore:
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
 - asymcheck: direct loops in the asymmetric relations
+- wordless: empty synsets
 - check_duplicates: find duplicate clauses
 
-Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
+Additionally, the optional 'hypself' test finds self-hyponyms
 
 ----------------------------------------------------------------- */
 
@@ -160,8 +160,7 @@ Empty (i.e. wordless) synsets
 ------------------------------------------ */
 
 wordless:-
-  write('Empty (i.e. wordless) synsets:'),
-  nl,
+  nl, write('Empty (i.e. wordless) synsets:'), nl,
  g(A,G),
  ( 
    s(A,_,_,_,_,_)
@@ -170,8 +169,7 @@ wordless:-
  ),
  false.
 wordless:-
-  ok,
-  nl.
+  ok.
 
 
 /* ------------------------------------------
@@ -206,7 +204,6 @@ check_duplicates:-
   false.
 check_duplicates:-
   nl.
-
 
 /* ------------------------------------------
 WN Validation

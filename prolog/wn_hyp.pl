@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 hyp(100001930,100001740).
 hyp(100002137,100001740).
 hyp(100002470,100001930).

@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 ant(100013376,1,100016276,2).
 ant(100016276,2,100013376,1).
 ant(100042671,1,100042865,1).

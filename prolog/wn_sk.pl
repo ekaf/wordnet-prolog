@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 sk(100001740,1,'entity%1:03:00::').
 sk(100001930,1,'physical_entity%1:03:00::').
 sk(100002137,1,'abstraction%1:03:00::').

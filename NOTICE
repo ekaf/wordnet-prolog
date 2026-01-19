@@ -1,24 +1,20 @@
-WordNet Prolog
-Copyright 2017-26 Eric Kafe
+### Licensing and Attribution
 
-1. WordNet Prolog (Logic and Wrappers)
-   Copyright 2017-26 Eric Kafe
-   Licensed under the Apache License, Version 2.0
+#### Prolog Library
+- License: Apache License 2.0
+- SPDX: Apache-2.0
+- Copyright: 2017-2026 Eric Kafe
 
-2. Princeton WordNet Release 3.1
-   Copyright 2011 by Princeton University. All rights reserved.
-   (Licensed under the WordNet License; see LICENSE-wn)
+#### Open English WordNet (OEWN) Files
+- License: Dual-licensed under:
+  1. WordNet License (WordNet)
+  2. Creative Commons Attribution 4.0 International (CC-BY-4.0)
+- SPDX: WordNet AND CC-BY-4.0
+- Copyright: 2011 by Princeton University AND 2025 OEWN Community
+- Source: https://en-word.net
+- Note: OEWN is based on WordNet 3.1
 
-3. WordNet Release 3.0 (Bugfix Version)
-   Copyright 2006 by Princeton University. All rights reserved.
-   This version is a bugfix release of the original Princeton 3.0 
-   Prolog databases. Modifications are limited to fixing well-known 
-   bugs, enforcing full symmetry of symmetric relations, and 
-   removing duplicate clauses.
-   (Licensed under the WordNet License; see LICENSE-wn)
-
-4. Open English WordNet (OEWN)
-   Copyright 2019-present by the Open English Wordnet team.
-   As per OEWN dual-licensing requirements, attribution is hereby 
-   given to both the Princeton WordNet and the Open English Wordnet team.
-   (Licensed under WordNet License / CC-BY 4.0; see LICENSE-OEWN)
+#### WNprolog Documentation Files
+- License: WordNet License (WordNet)
+- SPDX: WordNet
+- Copyright: 2006 by Princeton University

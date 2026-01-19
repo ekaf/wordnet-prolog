@@ -1,3 +1,14 @@
+/*
+WordNet-Version: OEWN Edition 2025+
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet AND CC-BY-4.0
+
+SPDX-FileCopyrightText: 2011 Princeton University
+SPDX-FileCopyrightText: 2025 Open English Wordnet Community
+
+For more information, see: https://en-word.net
+----------------------------------------------------------- */
 g(100001740,'that which is perceived or known or inferred to have its own distinct existence (living or nonliving)').
 g(100001930,'an entity that has physical existence').
 g(100002137,'a general concept formed by extracting common features from specific examples').

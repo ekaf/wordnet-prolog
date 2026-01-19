@@ -7,15 +7,33 @@ compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 
-## License
 
-The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSE)**.
+## Licensing
 
-The database files are subject to the following third-party licenses:
-* **WordNet 3.1 & 3.0 (Bugfix):** Distributed under the [Princeton WordNet License](LICENSE-wn).
-* **Open English WordNet:** Distributed under a dual-license requiring attribution to both Princeton and the OEWN team (See [LICENSE-OEWN](LICENSE-OEWN)).
+This software contains multiple components under different licenses:
+
+### Prolog Library Code
+- **License**: Apache License 2.0
+- **Files**: All files in the root directory
+- **SPDX Identifier**: Apache-2.0
+
+### WNprolog Documentation
+- **License**: WordNet
+- **Files**: All files in the doc/ directory
+- **SPDX Identifier**: WordNet
+
+### Open English WordNet (OEWN) Data
+- **Licenses**: Dual-licensed under:
+  1. Princeton WordNet License (WordNet)
+  2. Creative Commons Attribution 4.0 (CC-BY-4.0)
+- **SPDX Identifier**: (WordNet AND CC-BY-4.0)
+- **Files**: All files in the prolog/ directory
+
+### License Files
+All license texts are available in the LICENSES/ directory.
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
+
 
 ## WNprolog-OEWN-2025+
 
@@ -126,3 +144,5 @@ make valid PL=gprolog
 - Use call/N instead of univ (=..).
 - Add loader.pl, to load files only once.
 - Quote strings and fix quotes in CSV output.
+- Unescape sense keys
+- Add SPDX license and copyright tags

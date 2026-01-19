@@ -1,13 +1,11 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/utils.pl
+utils.pl
 
 Interoperable utility predicates
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
-
 ----------------------------------------------------------------- */
 
 :- include(timeit).
