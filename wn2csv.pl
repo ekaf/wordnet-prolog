@@ -51,10 +51,11 @@ args2csv([H|T], P, N) :-
 spdx:-
   write('# SPDX-License-Identifier: WordNet'),
   wn_version(V),
-  atom_chars(V, [H|_]),
-  ( H=='O' -> write(' AND CC-BY-4.0'); true ),
-  nl,
-  format('# SPDX-FileCopyrightText: 2011 Princeton University~n'),
+  atom_chars(V, [H,_,N|_]),
+  ( H=='O' -> write(' AND CC-BY-4.0'); true ), nl,
+  write('# SPDX-FileCopyrightText: '),
+  ( N=='0' -> write('2006'); write('2011') ),
+  format(' Princeton University~n'),
   ( H=='O' -> format('# SPDX-FileCopyrightText: 2025 Open English Wordnet Community~n'); true ),
   write('# -----------------------------------------------------------'), nl.
 
