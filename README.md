@@ -12,7 +12,7 @@ and bundled with a copy of the original WNprolog-3.0 documentation
 
 The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSES/LICENSE-Apache-2.0.txt)**.
 
-The database files in this release are subject to the following third-party license:
+The WordNet documentation and database files in this release are subject to the following third-party license:
 * **WordNet 3.1:** Distributed under the [Princeton WordNet License](LICENSES/LICENSE-WordNet.txt).
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.

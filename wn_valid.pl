@@ -14,6 +14,7 @@ but usually don't happen anymore:
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
 - asymcheck: direct loops in the asymmetric relations
+- wordless: empty synsets
 - check_duplicates: find duplicate clauses
 
 Additionally, the optional 'hypself' test finds self-hyponyms
@@ -153,10 +154,27 @@ hypself:-
   ok,
   nl.
 
+
+/* ------------------------------------------
+Empty (i.e. wordless) synsets
+------------------------------------------ */
+
+wordless:-
+  nl, write('Empty (i.e. wordless) synsets:'), nl,
+ g(A,G),
+ ( 
+   s(A,_,_,_,_,_)
+   -> true
+   ;  format('~w: ~w~n',[A,G])
+ ),
+ false.
+wordless:-
+  ok.
+
+
 /* ------------------------------------------
 Find Duplicates
 ------------------------------------------ */
-
 
 :- dynamic(duplicate/3).
 
@@ -191,7 +209,7 @@ check_duplicates:-
 WN Validation
 ------------------------------------------ */
 
-wn_tests([check_keys, symcheck, asymcheck, check_duplicates]).
+wn_tests([check_keys, symcheck, asymcheck, wordless, check_duplicates]).
 
 run_tests:-
   time_call(mk_ski),
