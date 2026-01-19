@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.0
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2006 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 cs(200019273,200014742).
 cs(200020449,200020259).
 cs(200025203,200026153).

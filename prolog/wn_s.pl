@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.0
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2006 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 s(100001740,1,'entity',n,1,11).
 s(100001930,1,'physical entity',n,1,0).
 s(100002137,1,'abstraction',n,6,0).
@@ -439,8 +448,6 @@ s(100074524,1,'oversight',n,3,0).
 s(100074524,2,'lapse',n,1,3).
 s(100074624,1,'omission',n,1,2).
 s(100074624,2,'skip',n,2,0).
-s(100074790,10,'boner',n,1,0).
-s(100074790,11,'boo-boo',n,1,0).
 s(100074790,1,'blunder',n,1,2).
 s(100074790,2,'blooper',n,1,0).
 s(100074790,3,'bloomer',n,2,0).
@@ -450,6 +457,8 @@ s(100074790,6,'foul-up',n,1,0).
 s(100074790,7,'fuckup',n,2,0).
 s(100074790,8,'flub',n,1,0).
 s(100074790,9,'botch',n,1,0).
+s(100074790,10,'boner',n,1,0).
+s(100074790,11,'boo-boo',n,1,0).
 s(100075283,1,'snafu',n,1,0).
 s(100075471,1,'spectacle',n,3,0).
 s(100075618,1,'ballup',n,1,0).
@@ -1474,10 +1483,6 @@ s(100185438,2,'breech birth',n,1,0).
 s(100185438,3,'breech presentation',n,1,0).
 s(100185612,1,'frank breech',n,1,0).
 s(100185612,2,'frank breech delivery',n,1,0).
-s(100185778,10,'cesarian',n,1,0).
-s(100185778,11,'caesarean',n,1,0).
-s(100185778,12,'caesarian',n,1,0).
-s(100185778,13,'abdominal delivery',n,1,0).
 s(100185778,1,'cesarean delivery',n,1,0).
 s(100185778,2,'caesarean delivery',n,1,0).
 s(100185778,3,'caesarian delivery',n,1,0).
@@ -1487,6 +1492,10 @@ s(100185778,6,'caesarean section',n,1,0).
 s(100185778,7,'caesarian section',n,1,0).
 s(100185778,8,'C-section',n,1,0).
 s(100185778,9,'cesarean',n,1,0).
+s(100185778,10,'cesarian',n,1,0).
+s(100185778,11,'caesarean',n,1,0).
+s(100185778,12,'caesarian',n,1,0).
+s(100185778,13,'abdominal delivery',n,1,0).
 s(100186251,1,'forceps delivery',n,1,0).
 s(100186549,1,'midwifery',n,2,0).
 s(100186634,1,'score',n,10,0).
@@ -6132,7 +6141,6 @@ s(100735936,2,'misbehaviour',n,1,0).
 s(100735936,3,'misdeed',n,1,2).
 s(100736219,1,'delinquency',n,3,0).
 s(100736219,2,'juvenile delinquency',n,1,0).
-s(100736375,10,'shenanigan',n,1,2).
 s(100736375,1,'mischief',n,1,3).
 s(100736375,2,'mischief-making',n,1,0).
 s(100736375,3,'mischievousness',n,3,0).
@@ -6142,6 +6150,7 @@ s(100736375,6,'devilment',n,1,1).
 s(100736375,7,'rascality',n,3,0).
 s(100736375,8,'roguery',n,1,0).
 s(100736375,9,'roguishness',n,2,0).
+s(100736375,10,'shenanigan',n,1,2).
 s(100736786,1,'hell',n,6,0).
 s(100736786,2,'blaze',n,3,1).
 s(100736894,1,'monkey business',n,1,0).
@@ -6526,9 +6535,6 @@ s(100778405,1,'fraud in law',n,1,0).
 s(100778575,1,'fraud in the factum',n,1,0).
 s(100778809,1,'fraud in the inducement',n,1,0).
 s(100779035,1,'intrinsic fraud',n,1,0).
-s(100779248,10,'hustle',n,1,0).
-s(100779248,11,'sting',n,4,0).
-s(100779248,12,'flimflam',n,1,0).
 s(100779248,1,'bunco',n,1,0).
 s(100779248,2,'bunco game',n,1,0).
 s(100779248,3,'bunko',n,1,0).
@@ -6538,6 +6544,9 @@ s(100779248,6,'confidence trick',n,1,0).
 s(100779248,7,'confidence game',n,1,0).
 s(100779248,8,'con game',n,1,1).
 s(100779248,9,'gyp',n,1,0).
+s(100779248,10,'hustle',n,1,0).
+s(100779248,11,'sting',n,4,0).
+s(100779248,12,'flimflam',n,1,0).
 s(100779599,1,'sting operation',n,1,0).
 s(100779809,1,'pyramiding',n,1,0).
 s(100780148,1,'swindle',n,1,0).
@@ -7128,8 +7137,6 @@ s(100844994,1,'defloration',n,2,0).
 s(100845178,1,'insemination',n,2,0).
 s(100845352,1,'artificial insemination',n,1,0).
 s(100845352,2,'AI',n,4,0).
-s(100845523,10,'relation',n,2,2).
-s(100845523,11,'carnal knowledge',n,1,0).
 s(100845523,1,'sexual intercourse',n,1,0).
 s(100845523,2,'intercourse',n,2,0).
 s(100845523,3,'sex act',n,1,3).
@@ -7139,9 +7146,8 @@ s(100845523,6,'coition',n,1,0).
 s(100845523,7,'sexual congress',n,1,0).
 s(100845523,8,'congress',n,4,0).
 s(100845523,9,'sexual relation',n,1,1).
-s(100846021,10,'roll in the hay',n,1,0).
-s(100846021,11,'shag',n,4,0).
-s(100846021,12,'shtup',n,1,0).
+s(100845523,10,'relation',n,2,2).
+s(100845523,11,'carnal knowledge',n,1,0).
 s(100846021,1,'fuck',n,1,0).
 s(100846021,2,'fucking',n,1,0).
 s(100846021,3,'screw',n,5,0).
@@ -7151,6 +7157,9 @@ s(100846021,6,'nooky',n,1,0).
 s(100846021,7,'nookie',n,1,0).
 s(100846021,8,'piece of ass',n,1,0).
 s(100846021,9,'piece of tail',n,1,0).
+s(100846021,10,'roll in the hay',n,1,0).
+s(100846021,11,'shag',n,4,0).
+s(100846021,12,'shtup',n,1,0).
 s(100846326,1,'pleasure',n,5,0).
 s(100846432,1,'hank panky',n,1,0).
 s(100846515,1,'sexual love',n,2,0).
@@ -17447,7 +17456,6 @@ s(101935012,1,'Oligochaeta',n,1,0).
 s(101935012,2,'class Oligochaeta',n,1,0).
 s(101935176,1,'oligochaete',n,1,0).
 s(101935176,2,'oligochaete worm',n,1,0).
-s(101935395,10,'red worm',n,1,0).
 s(101935395,1,'earthworm',n,1,0).
 s(101935395,2,'angleworm',n,1,0).
 s(101935395,3,'fishworm',n,1,0).
@@ -17457,6 +17465,7 @@ s(101935395,6,'nightwalker',n,1,0).
 s(101935395,7,'nightcrawler',n,1,0).
 s(101935395,8,'crawler',n,3,0).
 s(101935395,9,'dew worm',n,1,0).
+s(101935395,10,'red worm',n,1,0).
 s(101935743,1,'Branchiobdellidae',n,1,0).
 s(101935743,2,'family Branchiobdellidae',n,1,0).
 s(101935997,1,'Branchiobdella',n,1,0).
@@ -24047,7 +24056,6 @@ s(102508458,1,'Bassariscidae',n,1,0).
 s(102508458,2,'subfamily Bassariscidae',n,1,0).
 s(102508615,1,'Bassariscus',n,1,0).
 s(102508615,2,'genus Bassariscus',n,1,0).
-s(102508742,10,'Bassariscus astutus',n,1,0).
 s(102508742,1,'bassarisk',n,1,0).
 s(102508742,2,'cacomistle',n,1,0).
 s(102508742,3,'cacomixle',n,1,0).
@@ -24057,6 +24065,7 @@ s(102508742,6,'ringtail',n,1,0).
 s(102508742,7,'ring-tailed cat',n,1,0).
 s(102508742,8,'civet cat',n,1,0).
 s(102508742,9,'miner''s cat',n,1,0).
+s(102508742,10,'Bassariscus astutus',n,1,0).
 s(102509071,1,'Potos',n,1,0).
 s(102509071,2,'genus Potos',n,1,0).
 s(102509197,1,'kinkajou',n,1,0).
@@ -26054,9 +26063,6 @@ s(102675354,1,'acetophenetidin',n,1,0).
 s(102675354,2,'acetphenetidin',n,1,0).
 s(102675354,3,'phenacetin',n,1,0).
 s(102675522,1,'achromatic lens',n,1,0).
-s(102675657,10,'superman',n,2,0).
-s(102675657,11,'window pane',n,1,0).
-s(102675657,12,'Zen',n,3,0).
 s(102675657,1,'acid',n,2,0).
 s(102675657,2,'back breaker',n,1,0).
 s(102675657,3,'battery-acid',n,1,0).
@@ -26066,6 +26072,9 @@ s(102675657,6,'Elvis',n,1,0).
 s(102675657,7,'loony toons',n,1,0).
 s(102675657,8,'Lucy in the sky with diamonds',n,1,0).
 s(102675657,9,'pane',n,3,0).
+s(102675657,10,'superman',n,2,0).
+s(102675657,11,'window pane',n,1,0).
+s(102675657,12,'Zen',n,3,0).
 s(102675885,1,'acorn tube',n,1,0).
 s(102675987,1,'acoustic',n,1,0).
 s(102676097,1,'acoustic delay line',n,1,0).
@@ -26758,7 +26767,6 @@ s(102746841,1,'artist''s workroom',n,1,0).
 s(102746841,2,'atelier',n,1,0).
 s(102746978,1,'art school',n,1,6).
 s(102747063,1,'ascot',n,1,0).
-s(102747177,10,'trash bin',n,1,0).
 s(102747177,1,'ashcan',n,1,0).
 s(102747177,2,'trash can',n,1,0).
 s(102747177,3,'garbage can',n,1,1).
@@ -26768,6 +26776,7 @@ s(102747177,6,'ash-bin',n,1,0).
 s(102747177,7,'ashbin',n,1,0).
 s(102747177,8,'dustbin',n,1,1).
 s(102747177,9,'trash barrel',n,1,0).
+s(102747177,10,'trash bin',n,1,0).
 s(102747379,1,'Ash Can',n,1,0).
 s(102747379,2,'Ashcan school',n,2,0).
 s(102747541,1,'ashlar',n,1,0).
@@ -27520,9 +27529,6 @@ s(102820432,2,'bedding',n,2,0).
 s(102820432,3,'litter',n,4,0).
 s(102820556,1,'Bedford cord',n,1,0).
 s(102820675,1,'bed jacket',n,1,0).
-s(102820798,10,'nuthouse',n,1,1).
-s(102820798,11,'sanatorium',n,2,0).
-s(102820798,12,'snake pit',n,2,0).
 s(102820798,1,'Bedlam',n,2,0).
 s(102820798,2,'booby hatch',n,1,0).
 s(102820798,3,'crazy house',n,1,0).
@@ -27532,6 +27538,9 @@ s(102820798,6,'funny house',n,1,1).
 s(102820798,7,'loony bin',n,1,0).
 s(102820798,8,'madhouse',n,1,0).
 s(102820798,9,'nut house',n,1,0).
+s(102820798,10,'nuthouse',n,1,1).
+s(102820798,11,'sanatorium',n,2,0).
+s(102820798,12,'snake pit',n,2,0).
 s(102821030,1,'bed linen',n,1,1).
 s(102821202,1,'bedpan',n,1,0).
 s(102821328,1,'bed pillow',n,1,0).
@@ -28586,7 +28595,6 @@ s(102923682,2,'machine pistol',n,1,0).
 s(102923802,1,'burr',n,2,1).
 s(102923915,1,'burr',n,4,0).
 s(102924023,1,'burthen',n,1,0).
-s(102924116,10,'passenger vehicle',n,1,0).
 s(102924116,1,'bus',n,1,2).
 s(102924116,2,'autobus',n,1,0).
 s(102924116,3,'coach',n,5,0).
@@ -28596,6 +28604,7 @@ s(102924116,6,'jitney',n,1,0).
 s(102924116,7,'motorbus',n,1,0).
 s(102924116,8,'motorcoach',n,1,0).
 s(102924116,9,'omnibus',n,2,0).
+s(102924116,10,'passenger vehicle',n,1,0).
 s(102924554,1,'bus',n,4,0).
 s(102924554,2,'jalopy',n,1,0).
 s(102924554,3,'heap',n,3,0).
@@ -31482,15 +31491,6 @@ s(103218198,2,'dog sled',n,1,0).
 s(103218198,3,'dog sleigh',n,1,0).
 s(103218334,1,'dogtooth',n,3,0).
 s(103218446,1,'dog wrench',n,1,0).
-s(103218545,10,'thingmabob',n,1,0).
-s(103218545,11,'thingamajig',n,1,0).
-s(103218545,12,'thingumajig',n,1,0).
-s(103218545,13,'thingmajig',n,1,0).
-s(103218545,14,'thingummy',n,1,0).
-s(103218545,15,'whatchamacallit',n,1,0).
-s(103218545,16,'whatchamacallum',n,1,0).
-s(103218545,17,'whatsis',n,1,0).
-s(103218545,18,'widget',n,1,0).
 s(103218545,1,'doodad',n,1,0).
 s(103218545,2,'doohickey',n,1,0).
 s(103218545,3,'doojigger',n,1,0).
@@ -31500,6 +31500,15 @@ s(103218545,6,'gismo',n,1,0).
 s(103218545,7,'gubbins',n,1,0).
 s(103218545,8,'thingamabob',n,1,0).
 s(103218545,9,'thingumabob',n,1,0).
+s(103218545,10,'thingmabob',n,1,0).
+s(103218545,11,'thingamajig',n,1,0).
+s(103218545,12,'thingumajig',n,1,0).
+s(103218545,13,'thingmajig',n,1,0).
+s(103218545,14,'thingummy',n,1,0).
+s(103218545,15,'whatchamacallit',n,1,0).
+s(103218545,16,'whatchamacallum',n,1,0).
+s(103218545,17,'whatsis',n,1,0).
+s(103218545,18,'widget',n,1,0).
 s(103219010,1,'doily',n,1,0).
 s(103219010,2,'doyley',n,1,0).
 s(103219010,3,'doyly',n,1,0).
@@ -34473,8 +34482,6 @@ s(103532342,1,'hook',n,5,0).
 s(103532672,1,'hook',n,4,0).
 s(103532672,2,'claw',n,2,1).
 s(103532919,1,'hook',n,1,1).
-s(103533014,10,'hubble-bubble',n,1,0).
-s(103533014,11,'hubbly-bubbly',n,1,0).
 s(103533014,1,'hookah',n,1,0).
 s(103533014,2,'narghile',n,1,0).
 s(103533014,3,'nargileh',n,1,0).
@@ -34484,6 +34491,8 @@ s(103533014,6,'chicha',n,1,0).
 s(103533014,7,'calean',n,1,0).
 s(103533014,8,'kalian',n,1,0).
 s(103533014,9,'water pipe',n,1,0).
+s(103533014,10,'hubble-bubble',n,1,0).
+s(103533014,11,'hubbly-bubbly',n,1,0).
 s(103533392,1,'hook and eye',n,1,0).
 s(103533486,1,'hookup',n,2,0).
 s(103533486,2,'assemblage',n,2,1).
@@ -36571,9 +36580,6 @@ s(103754014,3,'methadon',n,1,0).
 s(103754014,4,'dolophine hydrochloride',n,1,0).
 s(103754014,5,'fixer',n,4,0).
 s(103754014,6,'synthetic heroin',n,1,0).
-s(103754295,10,'ice',n,6,0).
-s(103754295,11,'shabu',n,1,0).
-s(103754295,12,'trash',n,4,0).
 s(103754295,1,'methamphetamine',n,1,0).
 s(103754295,2,'methamphetamine hydrochloride',n,1,0).
 s(103754295,3,'Methedrine',n,1,0).
@@ -36583,6 +36589,9 @@ s(103754295,6,'chalk',n,3,0).
 s(103754295,7,'chicken feed',n,2,0).
 s(103754295,8,'crank',n,3,0).
 s(103754295,9,'glass',n,5,0).
+s(103754295,10,'ice',n,6,0).
+s(103754295,11,'shabu',n,1,0).
+s(103754295,12,'trash',n,4,0).
 s(103754676,1,'methapyrilene',n,1,0).
 s(103754822,1,'methaqualone',n,1,0).
 s(103754822,2,'Quaalude',n,1,0).
@@ -38847,9 +38856,6 @@ s(103990210,4,'call box',n,2,0).
 s(103990210,5,'letter box',n,1,0).
 s(103990385,1,'post road',n,1,0).
 s(103990474,1,'pot',n,1,6).
-s(103990834,10,'skunk',n,3,0).
-s(103990834,11,'locoweed',n,2,0).
-s(103990834,12,'Mary Jane',n,1,0).
 s(103990834,1,'pot',n,9,0).
 s(103990834,2,'grass',n,5,0).
 s(103990834,3,'green goddess',n,1,0).
@@ -38859,6 +38865,9 @@ s(103990834,6,'gage',n,1,1).
 s(103990834,7,'sess',n,1,0).
 s(103990834,8,'sens',n,1,0).
 s(103990834,9,'smoke',n,6,0).
+s(103990834,10,'skunk',n,3,0).
+s(103990834,11,'locoweed',n,2,0).
+s(103990834,12,'Mary Jane',n,1,0).
 s(103991062,1,'pot',n,4,1).
 s(103991062,2,'flowerpot',n,1,0).
 s(103991202,1,'potbelly',n,2,0).
@@ -44881,7 +44890,6 @@ s(104639113,2,'restrictiveness',n,2,0).
 s(104639371,1,'sternness',n,2,0).
 s(104639371,2,'strictness',n,2,0).
 s(104639591,1,'Puritanism',n,2,0).
-s(104639732,10,'stiffness',n,5,0).
 s(104639732,1,'severity',n,4,0).
 s(104639732,2,'severeness',n,4,0).
 s(104639732,3,'harshness',n,4,0).
@@ -44891,6 +44899,7 @@ s(104639732,6,'rigorousness',n,2,0).
 s(104639732,7,'rigourousness',n,2,0).
 s(104639732,8,'inclemency',n,2,0).
 s(104639732,9,'hardness',n,5,0).
+s(104639732,10,'stiffness',n,5,0).
 s(104640176,1,'good nature',n,1,1).
 s(104640356,1,'grace',n,4,1).
 s(104640356,2,'good will',n,1,5).
@@ -50372,11 +50381,6 @@ s(105216365,1,'body',n,1,113).
 s(105216365,2,'organic structure',n,1,0).
 s(105216365,3,'physical structure',n,1,1).
 s(105217061,1,'life form',n,1,0).
-s(105217168,10,'bod',n,1,0).
-s(105217168,11,'chassis',n,1,0).
-s(105217168,12,'frame',n,3,3).
-s(105217168,13,'form',n,5,19).
-s(105217168,14,'flesh',n,2,8).
 s(105217168,1,'human body',n,1,2).
 s(105217168,2,'physical body',n,1,0).
 s(105217168,3,'material body',n,1,0).
@@ -50386,6 +50390,11 @@ s(105217168,6,'figure',n,2,48).
 s(105217168,7,'physique',n,2,0).
 s(105217168,8,'anatomy',n,2,2).
 s(105217168,9,'shape',n,3,3).
+s(105217168,10,'bod',n,1,0).
+s(105217168,11,'chassis',n,1,0).
+s(105217168,12,'frame',n,3,3).
+s(105217168,13,'form',n,5,19).
+s(105217168,14,'flesh',n,2,8).
 s(105217688,1,'person',n,2,1).
 s(105217859,1,'body',n,3,14).
 s(105217859,2,'dead body',n,1,3).
@@ -53524,6 +53533,15 @@ s(105558717,2,'dorsum',n,1,0).
 s(105559023,1,'small',n,1,1).
 s(105559122,1,'latissimus dorsi',n,1,0).
 s(105559122,2,'lat',n,1,4).
+s(105559256,1,'buttocks',n,1,1).
+s(105559256,2,'nates',n,1,0).
+s(105559256,3,'arse',n,1,0).
+s(105559256,4,'butt',n,4,0).
+s(105559256,5,'backside',n,2,0).
+s(105559256,6,'bum',n,4,0).
+s(105559256,7,'buns',n,1,0).
+s(105559256,8,'can',n,4,0).
+s(105559256,9,'fundament',n,2,0).
 s(105559256,10,'hindquarters',n,1,0).
 s(105559256,11,'hind end',n,1,0).
 s(105559256,12,'keister',n,1,0).
@@ -53534,7 +53552,6 @@ s(105559256,16,'rear end',n,1,1).
 s(105559256,17,'rump',n,3,0).
 s(105559256,18,'stern',n,3,0).
 s(105559256,19,'seat',n,2,4).
-s(105559256,1,'buttocks',n,1,1).
 s(105559256,20,'tail',n,4,1).
 s(105559256,21,'tail end',n,3,0).
 s(105559256,22,'tooshie',n,1,0).
@@ -53544,14 +53561,6 @@ s(105559256,25,'behind',n,1,1).
 s(105559256,26,'derriere',n,1,0).
 s(105559256,27,'fanny',n,1,0).
 s(105559256,28,'ass',n,1,3).
-s(105559256,2,'nates',n,1,0).
-s(105559256,3,'arse',n,1,0).
-s(105559256,4,'butt',n,4,0).
-s(105559256,5,'backside',n,2,0).
-s(105559256,6,'bum',n,4,0).
-s(105559256,7,'buns',n,1,0).
-s(105559256,8,'can',n,4,0).
-s(105559256,9,'fundament',n,2,0).
 s(105559727,1,'buttock',n,1,0).
 s(105559727,2,'cheek',n,3,0).
 s(105559908,1,'extremity',n,1,1).
@@ -56779,13 +56788,6 @@ s(105920651,1,'semantics',n,2,0).
 s(105920791,1,'significance',n,2,7).
 s(105920791,2,'import',n,4,1).
 s(105920791,3,'implication',n,2,6).
-s(105921123,10,'inwardness',n,1,0).
-s(105921123,11,'marrow',n,5,0).
-s(105921123,12,'meat',n,3,0).
-s(105921123,13,'nub',n,3,0).
-s(105921123,14,'pith',n,2,0).
-s(105921123,15,'sum',n,4,1).
-s(105921123,16,'nitty-gritty',n,1,0).
 s(105921123,1,'kernel',n,3,0).
 s(105921123,2,'substance',n,2,2).
 s(105921123,3,'core',n,4,2).
@@ -56795,6 +56797,13 @@ s(105921123,6,'essence',n,1,2).
 s(105921123,7,'gist',n,2,0).
 s(105921123,8,'heart',n,5,2).
 s(105921123,9,'heart and soul',n,1,0).
+s(105921123,10,'inwardness',n,1,0).
+s(105921123,11,'marrow',n,5,0).
+s(105921123,12,'meat',n,3,0).
+s(105921123,13,'nub',n,3,0).
+s(105921123,14,'pith',n,2,0).
+s(105921123,15,'sum',n,4,1).
+s(105921123,16,'nitty-gritty',n,1,0).
 s(105921685,1,'bare bones',n,1,0).
 s(105921868,1,'hypostasis',n,4,0).
 s(105922014,1,'quiddity',n,2,0).
@@ -61911,8 +61920,6 @@ s(106610897,1,'double talk',n,1,0).
 s(106610992,1,'jabber',n,1,0).
 s(106610992,2,'jabbering',n,1,0).
 s(106610992,3,'gabble',n,1,0).
-s(106611147,10,'tosh',n,1,0).
-s(106611147,11,'twaddle',n,1,0).
 s(106611147,1,'baloney',n,1,0).
 s(106611147,2,'boloney',n,1,0).
 s(106611147,3,'bilgewater',n,1,0).
@@ -61922,6 +61929,8 @@ s(106611147,6,'humbug',n,1,0).
 s(106611147,7,'taradiddle',n,2,0).
 s(106611147,8,'tarradiddle',n,2,0).
 s(106611147,9,'tommyrot',n,1,0).
+s(106611147,10,'tosh',n,1,0).
+s(106611147,11,'twaddle',n,1,0).
 s(106611376,1,'bullshit',n,1,0).
 s(106611376,2,'bull',n,3,1).
 s(106611376,3,'Irish bull',n,1,0).
@@ -61965,7 +61974,6 @@ s(106613340,1,'epigraph',n,1,0).
 s(106613448,1,'mimesis',n,3,0).
 s(106613576,1,'misquotation',n,1,0).
 s(106613576,2,'misquote',n,1,0).
-s(106613686,10,'flick',n,3,0).
 s(106613686,1,'movie',n,1,26).
 s(106613686,2,'film',n,1,38).
 s(106613686,3,'picture',n,6,3).
@@ -61975,6 +61983,7 @@ s(106613686,6,'motion picture',n,1,9).
 s(106613686,7,'motion-picture show',n,1,0).
 s(106613686,8,'picture show',n,1,0).
 s(106613686,9,'pic',n,1,0).
+s(106613686,10,'flick',n,3,0).
 s(106614628,1,'telefilm',n,1,0).
 s(106614729,1,'scene',n,4,8).
 s(106614729,2,'shot',n,6,1).
@@ -62119,12 +62128,6 @@ s(106628861,1,'acknowledgment',n,3,0).
 s(106628861,2,'acknowledgement',n,2,0).
 s(106629392,1,'farewell',n,1,4).
 s(106629392,2,'word of farewell',n,1,1).
-s(106629610,10,'goodby',n,1,0).
-s(106629610,11,'good-bye',n,1,4).
-s(106629610,12,'goodbye',n,1,0).
-s(106629610,13,'good day',n,1,0).
-s(106629610,14,'sayonara',n,1,0).
-s(106629610,15,'so long',n,1,0).
 s(106629610,1,'adieu',n,1,1).
 s(106629610,2,'adios',n,1,1).
 s(106629610,3,'arrivederci',n,1,0).
@@ -62134,6 +62137,12 @@ s(106629610,6,'bye',n,2,0).
 s(106629610,7,'bye-bye',n,1,0).
 s(106629610,8,'cheerio',n,1,0).
 s(106629610,9,'good-by',n,1,0).
+s(106629610,10,'goodby',n,1,0).
+s(106629610,11,'good-bye',n,1,4).
+s(106629610,12,'goodbye',n,1,0).
+s(106629610,13,'good day',n,1,0).
+s(106629610,14,'sayonara',n,1,0).
+s(106629610,15,'so long',n,1,0).
 s(106629858,1,'bon voyage',n,1,0).
 s(106629858,2,'send-off',n,1,1).
 s(106630017,1,'greeting',n,1,5).
@@ -63526,8 +63535,6 @@ s(106779914,2,'visual joke',n,1,0).
 s(106780069,1,'caricature',n,1,0).
 s(106780069,2,'imitation',n,4,0).
 s(106780069,3,'impersonation',n,1,0).
-s(106780309,10,'pasquinade',n,1,0).
-s(106780309,11,'put-on',n,1,0).
 s(106780309,1,'parody',n,1,2).
 s(106780309,2,'lampoon',n,1,0).
 s(106780309,3,'spoof',n,1,0).
@@ -63537,6 +63544,8 @@ s(106780309,6,'takeoff',n,3,0).
 s(106780309,7,'burlesque',n,2,0).
 s(106780309,8,'travesty',n,2,0).
 s(106780309,9,'charade',n,1,0).
+s(106780309,10,'pasquinade',n,1,0).
+s(106780309,11,'put-on',n,1,0).
 s(106780678,1,'cartoon',n,1,2).
 s(106780678,2,'sketch',n,4,0).
 s(106780882,1,'fun',n,2,3).
@@ -66682,7 +66691,6 @@ s(107120524,5,'shout',n,1,3).
 s(107120524,6,'vociferation',n,1,0).
 s(107121157,1,'cry',n,2,10).
 s(107121157,2,'yell',n,2,4).
-s(107121361,10,'yowl',n,1,0).
 s(107121361,1,'bellow',n,1,2).
 s(107121361,2,'bellowing',n,1,0).
 s(107121361,3,'holla',n,1,0).
@@ -66692,6 +66700,7 @@ s(107121361,6,'hollo',n,1,0).
 s(107121361,7,'holloa',n,1,0).
 s(107121361,8,'roar',n,2,2).
 s(107121361,9,'roaring',n,2,0).
+s(107121361,10,'yowl',n,1,0).
 s(107121904,1,'blue murder',n,1,0).
 s(107122018,1,'catcall',n,1,2).
 s(107122118,1,'clamor',n,2,0).
@@ -66836,10 +66845,6 @@ s(107134850,2,'confab',n,1,0).
 s(107134850,3,'confabulation',n,1,0).
 s(107134850,4,'schmooze',n,1,0).
 s(107134850,5,'schmoose',n,1,0).
-s(107135080,10,'chin-wag',n,1,0).
-s(107135080,11,'chin wagging',n,1,0).
-s(107135080,12,'chin-wagging',n,1,0).
-s(107135080,13,'causerie',n,1,0).
 s(107135080,1,'chitchat',n,1,0).
 s(107135080,2,'chit-chat',n,1,0).
 s(107135080,3,'chit chat',n,1,0).
@@ -66849,6 +66854,10 @@ s(107135080,6,'gabfest',n,1,0).
 s(107135080,7,'gossip',n,1,3).
 s(107135080,8,'tittle-tattle',n,1,0).
 s(107135080,9,'chin wag',n,1,0).
+s(107135080,10,'chin-wag',n,1,0).
+s(107135080,11,'chin wagging',n,1,0).
+s(107135080,12,'chin-wagging',n,1,0).
+s(107135080,13,'causerie',n,1,0).
 s(107135450,1,'gossiping',n,1,0).
 s(107135450,2,'gossipmongering',n,1,0).
 s(107135627,1,'scandalmongering',n,1,0).
@@ -72270,12 +72279,6 @@ s(107697537,1,'hotdog',n,2,0).
 s(107697537,2,'hot dog',n,2,0).
 s(107697537,3,'red hot',n,1,0).
 s(107697699,1,'Sloppy Joe',n,1,0).
-s(107697825,10,'sub',n,1,0).
-s(107697825,11,'submarine',n,2,0).
-s(107697825,12,'submarine sandwich',n,1,0).
-s(107697825,13,'torpedo',n,2,0).
-s(107697825,14,'wedge',n,2,0).
-s(107697825,15,'zep',n,1,0).
 s(107697825,1,'bomber',n,3,0).
 s(107697825,2,'grinder',n,1,0).
 s(107697825,3,'hero',n,7,0).
@@ -72285,6 +72288,12 @@ s(107697825,6,'hoagy',n,1,0).
 s(107697825,7,'Cuban sandwich',n,1,0).
 s(107697825,8,'Italian sandwich',n,1,0).
 s(107697825,9,'poor boy',n,1,0).
+s(107697825,10,'sub',n,1,0).
+s(107697825,11,'submarine',n,2,0).
+s(107697825,12,'submarine sandwich',n,1,0).
+s(107697825,13,'torpedo',n,2,0).
+s(107697825,14,'wedge',n,2,0).
+s(107697825,15,'zep',n,1,0).
 s(107698250,1,'gyro',n,1,0).
 s(107698401,1,'bacon-lettuce-tomato sandwich',n,1,0).
 s(107698401,2,'BLT',n,1,0).
@@ -75247,7 +75256,6 @@ s(108022972,4,'HUA',n,1,0).
 s(108022972,5,'Harkat ul-Mujahedeen',n,1,0).
 s(108022972,6,'Al Faran',n,1,0).
 s(108022972,7,'Movement of Holy Warriors',n,1,0).
-s(108023374,10,'Organization of the Oppressed on Earth',n,1,0).
 s(108023374,1,'Hizballah',n,1,0).
 s(108023374,2,'Hezbollah',n,1,0).
 s(108023374,3,'Hizbollah',n,1,0).
@@ -75257,6 +75265,7 @@ s(108023374,6,'Party of God',n,1,0).
 s(108023374,7,'Islamic Jihad',n,1,0).
 s(108023374,8,'Islamic Jihad for the Liberation of Palestine',n,1,0).
 s(108023374,9,'Revolutionary Justice Organization',n,1,0).
+s(108023374,10,'Organization of the Oppressed on Earth',n,1,0).
 s(108023843,1,'Hizb ut-Tahrir',n,1,0).
 s(108023843,2,'Freedom Party',n,1,0).
 s(108024096,1,'International Islamic Front for Jihad against Jews and Crusaders',n,1,0).
@@ -75892,10 +75901,6 @@ s(108101410,2,'strain',n,5,2).
 s(108101410,3,'stock',n,7,1).
 s(108101755,1,'bloodstock',n,1,0).
 s(108101846,1,'pedigree',n,2,0).
-s(108101937,10,'origin',n,6,0).
-s(108101937,11,'parentage',n,3,0).
-s(108101937,12,'stemma',n,2,0).
-s(108101937,13,'stock',n,6,1).
 s(108101937,1,'lineage',n,1,2).
 s(108101937,2,'line',n,17,2).
 s(108101937,3,'line of descent',n,2,0).
@@ -75905,6 +75910,10 @@ s(108101937,6,'blood line',n,1,0).
 s(108101937,7,'blood',n,4,1).
 s(108101937,8,'pedigree',n,1,2).
 s(108101937,9,'ancestry',n,1,3).
+s(108101937,10,'origin',n,6,0).
+s(108101937,11,'parentage',n,3,0).
+s(108101937,12,'stemma',n,2,0).
+s(108101937,13,'stock',n,6,1).
 s(108102282,1,'side',n,8,1).
 s(108102402,1,'genealogy',n,1,0).
 s(108102402,2,'family tree',n,1,0).
@@ -78281,7 +78290,6 @@ s(108398179,2,'rank',n,3,3).
 s(108398467,1,'coven',n,1,0).
 s(108398580,1,'sabbat',n,1,0).
 s(108398580,2,'witches'' Sabbath',n,1,0).
-s(108398773,10,'motley',n,1,0).
 s(108398773,1,'assortment',n,1,1).
 s(108398773,2,'mixture',n,3,2).
 s(108398773,3,'mixed bag',n,1,0).
@@ -78291,14 +78299,13 @@ s(108398773,6,'variety',n,1,22).
 s(108398773,7,'salmagundi',n,1,0).
 s(108398773,8,'smorgasbord',n,1,0).
 s(108398773,9,'potpourri',n,1,1).
+s(108398773,10,'motley',n,1,0).
 s(108399287,1,'grab bag',n,1,0).
 s(108399378,1,'witches'' brew',n,1,0).
 s(108399378,2,'witches'' broth',n,1,0).
 s(108399378,3,'witch''s brew',n,1,0).
 s(108399586,1,'range',n,6,0).
 s(108399818,1,'selection',n,2,2).
-s(108399977,10,'gallimaufry',n,1,0).
-s(108399977,11,'omnium-gatherum',n,1,0).
 s(108399977,1,'odds and ends',n,1,2).
 s(108399977,2,'oddments',n,1,0).
 s(108399977,3,'melange',n,1,0).
@@ -78308,6 +78315,8 @@ s(108399977,6,'mishmash',n,1,0).
 s(108399977,7,'mingle-mangle',n,1,0).
 s(108399977,8,'hodgepodge',n,1,1).
 s(108399977,9,'hotchpotch',n,1,0).
+s(108399977,10,'gallimaufry',n,1,0).
+s(108399977,11,'omnium-gatherum',n,1,0).
 s(108400191,1,'alphabet soup',n,1,0).
 s(108400331,1,'litter',n,1,4).
 s(108400452,1,'batch',n,3,0).
@@ -78656,8 +78665,6 @@ s(108439808,1,'garden',n,2,6).
 s(108439955,1,'staff',n,1,17).
 s(108440382,1,'line personnel',n,1,0).
 s(108440499,1,'management personnel',n,1,2).
-s(108440630,10,'totalitarianism',n,1,0).
-s(108440630,11,'tyranny',n,1,3).
 s(108440630,1,'dictatorship',n,1,3).
 s(108440630,2,'absolutism',n,2,0).
 s(108440630,3,'authoritarianism',n,1,0).
@@ -78667,6 +78674,8 @@ s(108440630,6,'monocracy',n,1,0).
 s(108440630,7,'one-man rule',n,1,0).
 s(108440630,8,'shogunate',n,1,0).
 s(108440630,9,'Stalinism',n,1,0).
+s(108440630,10,'totalitarianism',n,1,0).
+s(108440630,11,'tyranny',n,1,3).
 s(108441039,1,'police state',n,1,0).
 s(108441203,1,'law',n,1,50).
 s(108441203,2,'jurisprudence',n,2,0).
@@ -87056,8 +87065,6 @@ s(109537781,2,'Holy Spirit',n,1,2).
 s(109537781,3,'Paraclete',n,1,0).
 s(109538021,1,'hypostasis',n,3,0).
 s(109538021,2,'hypostasis of Christ',n,1,0).
-s(109538318,10,'Jehovah',n,1,0).
-s(109538318,11,'JHVH',n,1,0).
 s(109538318,1,'Yahweh',n,1,0).
 s(109538318,2,'YHWH',n,1,0).
 s(109538318,3,'Yahwe',n,1,0).
@@ -87067,6 +87074,8 @@ s(109538318,6,'Yahve',n,1,0).
 s(109538318,7,'Wahvey',n,1,0).
 s(109538318,8,'Jahvey',n,1,0).
 s(109538318,9,'Jahweh',n,1,0).
+s(109538318,10,'Jehovah',n,1,0).
+s(109538318,11,'JHVH',n,1,0).
 s(109538544,1,'Allah',n,1,0).
 s(109538633,1,'demiurge',n,1,0).
 s(109538757,1,'faun',n,1,0).
@@ -88916,12 +88925,6 @@ s(109762011,1,'accused',n,1,0).
 s(109762101,1,'defendant',n,1,4).
 s(109762101,2,'suspect',n,2,0).
 s(109762385,1,'accuser',n,1,0).
-s(109762509,10,'star',n,2,3).
-s(109762509,11,'superstar',n,1,0).
-s(109762509,12,'whiz',n,1,1).
-s(109762509,13,'whizz',n,1,0).
-s(109762509,14,'wizard',n,1,2).
-s(109762509,15,'wiz',n,1,0).
 s(109762509,1,'ace',n,3,2).
 s(109762509,2,'adept',n,1,0).
 s(109762509,3,'champion',n,4,0).
@@ -88931,6 +88934,12 @@ s(109762509,6,'mavin',n,1,0).
 s(109762509,7,'virtuoso',n,1,1).
 s(109762509,8,'genius',n,3,1).
 s(109762509,9,'hotshot',n,1,1).
+s(109762509,10,'star',n,2,3).
+s(109762509,11,'superstar',n,1,0).
+s(109762509,12,'whiz',n,1,1).
+s(109762509,13,'whizz',n,1,0).
+s(109762509,14,'wizard',n,1,2).
+s(109762509,15,'wiz',n,1,0).
 s(109762821,1,'achiever',n,1,0).
 s(109762821,2,'winner',n,3,0).
 s(109762821,3,'success',n,4,3).
@@ -89384,8 +89393,6 @@ s(109814660,3,'affirmer',n,1,0).
 s(109814660,4,'asseverator',n,1,0).
 s(109814660,5,'avower',n,2,0).
 s(109815076,1,'assessee',n,1,0).
-s(109815188,10,'son of a bitch',n,1,7).
-s(109815188,11,'SOB',n,2,0).
 s(109815188,1,'asshole',n,1,0).
 s(109815188,2,'bastard',n,1,22).
 s(109815188,3,'cocksucker',n,2,0).
@@ -89395,6 +89402,8 @@ s(109815188,6,'mother fucker',n,1,0).
 s(109815188,7,'motherfucker',n,1,0).
 s(109815188,8,'prick',n,1,2).
 s(109815188,9,'whoreson',n,2,0).
+s(109815188,10,'son of a bitch',n,1,7).
+s(109815188,11,'SOB',n,2,0).
 s(109815455,1,'assignee',n,1,2).
 s(109815677,1,'assignor',n,1,0).
 s(109815790,1,'assistant',n,1,7).
@@ -90459,9 +90468,6 @@ s(109916788,1,'chief justice',n,1,1).
 s(109917214,1,'chief of staff',n,1,0).
 s(109917345,1,'chief petty officer',n,1,0).
 s(109917481,1,'Chief Secretary',n,1,0).
-s(109917593,10,'tyke',n,3,0).
-s(109917593,11,'fry',n,3,0).
-s(109917593,12,'nestling',n,2,0).
 s(109917593,1,'child',n,1,148).
 s(109917593,2,'kid',n,1,53).
 s(109917593,3,'youngster',n,1,4).
@@ -90471,6 +90477,9 @@ s(109917593,6,'nipper',n,1,0).
 s(109917593,7,'small fry',n,2,0).
 s(109917593,8,'tiddler',n,1,0).
 s(109917593,9,'tike',n,2,0).
+s(109917593,10,'tyke',n,3,0).
+s(109917593,11,'fry',n,3,0).
+s(109917593,12,'nestling',n,2,0).
 s(109918248,1,'child',n,2,65).
 s(109918248,2,'kid',n,4,0).
 s(109918554,1,'child',n,3,1).
@@ -91730,10 +91739,6 @@ s(110039391,5,'booby',n,1,1).
 s(110039391,6,'pinhead',n,1,0).
 s(110039569,1,'dummy',n,1,0).
 s(110039569,2,'silent person',n,1,0).
-s(110039663,10,'muttonhead',n,1,0).
-s(110039663,11,'shithead',n,1,0).
-s(110039663,12,'dumbass',n,1,0).
-s(110039663,13,'fuckhead',n,1,0).
 s(110039663,1,'dunce',n,1,0).
 s(110039663,2,'dunderhead',n,1,0).
 s(110039663,3,'numskull',n,1,0).
@@ -91743,6 +91748,10 @@ s(110039663,6,'lunkhead',n,1,4).
 s(110039663,7,'hammerhead',n,1,0).
 s(110039663,8,'knucklehead',n,1,0).
 s(110039663,9,'loggerhead',n,1,0).
+s(110039663,10,'muttonhead',n,1,0).
+s(110039663,11,'shithead',n,1,0).
+s(110039663,12,'dumbass',n,1,0).
+s(110039663,13,'fuckhead',n,1,0).
 s(110039946,1,'dunker',n,2,0).
 s(110040049,1,'dunker',n,1,0).
 s(110040240,1,'Dutch uncle',n,1,0).
@@ -92080,8 +92089,6 @@ s(110075529,1,'fabulist',n,1,0).
 s(110075693,1,'facilitator',n,1,0).
 s(110075802,1,'factotum',n,1,0).
 s(110075899,1,'faddist',n,1,0).
-s(110076033,10,'poove',n,1,0).
-s(110076033,11,'pouf',n,1,0).
 s(110076033,1,'fagot',n,1,0).
 s(110076033,2,'faggot',n,1,0).
 s(110076033,3,'fag',n,1,0).
@@ -92091,6 +92098,8 @@ s(110076033,6,'pansy',n,3,0).
 s(110076033,7,'queen',n,6,0).
 s(110076033,8,'queer',n,1,0).
 s(110076033,9,'poof',n,1,0).
+s(110076033,10,'poove',n,1,0).
+s(110076033,11,'pouf',n,1,0).
 s(110076224,1,'fairy godmother',n,1,0).
 s(110076307,1,'fakir',n,1,0).
 s(110076307,2,'fakeer',n,1,0).
@@ -92912,7 +92921,6 @@ s(110151760,1,'guitarist',n,1,0).
 s(110151760,2,'guitar player',n,1,0).
 s(110151957,1,'gulper',n,1,0).
 s(110151957,2,'guzzler',n,2,0).
-s(110152083,10,'shooter',n,5,0).
 s(110152083,1,'gunman',n,1,3).
 s(110152083,2,'gunslinger',n,1,1).
 s(110152083,3,'hired gun',n,1,0).
@@ -92922,6 +92930,7 @@ s(110152083,6,'triggerman',n,1,0).
 s(110152083,7,'hit man',n,1,0).
 s(110152083,8,'hitman',n,1,0).
 s(110152083,9,'torpedo',n,1,0).
+s(110152083,10,'shooter',n,5,0).
 s(110152306,1,'gunnery sergeant',n,1,0).
 s(110152440,1,'gunrunner',n,1,0).
 s(110152440,2,'arms-runner',n,1,0).
@@ -93485,8 +93494,6 @@ s(110200781,1,'important person',n,1,0).
 s(110200781,2,'influential person',n,1,0).
 s(110200781,3,'personage',n,2,0).
 s(110201366,1,'importer',n,1,0).
-s(110201535,10,'pseud',n,1,0).
-s(110201535,11,'role player',n,1,0).
 s(110201535,1,'imposter',n,1,0).
 s(110201535,2,'impostor',n,1,0).
 s(110201535,3,'pretender',n,2,0).
@@ -93496,6 +93503,8 @@ s(110201535,6,'fraud',n,2,2).
 s(110201535,7,'sham',n,2,0).
 s(110201535,8,'shammer',n,2,0).
 s(110201535,9,'pseudo',n,1,0).
+s(110201535,10,'pseud',n,1,0).
+s(110201535,11,'role player',n,1,0).
 s(110201956,1,'impressionist',n,1,1).
 s(110202085,1,'inamorata',n,1,0).
 s(110202225,1,'inamorato',n,1,0).
@@ -96168,9 +96177,6 @@ s(110484858,3,'prosecuting officer',n,1,0).
 s(110484858,4,'prosecuting attorney',n,1,2).
 s(110485168,1,'proselyte',n,1,0).
 s(110485298,1,'prospector',n,1,0).
-s(110485440,10,'sporting lady',n,1,0).
-s(110485440,11,'lady of pleasure',n,1,0).
-s(110485440,12,'woman of the street',n,1,0).
 s(110485440,1,'prostitute',n,1,1).
 s(110485440,2,'cocotte',n,1,0).
 s(110485440,3,'whore',n,1,3).
@@ -96180,6 +96186,9 @@ s(110485440,6,'tart',n,1,0).
 s(110485440,7,'cyprian',n,1,0).
 s(110485440,8,'fancy woman',n,1,0).
 s(110485440,9,'working girl',n,2,0).
+s(110485440,10,'sporting lady',n,1,0).
+s(110485440,11,'lady of pleasure',n,1,0).
+s(110485440,12,'woman of the street',n,1,0).
 s(110485883,1,'protectionist',n,1,0).
 s(110485989,1,'protege',n,1,1).
 s(110486166,1,'protegee',n,1,0).
@@ -96704,10 +96713,6 @@ s(110539160,1,'rosebud',n,2,0).
 s(110539278,1,'Rosicrucian',n,2,0).
 s(110539462,1,'Rosicrucian',n,1,0).
 s(110539616,1,'Rotarian',n,1,0).
-s(110539715,10,'lowlife',n,1,0).
-s(110539715,11,'scum bag',n,1,0).
-s(110539715,12,'so-and-so',n,1,0).
-s(110539715,13,'git',n,1,0).
 s(110539715,1,'rotter',n,1,0).
 s(110539715,2,'dirty dog',n,1,0).
 s(110539715,3,'rat',n,3,0).
@@ -96717,6 +96722,10 @@ s(110539715,6,'stinkpot',n,1,0).
 s(110539715,7,'bum',n,1,2).
 s(110539715,8,'puke',n,1,1).
 s(110539715,9,'crumb',n,2,0).
+s(110539715,10,'lowlife',n,1,0).
+s(110539715,11,'scum bag',n,1,0).
+s(110539715,12,'so-and-so',n,1,0).
+s(110539715,13,'git',n,1,0).
 s(110540114,1,'Mountie',n,1,0).
 s(110540252,1,'Rough Rider',n,1,0).
 s(110540413,1,'roughrider',n,1,0).
@@ -97429,8 +97438,6 @@ s(110613387,1,'smallholder',n,1,0).
 s(110613505,1,'small person',n,1,0).
 s(110613738,1,'small farmer',n,1,0).
 s(110613839,1,'smarta',n,1,0).
-s(110613996,10,'mantrap',n,1,1).
-s(110613996,11,'dish',n,4,0).
 s(110613996,1,'smasher',n,2,0).
 s(110613996,2,'stunner',n,1,0).
 s(110613996,3,'knockout',n,1,0).
@@ -97440,6 +97447,8 @@ s(110613996,6,'sweetheart',n,3,0).
 s(110613996,7,'peach',n,2,0).
 s(110613996,8,'lulu',n,1,0).
 s(110613996,9,'looker',n,2,0).
+s(110613996,10,'mantrap',n,1,1).
+s(110613996,11,'dish',n,4,0).
 s(110614225,1,'smasher',n,1,0).
 s(110614363,1,'smiler',n,1,0).
 s(110614507,1,'smirker',n,1,0).
@@ -99783,7 +99792,6 @@ s(110840354,2,'Samuel Beckett',n,1,0).
 s(110840563,1,'Becquerel',n,1,0).
 s(110840563,2,'Henri Becquerel',n,1,0).
 s(110840563,3,'Antoine Henri Becquerel',n,1,0).
-s(110840769,10,'the Venerable Bede',n,1,0).
 s(110840769,1,'Bede',n,1,0).
 s(110840769,2,'Saint Bede',n,1,0).
 s(110840769,3,'St. Bede',n,1,0).
@@ -99793,6 +99801,7 @@ s(110840769,6,'St. Baeda',n,1,0).
 s(110840769,7,'Beda',n,1,0).
 s(110840769,8,'Saint Beda',n,1,0).
 s(110840769,9,'St. Beda',n,1,0).
+s(110840769,10,'the Venerable Bede',n,1,0).
 s(110841065,1,'Beecher',n,1,0).
 s(110841065,2,'Henry Ward Beecher',n,1,0).
 s(110841241,1,'Beerbohm',n,1,0).
@@ -101187,12 +101196,6 @@ s(110940315,2,'Christian Johann Doppler',n,1,0).
 s(110940474,1,'Dos Passos',n,1,0).
 s(110940474,2,'John Dos Passos',n,1,0).
 s(110940474,3,'John Roderigo Dos Passos',n,1,0).
-s(110940669,10,'Feodor Mikhailovich Dostoyevsky',n,1,0).
-s(110940669,11,'Fyodor Mikhailovich Dostoyevsky',n,1,0).
-s(110940669,12,'Feodor Mikhailovich Dostoevski',n,1,0).
-s(110940669,13,'Fyodor Mikhailovich Dostoevski',n,1,0).
-s(110940669,14,'Feodor Mikhailovich Dostoevsky',n,1,0).
-s(110940669,15,'Fyodor Mikhailovich Dostoevsky',n,1,0).
 s(110940669,1,'Dostoyevsky',n,1,0).
 s(110940669,2,'Dostoevski',n,1,0).
 s(110940669,3,'Dostoevsky',n,1,0).
@@ -101202,6 +101205,12 @@ s(110940669,6,'Feodor Dostoevski',n,1,0).
 s(110940669,7,'Fyodor Dostoevski',n,1,0).
 s(110940669,8,'Feodor Dostoevsky',n,1,0).
 s(110940669,9,'Fyodor Dostoevsky',n,1,0).
+s(110940669,10,'Feodor Mikhailovich Dostoyevsky',n,1,0).
+s(110940669,11,'Fyodor Mikhailovich Dostoyevsky',n,1,0).
+s(110940669,12,'Feodor Mikhailovich Dostoevski',n,1,0).
+s(110940669,13,'Fyodor Mikhailovich Dostoevski',n,1,0).
+s(110940669,14,'Feodor Mikhailovich Dostoevsky',n,1,0).
+s(110940669,15,'Fyodor Mikhailovich Dostoevsky',n,1,0).
 s(110941206,1,'Douglas',n,1,0).
 s(110941206,2,'Stephen A. Douglas',n,1,0).
 s(110941206,3,'Stephen Arnold Douglas',n,1,0).
@@ -103056,7 +103065,6 @@ s(111083064,6,'Eusebius Sophronius Hieronymus',n,1,0).
 s(111083527,1,'Jespersen',n,1,0).
 s(111083527,2,'Otto Jespersen',n,1,0).
 s(111083527,3,'Jens Otto Harry Jespersen',n,1,0).
-s(111083656,10,'Deliverer',n,1,0).
 s(111083656,1,'Jesus',n,1,7).
 s(111083656,2,'Jesus of Nazareth',n,1,0).
 s(111083656,3,'the Nazarene',n,1,0).
@@ -103066,6 +103074,7 @@ s(111083656,6,'Savior',n,1,1).
 s(111083656,7,'Saviour',n,1,0).
 s(111083656,8,'Good Shepherd',n,1,0).
 s(111083656,9,'Redeemer',n,1,0).
+s(111083656,10,'Deliverer',n,1,0).
 s(111084110,1,'El Nino',n,2,0).
 s(111084200,1,'Jevons',n,1,0).
 s(111084200,2,'William Stanley Jevons',n,1,0).
@@ -104747,8 +104756,6 @@ s(111201061,2,'Carry Nation',n,1,0).
 s(111201061,3,'Carry Amelia Moore Nation',n,1,0).
 s(111201264,1,'Natta',n,1,0).
 s(111201264,2,'Giulio Natta',n,1,0).
-s(111201386,10,'Hector Hevodidbon',n,1,0).
-s(111201386,11,'Michael Assat',n,1,0).
 s(111201386,1,'Sanchez',n,1,0).
 s(111201386,2,'Ilich Sanchez',n,1,0).
 s(111201386,3,'Ilich Ramirez Sanchez',n,1,0).
@@ -104758,6 +104765,8 @@ s(111201386,6,'Salim',n,1,0).
 s(111201386,7,'Andres Martinez',n,1,0).
 s(111201386,8,'Taurus',n,1,0).
 s(111201386,9,'Glen Gebhard',n,1,0).
+s(111201386,10,'Hector Hevodidbon',n,1,0).
+s(111201386,11,'Michael Assat',n,1,0).
 s(111201740,1,'Navratilova',n,1,0).
 s(111201740,2,'Martina Navratilova',n,1,0).
 s(111201941,1,'Nazimova',n,1,0).
@@ -116101,8 +116110,6 @@ s(112230794,3,'Arbutus unedo',n,1,0).
 s(112231031,1,'Arctostaphylos',n,1,0).
 s(112231031,2,'genus Arctostaphylos',n,1,0).
 s(112231192,1,'bearberry',n,3,0).
-s(112231358,10,'creashak',n,1,0).
-s(112231358,11,'Arctostaphylos uva-ursi',n,1,0).
 s(112231358,1,'common bearberry',n,1,0).
 s(112231358,2,'red bearberry',n,1,0).
 s(112231358,3,'wild cranberry',n,1,0).
@@ -116112,6 +116119,8 @@ s(112231358,6,'sand berry',n,1,0).
 s(112231358,7,'sandberry',n,1,0).
 s(112231358,8,'mountain box',n,1,0).
 s(112231358,9,'bear''s grape',n,1,0).
+s(112231358,10,'creashak',n,1,0).
+s(112231358,11,'Arctostaphylos uva-ursi',n,1,0).
 s(112231709,1,'alpine bearberry',n,1,0).
 s(112231709,2,'black bearberry',n,1,0).
 s(112231709,3,'Arctostaphylos alpina',n,1,0).
@@ -128754,6 +128763,15 @@ s(113384341,6,'superannuation',n,1,0).
 s(113384557,1,'money',n,1,77).
 s(113384877,1,'money',n,3,0).
 s(113385080,1,'sterling',n,1,0).
+s(113385216,1,'boodle',n,1,0).
+s(113385216,2,'bread',n,2,0).
+s(113385216,3,'cabbage',n,2,0).
+s(113385216,4,'clams',n,1,0).
+s(113385216,5,'dinero',n,1,0).
+s(113385216,6,'dough',n,2,1).
+s(113385216,7,'gelt',n,1,0).
+s(113385216,8,'kale',n,1,1).
+s(113385216,9,'lettuce',n,1,0).
 s(113385216,10,'lolly',n,1,0).
 s(113385216,11,'lucre',n,1,0).
 s(113385216,12,'loot',n,2,1).
@@ -128764,15 +128782,6 @@ s(113385216,16,'shekels',n,1,0).
 s(113385216,17,'simoleons',n,1,0).
 s(113385216,18,'sugar',n,3,0).
 s(113385216,19,'wampum',n,1,0).
-s(113385216,1,'boodle',n,1,0).
-s(113385216,2,'bread',n,2,0).
-s(113385216,3,'cabbage',n,2,0).
-s(113385216,4,'clams',n,1,0).
-s(113385216,5,'dinero',n,1,0).
-s(113385216,6,'dough',n,2,1).
-s(113385216,7,'gelt',n,1,0).
-s(113385216,8,'kale',n,1,1).
-s(113385216,9,'lettuce',n,1,0).
 s(113385466,1,'shinplaster',n,1,0).
 s(113385583,1,'subsidization',n,1,0).
 s(113385583,2,'subsidisation',n,1,0).
@@ -131913,11 +131922,6 @@ s(113739934,1,'one-quadrillionth',n,1,0).
 s(113739934,2,'quadrillionth',n,1,0).
 s(113740051,1,'one-quintillionth',n,1,0).
 s(113740051,2,'quintillionth',n,1,0).
-s(113740168,10,'naught',n,1,1).
-s(113740168,11,'zero',n,1,6).
-s(113740168,12,'zilch',n,1,0).
-s(113740168,13,'zip',n,1,0).
-s(113740168,14,'zippo',n,1,0).
 s(113740168,1,'nothing',n,1,141).
 s(113740168,2,'nil',n,1,0).
 s(113740168,3,'nix',n,1,0).
@@ -131927,6 +131931,11 @@ s(113740168,6,'aught',n,1,0).
 s(113740168,7,'cipher',n,3,0).
 s(113740168,8,'cypher',n,2,0).
 s(113740168,9,'goose egg',n,1,0).
+s(113740168,10,'naught',n,1,1).
+s(113740168,11,'zero',n,1,6).
+s(113740168,12,'zilch',n,1,0).
+s(113740168,13,'zip',n,1,0).
+s(113740168,14,'zippo',n,1,0).
 s(113740591,1,'nihil',n,1,0).
 s(113740765,1,'bugger all',n,1,0).
 s(113740765,2,'fuck all',n,1,0).
@@ -131963,10 +131972,6 @@ s(113743269,3,'II',n,1,0).
 s(113743269,4,'deuce',n,2,0).
 s(113743460,1,'craps',n,1,0).
 s(113743460,2,'snake eyes',n,1,0).
-s(113743605,10,'duo',n,1,0).
-s(113743605,11,'duet',n,1,0).
-s(113743605,12,'dyad',n,1,0).
-s(113743605,13,'duad',n,1,0).
 s(113743605,1,'couple',n,4,2).
 s(113743605,2,'pair',n,2,10).
 s(113743605,3,'twosome',n,1,0).
@@ -131976,16 +131981,11 @@ s(113743605,6,'span',n,3,0).
 s(113743605,7,'yoke',n,3,0).
 s(113743605,8,'couplet',n,1,0).
 s(113743605,9,'distich',n,1,0).
+s(113743605,10,'duo',n,1,0).
+s(113743605,11,'duet',n,1,0).
+s(113743605,12,'dyad',n,1,0).
+s(113743605,13,'duad',n,1,0).
 s(113743869,1,'doubleton',n,1,0).
-s(113744044,10,'trine',n,1,0).
-s(113744044,11,'trinity',n,1,0).
-s(113744044,12,'ternary',n,1,0).
-s(113744044,13,'ternion',n,1,0).
-s(113744044,14,'triplet',n,1,0).
-s(113744044,15,'tercet',n,1,0).
-s(113744044,16,'terzetto',n,1,0).
-s(113744044,17,'trey',n,1,0).
-s(113744044,18,'deuce-ace',n,1,0).
 s(113744044,1,'three',n,1,19).
 s(113744044,2,'3',n,1,9).
 s(113744044,3,'III',n,1,0).
@@ -131995,9 +131995,15 @@ s(113744044,6,'tierce',n,2,0).
 s(113744044,7,'leash',n,2,0).
 s(113744044,8,'troika',n,2,0).
 s(113744044,9,'triad',n,1,0).
-s(113744304,10,'quadruplet',n,1,0).
-s(113744304,11,'foursome',n,2,0).
-s(113744304,12,'Little Joe',n,1,0).
+s(113744044,10,'trine',n,1,0).
+s(113744044,11,'trinity',n,1,0).
+s(113744044,12,'ternary',n,1,0).
+s(113744044,13,'ternion',n,1,0).
+s(113744044,14,'triplet',n,1,0).
+s(113744044,15,'tercet',n,1,0).
+s(113744044,16,'terzetto',n,1,0).
+s(113744044,17,'trey',n,1,0).
+s(113744044,18,'deuce-ace',n,1,0).
 s(113744304,1,'four',n,1,15).
 s(113744304,2,'4',n,1,13).
 s(113744304,3,'IV',n,1,0).
@@ -132007,9 +132013,9 @@ s(113744304,6,'quaternion',n,1,0).
 s(113744304,7,'quaternary',n,2,0).
 s(113744304,8,'quaternity',n,1,0).
 s(113744304,9,'quartet',n,1,0).
-s(113744521,10,'fin',n,1,0).
-s(113744521,11,'Phoebe',n,1,0).
-s(113744521,12,'Little Phoebe',n,1,0).
+s(113744304,10,'quadruplet',n,1,0).
+s(113744304,11,'foursome',n,2,0).
+s(113744304,12,'Little Joe',n,1,0).
 s(113744521,1,'five',n,1,4).
 s(113744521,2,'5',n,1,5).
 s(113744521,3,'V',n,3,0).
@@ -132019,8 +132025,9 @@ s(113744521,6,'quintet',n,2,0).
 s(113744521,7,'fivesome',n,1,0).
 s(113744521,8,'quintuplet',n,1,0).
 s(113744521,9,'pentad',n,1,0).
-s(113744722,10,'sextuplet',n,1,0).
-s(113744722,11,'hexad',n,1,0).
+s(113744521,10,'fin',n,1,0).
+s(113744521,11,'Phoebe',n,1,0).
+s(113744521,12,'Little Phoebe',n,1,0).
 s(113744722,1,'six',n,1,6).
 s(113744722,2,'6',n,1,2).
 s(113744722,3,'VI',n,1,0).
@@ -132030,6 +132037,8 @@ s(113744722,6,'Captain Hicks',n,1,0).
 s(113744722,7,'half a dozen',n,1,1).
 s(113744722,8,'sextet',n,2,0).
 s(113744722,9,'sestet',n,1,0).
+s(113744722,10,'sextuplet',n,1,0).
+s(113744722,11,'hexad',n,1,0).
 s(113744916,1,'seven',n,1,3).
 s(113744916,2,'7',n,1,3).
 s(113744916,3,'VII',n,1,0).
@@ -132160,7 +132169,6 @@ s(113750574,3,'120',n,1,0).
 s(113750712,1,'five hundred',n,1,0).
 s(113750712,2,'500',n,1,0).
 s(113750712,3,'D',n,2,0).
-s(113750844,10,'yard',n,4,0).
 s(113750844,1,'thousand',n,1,24).
 s(113750844,2,'one thousand',n,1,0).
 s(113750844,3,'1000',n,1,0).
@@ -132170,6 +132178,7 @@ s(113750844,6,'chiliad',n,1,0).
 s(113750844,7,'G',n,4,0).
 s(113750844,8,'grand',n,1,0).
 s(113750844,9,'thou',n,1,0).
+s(113750844,10,'yard',n,4,0).
 s(113751036,1,'millenary',n,3,0).
 s(113751158,1,'great gross',n,1,0).
 s(113751158,2,'1728',n,1,0).
@@ -132409,7 +132418,6 @@ s(113772468,2,'loading',n,2,2).
 s(113772653,1,'precipitation',n,1,0).
 s(113772876,1,'trainload',n,1,0).
 s(113772971,1,'dreg',n,1,0).
-s(113773047,10,'shit',n,3,0).
 s(113773047,1,'jack',n,1,0).
 s(113773047,2,'doodly-squat',n,1,0).
 s(113773047,3,'diddly-squat',n,1,0).
@@ -132419,6 +132427,7 @@ s(113773047,6,'diddlyshit',n,1,0).
 s(113773047,7,'diddly',n,1,0).
 s(113773047,8,'diddley',n,1,0).
 s(113773047,9,'squat',n,2,0).
+s(113773047,10,'shit',n,3,0).
 s(113773250,1,'nip',n,1,0).
 s(113773250,2,'shot',n,8,0).
 s(113773361,1,'trace',n,1,5).
@@ -132445,6 +132454,15 @@ s(113774115,6,'jot',n,2,0).
 s(113774115,7,'speck',n,3,1).
 s(113774115,8,'soupcon',n,1,0).
 s(113774311,1,'barrels',n,1,0).
+s(113774404,1,'batch',n,2,0).
+s(113774404,2,'deal',n,3,1).
+s(113774404,3,'flock',n,3,1).
+s(113774404,4,'good deal',n,1,13).
+s(113774404,5,'great deal',n,1,10).
+s(113774404,6,'hatful',n,1,0).
+s(113774404,7,'heap',n,2,2).
+s(113774404,8,'lot',n,1,13).
+s(113774404,9,'mass',n,2,14).
 s(113774404,10,'mess',n,6,0).
 s(113774404,11,'mickle',n,1,0).
 s(113774404,12,'mint',n,1,1).
@@ -132455,7 +132473,6 @@ s(113774404,16,'peck',n,1,0).
 s(113774404,17,'pile',n,2,3).
 s(113774404,18,'plenty',n,2,2).
 s(113774404,19,'pot',n,5,0).
-s(113774404,1,'batch',n,2,0).
 s(113774404,20,'quite a little',n,1,0).
 s(113774404,21,'raft',n,2,0).
 s(113774404,22,'sight',n,7,1).
@@ -132464,14 +132481,6 @@ s(113774404,24,'spate',n,1,0).
 s(113774404,25,'stack',n,2,0).
 s(113774404,26,'tidy sum',n,1,0).
 s(113774404,27,'wad',n,2,0).
-s(113774404,2,'deal',n,3,1).
-s(113774404,3,'flock',n,3,1).
-s(113774404,4,'good deal',n,1,13).
-s(113774404,5,'great deal',n,1,10).
-s(113774404,6,'hatful',n,1,0).
-s(113774404,7,'heap',n,2,2).
-s(113774404,8,'lot',n,1,13).
-s(113774404,9,'mass',n,2,14).
 s(113775093,1,'battalion',n,2,0).
 s(113775093,2,'large number',n,1,18).
 s(113775093,3,'multitude',n,1,1).
@@ -132507,12 +132516,6 @@ s(113776971,2,'sea',n,2,3).
 s(113777098,1,'ream',n,1,0).
 s(113777211,1,'small fortune',n,1,1).
 s(113777344,1,'supply',n,1,21).
-s(113777509,10,'slews',n,1,0).
-s(113777509,11,'wads',n,1,1).
-s(113777509,12,'oodles',n,1,0).
-s(113777509,13,'gobs',n,1,0).
-s(113777509,14,'scads',n,1,0).
-s(113777509,15,'lashings',n,1,0).
 s(113777509,1,'tons',n,1,2).
 s(113777509,2,'dozens',n,1,3).
 s(113777509,3,'heaps',n,1,0).
@@ -132522,6 +132525,12 @@ s(113777509,6,'scores',n,1,2).
 s(113777509,7,'stacks',n,1,0).
 s(113777509,8,'loads',n,1,0).
 s(113777509,9,'rafts',n,1,0).
+s(113777509,10,'slews',n,1,0).
+s(113777509,11,'wads',n,1,1).
+s(113777509,12,'oodles',n,1,0).
+s(113777509,13,'gobs',n,1,0).
+s(113777509,14,'scads',n,1,0).
+s(113777509,15,'lashings',n,1,0).
 s(113777764,1,'room',n,2,10).
 s(113777764,2,'way',n,8,10).
 s(113777764,3,'elbow room',n,1,0).
@@ -133562,9 +133571,6 @@ s(113893786,2,'channel',n,3,0).
 s(113894154,1,'rut',n,1,1).
 s(113894306,1,'scoop',n,2,0).
 s(113894306,2,'pocket',n,5,0).
-s(113894434,10,'protrusion',n,1,0).
-s(113894434,11,'extrusion',n,1,0).
-s(113894434,12,'excrescence',n,1,0).
 s(113894434,1,'bulge',n,1,3).
 s(113894434,2,'bump',n,2,0).
 s(113894434,3,'hump',n,1,0).
@@ -133574,6 +133580,9 @@ s(113894434,6,'gibbousness',n,1,0).
 s(113894434,7,'jut',n,1,0).
 s(113894434,8,'prominence',n,3,0).
 s(113894434,9,'protuberance',n,1,1).
+s(113894434,10,'protrusion',n,1,0).
+s(113894434,11,'extrusion',n,1,0).
+s(113894434,12,'excrescence',n,1,0).
 s(113895262,1,'belly',n,3,0).
 s(113895362,1,'caput',n,1,0).
 s(113895549,1,'mogul',n,1,0).
@@ -133967,7 +133976,6 @@ s(113939892,2,'level',n,3,15).
 s(113939892,3,'stage',n,2,18).
 s(113939892,4,'point',n,5,16).
 s(113940311,1,'ladder',n,2,0).
-s(113940456,10,'top',n,5,3).
 s(113940456,1,'acme',n,1,0).
 s(113940456,2,'height',n,2,4).
 s(113940456,3,'elevation',n,2,1).
@@ -133977,6 +133985,7 @@ s(113940456,6,'summit',n,1,0).
 s(113940456,7,'superlative',n,2,0).
 s(113940456,8,'meridian',n,1,0).
 s(113940456,9,'tiptop',n,1,0).
+s(113940456,10,'top',n,5,3).
 s(113941125,1,'extent',n,1,23).
 s(113941337,1,'resultant',n,1,0).
 s(113941337,2,'end point',n,2,0).
@@ -135549,10 +135558,6 @@ s(114118423,6,'growth-onset diabetes',n,1,0).
 s(114118423,7,'ketosis-prone diabetes',n,1,0).
 s(114118423,8,'ketoacidosis-prone diabetes',n,1,0).
 s(114118423,9,'autoimmune diabetes',n,1,0).
-s(114118936,10,'adult-onset diabetes',n,1,0).
-s(114118936,11,'maturity-onset diabetes mellitus',n,1,0).
-s(114118936,12,'maturity-onset diabetes',n,1,0).
-s(114118936,13,'mature-onset diabetes',n,1,0).
 s(114118936,1,'type II diabetes',n,1,0).
 s(114118936,2,'non-insulin-dependent diabetes mellitus',n,1,0).
 s(114118936,3,'NIDDM',n,1,0).
@@ -135562,6 +135567,10 @@ s(114118936,6,'ketosis-resistant diabetes',n,1,0).
 s(114118936,7,'ketoacidosis-resistant diabetes mellitus',n,1,0).
 s(114118936,8,'ketoacidosis-resistant diabetes',n,1,0).
 s(114118936,9,'adult-onset diabetes mellitus',n,1,0).
+s(114118936,10,'adult-onset diabetes',n,1,0).
+s(114118936,11,'maturity-onset diabetes mellitus',n,1,0).
+s(114118936,12,'maturity-onset diabetes',n,1,0).
+s(114118936,13,'mature-onset diabetes',n,1,0).
 s(114119598,1,'nephrogenic diabetes insipidus',n,1,0).
 s(114119770,1,'diabetes insipidus',n,1,0).
 s(114120096,1,'latent diabetes',n,1,0).
@@ -135697,7 +135706,6 @@ s(114132829,2,'zoster',n,1,0).
 s(114132829,3,'shingles',n,1,0).
 s(114132975,1,'chickenpox',n,1,0).
 s(114132975,2,'varicella',n,1,0).
-s(114133159,10,'STD',n,1,0).
 s(114133159,1,'venereal disease',n,1,0).
 s(114133159,2,'VD',n,1,0).
 s(114133159,3,'venereal infection',n,1,0).
@@ -135707,6 +135715,7 @@ s(114133159,6,'Cupid''s disease',n,1,0).
 s(114133159,7,'Venus''s curse',n,1,0).
 s(114133159,8,'dose',n,3,0).
 s(114133159,9,'sexually transmitted disease',n,1,0).
+s(114133159,10,'STD',n,1,0).
 s(114133543,1,'gonorrhea',n,1,0).
 s(114133543,2,'gonorrhoea',n,1,0).
 s(114133543,3,'clap',n,2,0).
@@ -136266,9 +136275,6 @@ s(114193325,1,'water on the knee',n,1,0).
 s(114193421,1,'hydremia',n,1,0).
 s(114193571,1,'hydrocele',n,1,0).
 s(114193711,1,'lipidosis',n,1,0).
-s(114193925,10,'hyperlipidaemia',n,1,0).
-s(114193925,11,'hyperlipoidemia',n,1,0).
-s(114193925,12,'hyperlipoidaemia',n,1,0).
 s(114193925,1,'lipemia',n,1,0).
 s(114193925,2,'lipaemia',n,1,0).
 s(114193925,3,'lipidemia',n,1,0).
@@ -136278,6 +136284,9 @@ s(114193925,6,'lipoidaemia',n,1,0).
 s(114193925,7,'hyperlipemia',n,1,0).
 s(114193925,8,'hyperlipaemia',n,1,0).
 s(114193925,9,'hyperlipidemia',n,1,0).
+s(114193925,10,'hyperlipidaemia',n,1,0).
+s(114193925,11,'hyperlipoidemia',n,1,0).
+s(114193925,12,'hyperlipoidaemia',n,1,0).
 s(114194183,1,'lysine intolerance',n,1,0).
 s(114194345,1,'lysogeny',n,1,0).
 s(114194345,2,'lysogenicity',n,1,0).
@@ -138699,7 +138708,6 @@ s(114461231,3,'integrality',n,1,0).
 s(114461231,4,'totality',n,1,1).
 s(114461519,1,'comprehensiveness',n,1,0).
 s(114461519,2,'fullness',n,1,1).
-s(114461679,10,'full treatment',n,1,0).
 s(114461679,1,'whole shebang',n,1,0).
 s(114461679,2,'whole kit and caboodle',n,1,0).
 s(114461679,3,'kit and caboodle',n,1,1).
@@ -138709,6 +138717,7 @@ s(114461679,6,'whole kit',n,1,0).
 s(114461679,7,'whole caboodle',n,1,0).
 s(114461679,8,'whole works',n,1,0).
 s(114461679,9,'works',n,2,1).
+s(114461679,10,'full treatment',n,1,0).
 s(114462064,1,'partialness',n,1,0).
 s(114462193,1,'incompleteness',n,1,0).
 s(114462193,2,'rawness',n,2,0).
@@ -145054,9 +145063,6 @@ s(115168369,1,'small hours',n,1,0).
 s(115168475,1,'bedtime',n,1,1).
 s(115168569,1,'lights-out',n,1,0).
 s(115168665,1,'closing time',n,1,0).
-s(115168790,10,'sunrise',n,1,0).
-s(115168790,11,'sunup',n,1,0).
-s(115168790,12,'cockcrow',n,1,0).
 s(115168790,1,'dawn',n,1,11).
 s(115168790,2,'dawning',n,1,1).
 s(115168790,3,'morning',n,3,0).
@@ -145066,6 +145072,9 @@ s(115168790,6,'daybreak',n,1,1).
 s(115168790,7,'break of day',n,1,1).
 s(115168790,8,'break of the day',n,1,0).
 s(115168790,9,'dayspring',n,1,0).
+s(115168790,10,'sunrise',n,1,0).
+s(115168790,11,'sunup',n,1,0).
+s(115168790,12,'cockcrow',n,1,0).
 s(115169136,1,'early-morning hour',n,1,0).
 s(115169248,1,'sunset',n,1,0).
 s(115169248,2,'sundown',n,1,5).
@@ -145089,10 +145098,6 @@ s(115170786,1,'rag',n,2,0).
 s(115170786,2,'rag week',n,1,0).
 s(115171008,1,'rag day',n,1,0).
 s(115171145,1,'red-letter day',n,1,0).
-s(115171307,10,'day of reckoning',n,1,0).
-s(115171307,11,'doomsday',n,1,0).
-s(115171307,12,'crack of doom',n,1,0).
-s(115171307,13,'end of the world',n,1,0).
 s(115171307,1,'Judgment Day',n,1,0).
 s(115171307,2,'Judgement Day',n,1,1).
 s(115171307,3,'Day of Judgment',n,1,0).
@@ -145102,6 +145107,10 @@ s(115171307,6,'Last Judgment',n,1,0).
 s(115171307,7,'Last Judgement',n,1,0).
 s(115171307,8,'Last Day',n,1,0).
 s(115171307,9,'eschaton',n,1,0).
+s(115171307,10,'day of reckoning',n,1,0).
+s(115171307,11,'doomsday',n,1,0).
+s(115171307,12,'crack of doom',n,1,0).
+s(115171307,13,'end of the world',n,1,0).
 s(115171738,1,'off-day',n,1,0).
 s(115171857,1,'access time',n,1,0).
 s(115172212,1,'distance',n,5,1).
@@ -145385,8 +145394,6 @@ s(115198136,1,'Fast of Tevet',n,1,0).
 s(115198401,1,'Fast of Esther',n,1,0).
 s(115198662,1,'Fast of the Firstborn',n,1,0).
 s(115198872,1,'Fast of Tammuz',n,1,0).
-s(115199033,10,'Feast of Dedication',n,1,0).
-s(115199033,11,'Feast of the Dedication',n,1,0).
 s(115199033,1,'Hanukkah',n,1,1).
 s(115199033,2,'Hanukah',n,1,0).
 s(115199033,3,'Hannukah',n,1,0).
@@ -145396,6 +145403,8 @@ s(115199033,6,'Channukah',n,1,0).
 s(115199033,7,'Channukkah',n,1,0).
 s(115199033,8,'Festival of Lights',n,1,0).
 s(115199033,9,'Feast of Lights',n,1,0).
+s(115199033,10,'Feast of Dedication',n,1,0).
+s(115199033,11,'Feast of the Dedication',n,1,0).
 s(115199406,1,'Lag b''Omer',n,1,0).
 s(115199592,1,'legal holiday',n,1,2).
 s(115199592,2,'national holiday',n,1,0).
@@ -145837,7 +145846,6 @@ s(115246853,2,'mo',n,1,0).
 s(115246853,3,'minute',n,2,8).
 s(115246853,4,'second',n,2,6).
 s(115246853,5,'bit',n,3,1).
-s(115247110,10,'New York minute',n,1,0).
 s(115247110,1,'blink of an eye',n,1,0).
 s(115247110,2,'flash',n,5,0).
 s(115247110,3,'heartbeat',n,2,0).
@@ -145847,6 +145855,7 @@ s(115247110,6,'split second',n,1,1).
 s(115247110,7,'trice',n,1,0).
 s(115247110,8,'twinkling',n,1,1).
 s(115247110,9,'wink',n,1,1).
+s(115247110,10,'New York minute',n,1,0).
 s(115247410,1,'ephemera',n,1,0).
 s(115247518,1,'period',n,4,0).
 s(115247518,2,'geological period',n,1,0).
@@ -145991,7 +146000,6 @@ s(115265135,1,'allegro con spirito',n,1,1).
 s(115265219,1,'andante',n,1,0).
 s(115265331,1,'meno mosso',n,1,0).
 s(115265423,1,'rubato',n,1,0).
-s(115265518,10,'offset',n,1,0).
 s(115265518,1,'beginning',n,2,8).
 s(115265518,2,'commencement',n,1,0).
 s(115265518,3,'first',n,3,1).
@@ -146001,6 +146009,7 @@ s(115265518,6,'start',n,2,5).
 s(115265518,7,'kickoff',n,2,1).
 s(115265518,8,'starting time',n,1,0).
 s(115265518,9,'showtime',n,1,0).
+s(115265518,10,'offset',n,1,0).
 s(115266034,1,'youth',n,5,1).
 s(115266034,2,'early days',n,1,2).
 s(115266164,1,'terminus a quo',n,1,0).
@@ -146503,7 +146512,6 @@ s(200017531,2,'bunk down',v,1,0).
 s(200017674,1,'doss',v,1,0).
 s(200017674,2,'doss down',v,1,0).
 s(200017674,3,'crash',v,13,0).
-s(200017865,10,'retire',v,11,0).
 s(200017865,1,'go to bed',v,1,4).
 s(200017865,2,'turn in',v,4,0).
 s(200017865,3,'bed',v,5,0).
@@ -146513,6 +146521,7 @@ s(200017865,6,'hit the hay',v,1,0).
 s(200017865,7,'hit the sack',v,1,0).
 s(200017865,8,'sack out',v,1,0).
 s(200017865,9,'go to sleep',v,1,3).
+s(200017865,10,'retire',v,11,0).
 s(200018158,1,'get up',v,2,6).
 s(200018158,2,'turn out',v,12,0).
 s(200018158,3,'arise',v,7,0).
@@ -146790,13 +146799,6 @@ s(200043683,3,'plume',v,6,0).
 s(200043683,4,'dress',v,5,2).
 s(200043912,1,'prank',v,2,0).
 s(200044037,1,'tart up',v,2,0).
-s(200044149,10,'trick out',v,1,1).
-s(200044149,11,'prink',v,2,0).
-s(200044149,12,'attire',v,1,0).
-s(200044149,13,'get up',v,6,1).
-s(200044149,14,'rig out',v,1,0).
-s(200044149,15,'tog up',v,1,0).
-s(200044149,16,'tog out',v,1,0).
 s(200044149,1,'overdress',v,2,0).
 s(200044149,2,'dress up',v,1,5).
 s(200044149,3,'fig out',v,1,0).
@@ -146806,6 +146808,13 @@ s(200044149,6,'gussy up',v,1,0).
 s(200044149,7,'fancy up',v,1,0).
 s(200044149,8,'trick up',v,1,0).
 s(200044149,9,'deck out',v,1,1).
+s(200044149,10,'trick out',v,1,1).
+s(200044149,11,'prink',v,2,0).
+s(200044149,12,'attire',v,1,0).
+s(200044149,13,'get up',v,6,1).
+s(200044149,14,'rig out',v,1,0).
+s(200044149,15,'tog up',v,1,0).
+s(200044149,16,'tog out',v,1,0).
 s(200044797,1,'dress',v,4,2).
 s(200044797,2,'dress up',v,5,0).
 s(200045064,1,'enrobe',v,2,0).
@@ -146843,7 +146852,6 @@ s(200047511,1,'bonnet',v,1,0).
 s(200047610,1,'wear',v,5,2).
 s(200047745,1,'wear',v,2,22).
 s(200047745,2,'bear',v,9,1).
-s(200047945,10,'apparel',v,1,0).
 s(200047945,1,'dress',v,2,8).
 s(200047945,2,'clothe',v,1,4).
 s(200047945,3,'enclothe',v,1,0).
@@ -146853,6 +146861,7 @@ s(200047945,6,'tog',v,1,0).
 s(200047945,7,'garment',v,1,0).
 s(200047945,8,'habilitate',v,2,0).
 s(200047945,9,'fit out',v,2,0).
+s(200047945,10,'apparel',v,1,0).
 s(200048633,1,'cover',v,26,0).
 s(200048633,2,'wrap up',v,4,0).
 s(200048790,1,'jacket',v,2,0).
@@ -147080,12 +147089,6 @@ s(200071646,2,'martyrize',v,1,0).
 s(200071646,3,'martyrise',v,1,0).
 s(200071803,1,'pull',v,8,1).
 s(200071803,2,'overstretch',v,1,0).
-s(200072012,10,'relieve oneself',v,1,1).
-s(200072012,11,'take a leak',v,1,0).
-s(200072012,12,'spend a penny',v,1,0).
-s(200072012,13,'wee',v,1,0).
-s(200072012,14,'wee-wee',v,1,0).
-s(200072012,15,'pass water',v,1,1).
 s(200072012,1,'make',v,49,0).
 s(200072012,2,'urinate',v,2,0).
 s(200072012,3,'piddle',v,2,0).
@@ -147095,6 +147098,12 @@ s(200072012,6,'piss',v,1,1).
 s(200072012,7,'pee',v,1,0).
 s(200072012,8,'pee-pee',v,1,0).
 s(200072012,9,'make water',v,1,0).
+s(200072012,10,'relieve oneself',v,1,1).
+s(200072012,11,'take a leak',v,1,0).
+s(200072012,12,'spend a penny',v,1,0).
+s(200072012,13,'wee',v,1,0).
+s(200072012,14,'wee-wee',v,1,0).
+s(200072012,15,'pass water',v,1,1).
 s(200072586,1,'urinate',v,1,0).
 s(200072730,1,'wet',v,2,0).
 s(200072897,1,'stale',v,1,0).
@@ -147122,9 +147131,6 @@ s(200074730,1,'obstipate',v,1,0).
 s(200074834,1,'shed blood',v,2,0).
 s(200074834,2,'bleed',v,1,10).
 s(200074834,3,'hemorrhage',v,1,0).
-s(200075021,10,'fag out',v,1,0).
-s(200075021,11,'fag',v,3,0).
-s(200075021,12,'fatigue',v,2,0).
 s(200075021,1,'tire',v,2,3).
 s(200075021,2,'wear upon',v,1,0).
 s(200075021,3,'tire out',v,1,2).
@@ -147134,6 +147140,9 @@ s(200075021,6,'jade',v,2,0).
 s(200075021,7,'wear out',v,1,2).
 s(200075021,8,'outwear',v,2,0).
 s(200075021,9,'wear down',v,1,1).
+s(200075021,10,'fag out',v,1,0).
+s(200075021,11,'fag',v,3,0).
+s(200075021,12,'fatigue',v,2,0).
 s(200075421,1,'exhaust',v,1,4).
 s(200075421,2,'wash up',v,5,0).
 s(200075421,3,'beat',v,23,0).
@@ -147149,6 +147158,15 @@ s(200076114,2,'pall',v,8,0).
 s(200076114,3,'weary',v,2,0).
 s(200076114,4,'fatigue',v,1,0).
 s(200076114,5,'jade',v,1,0).
+s(200076400,1,'vomit',v,1,1).
+s(200076400,2,'vomit up',v,1,0).
+s(200076400,3,'purge',v,6,0).
+s(200076400,4,'cast',v,11,0).
+s(200076400,5,'sick',v,1,0).
+s(200076400,6,'cat',v,2,0).
+s(200076400,7,'be sick',v,1,0).
+s(200076400,8,'disgorge',v,2,0).
+s(200076400,9,'regorge',v,1,0).
 s(200076400,10,'retch',v,1,1).
 s(200076400,11,'puke',v,1,0).
 s(200076400,12,'barf',v,1,0).
@@ -147159,15 +147177,6 @@ s(200076400,16,'upchuck',v,1,0).
 s(200076400,17,'honk',v,4,0).
 s(200076400,18,'regurgitate',v,4,0).
 s(200076400,19,'throw up',v,1,1).
-s(200076400,1,'vomit',v,1,1).
-s(200076400,2,'vomit up',v,1,0).
-s(200076400,3,'purge',v,6,0).
-s(200076400,4,'cast',v,11,0).
-s(200076400,5,'sick',v,1,0).
-s(200076400,6,'cat',v,2,0).
-s(200076400,7,'be sick',v,1,0).
-s(200076400,8,'disgorge',v,2,0).
-s(200076400,9,'regorge',v,1,0).
 s(200077071,1,'spew',v,2,0).
 s(200077071,2,'spew out',v,1,0).
 s(200077071,3,'eruct',v,1,0).
@@ -148840,8 +148849,6 @@ s(200279239,1,'alphabetize',v,1,1).
 s(200279239,2,'alphabetise',v,1,0).
 s(200279465,1,'bleach',v,2,0).
 s(200279661,1,'peroxide',v,1,0).
-s(200279822,10,'discolourise',v,1,0).
-s(200279822,11,'discolorise',v,1,0).
 s(200279822,1,'bleach',v,1,1).
 s(200279822,2,'bleach out',v,1,0).
 s(200279822,3,'decolor',v,1,0).
@@ -148851,6 +148858,8 @@ s(200279822,6,'decolourize',v,1,0).
 s(200279822,7,'decolorise',v,1,0).
 s(200279822,8,'decolourise',v,1,0).
 s(200279822,9,'discolorize',v,1,0).
+s(200279822,10,'discolourise',v,1,0).
+s(200279822,11,'discolorise',v,1,0).
 s(200280112,1,'wash out',v,7,0).
 s(200280301,1,'whiten',v,1,1).
 s(200280301,2,'white',v,1,0).
@@ -149570,15 +149579,6 @@ s(200357854,1,'burgeon',v,1,3).
 s(200357998,1,'bud',v,1,2).
 s(200358135,1,'root',v,1,2).
 s(200358314,1,'root',v,6,0).
-s(200358431,10,'cash in one''s chips',v,1,0).
-s(200358431,11,'buy the farm',v,1,0).
-s(200358431,12,'conk',v,3,0).
-s(200358431,13,'give-up the ghost',v,1,0).
-s(200358431,14,'drop dead',v,1,2).
-s(200358431,15,'pop off',v,2,0).
-s(200358431,16,'choke',v,12,0).
-s(200358431,17,'croak',v,1,1).
-s(200358431,18,'snuff it',v,1,0).
 s(200358431,1,'die',v,1,141).
 s(200358431,2,'decease',v,1,0).
 s(200358431,3,'perish',v,1,5).
@@ -149588,6 +149588,15 @@ s(200358431,6,'pass away',v,1,3).
 s(200358431,7,'expire',v,2,2).
 s(200358431,8,'pass',v,24,0).
 s(200358431,9,'kick the bucket',v,1,0).
+s(200358431,10,'cash in one''s chips',v,1,0).
+s(200358431,11,'buy the farm',v,1,0).
+s(200358431,12,'conk',v,3,0).
+s(200358431,13,'give-up the ghost',v,1,0).
+s(200358431,14,'drop dead',v,1,2).
+s(200358431,15,'pop off',v,2,0).
+s(200358431,16,'choke',v,12,0).
+s(200358431,17,'croak',v,1,1).
+s(200358431,18,'snuff it',v,1,0).
 s(200359405,1,'strangle',v,3,0).
 s(200359511,1,'suffocate',v,5,0).
 s(200359511,2,'stifle',v,4,0).
@@ -149921,8 +149930,6 @@ s(200393953,3,'sync',v,1,0).
 s(200394381,1,'phase',v,2,0).
 s(200394563,1,'desynchronize',v,1,0).
 s(200394563,2,'desynchronise',v,1,0).
-s(200394813,10,'combine',v,7,1).
-s(200394813,11,'merge',v,2,3).
 s(200394813,1,'blend',v,3,0).
 s(200394813,2,'flux',v,3,0).
 s(200394813,3,'mix',v,1,7).
@@ -149932,6 +149939,8 @@ s(200394813,6,'immix',v,1,0).
 s(200394813,7,'fuse',v,1,3).
 s(200394813,8,'coalesce',v,1,2).
 s(200394813,9,'meld',v,3,0).
+s(200394813,10,'combine',v,7,1).
+s(200394813,11,'merge',v,2,3).
 s(200395583,1,'gauge',v,6,0).
 s(200395698,1,'absorb',v,5,2).
 s(200395841,1,'melt',v,4,1).
@@ -151966,9 +151975,6 @@ s(200620673,2,'blur',v,3,1).
 s(200620673,3,'obscure',v,2,2).
 s(200620673,4,'obnubilate',v,2,0).
 s(200620926,1,'muddy',v,2,0).
-s(200621058,10,'enlighten',v,3,0).
-s(200621058,11,'illuminate',v,2,5).
-s(200621058,12,'elucidate',v,2,0).
 s(200621058,1,'clear',v,10,1).
 s(200621058,2,'clear up',v,5,0).
 s(200621058,3,'shed light on',v,1,2).
@@ -151978,6 +151984,9 @@ s(200621058,6,'crystalize',v,1,0).
 s(200621058,7,'crystalise',v,1,0).
 s(200621058,8,'straighten out',v,5,0).
 s(200621058,9,'sort out',v,2,2).
+s(200621058,10,'enlighten',v,3,0).
+s(200621058,11,'illuminate',v,2,5).
+s(200621058,12,'elucidate',v,2,0).
 s(200621504,1,'read between the lines',v,1,0).
 s(200621653,1,'puzzle over',v,1,3).
 s(200621734,1,'confuse',v,2,5).
@@ -151989,13 +151998,6 @@ s(200621734,6,'bedevil',v,2,0).
 s(200621734,7,'confound',v,1,2).
 s(200621734,8,'discombobulate',v,2,0).
 s(200622204,1,'demoralize',v,3,0).
-s(200622384,10,'bewilder',v,1,2).
-s(200622384,11,'flummox',v,1,0).
-s(200622384,12,'stupefy',v,2,0).
-s(200622384,13,'nonplus',v,1,0).
-s(200622384,14,'gravel',v,3,0).
-s(200622384,15,'amaze',v,2,1).
-s(200622384,16,'dumbfound',v,1,0).
 s(200622384,1,'perplex',v,1,0).
 s(200622384,2,'vex',v,5,0).
 s(200622384,3,'stick',v,16,0).
@@ -152005,6 +152007,13 @@ s(200622384,6,'mystify',v,1,1).
 s(200622384,7,'baffle',v,1,1).
 s(200622384,8,'beat',v,22,0).
 s(200622384,9,'pose',v,6,0).
+s(200622384,10,'bewilder',v,1,2).
+s(200622384,11,'flummox',v,1,0).
+s(200622384,12,'stupefy',v,2,0).
+s(200622384,13,'nonplus',v,1,0).
+s(200622384,14,'gravel',v,3,0).
+s(200622384,15,'amaze',v,2,1).
+s(200622384,16,'dumbfound',v,1,0).
 s(200623006,1,'riddle',v,2,1).
 s(200623151,1,'interpret',v,1,17).
 s(200623151,2,'construe',v,1,5).
@@ -152066,9 +152075,6 @@ s(200629889,1,'think out',v,1,2).
 s(200630026,1,'philosophize',v,1,1).
 s(200630026,2,'philosophise',v,1,0).
 s(200630223,1,'brainstorm',v,1,0).
-s(200630380,10,'mull over',v,1,0).
-s(200630380,11,'ruminate',v,2,0).
-s(200630380,12,'speculate',v,3,1).
 s(200630380,1,'chew over',v,1,1).
 s(200630380,2,'think over',v,1,3).
 s(200630380,3,'meditate',v,1,4).
@@ -152078,6 +152084,9 @@ s(200630380,6,'contemplate',v,4,1).
 s(200630380,7,'muse',v,1,10).
 s(200630380,8,'reflect',v,2,18).
 s(200630380,9,'mull',v,1,1).
+s(200630380,10,'mull over',v,1,0).
+s(200630380,11,'ruminate',v,2,0).
+s(200630380,12,'speculate',v,3,1).
 s(200631244,1,'premeditate',v,2,0).
 s(200631398,1,'theologize',v,2,0).
 s(200631398,2,'theologise',v,2,0).
@@ -152399,9 +152408,6 @@ s(200667747,1,'refute',v,2,1).
 s(200667747,2,'rebut',v,2,1).
 s(200667747,3,'controvert',v,2,0).
 s(200667942,1,'falsify',v,3,0).
-s(200668099,10,'abide',v,2,1).
-s(200668099,11,'suffer',v,4,8).
-s(200668099,12,'put up',v,4,2).
 s(200668099,1,'digest',v,3,0).
 s(200668099,2,'endure',v,1,6).
 s(200668099,3,'stick out',v,3,0).
@@ -152411,6 +152417,9 @@ s(200668099,6,'stand',v,5,9).
 s(200668099,7,'tolerate',v,1,7).
 s(200668099,8,'support',v,11,0).
 s(200668099,9,'brook',v,1,1).
+s(200668099,10,'abide',v,2,1).
+s(200668099,11,'suffer',v,4,8).
+s(200668099,12,'put up',v,4,2).
 s(200668805,1,'accept',v,7,2).
 s(200668805,2,'live with',v,1,0).
 s(200668805,3,'swallow',v,7,0).
@@ -153634,8 +153643,6 @@ s(200809071,2,'sound out',v,2,0).
 s(200809071,3,'feel out',v,1,0).
 s(200809248,1,'interview',v,2,5).
 s(200809453,1,'interview',v,3,1).
-s(200809654,10,'duck',v,4,0).
-s(200809654,11,'sidestep',v,1,3).
 s(200809654,1,'hedge',v,1,1).
 s(200809654,2,'fudge',v,2,0).
 s(200809654,3,'evade',v,1,3).
@@ -153645,6 +153652,8 @@ s(200809654,6,'parry',v,2,0).
 s(200809654,7,'elude',v,3,0).
 s(200809654,8,'skirt',v,1,2).
 s(200809654,9,'dodge',v,3,1).
+s(200809654,10,'duck',v,4,0).
+s(200809654,11,'sidestep',v,1,3).
 s(200810226,1,'beg',v,4,0).
 s(200810385,1,'quibble',v,1,0).
 s(200810557,1,'miss',v,9,0).
@@ -153777,6 +153786,15 @@ s(200824292,3,'objurgate',v,2,0).
 s(200824292,4,'chasten',v,1,0).
 s(200824292,5,'correct',v,3,1).
 s(200824593,1,'flame',v,3,0).
+s(200824767,1,'call on the carpet',v,1,0).
+s(200824767,2,'take to task',v,1,0).
+s(200824767,3,'rebuke',v,1,3).
+s(200824767,4,'rag',v,5,0).
+s(200824767,5,'trounce',v,3,0).
+s(200824767,6,'reproof',v,1,0).
+s(200824767,7,'lecture',v,2,1).
+s(200824767,8,'reprimand',v,2,0).
+s(200824767,9,'jaw',v,4,0).
 s(200824767,10,'dress down',v,1,0).
 s(200824767,11,'call down',v,2,0).
 s(200824767,12,'scold',v,1,3).
@@ -153787,17 +153805,8 @@ s(200824767,16,'remonstrate',v,3,0).
 s(200824767,17,'chew out',v,1,0).
 s(200824767,18,'chew up',v,1,0).
 s(200824767,19,'have words',v,1,0).
-s(200824767,1,'call on the carpet',v,1,0).
 s(200824767,20,'lambaste',v,2,0).
 s(200824767,21,'lambast',v,2,0).
-s(200824767,2,'take to task',v,1,0).
-s(200824767,3,'rebuke',v,1,3).
-s(200824767,4,'rag',v,5,0).
-s(200824767,5,'trounce',v,3,0).
-s(200824767,6,'reproof',v,1,0).
-s(200824767,7,'lecture',v,2,1).
-s(200824767,8,'reprimand',v,2,0).
-s(200824767,9,'jaw',v,4,0).
 s(200825447,1,'represent',v,13,0).
 s(200825648,1,'tell off',v,1,0).
 s(200825648,2,'brush down',v,1,0).
@@ -153937,7 +153946,6 @@ s(200841394,1,'sandbag',v,4,0).
 s(200841580,1,'denounce',v,1,10).
 s(200841767,1,'fulminate',v,1,1).
 s(200841767,2,'rail',v,10,0).
-s(200841986,10,'stag',v,2,0).
 s(200841986,1,'denounce',v,4,0).
 s(200841986,2,'tell on',v,1,1).
 s(200841986,3,'betray',v,5,1).
@@ -153947,6 +153955,7 @@ s(200841986,6,'grass',v,6,0).
 s(200841986,7,'shit',v,1,0).
 s(200841986,8,'shop',v,4,0).
 s(200841986,9,'snitch',v,2,0).
+s(200841986,10,'stag',v,2,0).
 s(200842429,1,'denounce',v,3,1).
 s(200842538,1,'blame',v,1,12).
 s(200842538,2,'fault',v,1,1).
@@ -154026,8 +154035,6 @@ s(200850192,2,'scoff',v,1,4).
 s(200850192,3,'flout',v,2,0).
 s(200850192,4,'barrack',v,3,0).
 s(200850192,5,'gibe',v,2,0).
-s(200850501,10,'rally',v,5,0).
-s(200850501,11,'ride',v,5,1).
 s(200850501,1,'tease',v,2,1).
 s(200850501,2,'razz',v,1,0).
 s(200850501,3,'rag',v,4,0).
@@ -154037,6 +154044,8 @@ s(200850501,6,'tantalise',v,1,0).
 s(200850501,7,'bait',v,1,1).
 s(200850501,8,'taunt',v,1,5).
 s(200850501,9,'twit',v,1,0).
+s(200850501,10,'rally',v,5,0).
+s(200850501,11,'ride',v,5,1).
 s(200851100,1,'pull the leg of',v,1,2).
 s(200851100,2,'kid',v,1,5).
 s(200851239,1,'incite',v,2,2).
@@ -154075,7 +154084,6 @@ s(200854420,1,'deceive',v,2,2).
 s(200854420,2,'betray',v,6,0).
 s(200854420,3,'lead astray',v,3,0).
 s(200854788,1,'undeceive',v,1,0).
-s(200854904,10,'put one across',v,1,0).
 s(200854904,1,'gull',v,2,1).
 s(200854904,2,'dupe',v,1,1).
 s(200854904,3,'slang',v,2,0).
@@ -154085,6 +154093,7 @@ s(200854904,6,'fool',v,3,0).
 s(200854904,7,'put on',v,8,0).
 s(200854904,8,'take in',v,2,2).
 s(200854904,9,'put one over',v,1,0).
+s(200854904,10,'put one across',v,1,0).
 s(200855295,1,'kid',v,2,2).
 s(200855295,2,'chaff',v,1,1).
 s(200855295,3,'jolly',v,1,0).
@@ -154257,10 +154266,6 @@ s(200871195,3,'monish',v,1,0).
 s(200871405,1,'threaten',v,2,21).
 s(200871623,1,'offer',v,13,0).
 s(200871781,1,'threaten',v,3,10).
-s(200871942,10,'foretell',v,3,0).
-s(200871942,11,'prefigure',v,2,0).
-s(200871942,12,'forecast',v,3,1).
-s(200871942,13,'predict',v,2,2).
 s(200871942,1,'bode',v,1,1).
 s(200871942,2,'portend',v,1,1).
 s(200871942,3,'auspicate',v,1,0).
@@ -154270,6 +154275,10 @@ s(200871942,6,'presage',v,1,1).
 s(200871942,7,'betoken',v,2,0).
 s(200871942,8,'foreshadow',v,1,0).
 s(200871942,9,'augur',v,1,1).
+s(200871942,10,'foretell',v,3,0).
+s(200871942,11,'prefigure',v,2,0).
+s(200871942,12,'forecast',v,3,1).
+s(200871942,13,'predict',v,2,2).
 s(200872414,1,'alarm',v,2,1).
 s(200872414,2,'alert',v,1,9).
 s(200872747,1,'wake',v,4,0).
@@ -154378,7 +154387,6 @@ s(200882802,1,'remember',v,5,0).
 s(200882948,1,'commend',v,4,0).
 s(200882948,2,'recommend',v,2,6).
 s(200883112,1,'commend',v,3,1).
-s(200883226,10,'gasconade',v,1,0).
 s(200883226,1,'boast',v,1,7).
 s(200883226,2,'tout',v,2,0).
 s(200883226,3,'swash',v,3,0).
@@ -154388,6 +154396,7 @@ s(200883226,6,'gas',v,2,0).
 s(200883226,7,'blow',v,19,0).
 s(200883226,8,'bluster',v,2,1).
 s(200883226,9,'vaunt',v,1,0).
+s(200883226,10,'gasconade',v,1,0).
 s(200883635,1,'gloat',v,1,1).
 s(200883635,2,'triumph',v,3,0).
 s(200883635,3,'crow',v,1,2).
@@ -154845,8 +154854,6 @@ s(200933403,1,'voice',v,1,4).
 s(200933566,1,'tone down',v,2,0).
 s(200933566,2,'moderate',v,5,0).
 s(200933566,3,'tame',v,2,0).
-s(200933821,10,'give away',v,2,3).
-s(200933821,11,'let out',v,2,2).
 s(200933821,1,'unwrap',v,2,0).
 s(200933821,2,'disclose',v,1,19).
 s(200933821,3,'let on',v,1,1).
@@ -154856,6 +154863,8 @@ s(200933821,6,'discover',v,6,4).
 s(200933821,7,'expose',v,2,7).
 s(200933821,8,'divulge',v,1,1).
 s(200933821,9,'break',v,15,2).
+s(200933821,10,'give away',v,2,3).
+s(200933821,11,'let out',v,2,2).
 s(200934744,1,'muckrake',v,1,0).
 s(200934965,1,'blow',v,18,0).
 s(200935141,1,'out',v,3,0).
@@ -154880,7 +154889,6 @@ s(200936648,2,'relieve',v,6,1).
 s(200936763,1,'sell out',v,2,1).
 s(200936913,1,'nark',v,2,0).
 s(200937023,1,'leak',v,1,1).
-s(200937208,10,'blab out',v,1,0).
 s(200937208,1,'spill the beans',v,1,0).
 s(200937208,2,'let the cat out of the bag',v,1,0).
 s(200937208,3,'talk',v,5,2).
@@ -154890,6 +154898,7 @@ s(200937208,6,'peach',v,1,0).
 s(200937208,7,'babble',v,4,0).
 s(200937208,8,'sing',v,5,1).
 s(200937208,9,'babble out',v,1,0).
+s(200937208,10,'blab out',v,1,0).
 s(200937619,1,'keep quiet',v,1,0).
 s(200937619,2,'shut one''s mouth',v,1,0).
 s(200937619,3,'keep one''s mouth shut',v,1,0).
@@ -154989,8 +154998,6 @@ s(200948853,1,'number',v,2,2).
 s(200949093,1,'foliate',v,4,0).
 s(200949093,2,'paginate',v,1,0).
 s(200949093,3,'page',v,3,0).
-s(200949288,10,'tally',v,4,0).
-s(200949288,11,'add up',v,2,2).
 s(200949288,1,'total',v,2,2).
 s(200949288,2,'tot',v,1,0).
 s(200949288,3,'tot up',v,1,1).
@@ -155000,6 +155007,8 @@ s(200949288,6,'summate',v,1,1).
 s(200949288,7,'tote up',v,1,0).
 s(200949288,8,'add',v,5,1).
 s(200949288,9,'add together',v,1,0).
+s(200949288,10,'tally',v,4,0).
+s(200949288,11,'add up',v,2,2).
 s(200949841,1,'tally',v,3,0).
 s(200949841,2,'chalk up',v,2,1).
 s(200949974,1,'remit',v,4,0).
@@ -155174,8 +155183,6 @@ s(200967625,3,'put out',v,9,0).
 s(200967625,4,'issue',v,1,21).
 s(200967625,5,'release',v,4,3).
 s(200968038,1,'edit',v,2,0).
-s(200968211,10,'disperse',v,6,0).
-s(200968211,11,'pass around',v,2,0).
 s(200968211,1,'circulate',v,2,2).
 s(200968211,2,'circularize',v,4,0).
 s(200968211,3,'circularise',v,3,0).
@@ -155185,6 +155192,8 @@ s(200968211,6,'propagate',v,6,0).
 s(200968211,7,'broadcast',v,3,0).
 s(200968211,8,'spread',v,5,5).
 s(200968211,9,'diffuse',v,3,1).
+s(200968211,10,'disperse',v,6,0).
+s(200968211,11,'pass around',v,2,0).
 s(200968962,1,'podcast',v,1,0).
 s(200969137,1,'satellite',v,1,0).
 s(200969260,1,'sportscast',v,1,0).
@@ -155774,11 +155783,6 @@ s(201036319,3,'scupper',v,2,0).
 s(201036319,4,'endanger',v,2,2).
 s(201036319,5,'peril',v,2,0).
 s(201036592,1,'compromise',v,3,0).
-s(201036804,10,'blab',v,2,0).
-s(201036804,11,'gibber',v,1,0).
-s(201036804,12,'tattle',v,1,0).
-s(201036804,13,'blabber',v,1,0).
-s(201036804,14,'gabble',v,1,1).
 s(201036804,1,'chatter',v,4,1).
 s(201036804,2,'piffle',v,1,0).
 s(201036804,3,'palaver',v,1,0).
@@ -155788,6 +155792,11 @@ s(201036804,6,'twaddle',v,1,0).
 s(201036804,7,'clack',v,3,0).
 s(201036804,8,'maunder',v,3,0).
 s(201036804,9,'prattle',v,1,1).
+s(201036804,10,'blab',v,2,0).
+s(201036804,11,'gibber',v,1,0).
+s(201036804,12,'tattle',v,1,0).
+s(201036804,13,'blabber',v,1,0).
+s(201036804,14,'gabble',v,1,1).
 s(201037303,1,'chatter',v,5,0).
 s(201037498,1,'yack',v,1,0).
 s(201037498,2,'jaw',v,2,1).
@@ -155810,11 +155819,6 @@ s(201037910,8,'philander',v,2,0).
 s(201037910,9,'mash',v,2,0).
 s(201038434,1,'wanton',v,5,0).
 s(201038538,1,'vamp',v,3,0).
-s(201038666,10,'natter',v,1,0).
-s(201038666,11,'gossip',v,2,0).
-s(201038666,12,'jaw',v,1,1).
-s(201038666,13,'claver',v,1,0).
-s(201038666,14,'visit',v,6,1).
 s(201038666,1,'chew the fat',v,1,0).
 s(201038666,2,'shoot the breeze',v,1,0).
 s(201038666,3,'chat',v,1,2).
@@ -155824,6 +155828,11 @@ s(201038666,6,'chitchat',v,1,0).
 s(201038666,7,'chit-chat',v,1,0).
 s(201038666,8,'chatter',v,3,1).
 s(201038666,9,'chaffer',v,2,0).
+s(201038666,10,'natter',v,1,0).
+s(201038666,11,'gossip',v,2,0).
+s(201038666,12,'jaw',v,1,1).
+s(201038666,13,'claver',v,1,0).
+s(201038666,14,'visit',v,6,1).
 s(201039162,1,'shmooze',v,1,0).
 s(201039162,2,'shmoose',v,1,0).
 s(201039162,3,'schmooze',v,1,0).
@@ -157190,13 +157199,6 @@ s(201192773,1,'run low',v,1,0).
 s(201192773,2,'run short',v,1,0).
 s(201192773,3,'go',v,13,3).
 s(201192992,1,'go',v,28,0).
-s(201193099,10,'gormandize',v,1,0).
-s(201193099,11,'gormandise',v,1,0).
-s(201193099,12,'gourmandize',v,1,0).
-s(201193099,13,'binge',v,1,0).
-s(201193099,14,'pig out',v,1,0).
-s(201193099,15,'satiate',v,2,0).
-s(201193099,16,'scarf out',v,1,0).
 s(201193099,1,'gorge',v,1,1).
 s(201193099,2,'ingurgitate',v,1,0).
 s(201193099,3,'overindulge',v,1,1).
@@ -157206,6 +157208,13 @@ s(201193099,6,'stuff',v,4,0).
 s(201193099,7,'engorge',v,1,0).
 s(201193099,8,'overgorge',v,1,0).
 s(201193099,9,'overeat',v,1,1).
+s(201193099,10,'gormandize',v,1,0).
+s(201193099,11,'gormandise',v,1,0).
+s(201193099,12,'gourmandize',v,1,0).
+s(201193099,13,'binge',v,1,0).
+s(201193099,14,'pig out',v,1,0).
+s(201193099,15,'satiate',v,2,0).
+s(201193099,16,'scarf out',v,1,0).
 s(201193569,1,'avail',v,3,0).
 s(201193569,2,'help',v,7,0).
 s(201193721,1,'satiate',v,1,1).
@@ -159250,6 +159259,15 @@ s(201425892,1,'pet',v,1,1).
 s(201426072,1,'gentle',v,3,0).
 s(201426153,1,'neck',v,1,0).
 s(201426153,2,'make out',v,7,0).
+s(201426397,1,'sleep together',v,1,0).
+s(201426397,2,'roll in the hay',v,1,0).
+s(201426397,3,'love',v,4,0).
+s(201426397,4,'make out',v,6,0).
+s(201426397,5,'make love',v,1,1).
+s(201426397,6,'sleep with',v,1,1).
+s(201426397,7,'get laid',v,1,0).
+s(201426397,8,'have sex',v,1,0).
+s(201426397,9,'know',v,8,0).
 s(201426397,10,'do it',v,1,0).
 s(201426397,11,'be intimate',v,1,2).
 s(201426397,12,'have intercourse',v,1,0).
@@ -159260,21 +159278,12 @@ s(201426397,16,'fuck',v,1,0).
 s(201426397,17,'jazz',v,2,0).
 s(201426397,18,'eff',v,1,0).
 s(201426397,19,'hump',v,2,0).
-s(201426397,1,'sleep together',v,1,0).
 s(201426397,20,'lie with',v,1,0).
 s(201426397,21,'bed',v,4,0).
 s(201426397,22,'have a go at it',v,1,0).
 s(201426397,23,'bang',v,5,0).
 s(201426397,24,'get it on',v,1,0).
 s(201426397,25,'bonk',v,1,0).
-s(201426397,2,'roll in the hay',v,1,0).
-s(201426397,3,'love',v,4,0).
-s(201426397,4,'make out',v,6,0).
-s(201426397,5,'make love',v,1,1).
-s(201426397,6,'sleep with',v,1,1).
-s(201426397,7,'get laid',v,1,0).
-s(201426397,8,'have sex',v,1,0).
-s(201426397,9,'know',v,8,0).
 s(201427127,1,'take',v,35,1).
 s(201427127,2,'have',v,19,2).
 s(201427278,1,'fornicate',v,1,0).
@@ -161112,8 +161121,6 @@ s(201629589,2,'work',v,11,3).
 s(201629589,3,'play',v,27,0).
 s(201629589,4,'wreak',v,1,1).
 s(201629589,5,'make for',v,1,13).
-s(201629958,10,'put forward',v,3,0).
-s(201629958,11,'call forth',v,2,0).
 s(201629958,1,'raise',v,7,7).
 s(201629958,2,'conjure',v,1,0).
 s(201629958,3,'conjure up',v,1,5).
@@ -161123,6 +161130,8 @@ s(201629958,6,'stir',v,6,1).
 s(201629958,7,'call down',v,1,0).
 s(201629958,8,'arouse',v,3,2).
 s(201629958,9,'bring up',v,1,3).
+s(201629958,10,'put forward',v,3,0).
+s(201629958,11,'call forth',v,2,0).
 s(201630532,1,'educe',v,1,0).
 s(201630532,2,'evoke',v,3,0).
 s(201630532,3,'elicit',v,2,2).
@@ -162462,10 +162471,6 @@ s(201787600,1,'madden',v,3,0).
 s(201787709,1,'madden',v,2,0).
 s(201787822,1,'madden',v,1,0).
 s(201787822,2,'craze',v,1,0).
-s(201787955,10,'gravel',v,1,0).
-s(201787955,11,'vex',v,1,1).
-s(201787955,12,'chafe',v,3,0).
-s(201787955,13,'devil',v,1,0).
 s(201787955,1,'annoy',v,1,5).
 s(201787955,2,'rag',v,2,0).
 s(201787955,3,'get to',v,3,0).
@@ -162475,14 +162480,16 @@ s(201787955,6,'irritate',v,1,3).
 s(201787955,7,'rile',v,1,0).
 s(201787955,8,'nark',v,1,0).
 s(201787955,9,'nettle',v,2,0).
+s(201787955,10,'gravel',v,1,0).
+s(201787955,11,'vex',v,1,1).
+s(201787955,12,'chafe',v,3,0).
+s(201787955,13,'devil',v,1,0).
 s(201788733,1,'chafe',v,2,0).
 s(201788932,1,'peeve',v,1,0).
 s(201789047,1,'ruffle',v,2,1).
 s(201789164,1,'fret',v,5,0).
 s(201789270,1,'pique',v,1,0).
 s(201789270,2,'offend',v,1,2).
-s(201789514,10,'molest',v,2,0).
-s(201789514,11,'provoke',v,4,1).
 s(201789514,1,'harass',v,1,0).
 s(201789514,2,'hassle',v,1,0).
 s(201789514,3,'harry',v,1,1).
@@ -162492,6 +162499,8 @@ s(201789514,6,'chevy',v,1,0).
 s(201789514,7,'chevvy',v,1,0).
 s(201789514,8,'beset',v,1,5).
 s(201789514,9,'plague',v,2,2).
+s(201789514,10,'molest',v,2,0).
+s(201789514,11,'provoke',v,4,1).
 s(201790020,1,'upset',v,2,2).
 s(201790020,2,'discompose',v,1,0).
 s(201790020,3,'untune',v,1,0).
@@ -162541,11 +162550,6 @@ s(201794668,1,'suffer',v,3,12).
 s(201794969,1,'anguish',v,1,0).
 s(201795082,1,'lose',v,3,10).
 s(201795333,1,'fume',v,1,2).
-s(201795428,10,'fly off the handle',v,1,0).
-s(201795428,11,'flip one''s wig',v,1,0).
-s(201795428,12,'lose one''s temper',v,1,0).
-s(201795428,13,'blow a fuse',v,1,0).
-s(201795428,14,'go ballistic',v,1,0).
 s(201795428,1,'flip one''s lid',v,1,0).
 s(201795428,2,'blow up',v,3,0).
 s(201795428,3,'throw a fit',v,1,0).
@@ -162555,6 +162559,11 @@ s(201795428,6,'have kittens',v,1,0).
 s(201795428,7,'have a fit',v,1,0).
 s(201795428,8,'combust',v,3,0).
 s(201795428,9,'blow one''s stack',v,1,0).
+s(201795428,10,'fly off the handle',v,1,0).
+s(201795428,11,'flip one''s wig',v,1,0).
+s(201795428,12,'lose one''s temper',v,1,0).
+s(201795428,13,'blow a fuse',v,1,0).
+s(201795428,14,'go ballistic',v,1,0).
 s(201795888,1,'enrage',v,1,1).
 s(201796033,1,'rage',v,3,1).
 s(201796215,1,'foam at the mouth',v,1,0).
@@ -162669,10 +162678,6 @@ s(201806271,1,'steel',v,1,1).
 s(201806271,2,'nerve',v,1,0).
 s(201806407,1,'take heart',v,1,1).
 s(201806407,2,'buck up',v,1,1).
-s(201806505,10,'fascinate',v,3,0).
-s(201806505,11,'bewitch',v,1,1).
-s(201806505,12,'entrance',v,1,0).
-s(201806505,13,'enchant',v,2,0).
 s(201806505,1,'capture',v,2,4).
 s(201806505,2,'enamour',v,1,0).
 s(201806505,3,'trance',v,1,0).
@@ -162682,6 +162687,10 @@ s(201806505,6,'enamor',v,1,0).
 s(201806505,7,'captivate',v,1,2).
 s(201806505,8,'beguile',v,2,1).
 s(201806505,9,'charm',v,1,2).
+s(201806505,10,'fascinate',v,3,0).
+s(201806505,11,'bewitch',v,1,1).
+s(201806505,12,'entrance',v,1,0).
+s(201806505,13,'enchant',v,2,0).
 s(201807051,1,'beckon',v,2,1).
 s(201807170,1,'endear',v,1,3).
 s(201807314,1,'antagonize',v,1,2).
@@ -163274,9 +163283,6 @@ s(201880888,1,'flap',v,2,2).
 s(201881034,1,'teeter',v,1,2).
 s(201881034,2,'seesaw',v,3,0).
 s(201881034,3,'totter',v,3,0).
-s(201881180,10,'range',v,2,2).
-s(201881180,11,'drift',v,3,3).
-s(201881180,12,'vagabond',v,1,0).
 s(201881180,1,'roll',v,12,0).
 s(201881180,2,'wander',v,1,18).
 s(201881180,3,'swan',v,2,0).
@@ -163286,6 +163292,9 @@ s(201881180,6,'roam',v,1,7).
 s(201881180,7,'cast',v,6,0).
 s(201881180,8,'ramble',v,2,0).
 s(201881180,9,'rove',v,1,2).
+s(201881180,10,'range',v,2,2).
+s(201881180,11,'drift',v,3,3).
+s(201881180,12,'vagabond',v,1,0).
 s(201881957,1,'tramp',v,3,0).
 s(201882081,1,'maunder',v,1,0).
 s(201882170,1,'walk',v,10,0).
@@ -163304,9 +163313,6 @@ s(201883344,1,'shift',v,2,12).
 s(201883344,2,'dislodge',v,2,0).
 s(201883344,3,'reposition',v,1,0).
 s(201883550,1,'beat down',v,3,0).
-s(201883716,10,'romp',v,1,2).
-s(201883716,11,'run around',v,1,3).
-s(201883716,12,'lark about',v,1,0).
 s(201883716,1,'frolic',v,1,1).
 s(201883716,2,'lark',v,1,0).
 s(201883716,3,'rollick',v,1,0).
@@ -163316,6 +163322,9 @@ s(201883716,6,'sport',v,2,0).
 s(201883716,7,'cavort',v,1,3).
 s(201883716,8,'gambol',v,1,0).
 s(201883716,9,'frisk',v,1,0).
+s(201883716,10,'romp',v,1,2).
+s(201883716,11,'run around',v,1,3).
+s(201883716,12,'lark about',v,1,0).
 s(201884126,1,'forge',v,5,0).
 s(201884126,2,'spurt',v,2,0).
 s(201884126,3,'spirt',v,2,0).
@@ -163781,7 +163790,6 @@ s(201930874,1,'drive',v,1,56).
 s(201931262,1,'coach',v,2,1).
 s(201931375,1,'test drive',v,1,0).
 s(201931566,1,'cruise',v,1,3).
-s(201931768,10,'channelise',v,1,0).
 s(201931768,1,'steer',v,1,4).
 s(201931768,2,'maneuver',v,1,5).
 s(201931768,3,'manoeuver',v,2,0).
@@ -163791,6 +163799,7 @@ s(201931768,6,'point',v,4,5).
 s(201931768,7,'head',v,5,2).
 s(201931768,8,'guide',v,1,12).
 s(201931768,9,'channelize',v,1,0).
+s(201931768,10,'channelise',v,1,0).
 s(201932482,1,'helm',v,1,0).
 s(201932586,1,'crab',v,1,0).
 s(201932704,1,'navigate',v,3,0).
@@ -164962,9 +164971,6 @@ s(202058756,3,'get behind',v,1,1).
 s(202058756,4,'hang back',v,1,1).
 s(202058756,5,'drop behind',v,1,1).
 s(202058756,6,'drop back',v,2,0).
-s(202058994,10,'bucket along',v,1,0).
-s(202058994,11,'belt along',v,1,0).
-s(202058994,12,'step on it',v,1,0).
 s(202058994,1,'rush',v,1,20).
 s(202058994,2,'hotfoot',v,1,0).
 s(202058994,3,'hasten',v,2,6).
@@ -164974,6 +164980,9 @@ s(202058994,6,'race',v,1,15).
 s(202058994,7,'pelt along',v,1,0).
 s(202058994,8,'rush along',v,1,0).
 s(202058994,9,'cannonball along',v,1,0).
+s(202058994,10,'bucket along',v,1,0).
+s(202058994,11,'belt along',v,1,0).
+s(202058994,12,'step on it',v,1,0).
 s(202059462,1,'race',v,4,0).
 s(202059462,2,'rush',v,6,0).
 s(202059675,1,'rush off',v,1,2).
@@ -165154,10 +165163,6 @@ s(202074377,3,'bilk',v,4,0).
 s(202074677,1,'escape',v,1,22).
 s(202074677,2,'get away',v,1,8).
 s(202074677,3,'break loose',v,2,1).
-s(202075049,10,'take to the woods',v,1,0).
-s(202075049,11,'escape',v,6,0).
-s(202075049,12,'fly the coop',v,1,0).
-s(202075049,13,'break away',v,5,0).
 s(202075049,1,'scat',v,1,0).
 s(202075049,2,'run',v,2,38).
 s(202075049,3,'scarper',v,1,0).
@@ -165167,6 +165172,10 @@ s(202075049,6,'run away',v,1,12).
 s(202075049,7,'hightail it',v,1,0).
 s(202075049,8,'bunk',v,3,0).
 s(202075049,9,'head for the hills',v,1,0).
+s(202075049,10,'take to the woods',v,1,0).
+s(202075049,11,'escape',v,6,0).
+s(202075049,12,'fly the coop',v,1,0).
+s(202075049,13,'break away',v,5,0).
 s(202075462,1,'flee',v,1,37).
 s(202075462,2,'fly',v,11,0).
 s(202075462,3,'take flight',v,1,0).
@@ -166393,10 +166402,6 @@ s(202221794,2,'secularize',v,2,0).
 s(202221959,1,'change hands',v,1,0).
 s(202221959,2,'change owners',v,1,0).
 s(202222179,1,'vest',v,3,0).
-s(202222318,10,'cast out',v,2,0).
-s(202222318,11,'throw away',v,1,5).
-s(202222318,12,'cast away',v,1,0).
-s(202222318,13,'put away',v,2,1).
 s(202222318,1,'discard',v,1,3).
 s(202222318,2,'fling',v,4,0).
 s(202222318,3,'toss',v,5,1).
@@ -166406,6 +166411,10 @@ s(202222318,6,'chuck out',v,1,0).
 s(202222318,7,'cast aside',v,1,2).
 s(202222318,8,'dispose',v,2,3).
 s(202222318,9,'throw out',v,2,3).
+s(202222318,10,'cast out',v,2,0).
+s(202222318,11,'throw away',v,1,5).
+s(202222318,12,'cast away',v,1,0).
+s(202222318,13,'put away',v,2,1).
 s(202222846,1,'slough off',v,1,0).
 s(202222994,1,'deep-six',v,1,0).
 s(202222994,2,'give it the deep six',v,1,0).
@@ -166845,9 +166854,6 @@ s(202276453,1,'distrain',v,3,0).
 s(202276568,1,'foreclose',v,2,1).
 s(202276746,1,'arrogate',v,2,0).
 s(202276746,2,'assign',v,6,0).
-s(202276866,10,'filch',v,1,0).
-s(202276866,11,'nobble',v,2,0).
-s(202276866,12,'lift',v,7,1).
 s(202276866,1,'pilfer',v,1,2).
 s(202276866,2,'cabbage',v,1,0).
 s(202276866,3,'purloin',v,1,1).
@@ -166857,6 +166863,9 @@ s(202276866,6,'snarf',v,1,0).
 s(202276866,7,'swipe',v,2,0).
 s(202276866,8,'hook',v,6,0).
 s(202276866,9,'sneak',v,3,0).
+s(202276866,10,'filch',v,1,0).
+s(202276866,11,'nobble',v,2,0).
+s(202276866,12,'lift',v,7,1).
 s(202277138,1,'rustle',v,2,3).
 s(202277138,2,'lift',v,15,0).
 s(202277303,1,'shoplift',v,1,0).
@@ -166943,7 +166952,6 @@ s(202286027,1,'feel',v,11,1).
 s(202286204,1,'locate',v,1,16).
 s(202286204,2,'turn up',v,3,2).
 s(202286550,1,'unearth',v,1,2).
-s(202286687,10,'discover',v,5,6).
 s(202286687,1,'fall upon',v,1,0).
 s(202286687,2,'strike',v,12,1).
 s(202286687,3,'come upon',v,1,10).
@@ -166953,6 +166961,7 @@ s(202286687,6,'come across',v,1,3).
 s(202286687,7,'chance on',v,1,0).
 s(202286687,8,'happen upon',v,1,1).
 s(202286687,9,'attain',v,3,0).
+s(202286687,10,'discover',v,5,6).
 s(202287041,1,'pick up',v,8,2).
 s(202287209,1,'foot',v,1,1).
 s(202287209,2,'pick',v,8,0).
@@ -167032,9 +167041,6 @@ s(202294179,2,'divvy up',v,1,0).
 s(202294179,3,'portion out',v,1,0).
 s(202294179,4,'apportion',v,2,0).
 s(202294179,5,'deal',v,11,0).
-s(202294436,10,'dish out',v,1,0).
-s(202294436,11,'allot',v,3,2).
-s(202294436,12,'dole out',v,1,1).
 s(202294436,1,'distribute',v,1,10).
 s(202294436,2,'administer',v,3,2).
 s(202294436,3,'mete out',v,1,0).
@@ -167044,6 +167050,9 @@ s(202294436,6,'lot',v,2,0).
 s(202294436,7,'dispense',v,1,3).
 s(202294436,8,'shell out',v,1,0).
 s(202294436,9,'deal out',v,1,0).
+s(202294436,10,'dish out',v,1,0).
+s(202294436,11,'allot',v,3,2).
+s(202294436,12,'dole out',v,1,1).
 s(202295082,1,'admeasure',v,1,0).
 s(202295208,1,'partake',v,2,0).
 s(202295208,2,'share',v,3,15).
@@ -167936,8 +167945,6 @@ s(202402409,2,'subvert',v,1,1).
 s(202402409,3,'overturn',v,4,0).
 s(202402409,4,'bring down',v,2,1).
 s(202402695,1,'revolutionize',v,2,0).
-s(202402825,10,'give the sack',v,1,0).
-s(202402825,11,'terminate',v,4,0).
 s(202402825,1,'displace',v,3,0).
 s(202402825,2,'fire',v,4,7).
 s(202402825,3,'give notice',v,1,0).
@@ -167947,6 +167954,8 @@ s(202402825,6,'give the axe',v,1,0).
 s(202402825,7,'send away',v,2,0).
 s(202402825,8,'sack',v,2,0).
 s(202402825,9,'force out',v,2,0).
+s(202402825,10,'give the sack',v,1,0).
+s(202402825,11,'terminate',v,4,0).
 s(202403408,1,'clean out',v,2,0).
 s(202403537,1,'furlough',v,1,1).
 s(202403537,2,'lay off',v,2,1).
@@ -168368,8 +168377,6 @@ s(202452885,2,'forestall',v,1,4).
 s(202452885,3,'foreclose',v,1,1).
 s(202452885,4,'preclude',v,1,2).
 s(202452885,5,'forbid',v,2,1).
-s(202453321,10,'avoid',v,2,22).
-s(202453321,11,'ward off',v,1,0).
 s(202453321,1,'debar',v,2,0).
 s(202453321,2,'forefend',v,1,0).
 s(202453321,3,'forfend',v,1,0).
@@ -168379,6 +168386,8 @@ s(202453321,6,'avert',v,1,5).
 s(202453321,7,'head off',v,1,3).
 s(202453321,8,'stave off',v,1,3).
 s(202453321,9,'fend off',v,1,0).
+s(202453321,10,'avoid',v,2,22).
+s(202453321,11,'ward off',v,1,0).
 s(202453692,1,'privilege',v,1,0).
 s(202453692,2,'favor',v,4,1).
 s(202453692,3,'favour',v,2,0).
@@ -168766,7 +168775,6 @@ s(202493876,1,'embargo',v,1,0).
 s(202494047,1,'free',v,5,1).
 s(202494047,2,'release',v,7,1).
 s(202494259,1,'bail out',v,1,0).
-s(202494356,10,'remand',v,2,0).
 s(202494356,1,'imprison',v,1,3).
 s(202494356,2,'incarcerate',v,1,0).
 s(202494356,3,'lag',v,2,0).
@@ -168776,6 +168784,7 @@ s(202494356,6,'jail',v,1,1).
 s(202494356,7,'jug',v,1,0).
 s(202494356,8,'gaol',v,1,0).
 s(202494356,9,'put away',v,3,0).
+s(202494356,10,'remand',v,2,0).
 s(202494850,1,'raid',v,1,2).
 s(202494850,2,'bust',v,2,0).
 s(202495038,1,'confine',v,5,0).
@@ -169078,6 +169087,15 @@ s(202527294,1,'average',v,2,2).
 s(202527431,1,'wangle',v,1,1).
 s(202527431,2,'finagle',v,1,0).
 s(202527431,3,'manage',v,5,2).
+s(202527651,1,'botch',v,1,0).
+s(202527651,2,'bodge',v,1,0).
+s(202527651,3,'bumble',v,1,0).
+s(202527651,4,'fumble',v,4,0).
+s(202527651,5,'botch up',v,1,0).
+s(202527651,6,'muff',v,2,0).
+s(202527651,7,'blow',v,7,0).
+s(202527651,8,'flub',v,1,1).
+s(202527651,9,'screw up',v,2,0).
 s(202527651,10,'ball up',v,1,0).
 s(202527651,11,'spoil',v,1,2).
 s(202527651,12,'muck up',v,1,1).
@@ -169088,20 +169106,11 @@ s(202527651,16,'bollix up',v,1,0).
 s(202527651,17,'bollocks',v,1,0).
 s(202527651,18,'bollocks up',v,1,0).
 s(202527651,19,'bobble',v,1,0).
-s(202527651,1,'botch',v,1,0).
 s(202527651,20,'mishandle',v,1,0).
 s(202527651,21,'louse up',v,1,2).
 s(202527651,22,'foul up',v,1,1).
 s(202527651,23,'mess up',v,1,1).
 s(202527651,24,'fuck up',v,1,2).
-s(202527651,2,'bodge',v,1,0).
-s(202527651,3,'bumble',v,1,0).
-s(202527651,4,'fumble',v,4,0).
-s(202527651,5,'botch up',v,1,0).
-s(202527651,6,'muff',v,2,0).
-s(202527651,7,'blow',v,7,0).
-s(202527651,8,'flub',v,1,1).
-s(202527651,9,'screw up',v,2,0).
 s(202528380,1,'fail',v,2,33).
 s(202528380,2,'go wrong',v,1,12).
 s(202528380,3,'miscarry',v,1,1).
@@ -169531,12 +169540,6 @@ s(202571768,1,'condition',v,1,2).
 s(202571901,1,'heed',v,1,7).
 s(202571901,2,'mind',v,4,0).
 s(202571901,3,'listen',v,3,4).
-s(202572119,10,'mulct',v,1,0).
-s(202572119,11,'gyp',v,1,0).
-s(202572119,12,'gip',v,1,0).
-s(202572119,13,'hornswoggle',v,1,0).
-s(202572119,14,'short-change',v,2,0).
-s(202572119,15,'con',v,1,1).
 s(202572119,1,'victimize',v,3,0).
 s(202572119,2,'swindle',v,1,2).
 s(202572119,3,'rook',v,1,0).
@@ -169546,6 +169549,12 @@ s(202572119,6,'diddle',v,1,0).
 s(202572119,7,'bunco',v,1,0).
 s(202572119,8,'defraud',v,1,2).
 s(202572119,9,'scam',v,1,0).
+s(202572119,10,'mulct',v,1,0).
+s(202572119,11,'gyp',v,1,0).
+s(202572119,12,'gip',v,1,0).
+s(202572119,13,'hornswoggle',v,1,0).
+s(202572119,14,'short-change',v,2,0).
+s(202572119,15,'con',v,1,1).
 s(202572667,1,'short-change',v,1,1).
 s(202572667,2,'short',v,1,0).
 s(202572792,1,'bilk',v,1,1).
@@ -169619,8 +169628,6 @@ s(202578872,2,'keep',v,5,10).
 s(202579140,1,'make good',v,1,1).
 s(202579247,1,'solemnize',v,1,0).
 s(202579247,2,'solemnise',v,1,0).
-s(202579447,10,'deprave',v,1,1).
-s(202579447,11,'misdirect',v,1,0).
 s(202579447,1,'corrupt',v,1,1).
 s(202579447,2,'pervert',v,1,0).
 s(202579447,3,'subvert',v,2,0).
@@ -169630,6 +169637,8 @@ s(202579447,6,'debauch',v,1,0).
 s(202579447,7,'debase',v,1,0).
 s(202579447,8,'profane',v,1,0).
 s(202579447,9,'vitiate',v,1,0).
+s(202579447,10,'deprave',v,1,1).
+s(202579447,11,'misdirect',v,1,0).
 s(202580237,1,'infect',v,3,0).
 s(202580392,1,'lead off',v,1,1).
 s(202580392,2,'lead astray',v,1,0).
@@ -170142,10 +170151,6 @@ s(202638630,3,'stick',v,7,0).
 s(202638630,4,'adhere',v,5,0).
 s(202638845,1,'adhere',v,4,0).
 s(202638845,2,'stick',v,6,0).
-s(202639075,10,'linger',v,2,2).
-s(202639075,11,'lurk',v,2,1).
-s(202639075,12,'mill about',v,1,1).
-s(202639075,13,'mill around',v,1,0).
 s(202639075,1,'loiter',v,1,1).
 s(202639075,2,'lounge',v,2,0).
 s(202639075,3,'footle',v,1,0).
@@ -170155,12 +170160,12 @@ s(202639075,6,'lallygag',v,1,0).
 s(202639075,7,'hang around',v,1,7).
 s(202639075,8,'mess about',v,1,0).
 s(202639075,9,'tarry',v,1,1).
+s(202639075,10,'linger',v,2,2).
+s(202639075,11,'lurk',v,2,1).
+s(202639075,12,'mill about',v,1,1).
+s(202639075,13,'mill around',v,1,0).
 s(202639475,1,'prowl',v,2,1).
 s(202639475,2,'lurch',v,4,0).
-s(202639606,10,'lounge around',v,1,0).
-s(202639606,11,'loll',v,2,0).
-s(202639606,12,'loll around',v,1,0).
-s(202639606,13,'lounge about',v,1,1).
 s(202639606,1,'bum',v,2,0).
 s(202639606,2,'bum around',v,1,0).
 s(202639606,3,'bum about',v,1,0).
@@ -170170,6 +170175,10 @@ s(202639606,6,'fuck off',v,1,0).
 s(202639606,7,'loaf',v,1,1).
 s(202639606,8,'frig around',v,1,0).
 s(202639606,9,'waste one''s time',v,1,0).
+s(202639606,10,'lounge around',v,1,0).
+s(202639606,11,'loll',v,2,0).
+s(202639606,12,'loll around',v,1,0).
+s(202639606,13,'lounge about',v,1,1).
 s(202639905,1,'lie about',v,1,0).
 s(202639905,2,'lie around',v,1,1).
 s(202640053,1,'lurk',v,1,8).
@@ -170198,7 +170207,6 @@ s(202642238,5,'shillyshally',v,2,0).
 s(202642238,6,'dilly-dally',v,1,0).
 s(202642238,7,'dillydally',v,1,0).
 s(202642610,1,'procrastinate',v,2,0).
-s(202642814,10,'put off',v,1,1).
 s(202642814,1,'postpone',v,1,12).
 s(202642814,2,'prorogue',v,1,0).
 s(202642814,3,'hold over',v,5,0).
@@ -170208,6 +170216,7 @@ s(202642814,6,'shelve',v,1,1).
 s(202642814,7,'set back',v,1,1).
 s(202642814,8,'defer',v,1,2).
 s(202642814,9,'remit',v,2,0).
+s(202642814,10,'put off',v,1,1).
 s(202643280,1,'hold over',v,4,0).
 s(202643421,1,'call',v,11,0).
 s(202643574,1,'hold',v,26,0).
@@ -172170,10 +172179,6 @@ s(300088792,1,'nonturbulent',s,1,0).
 s(300088899,1,'unstirred',s,1,0).
 s(300089051,1,'agreeable',a,1,0).
 s(300089355,1,'disagreeable',a,1,0).
-s(300089550,10,'plaguey',s,2,0).
-s(300089550,11,'teasing',s,3,0).
-s(300089550,12,'vexatious',s,1,0).
-s(300089550,13,'vexing',s,2,0).
 s(300089550,1,'annoying',s,1,1).
 s(300089550,2,'bothersome',s,1,0).
 s(300089550,3,'galling',s,1,1).
@@ -172183,6 +172188,10 @@ s(300089550,6,'pesky',s,1,0).
 s(300089550,7,'pestering',s,1,1).
 s(300089550,8,'pestiferous',s,4,0).
 s(300089550,9,'plaguy',s,1,0).
+s(300089550,10,'plaguey',s,2,0).
+s(300089550,11,'teasing',s,3,0).
+s(300089550,12,'vexatious',s,1,0).
+s(300089550,13,'vexing',s,2,0).
 s(300090219,1,'harsh',s,6,0).
 s(300090219,2,'abrasive',s,2,0).
 s(300090408,1,'nerve-racking',s,1,0).
@@ -172680,10 +172689,6 @@ s(300144598,1,'scaled',s,2,0).
 s(300144728,1,'unarmored',a,2,0).
 s(300144728,2,'unarmoured',a,2,0).
 s(300144877,1,'armed',a,3,0).
-s(300145083,10,'setose',s,1,0).
-s(300145083,11,'setaceous',s,1,0).
-s(300145083,12,'spiny',s,2,0).
-s(300145083,13,'thorny',s,2,0).
 s(300145083,1,'barbed',s,2,0).
 s(300145083,2,'barbellate',s,1,0).
 s(300145083,3,'briary',s,1,0).
@@ -172693,6 +172698,10 @@ s(300145083,6,'bristly',s,2,0).
 s(300145083,7,'burred',s,1,0).
 s(300145083,8,'burry',s,1,0).
 s(300145083,9,'prickly',s,2,0).
+s(300145083,10,'setose',s,1,0).
+s(300145083,11,'setaceous',s,1,0).
+s(300145083,12,'spiny',s,2,0).
+s(300145083,13,'thorny',s,2,0).
 s(300145628,1,'bristlelike',s,1,0).
 s(300145706,1,'brushlike',s,1,0).
 s(300145805,1,'thistlelike',s,1,0).
@@ -172718,8 +172727,6 @@ s(300147528,1,'unarmored',a,1,0).
 s(300147528,2,'unarmoured',a,1,0).
 s(300147659,1,'scaleless',s,1,0).
 s(300147734,1,'artful',a,2,0).
-s(300148078,10,'tricky',s,3,0).
-s(300148078,11,'wily',s,1,1).
 s(300148078,1,'crafty',s,1,1).
 s(300148078,2,'cunning',s,2,0).
 s(300148078,3,'dodgy',s,2,0).
@@ -172729,6 +172736,8 @@ s(300148078,6,'knavish',s,1,0).
 s(300148078,7,'slick',s,4,0).
 s(300148078,8,'sly',s,1,1).
 s(300148078,9,'tricksy',s,1,0).
+s(300148078,10,'tricky',s,3,0).
+s(300148078,11,'wily',s,1,1).
 s(300148642,1,'cute',s,2,1).
 s(300148642,2,'precious',s,4,0).
 s(300148852,1,'designing',s,1,0).
@@ -173138,9 +173147,6 @@ s(300193480,2,'frightful',s,1,4).
 s(300193480,3,'horrifying',s,1,1).
 s(300193480,4,'horrible',s,1,4).
 s(300193480,5,'ugly',s,4,0).
-s(300193799,10,'horrendous',s,1,0).
-s(300193799,11,'horrific',s,2,0).
-s(300193799,12,'terrible',s,1,11).
 s(300193799,1,'awful',s,2,4).
 s(300193799,2,'dire',s,2,0).
 s(300193799,3,'direful',s,1,0).
@@ -173150,6 +173156,9 @@ s(300193799,6,'dreadful',s,1,6).
 s(300193799,7,'fearful',s,2,1).
 s(300193799,8,'fearsome',s,1,0).
 s(300193799,9,'frightening',s,1,6).
+s(300193799,10,'horrendous',s,1,0).
+s(300193799,11,'horrific',s,2,0).
+s(300193799,12,'terrible',s,1,11).
 s(300194357,1,'baleful',s,2,0).
 s(300194357,2,'forbidding',s,2,0).
 s(300194357,3,'menacing',s,1,1).
@@ -174020,7 +174029,6 @@ s(300279332,1,'aglow',s,1,0).
 s(300279332,2,'lambent',s,1,0).
 s(300279332,3,'lucent',s,1,0).
 s(300279332,4,'luminous',s,1,3).
-s(300279618,10,'sparkly',s,2,0).
 s(300279618,1,'aglitter',s,1,0).
 s(300279618,2,'coruscant',s,1,0).
 s(300279618,3,'fulgid',s,1,0).
@@ -174030,6 +174038,7 @@ s(300279618,6,'glittering',s,1,6).
 s(300279618,7,'glittery',s,1,0).
 s(300279618,8,'scintillant',s,1,0).
 s(300279618,9,'scintillating',s,3,0).
+s(300279618,10,'sparkly',s,2,0).
 s(300280245,1,'beady',s,1,1).
 s(300280245,2,'beadlike',s,1,0).
 s(300280245,3,'buttony',s,1,0).
@@ -174257,8 +174266,6 @@ s(300301589,2,'denumerable',s,1,0).
 s(300301589,3,'enumerable',s,1,0).
 s(300301589,4,'numerable',s,1,0).
 s(300301777,1,'incalculable',a,1,1).
-s(300301951,10,'unnumbered',s,1,1).
-s(300301951,11,'unnumerable',s,1,0).
 s(300301951,1,'countless',s,1,5).
 s(300301951,2,'infinite',s,3,0).
 s(300301951,3,'innumerable',s,1,1).
@@ -174268,6 +174275,8 @@ s(300301951,6,'myriad',s,1,3).
 s(300301951,7,'numberless',s,1,0).
 s(300301951,8,'uncounted',s,1,0).
 s(300301951,9,'unnumberable',s,1,0).
+s(300301951,10,'unnumbered',s,1,1).
+s(300301951,11,'unnumerable',s,1,0).
 s(300302436,1,'incomputable',s,1,0).
 s(300302436,2,'inestimable',s,1,0).
 s(300302436,3,'immeasurable',s,2,0).
@@ -174834,8 +174843,6 @@ s(300364145,4,'jaunty',s,2,1).
 s(300364479,1,'depressing',a,1,0).
 s(300364479,2,'cheerless',a,1,0).
 s(300364479,3,'uncheerful',a,1,0).
-s(300364881,10,'drear',s,1,0).
-s(300364881,11,'dreary',s,2,0).
 s(300364881,1,'blue',s,8,0).
 s(300364881,2,'dark',s,9,0).
 s(300364881,3,'dingy',s,3,0).
@@ -174845,6 +174852,8 @@ s(300364881,6,'gloomy',s,3,0).
 s(300364881,7,'grim',s,6,0).
 s(300364881,8,'sorry',s,4,0).
 s(300364881,9,'drab',s,4,0).
+s(300364881,10,'drear',s,1,0).
+s(300364881,11,'dreary',s,2,0).
 s(300365261,1,'somber',s,2,0).
 s(300365261,2,'sombre',s,2,0).
 s(300365261,3,'melancholy',s,2,0).
@@ -175039,9 +175048,6 @@ s(300380895,1,'purple-red',s,1,0).
 s(300380895,2,'purplish-red',s,1,0).
 s(300380992,1,'purple-tinged',s,1,0).
 s(300380992,2,'purple-tinted',s,1,0).
-s(300381097,10,'ruby',s,1,0).
-s(300381097,11,'ruby-red',s,1,0).
-s(300381097,12,'scarlet',s,1,0).
 s(300381097,1,'red',s,1,43).
 s(300381097,2,'reddish',s,1,0).
 s(300381097,3,'ruddy',s,2,0).
@@ -175051,6 +175057,9 @@ s(300381097,6,'cerise',s,1,0).
 s(300381097,7,'cherry',s,1,0).
 s(300381097,8,'cherry-red',s,1,0).
 s(300381097,9,'crimson',s,1,7).
+s(300381097,10,'ruby',s,1,0).
+s(300381097,11,'ruby-red',s,1,0).
+s(300381097,12,'scarlet',s,1,0).
 s(300381525,1,'red-brown',s,1,0).
 s(300381525,2,'reddish-brown',s,1,0).
 s(300381525,3,'mahogany-red',s,1,0).
@@ -175323,14 +175332,6 @@ s(300398816,1,'monochromatic',s,3,0).
 s(300398816,2,'monochrome',s,1,0).
 s(300398816,3,'monochromic',s,1,0).
 s(300398816,4,'monochromous',s,1,0).
-s(300398978,10,'multi-coloured',s,1,0).
-s(300398978,11,'painted',s,4,0).
-s(300398978,12,'particolored',s,1,0).
-s(300398978,13,'particoloured',s,1,0).
-s(300398978,14,'piebald',s,1,0).
-s(300398978,15,'pied',s,1,0).
-s(300398978,16,'varicolored',s,2,0).
-s(300398978,17,'varicoloured',s,2,0).
 s(300398978,1,'motley',s,2,0).
 s(300398978,2,'calico',s,2,0).
 s(300398978,3,'multicolor',s,1,0).
@@ -175340,6 +175341,14 @@ s(300398978,6,'multi-colour',s,1,0).
 s(300398978,7,'multicolored',s,1,0).
 s(300398978,8,'multi-colored',s,1,0).
 s(300398978,9,'multicoloured',s,1,0).
+s(300398978,10,'multi-coloured',s,1,0).
+s(300398978,11,'painted',s,4,0).
+s(300398978,12,'particolored',s,1,0).
+s(300398978,13,'particoloured',s,1,0).
+s(300398978,14,'piebald',s,1,0).
+s(300398978,15,'pied',s,1,0).
+s(300398978,16,'varicolored',s,2,0).
+s(300398978,17,'varicoloured',s,2,0).
 s(300399479,1,'neutral-colored',s,1,0).
 s(300399479,2,'neutral-coloured',s,1,0).
 s(300399606,1,'olive-colored',s,1,0).
@@ -175750,7 +175759,6 @@ s(300439905,5,'goosey',s,1,0).
 s(300439905,6,'goosy',s,1,0).
 s(300439905,7,'gooselike',s,1,0).
 s(300439905,8,'jerky',s,3,0).
-s(300440292,10,'wooden-headed',s,1,0).
 s(300440292,1,'blockheaded',s,1,0).
 s(300440292,2,'boneheaded',s,1,0).
 s(300440292,3,'duncical',s,1,0).
@@ -175760,6 +175768,7 @@ s(300440292,6,'loggerheaded',s,1,0).
 s(300440292,7,'thick',s,9,0).
 s(300440292,8,'thickheaded',s,1,0).
 s(300440292,9,'thick-skulled',s,1,1).
+s(300440292,10,'wooden-headed',s,1,0).
 s(300440489,1,'cloddish',s,1,0).
 s(300440489,2,'doltish',s,1,0).
 s(300440579,1,'dense',s,4,0).
@@ -176534,7 +176543,6 @@ s(300525105,1,'sketchy',s,1,0).
 s(300525105,2,'unelaborated',s,1,0).
 s(300525315,1,'uncompleted',s,2,0).
 s(300525453,1,'comprehensive',a,1,8).
-s(300526062,10,'wide',s,2,12).
 s(300526062,1,'across-the-board',s,1,0).
 s(300526062,2,'all-embracing',s,1,0).
 s(300526062,3,'all-encompassing',s,1,0).
@@ -176544,6 +176552,7 @@ s(300526062,6,'broad',s,2,12).
 s(300526062,7,'encompassing',s,1,0).
 s(300526062,8,'extensive',s,2,3).
 s(300526062,9,'panoptic',s,2,0).
+s(300526062,10,'wide',s,2,12).
 s(300526541,1,'all-around',s,1,0).
 s(300526541,2,'all-round',s,1,1).
 s(300526541,3,'well-rounded',s,1,1).
@@ -177285,7 +177294,6 @@ s(300607977,4,'unimaginative',s,3,0).
 s(300608245,1,'white-bread',s,1,0).
 s(300608421,1,'unconventional',a,2,0).
 s(300608668,1,'alternative',s,3,0).
-s(300608791,10,'outre',s,1,0).
 s(300608791,1,'bizarre',s,1,2).
 s(300608791,2,'eccentric',s,1,4).
 s(300608791,3,'freakish',s,3,0).
@@ -177295,6 +177303,7 @@ s(300608791,6,'flakey',s,3,0).
 s(300608791,7,'gonzo',s,1,0).
 s(300608791,8,'off-the-wall',s,1,0).
 s(300608791,9,'outlandish',s,1,0).
+s(300608791,10,'outre',s,1,0).
 s(300609341,1,'devil-may-care',s,2,0).
 s(300609341,2,'raffish',s,2,0).
 s(300609341,3,'rakish',s,2,0).
@@ -177331,7 +177340,6 @@ s(300612652,2,'diverging',a,1,0).
 s(300612891,1,'branching',s,2,0).
 s(300612980,1,'radiating',s,1,0).
 s(300613068,1,'branchy',a,1,0).
-s(300613382,10,'tree-shaped',s,1,0).
 s(300613382,1,'arboreal',s,3,0).
 s(300613382,2,'arboreous',s,3,0).
 s(300613382,3,'arborescent',s,1,0).
@@ -177341,6 +177349,7 @@ s(300613382,6,'dendriform',s,1,0).
 s(300613382,7,'dendroid',s,1,0).
 s(300613382,8,'dendroidal',s,1,0).
 s(300613382,9,'treelike',s,1,0).
+s(300613382,10,'tree-shaped',s,1,0).
 s(300613728,1,'brachiate',s,1,0).
 s(300613866,1,'branched',s,2,0).
 s(300613866,2,'branching',s,1,0).
@@ -177870,9 +177879,6 @@ s(300669478,2,'curst',a,1,0).
 s(300669853,1,'accursed',s,1,0).
 s(300669853,2,'accurst',s,1,0).
 s(300669853,3,'maledict',s,1,0).
-s(300669942,10,'goddamn',s,2,0).
-s(300669942,11,'goddamned',s,1,3).
-s(300669942,12,'infernal',s,3,1).
 s(300669942,1,'blasted',s,1,0).
 s(300669942,2,'blame',s,1,0).
 s(300669942,3,'blamed',s,1,0).
@@ -177882,6 +177888,9 @@ s(300669942,6,'damned',s,1,8).
 s(300669942,7,'darned',s,1,6).
 s(300669942,8,'deuced',s,1,0).
 s(300669942,9,'goddam',s,1,3).
+s(300669942,10,'goddamn',s,2,0).
+s(300669942,11,'goddamned',s,1,3).
+s(300669942,12,'infernal',s,3,1).
 s(300670418,1,'cursed with',s,1,0).
 s(300670418,2,'stuck with',s,1,1).
 s(300670530,1,'damn',s,1,19).
@@ -178170,8 +178179,6 @@ s(300703454,1,'chapfallen',s,1,0).
 s(300703454,2,'chopfallen',s,1,0).
 s(300703454,3,'crestfallen',s,1,0).
 s(300703454,4,'deflated',s,1,1).
-s(300703615,10,'low',s,10,0).
-s(300703615,11,'low-spirited',s,1,0).
 s(300703615,1,'gloomy',s,2,0).
 s(300703615,2,'grim',s,5,0).
 s(300703615,3,'blue',s,3,1).
@@ -178181,6 +178188,8 @@ s(300703615,6,'down',s,9,0).
 s(300703615,7,'downcast',s,2,0).
 s(300703615,8,'downhearted',s,1,0).
 s(300703615,9,'down in the mouth',s,1,0).
+s(300703615,10,'low',s,10,0).
+s(300703615,11,'low-spirited',s,1,0).
 s(300704270,1,'glum',s,1,1).
 s(300704360,1,'lonely',s,2,4).
 s(300704360,2,'lonesome',s,2,0).
@@ -178979,6 +178988,15 @@ s(300797706,3,'bacchic',s,1,0).
 s(300797706,4,'carousing',s,1,0).
 s(300797706,5,'orgiastic',s,2,0).
 s(300798017,1,'beery',s,1,0).
+s(300798103,1,'besotted',s,1,0).
+s(300798103,2,'blind drunk',s,1,0).
+s(300798103,3,'blotto',s,1,0).
+s(300798103,4,'crocked',s,1,1).
+s(300798103,5,'cockeyed',s,3,0).
+s(300798103,6,'fuddled',s,1,0).
+s(300798103,7,'loaded',s,5,0).
+s(300798103,8,'pie-eyed',s,1,0).
+s(300798103,9,'pissed',s,2,0).
 s(300798103,10,'pixilated',s,2,0).
 s(300798103,11,'plastered',s,3,0).
 s(300798103,12,'slopped',s,1,0).
@@ -178989,17 +179007,8 @@ s(300798103,16,'soused',s,1,0).
 s(300798103,17,'sozzled',s,1,0).
 s(300798103,18,'squiffy',s,1,0).
 s(300798103,19,'stiff',s,7,0).
-s(300798103,1,'besotted',s,1,0).
 s(300798103,20,'tight',s,11,0).
 s(300798103,21,'wet',s,6,0).
-s(300798103,2,'blind drunk',s,1,0).
-s(300798103,3,'blotto',s,1,0).
-s(300798103,4,'crocked',s,1,1).
-s(300798103,5,'cockeyed',s,3,0).
-s(300798103,6,'fuddled',s,1,0).
-s(300798103,7,'loaded',s,5,0).
-s(300798103,8,'pie-eyed',s,1,0).
-s(300798103,9,'pissed',s,2,0).
 s(300798384,1,'potty',s,3,0).
 s(300798384,2,'tiddly',s,1,0).
 s(300798384,3,'tipsy',s,1,1).
@@ -179319,7 +179328,6 @@ s(300835609,3,'ineffectual',a,1,0).
 s(300835978,1,'toothless',s,2,0).
 s(300836111,1,'unproductive',s,2,0).
 s(300836277,1,'effortful',a,1,0).
-s(300836544,10,'toilsome',s,1,0).
 s(300836544,1,'arduous',s,1,1).
 s(300836544,2,'backbreaking',s,1,0).
 s(300836544,3,'grueling',s,1,0).
@@ -179329,6 +179337,7 @@ s(300836544,6,'heavy',s,24,0).
 s(300836544,7,'laborious',s,1,0).
 s(300836544,8,'operose',s,1,0).
 s(300836544,9,'punishing',s,2,0).
+s(300836544,10,'toilsome',s,1,0).
 s(300837084,1,'dragging',s,1,1).
 s(300837249,1,'exhausting',s,2,0).
 s(300837249,2,'tiring',s,1,1).
@@ -179484,10 +179493,6 @@ s(300853776,1,'emotional',a,2,7).
 s(300854255,1,'affectional',s,1,0).
 s(300854255,2,'affective',s,1,0).
 s(300854255,3,'emotive',s,1,0).
-s(300854413,10,'sentimental',s,2,1).
-s(300854413,11,'soppy',s,2,0).
-s(300854413,12,'soupy',s,2,0).
-s(300854413,13,'slushy',s,2,0).
 s(300854413,1,'bathetic',s,1,0).
 s(300854413,2,'drippy',s,3,0).
 s(300854413,3,'hokey',s,1,0).
@@ -179497,6 +179502,10 @@ s(300854413,6,'kitschy',s,1,0).
 s(300854413,7,'mushy',s,2,0).
 s(300854413,8,'schmaltzy',s,1,0).
 s(300854413,9,'schmalzy',s,1,0).
+s(300854413,10,'sentimental',s,2,1).
+s(300854413,11,'soppy',s,2,0).
+s(300854413,12,'soupy',s,2,0).
+s(300854413,13,'slushy',s,2,0).
 s(300854869,1,'cathartic',s,2,0).
 s(300854869,2,'releasing',s,1,0).
 s(300854989,1,'charged',s,2,1).
@@ -182063,12 +182072,6 @@ s(301122907,1,'a-ok',s,1,0).
 s(301122907,2,'a-okay',s,1,0).
 s(301123002,1,'no-go',a,1,0).
 s(301123148,1,'good',a,1,190).
-s(301123879,10,'nifty',s,1,0).
-s(301123879,11,'not bad',s,1,0).
-s(301123879,12,'peachy',s,1,0).
-s(301123879,13,'slap-up',s,1,0).
-s(301123879,14,'swell',s,1,1).
-s(301123879,15,'smashing',s,1,0).
 s(301123879,1,'bang-up',s,1,0).
 s(301123879,2,'bully',s,1,1).
 s(301123879,3,'corking',s,1,0).
@@ -182078,6 +182081,12 @@ s(301123879,6,'great',s,4,7).
 s(301123879,7,'groovy',s,1,0).
 s(301123879,8,'keen',s,3,0).
 s(301123879,9,'neat',s,5,0).
+s(301123879,10,'nifty',s,1,0).
+s(301123879,11,'not bad',s,1,0).
+s(301123879,12,'peachy',s,1,0).
+s(301123879,13,'slap-up',s,1,0).
+s(301123879,14,'swell',s,1,1).
+s(301123879,15,'smashing',s,1,0).
 s(301124192,1,'good enough',s,1,2).
 s(301124342,1,'goodish',s,1,0).
 s(301124441,1,'hot',s,15,0).
@@ -182213,9 +182222,6 @@ s(301136248,5,'grouchy',s,1,0).
 s(301136248,6,'grumpy',s,1,0).
 s(301136248,7,'bad-tempered',s,1,0).
 s(301136248,8,'ill-tempered',s,1,0).
-s(301136541,10,'testy',s,1,0).
-s(301136541,11,'tetchy',s,1,0).
-s(301136541,12,'techy',s,1,0).
 s(301136541,1,'cranky',s,2,0).
 s(301136541,2,'fractious',s,2,0).
 s(301136541,3,'irritable',s,1,1).
@@ -182225,6 +182231,9 @@ s(301136541,6,'peckish',s,2,0).
 s(301136541,7,'pettish',s,1,0).
 s(301136541,8,'petulant',s,1,0).
 s(301136541,9,'scratchy',s,2,0).
+s(301136541,10,'testy',s,1,0).
+s(301136541,11,'tetchy',s,1,0).
+s(301136541,12,'techy',s,1,0).
 s(301137000,1,'crusty',s,2,0).
 s(301137000,2,'curmudgeonly',s,1,0).
 s(301137000,3,'gruff',s,1,1).
@@ -183608,7 +183617,6 @@ s(301280349,1,'inconsequent',s,1,0).
 s(301280349,2,'inconsequential',s,1,3).
 s(301280576,1,'immaterial',s,5,0).
 s(301280576,2,'indifferent',s,4,1).
-s(301280908,10,'trivial',s,1,4).
 s(301280908,1,'fiddling',s,1,0).
 s(301280908,2,'footling',s,1,0).
 s(301280908,3,'lilliputian',s,3,0).
@@ -183618,6 +183626,7 @@ s(301280908,6,'piddling',s,1,0).
 s(301280908,7,'piffling',s,1,0).
 s(301280908,8,'petty',s,2,0).
 s(301280908,9,'picayune',s,1,0).
+s(301280908,10,'trivial',s,1,4).
 s(301281559,1,'lightweight',s,2,0).
 s(301281695,1,'nickel-and-dime',s,1,0).
 s(301281695,2,'small-time',s,1,1).
@@ -184700,9 +184709,6 @@ s(301392249,4,'midget',s,1,0).
 s(301392249,5,'petite',s,1,1).
 s(301392249,6,'tiny',s,1,19).
 s(301392249,7,'flyspeck',s,1,0).
-s(301392633,10,'teeny-weeny',s,1,0).
-s(301392633,11,'itty-bitty',s,1,0).
-s(301392633,12,'itsy-bitsy',s,1,0).
 s(301392633,1,'bitty',s,1,0).
 s(301392633,2,'bittie',s,1,0).
 s(301392633,3,'teensy',s,1,1).
@@ -184712,6 +184718,9 @@ s(301392633,6,'wee',s,1,3).
 s(301392633,7,'weeny',s,1,0).
 s(301392633,8,'weensy',s,1,0).
 s(301392633,9,'teensy-weensy',s,1,0).
+s(301392633,10,'teeny-weeny',s,1,0).
+s(301392633,11,'itty-bitty',s,1,0).
+s(301392633,12,'itsy-bitsy',s,1,0).
 s(301392896,1,'dinky',s,1,0).
 s(301393024,1,'dwarfish',s,1,0).
 s(301393141,1,'elfin',s,2,1).
@@ -185929,11 +185938,6 @@ s(301519673,1,'quenched',s,1,0).
 s(301519673,2,'satisfied',s,2,0).
 s(301519673,3,'slaked',s,1,0).
 s(301519803,1,'unmitigated',a,1,0).
-s(301520091,10,'stark',s,4,0).
-s(301520091,11,'staring',s,2,0).
-s(301520091,12,'thoroughgoing',s,2,0).
-s(301520091,13,'utter',s,1,3).
-s(301520091,14,'unadulterated',s,2,0).
 s(301520091,1,'arrant',s,1,0).
 s(301520091,2,'complete',s,4,0).
 s(301520091,3,'consummate',s,3,0).
@@ -185943,6 +185947,11 @@ s(301520091,6,'gross',s,5,0).
 s(301520091,7,'perfect',s,2,0).
 s(301520091,8,'pure',s,2,2).
 s(301520091,9,'sodding',s,1,0).
+s(301520091,10,'stark',s,4,0).
+s(301520091,11,'staring',s,2,0).
+s(301520091,12,'thoroughgoing',s,2,0).
+s(301520091,13,'utter',s,1,3).
+s(301520091,14,'unadulterated',s,2,0).
 s(301520655,1,'bally',s,1,0).
 s(301520655,2,'blinking',s,2,0).
 s(301520655,3,'bloody',s,2,0).
@@ -186526,8 +186535,6 @@ s(301588065,1,'nidifugous',a,1,0).
 s(301588172,1,'noble',a,3,1).
 s(301588426,1,'dignifying',s,1,0).
 s(301588426,2,'ennobling',s,1,0).
-s(301588619,10,'idealistic',s,2,0).
-s(301588619,11,'noble-minded',s,1,0).
 s(301588619,1,'exalted',s,1,2).
 s(301588619,2,'elevated',s,2,0).
 s(301588619,3,'sublime',s,4,0).
@@ -186537,6 +186544,8 @@ s(301588619,6,'high-minded',s,1,0).
 s(301588619,7,'lofty',s,1,1).
 s(301588619,8,'rarefied',s,2,0).
 s(301588619,9,'rarified',s,2,0).
+s(301588619,10,'idealistic',s,2,0).
+s(301588619,11,'noble-minded',s,1,0).
 s(301589045,1,'greathearted',s,1,0).
 s(301589045,2,'magnanimous',s,1,0).
 s(301589217,1,'ignoble',a,1,0).
@@ -186848,10 +186857,6 @@ s(301625492,1,'charnel',s,1,0).
 s(301625492,2,'ghastly',s,2,0).
 s(301625492,3,'sepulchral',s,2,0).
 s(301625760,1,'creepy',s,1,0).
-s(301625893,10,'revolting',s,1,0).
-s(301625893,11,'skanky',s,1,0).
-s(301625893,12,'wicked',s,5,0).
-s(301625893,13,'yucky',s,1,0).
 s(301625893,1,'disgusting',s,1,1).
 s(301625893,2,'disgustful',s,1,0).
 s(301625893,3,'distasteful',s,2,0).
@@ -186861,6 +186866,10 @@ s(301625893,6,'loathsome',s,2,1).
 s(301625893,7,'repellent',s,2,0).
 s(301625893,8,'repellant',s,2,0).
 s(301625893,9,'repelling',s,1,0).
+s(301625893,10,'revolting',s,1,0).
+s(301625893,11,'skanky',s,1,0).
+s(301625893,12,'wicked',s,5,0).
+s(301625893,13,'yucky',s,1,0).
 s(301626440,1,'ghoulish',s,1,0).
 s(301626440,2,'morbid',s,2,0).
 s(301626562,1,'hideous',s,1,3).
@@ -187040,7 +187049,6 @@ s(301645296,2,'doddery',s,1,0).
 s(301645296,3,'gaga',s,1,0).
 s(301645296,4,'senile',s,1,1).
 s(301645490,1,'emeritus',s,1,1).
-s(301645678,10,'white-haired',s,1,0).
 s(301645678,1,'grey',s,2,0).
 s(301645678,2,'gray',s,2,6).
 s(301645678,3,'grey-haired',s,1,0).
@@ -187050,6 +187058,7 @@ s(301645678,6,'gray-headed',s,1,0).
 s(301645678,7,'grizzly',s,1,0).
 s(301645678,8,'hoar',s,1,0).
 s(301645678,9,'hoary',s,1,0).
+s(301645678,10,'white-haired',s,1,0).
 s(301646021,1,'middle-aged',s,1,4).
 s(301646120,1,'nonagenarian',s,1,0).
 s(301646278,1,'octogenarian',s,1,0).
@@ -187326,7 +187335,6 @@ s(301676026,3,'olympian',s,4,0).
 s(301676026,4,'prodigious',s,3,0).
 s(301676026,5,'surpassing',s,2,0).
 s(301676350,1,'extraordinaire',s,1,0).
-s(301676517,10,'wondrous',s,1,2).
 s(301676517,1,'fantastic',s,2,3).
 s(301676517,2,'grand',s,4,0).
 s(301676517,3,'howling',s,1,0).
@@ -187336,6 +187344,7 @@ s(301676517,6,'rattling',s,1,0).
 s(301676517,7,'terrific',s,2,2).
 s(301676517,8,'tremendous',s,2,10).
 s(301676517,9,'wonderful',s,1,14).
+s(301676517,10,'wondrous',s,1,2).
 s(301676993,1,'phenomenal',s,2,0).
 s(301677200,1,'frightful',s,2,1).
 s(301677200,2,'terrible',s,4,0).
@@ -187426,8 +187435,6 @@ s(301687965,1,'newfangled',s,1,0).
 s(301687965,2,'new',s,7,0).
 s(301688154,1,'underivative',s,1,0).
 s(301688271,1,'unoriginal',a,1,0).
-s(301688757,10,'trite',s,1,1).
-s(301688757,11,'well-worn',s,2,0).
 s(301688757,1,'banal',s,1,0).
 s(301688757,2,'commonplace',s,3,0).
 s(301688757,3,'hackneyed',s,1,1).
@@ -187437,6 +187444,8 @@ s(301688757,6,'stock',s,1,1).
 s(301688757,7,'threadbare',s,1,1).
 s(301688757,8,'timeworn',s,1,1).
 s(301688757,9,'tired',s,2,0).
+s(301688757,10,'trite',s,1,1).
+s(301688757,11,'well-worn',s,2,0).
 s(301689223,1,'bromidic',s,2,0).
 s(301689223,2,'corny',s,1,0).
 s(301689223,3,'platitudinal',s,1,0).
@@ -188207,7 +188216,6 @@ s(301765926,1,'at a loss',s,1,1).
 s(301765926,2,'nonplused',s,1,0).
 s(301765926,3,'nonplussed',s,1,0).
 s(301765926,4,'puzzled',s,1,4).
-s(301766133,10,'at sea',s,1,0).
 s(301766133,1,'baffled',s,1,0).
 s(301766133,2,'befuddled',s,2,0).
 s(301766133,3,'bemused',s,2,0).
@@ -188217,6 +188225,7 @@ s(301766133,6,'confused',s,1,5).
 s(301766133,7,'lost',s,8,0).
 s(301766133,8,'mazed',s,1,0).
 s(301766133,9,'mixed-up',s,1,1).
+s(301766133,10,'at sea',s,1,0).
 s(301766550,1,'metagrobolized',s,1,0).
 s(301766550,2,'metagrobolised',s,1,0).
 s(301766550,3,'metagrabolized',s,1,0).
@@ -188554,8 +188563,6 @@ s(301801029,3,'pleasurable',s,1,0).
 s(301801327,1,'grateful',s,2,0).
 s(301801446,1,'idyllic',s,2,0).
 s(301801600,1,'unpleasant',a,1,6).
-s(301802165,10,'virulent',s,3,0).
-s(301802165,11,'vitriolic',s,1,0).
 s(301802165,1,'acerb',s,2,0).
 s(301802165,2,'acerbic',s,2,0).
 s(301802165,3,'acid',s,1,1).
@@ -188565,6 +188572,8 @@ s(301802165,6,'blistering',s,1,1).
 s(301802165,7,'caustic',s,1,0).
 s(301802165,8,'sulfurous',s,2,0).
 s(301802165,9,'sulphurous',s,2,0).
+s(301802165,10,'virulent',s,3,0).
+s(301802165,11,'vitriolic',s,1,0).
 s(301802774,1,'beastly',s,1,0).
 s(301802774,2,'hellish',s,1,0).
 s(301802774,3,'god-awful',s,1,0).
@@ -188599,8 +188608,6 @@ s(301805618,1,'chuffed',s,1,0).
 s(301805730,1,'delighted',s,1,3).
 s(301805801,1,'gratified',s,1,1).
 s(301805889,1,'displeased',a,1,1).
-s(301806106,10,'steamed',s,2,0).
-s(301806106,11,'stung',s,1,1).
 s(301806106,1,'annoyed',s,1,3).
 s(301806106,2,'irritated',s,1,0).
 s(301806106,3,'miffed',s,1,0).
@@ -188610,6 +188617,8 @@ s(301806106,6,'pissed',s,1,0).
 s(301806106,7,'pissed off',s,1,0).
 s(301806106,8,'riled',s,1,0).
 s(301806106,9,'roiled',s,1,0).
+s(301806106,10,'steamed',s,2,0).
+s(301806106,11,'stung',s,1,1).
 s(301806483,1,'exasperated',s,1,2).
 s(301806483,2,'cheesed off',s,1,0).
 s(301806483,3,'browned off',s,1,0).
@@ -189235,9 +189244,6 @@ s(301879464,2,'right',s,10,0).
 s(301879667,1,'fitting',s,1,5).
 s(301879912,1,'halal',s,1,0).
 s(301880071,1,'kosher',s,2,0).
-s(301880163,10,'straight-laced',s,1,0).
-s(301880163,11,'tight-laced',s,1,0).
-s(301880163,12,'victorian',s,2,0).
 s(301880163,1,'priggish',s,1,0).
 s(301880163,2,'prim',s,2,0).
 s(301880163,3,'prissy',s,1,0).
@@ -189247,6 +189253,9 @@ s(301880163,6,'square-toed',s,1,0).
 s(301880163,7,'straitlaced',s,1,1).
 s(301880163,8,'strait-laced',s,1,0).
 s(301880163,9,'straightlaced',s,1,0).
+s(301880163,10,'straight-laced',s,1,0).
+s(301880163,11,'tight-laced',s,1,0).
+s(301880163,12,'victorian',s,2,0).
 s(301880531,1,'improper',a,1,0).
 s(301880918,1,'indecent',s,1,2).
 s(301880918,2,'indecorous',s,2,0).
@@ -191104,6 +191113,15 @@ s(302074673,3,'berserk',s,1,0).
 s(302074673,4,'demoniac',s,1,0).
 s(302074673,5,'demoniacal',s,1,0).
 s(302074673,6,'possessed',s,2,0).
+s(302074929,1,'balmy',s,1,0).
+s(302074929,2,'barmy',s,2,0).
+s(302074929,3,'bats',s,1,0).
+s(302074929,4,'batty',s,1,0).
+s(302074929,5,'bonkers',s,1,0).
+s(302074929,6,'buggy',s,1,0).
+s(302074929,7,'cracked',s,3,0).
+s(302074929,8,'crackers',s,1,0).
+s(302074929,9,'daft',s,1,0).
 s(302074929,10,'dotty',s,1,0).
 s(302074929,11,'fruity',s,2,0).
 s(302074929,12,'haywire',s,1,0).
@@ -191114,19 +191132,10 @@ s(302074929,16,'loony',s,1,0).
 s(302074929,17,'loopy',s,2,0).
 s(302074929,18,'nuts',s,1,0).
 s(302074929,19,'nutty',s,2,0).
-s(302074929,1,'balmy',s,1,0).
 s(302074929,20,'round the bend',s,1,0).
 s(302074929,21,'around the bend',s,1,0).
 s(302074929,22,'wacky',s,2,0).
 s(302074929,23,'whacky',s,2,0).
-s(302074929,2,'barmy',s,2,0).
-s(302074929,3,'bats',s,1,0).
-s(302074929,4,'batty',s,1,0).
-s(302074929,5,'bonkers',s,1,0).
-s(302074929,6,'buggy',s,1,0).
-s(302074929,7,'cracked',s,3,0).
-s(302074929,8,'crackers',s,1,0).
-s(302074929,9,'daft',s,1,0).
 s(302075321,1,'brainsick',s,1,0).
 s(302075321,2,'crazy',s,1,10).
 s(302075321,3,'demented',s,1,0).
@@ -191757,8 +191766,6 @@ s(302138428,2,'dioestrous',s,1,0).
 s(302138428,3,'diestrual',s,1,0).
 s(302138428,4,'dioestrual',s,1,0).
 s(302138659,1,'shapely',a,1,1).
-s(302138989,10,'voluptuous',s,2,0).
-s(302138989,11,'well-endowed',s,1,0).
 s(302138989,1,'bosomy',s,1,0).
 s(302138989,2,'busty',s,1,0).
 s(302138989,3,'buxom',s,1,0).
@@ -191768,6 +191775,8 @@ s(302138989,6,'full-bosomed',s,1,0).
 s(302138989,7,'sonsie',s,1,0).
 s(302138989,8,'sonsy',s,1,0).
 s(302138989,9,'stacked',s,2,0).
+s(302138989,10,'voluptuous',s,2,0).
+s(302138989,11,'well-endowed',s,1,0).
 s(302139403,1,'callipygian',s,1,0).
 s(302139403,2,'callipygous',s,1,0).
 s(302139563,1,'clean-limbed',s,1,0).
@@ -194228,9 +194237,6 @@ s(302354897,6,'auxiliary',s,2,0).
 s(302355248,1,'accessary',s,1,0).
 s(302355248,2,'accessory',s,1,0).
 s(302355398,1,'certificatory',s,1,0).
-s(302355521,10,'validatory',s,1,0).
-s(302355521,11,'verificatory',s,1,0).
-s(302355521,12,'verifying',s,1,0).
 s(302355521,1,'collateral',s,2,0).
 s(302355521,2,'confirmative',s,1,0).
 s(302355521,3,'confirming',s,2,0).
@@ -194240,6 +194246,9 @@ s(302355521,6,'corroboratory',s,1,0).
 s(302355521,7,'substantiating',s,1,0).
 s(302355521,8,'substantiative',s,1,0).
 s(302355521,9,'validating',s,1,0).
+s(302355521,10,'validatory',s,1,0).
+s(302355521,11,'verificatory',s,1,0).
+s(302355521,12,'verifying',s,1,0).
 s(302356048,1,'demonstrative of',s,1,0).
 s(302356244,1,'encouraging',s,2,0).
 s(302356244,2,'supporting',s,1,2).
@@ -194603,10 +194612,6 @@ s(302393220,2,'unostentatious',s,2,0).
 s(302393220,3,'unpretentious',s,3,0).
 s(302393401,1,'tasteless',a,2,0).
 s(302393670,1,'barbaric',s,2,0).
-s(302393791,10,'tacky',s,2,0).
-s(302393791,11,'tatty',s,2,0).
-s(302393791,12,'tawdry',s,1,1).
-s(302393791,13,'trashy',s,2,0).
 s(302393791,1,'brassy',s,2,0).
 s(302393791,2,'cheap',s,2,1).
 s(302393791,3,'flash',s,1,0).
@@ -194616,6 +194621,10 @@ s(302393791,6,'gaudy',s,1,1).
 s(302393791,7,'gimcrack',s,1,0).
 s(302393791,8,'loud',s,2,1).
 s(302393791,9,'meretricious',s,2,0).
+s(302393791,10,'tacky',s,2,0).
+s(302393791,11,'tatty',s,2,0).
+s(302393791,12,'tawdry',s,1,1).
+s(302393791,13,'trashy',s,2,0).
 s(302394366,1,'Brummagem',s,1,0).
 s(302394487,1,'camp',s,1,0).
 s(302394487,2,'campy',s,1,0).
@@ -194803,8 +194812,6 @@ s(302412880,2,'hairlike',s,1,0).
 s(302413037,1,'compressed',s,3,0).
 s(302413037,2,'flat',s,7,0).
 s(302413221,1,'depressed',s,2,0).
-s(302413390,10,'vapourous',s,1,0).
-s(302413390,11,'cobwebby',s,1,0).
 s(302413390,1,'diaphanous',s,1,0).
 s(302413390,2,'filmy',s,1,0).
 s(302413390,3,'gauzy',s,1,0).
@@ -194814,6 +194821,8 @@ s(302413390,6,'see-through',s,1,0).
 s(302413390,7,'sheer',s,4,0).
 s(302413390,8,'transparent',s,2,2).
 s(302413390,9,'vaporous',s,1,0).
+s(302413390,10,'vapourous',s,1,0).
+s(302413390,11,'cobwebby',s,1,0).
 s(302413851,1,'filamentous',s,1,0).
 s(302413851,2,'filiform',s,1,0).
 s(302413851,3,'filamentlike',s,1,0).
@@ -196111,9 +196120,6 @@ s(302547317,1,'wet',a,1,23).
 s(302547862,1,'bedewed',s,1,0).
 s(302547862,2,'dewy',s,1,0).
 s(302547953,1,'besprent',s,1,0).
-s(302548066,10,'squashy',s,2,0).
-s(302548066,11,'swampy',s,1,0).
-s(302548066,12,'waterlogged',s,1,0).
 s(302548066,1,'boggy',s,1,0).
 s(302548066,2,'marshy',s,1,0).
 s(302548066,3,'miry',s,1,0).
@@ -196123,6 +196129,9 @@ s(302548066,6,'quaggy',s,1,0).
 s(302548066,7,'sloppy',s,3,0).
 s(302548066,8,'sloughy',s,1,0).
 s(302548066,9,'soggy',s,1,0).
+s(302548066,10,'squashy',s,2,0).
+s(302548066,11,'swampy',s,1,0).
+s(302548066,12,'waterlogged',s,1,0).
 s(302548619,1,'clammy',s,1,2).
 s(302548619,2,'dank',s,1,1).
 s(302548820,1,'damp',s,1,6).
@@ -201927,7 +201936,6 @@ s(400048268,2,'currently',r,1,4).
 s(400048475,1,'nowadays',r,1,0).
 s(400048475,2,'now',r,2,182).
 s(400048475,3,'today',r,1,19).
-s(400048739,10,'like a shot',r,1,0).
 s(400048739,1,'immediately',r,1,46).
 s(400048739,2,'instantly',r,1,10).
 s(400048739,3,'straightaway',r,1,1).
@@ -201937,6 +201945,7 @@ s(400048739,6,'now',r,5,9).
 s(400048739,7,'right away',r,1,10).
 s(400048739,8,'at once',r,1,24).
 s(400048739,9,'forthwith',r,1,1).
+s(400048739,10,'like a shot',r,1,0).
 s(400049102,1,'now',r,3,29).
 s(400049220,1,'now',r,4,15).
 s(400049220,2,'at present',r,1,8).

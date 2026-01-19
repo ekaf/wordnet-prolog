@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.0
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2006 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 ppl(303147281,1,201153486,2).
 ppl(303147408,1,201153486,2).
 ppl(303147543,1,201624897,1).

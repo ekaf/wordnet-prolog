@@ -1,10 +1,9 @@
 /* -----------------------------------------------------------------
-
-https://github.com/ekaf/wordnet-prolog/raw/master/wn_valid.pl
+wn_valid.pl
 
 Tests for a few potential Wordnet database bugs
 
-Copyright 2017-26 Eric Kafe
+SPDX-FileCopyrightText: 2017-26 Eric Kafe <kafe@megadoc.net>
 SPDX-License-Identifier: Apache-2.0
 Licensed under the Apache License, Version 2.0
 
@@ -15,9 +14,10 @@ but usually don't happen anymore:
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
 - asymcheck: direct loops in the asymmetric relations
+- wordless: empty synsets
 - check_duplicates: find duplicate clauses
 
-Additionally, the optional 'hypself' test finds the self-hyponymous word forms.
+Additionally, the optional 'hypself' test finds self-hyponyms
 
 ----------------------------------------------------------------- */
 
@@ -154,10 +154,27 @@ hypself:-
   ok,
   nl.
 
+
+/* ------------------------------------------
+Empty (i.e. wordless) synsets
+------------------------------------------ */
+
+wordless:-
+  nl, write('Empty (i.e. wordless) synsets:'), nl,
+ g(A,G),
+ ( 
+   s(A,_,_,_,_,_)
+   -> true
+   ;  format('~w: ~w~n',[A,G])
+ ),
+ false.
+wordless:-
+  ok.
+
+
 /* ------------------------------------------
 Find Duplicates
 ------------------------------------------ */
-
 
 :- dynamic(duplicate/3).
 
@@ -192,7 +209,7 @@ check_duplicates:-
 WN Validation
 ------------------------------------------ */
 
-wn_tests([check_keys, symcheck, asymcheck, check_duplicates]).
+wn_tests([check_keys, symcheck, asymcheck, wordless, check_duplicates]).
 
 run_tests:-
   time_call(mk_ski),

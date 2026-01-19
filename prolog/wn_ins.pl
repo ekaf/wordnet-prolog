@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.0
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2006 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 ins(100060548,100058743).
 ins(100060817,100058743).
 ins(100208141,100207761).

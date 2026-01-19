@@ -1,3 +1,12 @@
+/*
+WordNet-Version: 3.0
+Prolog conversion by Eric Kafe <kafe@megadoc.net>
+
+SPDX-License-Identifier: WordNet
+SPDX-FileCopyrightText: 2006 Princeton University
+
+For more information, see: https://wordnet.princeton.edu
+-------------------------------------------------------- */
 syntax(300014358,2,ip).
 syntax(300019731,2,p).
 syntax(300020103,1,a).
@@ -627,10 +636,6 @@ syntax(301512527,1,a).
 syntax(301512909,1,a).
 syntax(301515525,1,p).
 syntax(301517526,1,a).
-syntax(301520091,10,a).
-syntax(301520091,11,a).
-syntax(301520091,12,a).
-syntax(301520091,13,a).
 syntax(301520091,1,a).
 syntax(301520091,2,a).
 syntax(301520091,3,a).
@@ -640,6 +645,10 @@ syntax(301520091,6,a).
 syntax(301520091,7,a).
 syntax(301520091,8,a).
 syntax(301520091,9,a).
+syntax(301520091,10,a).
+syntax(301520091,11,a).
+syntax(301520091,12,a).
+syntax(301520091,13,a).
 syntax(301520655,1,a).
 syntax(301520655,2,a).
 syntax(301520655,3,a).
