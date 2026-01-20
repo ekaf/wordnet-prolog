@@ -12,11 +12,11 @@ and bundled with a copy of the original WNprolog-3.0 documentation
 This branch contains software and data under multiple licenses:
 
 - **Code:**
-  - Licensed under the **Apache License 2.0**. See [LICENSE](LICENSE).
+  - Licensed under the **Apache License 2.0**. See [LICENSE](LICENSE.md).
 
 - **Open English WordNet (OEWN) data:**
-  - Original WordNet data: Licensed under the **Princeton WordNet License**. See [LICENSE-WORDNET](LICENSE-WORDNET).
-  - Modifications and additions: Licensed under the **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**. See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
+  - Original WordNet data: Licensed under the **Princeton WordNet License**. See [LICENSE-WORDNET](LICENSE-WORDNET.md).
+  - Modifications and additions: Licensed under the **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**. See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0.md).
 
 - **Documentation (`doc`):**
   - The `doc` directory contains portions of the original WordNet 3.0 documentation (© 2006 by Princeton University). It is fully licensed under the **Princeton WordNet License**.
