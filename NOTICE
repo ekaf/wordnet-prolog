@@ -1,20 +1,23 @@
-### Licensing and Attribution
+SPDX-License-Identifier: Apache-2.0 AND WordNet AND CC-BY-4.0
 
-#### Prolog Library
-- License: Apache License 2.0
-- SPDX: Apache-2.0
-- Copyright: 2017-2026 Eric Kafe
+wordnet-prolog Repository (ewn25 branch)
+Copyright 2017-2026 Eric Kafe and contributors.
 
-#### Open English WordNet (OEWN) Files
-- License: Dual-licensed under:
-  1. WordNet License (WordNet)
-  2. Creative Commons Attribution 4.0 International (CC-BY-4.0)
-- SPDX: WordNet AND CC-BY-4.0
-- Copyright: 2011 by Princeton University AND 2025 OEWN Community
-- Source: https://en-word.net
-- Note: OEWN is based on WordNet 3.1
+This branch incorporates Open English WordNet (OEWN) data, which is licensed under the following terms:
 
-#### WNprolog Documentation Files
-- License: WordNet License (WordNet)
-- SPDX: WordNet
-- Copyright: 2006 by Princeton University
+- **Princeton WordNet License**:
+  - Original portions of the WordNet database and documentation (including the `doc` directory) retain the Princeton WordNet License. See `LICENSE-WORDNET` for the full text.
+
+- **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**:
+  - Modifications and additions made by the OEWN community are licensed under CC-BY-4.0. See `LICENSE-CC-BY-4.0` for the full text.
+
+- **Code:**
+  - All code distributed in this branch is licensed under the Apache License 2.0.
+  - See `LICENSE` for the full text.
+
+File-level licenses are detailed in [SPDX headers](https://spdx.github.io/spdx-spec/) where applicable. The `doc` directory does not contain specific SPDX headers, but it is fully subject to the WordNet license as described above.
+
+Attribution Notice for OEWN:
+
+- Modifications: Open English WordNet © the OEWN community. Licensed under CC-BY-4.0 (see `LICENSE-CC-BY-4.0`).
+- WordNet: Princeton WordNet © 2006 and 2011 by Princeton University. Licensed under the Princeton WordNet License (see `LICENSE-WORDNET`).

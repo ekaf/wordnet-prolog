@@ -7,32 +7,21 @@ compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 
+## License
 
-## Licensing
+This branch contains software and data under multiple licenses:
 
-This software contains multiple components under different licenses:
+- **Code:**
+  - Licensed under the **Apache License 2.0**. See [LICENSE](LICENSE).
 
-### Prolog Library Code
-- **License**: Apache License 2.0
-- **Files**: All files in the root directory
-- **SPDX Identifier**: Apache-2.0
+- **Open English WordNet (OEWN) data:**
+  - Original WordNet data: Licensed under the **Princeton WordNet License**. See [LICENSE-WORDNET](LICENSE-WORDNET).
+  - Modifications and additions: Licensed under the **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**. See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0).
 
-### WNprolog Documentation
-- **License**: WordNet
-- **Files**: All files in the doc/ directory
-- **SPDX Identifier**: WordNet
+- **Documentation (`doc`):**
+  - The `doc` directory contains portions of the original WordNet 3.0 documentation (© 2006 by Princeton University). It is fully licensed under the **Princeton WordNet License**.
 
-### Open English WordNet (OEWN) Data
-- **Licenses**: Dual-licensed under:
-  1. Princeton WordNet License (WordNet)
-  2. Creative Commons Attribution 4.0 (CC-BY-4.0)
-- **SPDX Identifier**: (WordNet AND CC-BY-4.0)
-- **Files**: All files in the prolog/ directory
-
-### License Files
-All license texts are available in the LICENSES/ directory.
-
-Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
+See the [`NOTICE`](NOTICE) file for detailed license explanations and attribution requirements. Individual files also contain [SPDX headers](https://spdx.github.io/spdx-spec/) where applicable.
 
 
 ## WNprolog-OEWN-2025+
