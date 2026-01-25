@@ -45,6 +45,10 @@ thyp(Start, Hyper) :-
     closure(hyp, Start, List),
     member(Hyper, List).
 
+test_all_hyp:-
+  % Comprehensive test for timing closure algorithm
+  forall(g(Id,_), closure(hyp, Id, _)).
+
 /*  ------------------------------------------------
 Transitive closure of Rel, starting at Word
 */
@@ -59,6 +63,8 @@ word_closure(Rel, Word):-
   closure(Rel, Id, L),
   forall(member(M,L), ss_words(M)),
   write('OK'), nl.
+
+
 
 /* ------------------------------------------------------------------
 Word relations
@@ -131,6 +137,8 @@ qini:-
   false.
 qini:-
   time_call(word_closure(hyp, 'rock hind')), % The deepest hyponym in WordNet
+  time_call(ensure_pred(g)),
+  time_call(test_all_hyp),
   tolds.
 
 :- initialization(qini).

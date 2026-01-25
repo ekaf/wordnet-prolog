@@ -12,6 +12,6 @@ This software contains multiple components under different licenses:
   - SPDX:       WordNet
   - Files:      Files in doc/ and prolog/ directories
   - [Text](LICENSES/WordNet.txt)
-  - [Online](https://spdx.org/licenses/WordNet.html)
+  - [Online](https://opensource.org/license/wordnet)
 
 Individual file headers contain SPDX-License-Identifier tags.
