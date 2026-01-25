@@ -14,31 +14,51 @@ Licensed under the Apache License, Version 2.0
 
 syn(A,A).
 
-/* ------------------------------------------------------
-Transitive closure of Relation R, starting at Node A
-Prevent transitive loops (f. ex. in original WordNet 3.0)
--------------------------------------------------------- */
+/* -------------------------------------------------------------------
+Transitive closure of Relation R in linear time, from 'Start' synset.
+Prevent transitive loops using dynamic visited/1
+-------------------------------------------------------------------- */
 
-closure(Rel, Start, Visited, Result) :-
-    % 1. Find an immediate neighbour
-    call(Rel, Start, Next),
-    % 2. Check for cycles using ordered membercheck of the Visited set
-    \+ ord_memberchk(Next, Visited),
-    % 3. Branch: Either this is a result, or we recurse deeper
-    (   Result = Next
-    ;   ord_insert(Visited, Next, NewVisited),
-        closure(Rel, Next, NewVisited, Result)
-    ).
+:- dynamic(visited/1).
 
-/* ----------------------------------------------
-Transitive closure of hypernymy, from Start node
+closure1(Rel, Start) :-
+    call(Rel, Start, Next),  % Find an immediate neighbour
+    \+ visited(Next),        % O(1) lookup to prevent loop
+    assertz(visited(Next)),  % Store result
+    closure1(Rel, Next),     % More results: recurse #Next times
+    false.
+closure1(_, _).
+
+closure(Rel, Start, List) :-
+    closure1(Rel, Start),
+    findall(Next, visited(Next), List),
+    retractall(visited(_)).
+
+/* ------------------------------------------------
+Transitive closure of hypernymy, from Start synset
 
 thyp(?Start, ?Hyper)
 Finds transitive hypernyms of Start.
 */
 
 thyp(Start, Hyper) :-
-    closure(hyp, Start, [], Hyper).
+    closure(hyp, Start, List),
+    member(Hyper, List).
+
+/*  ------------------------------------------------
+Transitive closure of Rel, starting at Word
+*/
+
+ss_words(Id):-
+  findall(W, s(Id,_,W,_,_,_), L),
+  format('~w: ~w~n',[Id,L]).
+
+word_closure(Rel, Word):-
+  format('Transitive ~w of ~w:~n', [Rel, Word]),
+  s(Id, _, Word, _, _, _),
+  closure(Rel, Id, L),
+  forall(member(M,L), ss_words(M)),
+  write('OK'), nl.
 
 /* ------------------------------------------------------------------
 Word relations
@@ -93,6 +113,7 @@ qword(W):-
 qword(_):-
   nl.
 
+
 /* ------------------------------------------
 Test some word queries
 ------------------------------------------ */
@@ -101,14 +122,15 @@ qini:-
   safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_query.pl-Output-',WV,F),
-  tell(F),
-  ensure_pred(s),
-  load_type(semrels),
+  tells(F),
+  time_call(ensure_pred(s)),
+  time_call(load_type(semrels)),
   member(W,['car','tree','house','check','line','London']),
-%  time_call(qword(W)),
+  % Note that 'London' is not a hyponym but an instance
   qword(W),
   false.
 qini:-
-  told.
+  time_call(word_closure(hyp, 'rock hind')), % The deepest hyponym in WordNet
+  tolds.
 
 :- initialization(qini).

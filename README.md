@@ -130,8 +130,10 @@ make valid PL=gprolog
 
 ## News (2026):
 
-- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
+- Transitive relation closures in linear time
 - Use no hard cut.
 - Use call/N instead of univ (=..).
 - Add loader.pl, to load files only once.
 - Quote strings and fix quotes in CSV output.
+- Add SPDX license and copyright tags
+- Portable output predicates tells/1 and tolds/0

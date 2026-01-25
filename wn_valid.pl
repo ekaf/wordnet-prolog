@@ -224,10 +224,10 @@ validation:-
   safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
-  tell(F),
-  load_wn,
+  tells(F),
+  time_call(load_wn),
   run_tests,
 %  hypself,
-  told.
+  tolds.
 
 :- initialization(validation).
