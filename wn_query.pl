@@ -45,9 +45,20 @@ thyp(Start, Hyper) :-
     closure(hyp, Start, List),
     member(Hyper, List).
 
+% -----------------------------------------------------------------
+
 test_all_hyp:-
   % Comprehensive test for timing closure algorithm
-  forall(g(Id,_), closure(hyp, Id, _)).
+  findall(Id, g(Id,_), L),  % All synset Ids
+  count_hyp(L,0,N),         % Sum of all closures sizes
+  format('All closures size: ~w~n', [N]).
+
+count_hyp([], N, N).
+count_hyp([H|T], N, N3):-
+  closure(hyp, H, L),
+  length(L, N1),      % Nodes in this closure
+  N2 is N+N1,         % Add size to total size
+  count_hyp(T, N2, N3).
 
 /*  ------------------------------------------------
 Transitive closure of Rel, starting at Word
@@ -63,8 +74,6 @@ word_closure(Rel, Word):-
   closure(Rel, Id, L),
   forall(member(M,L), ss_words(M)),
   write('OK'), nl.
-
-
 
 /* ------------------------------------------------------------------
 Word relations
