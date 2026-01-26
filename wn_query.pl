@@ -21,16 +21,16 @@ Prevent transitive loops using dynamic visited/1
 
 :- dynamic(visited/1).
 
-closure1(Rel, Start) :-
+closure_dyn(Rel, Start) :-
     call(Rel, Start, Next),  % Find an immediate neighbour
     \+ visited(Next),        % O(1) lookup to prevent loop
     assertz(visited(Next)),  % Store result
-    closure1(Rel, Next),     % More results: recurse #Next times
+    closure_dyn(Rel, Next),     % More results: recurse #Next times
     false.
-closure1(_, _).
+closure_dyn(_, _).
 
 closure(Rel, Start, List) :-
-    closure1(Rel, Start),
+    closure_dyn(Rel, Start),
     findall(Next, visited(Next), List),
     retractall(visited(_)).
 
