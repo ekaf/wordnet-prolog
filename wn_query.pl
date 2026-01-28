@@ -16,23 +16,39 @@ syn(A,A).
 
 /* -------------------------------------------------------------------
 Transitive closure of Relation R in linear time, from 'Start' synset.
-Prevent transitive loops using dynamic visited/1
+
+Prevent transitive loops using dynamic visited/1 as an indexed set for
+closure traversal (assumes near O(1) lookup/assert on systems with
+dynamic indexing).
 -------------------------------------------------------------------- */
 
 :- dynamic(visited/1).
 
 closure_dyn(Rel, Start) :-
-    call(Rel, Start, Next),  % Find an immediate neighbour
-    \+ visited(Next),        % O(1) lookup to prevent loop
-    assertz(visited(Next)),  % Store result
-    closure_dyn(Rel, Next),     % More results: recurse #Next times
-    false.
+  call(Rel, Start, Next),  % Find an immediate neighbour
+  \+ visited(Next),        % O(1) lookup to prevent loop
+  assertz(visited(Next)),  % Store result
+  closure_dyn(Rel, Next),  % More results: recurse #Next times
+  false.
 closure_dyn(_, _).
 
-closure(Rel, Start, List) :-
-    closure_dyn(Rel, Start),
-    findall(Next, visited(Next), List),
-    retractall(visited(_)).
+closure_ord(Rel, Start, Visited, Result) :-
+  call(Rel, Start, Next),                     % Find an immediate neighbour
+  \+ ord_memberchk(Next, Visited),            % O(logV) lookup to prevent loop
+  ord_insert(Visited, Next, NewVisited),      % Store result
+  (Result = Next;                               % Return result
+  closure_ord(Rel, Next, NewVisited, Result)). % More results: recurse #Next times
+
+% -----------------------------------------------------------------------------
+
+closure(ordered, Rel, Start, Set) :-
+  findall(Next, closure_ord(Rel, Start, [], Next), List),
+  sort(List, Set).
+
+closure(dynamic, Rel, Start, List) :-
+  closure_dyn(Rel, Start),
+  findall(Next, visited(Next), List),
+  retractall(visited(_)).
 
 /* ------------------------------------------------
 Transitive closure of hypernymy, from Start synset
@@ -42,7 +58,7 @@ Finds transitive hypernyms of Start.
 */
 
 thyp(Start, Hyper) :-
-    closure(hyp, Start, List),
+    closure(ordered, hyp, Start, List),
     member(Hyper, List).
 
 % -----------------------------------------------------------------
@@ -50,15 +66,16 @@ thyp(Start, Hyper) :-
 test_all_hyp:-
   % Comprehensive test for timing closure algorithm
   findall(Id, g(Id,_), L),  % All synset Ids
-  count_hyp(L,0,N),         % Sum of all closures sizes
-  format('All closures size: ~w~n', [N]).
+  time_call(count_hyp(L, ordered, 0)),
+  time_call(count_hyp(L, dynamic, 0)).
 
-count_hyp([], N, N).
-count_hyp([H|T], N, N3):-
-  closure(hyp, H, L),
+count_hyp([], Algo, N):-          % N = sum of all closures sizes
+    format('All closures size (~w): ~w~n', [Algo, N]).
+count_hyp([H|T], Algo, N):-
+  closure(Algo, hyp, H, L),
   length(L, N1),      % Nodes in this closure
   N2 is N+N1,         % Add size to total size
-  count_hyp(T, N2, N3).
+  count_hyp(T, Algo, N2).
 
 /*  ------------------------------------------------
 Transitive closure of Rel, starting at Word
@@ -71,7 +88,7 @@ ss_words(Id):-
 word_closure(Rel, Word):-
   format('Transitive ~w of ~w:~n', [Rel, Word]),
   s(Id, _, Word, _, _, _),
-  closure(Rel, Id, L),
+  closure(dynamic, Rel, Id, L),
   forall(member(M,L), ss_words(M)),
   write('OK'), nl.
 
@@ -147,7 +164,7 @@ qini:-
 qini:-
   time_call(word_closure(hyp, 'rock hind')), % The deepest hyponym in WordNet
   time_call(ensure_pred(g)),
-  time_call(test_all_hyp),
+  test_all_hyp,
   tolds.
 
 :- initialization(qini).
