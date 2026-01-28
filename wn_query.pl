@@ -15,7 +15,36 @@ Licensed under the Apache License, Version 2.0
 syn(A,A).
 
 /* -------------------------------------------------------------------
-Transitive closure of Relation R in linear time, from 'Start' synset.
+Transitive closure of Relation R from 'Start' synset.
+
+We provide two backends for the "visited set":
+
+1) dynamic (visited/1):
+   - Uses a dynamic predicate visited/1 as a visited-set.
+   - If the Prolog system provides well-indexed dynamic predicates, the
+     visited/1 membership test and assert are typically amortized O(1).
+     In that case, the traversal cost is O(E+V) for the reachable subgraph.
+   - Collecting results with findall/3 and clearing visited/1 with
+     retractall/1 add O(V), so overall remains O(E+V) under the O(1) lookup
+     assumption.
+   - On some systems dynamic database operations have higher overhead, and
+     this backend may be slower in practice despite the asymptotic advantage.
+
+2) ordered (ordset list):
+   - Uses an ordered-list set (ord_memberchk/2 + ord_insert/3) for visited.
+   - For list-based ordsets (including our portable fallback in utils.pl),
+     ord_memberchk/2 is O(|Visited|) worst-case (with early cutoff due to
+     ordering) and ord_insert/3 is O(|Visited|) worst-case.
+   - Therefore, for a closure reaching V nodes and exploring E edges,
+     worst-case time is O(E*V + V^2) (often closer to O(V^2) on sparse graphs).
+   - Despite the worse asymptotics, this backend can be faster on systems
+     where dynamic predicate lookup/assert/retract are comparatively costly.
+
+Note: the dynamic backend yields results in traversal/dynamic-clause order;
+the ordered backend yields a sorted set (via sort/2).
+-------------------------------------------------------------------- 
+
+1. Dynamic approach
 
 Prevent transitive loops using dynamic visited/1 as an indexed set for
 closure traversal (assumes near O(1) lookup/assert on systems with
@@ -32,12 +61,17 @@ closure_dyn(Rel, Start) :-
   false.
 closure_dyn(_, _).
 
+/* -----------------------------------------------------------------------------
+2. Ordered sets:
+----------------- */
+
 closure_ord(Rel, Start, Visited, Result) :-
-  call(Rel, Start, Next),                     % Find an immediate neighbour
-  \+ ord_memberchk(Next, Visited),            % O(logV) lookup to prevent loop
-  ord_insert(Visited, Next, NewVisited),      % Store result
-  (Result = Next;                               % Return result
-  closure_ord(Rel, Next, NewVisited, Result)). % More results: recurse #Next times
+  call(Rel, Start, Next),                         % Find an immediate neighbour
+  \+ ord_memberchk(Next, Visited),                %  O(|Visited|) worst-case lookup
+  ord_insert(Visited, Next, NewVisited),          % Store result
+  (   Result = Next                               % Return result
+    ; closure_ord(Rel, Next, NewVisited, Result)  % More results: recurse #Next times
+  ).
 
 % -----------------------------------------------------------------------------
 
