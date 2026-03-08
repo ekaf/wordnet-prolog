@@ -19,26 +19,19 @@ dispatch_call(6, P, [A1, A2, A3, A4, A5, A6]) :- call(P, A1, A2, A3, A4, A5, A6)
 
 /* ----------------------------------------------------------------- */
 
-def_forall:-
-  current_predicate(forall/2) -> true
-  ;
-  assertz((
-    forall(Cond, Action):-
-      \+ (Cond, \+ Action)
-    )).
+:- if(\+ predicate_property(forall(_, _), _)).
+forall(Cond, Action):-
+    \+ (Cond, \+ Action).
+:- endif.
 
-def_inordset:-
-  current_predicate(ord_memberchk/2) -> true
-  ;
+:- if(\+ predicate_property(ord_memberchk(_, _),_ )).
   % Minimal implementation of ordsets
-  assertz((
-    ord_memberchk(E, [H|T]) :-
-      ( E == H  % Membership check succeeds if found
-      ->  true
-      ;   E @> H  % Continue searching (only if E > H)
-      ->  ord_memberchk(E, T)
-      )
-  )).
+ord_memberchk(E, [H|T]) :-
+    (   E == H		% Membership check succeeds if found
+    ->  true
+    ;   E @> H  % Continue searching (only if E > H)
+    ->  ord_memberchk(E, T)
+    ).
 
 % ord_insert(+Set, +Element, -NewSet)
 % Inserts Element into Set only if it is not already present, maintaining order.
@@ -51,9 +44,5 @@ ord_insert([H|T], E, NewSet) :-
     ;   ord_insert(T, E, T1),   % Keep looking
         NewSet = [H|T1]
     ).
+:- endif.
 
-iniutil:-
-  def_forall,
-  def_inordset.
-
-:- initialization(iniutil).
