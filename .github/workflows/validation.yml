@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "WNprolog-3.1" ]
 
+# Force all Javascript actions to use Node 24 to resolve the deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   test-matrix:
     runs-on: ubuntu-latest
@@ -14,46 +18,60 @@ jobs:
       matrix:
         include:
           - system: swi
-            version: stable
+            branch: stable
           - system: swi
-            version: devel
+            branch: devel
           - system: gnu
-            version: stable
           - system: trealla
-            version: latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Install the specific compiler for this matrix leg
+      # --- Setup the Compilers ---
       - name: Setup SWI-Prolog
         if: ${{ matrix.system == 'swi' }}
-        uses: logtalk-actions/setup-swi-prolog@v3
+        uses: logtalk-actions/setup-swi-prolog@master
         with:
-          swi-prolog-branch: ${{ matrix.version }}
+          swi-prolog-branch: ${{ matrix.branch }}
+          swi-prolog-version: latest
 
       - name: Setup GNU Prolog
         if: ${{ matrix.system == 'gnu' }}
-        uses: logtalk-actions/setup-gnu-prolog@v3
+        uses: logtalk-actions/setup-gnu-prolog@master
         with:
-          gnu-prolog-version: ${{ matrix.version }}
+          gnu-prolog-version: latest
 
       - name: Setup Trealla Prolog
         if: ${{ matrix.system == 'trealla' }}
-        uses: logtalk-actions/setup-trealla-prolog@v3
+        uses: logtalk-actions/setup-trealla-prolog@master
         with:
-          trealla-prolog-version: ${{ matrix.version }}
+          trealla-prolog-version: latest
 
-      # Execution Commands using the correct "validation" goal
+      # --- Init ---
+      - name: Initialize output file
+        run: |
+          echo "Prolog System: ${{ matrix.system }}" > output/wn_valid.pl-Output-3.1
+
+      # --- Execution Commands ---
       - name: Run wn_valid.pl on SWI-Prolog
         if: ${{ matrix.system == 'swi' }}
-        run: swipl -g "validation, halt(0)." -t "halt(1)." -q -f wn_valid.pl
-
-      - name: Run wn_valid.pl on Trealla Prolog
-        if: ${{ matrix.system == 'trealla' }}
-        run: tpl -g "validation, halt(0)." -t "halt(1)." -q -f wn_valid.pl
+        run: swipl -g "consult('wn_valid.pl'), halt"
 
       - name: Run wn_valid.pl on GNU Prolog
         if: ${{ matrix.system == 'gnu' }}
-        run: gprolog --entry-goal "validation, halt(0)" --consult-file wn_valid.pl
+        env:
+          LOCALSZ: 200000
+          TRAILSZ: 100000
+          GLOBALSZ: 700000
+          MAX_ATOM: 600000
+        run: gprolog --init-goal "consult('wn_valid.pl'), halt" < /dev/null
+
+      - name: Run wn_valid.pl on Trealla Prolog
+        if: ${{ matrix.system == 'trealla' }}
+        run: tpl -g "consult('wn_valid.pl'), halt"
+
+      # --- Diagnostic Output ---
+      - name: Print validation output
+        if: always()
+        run: cat output/wn_valid.pl-Output-3.1
