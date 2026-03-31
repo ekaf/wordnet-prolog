@@ -1,0 +1,59 @@
+name: WordNet Portability Matrix
+
+on:
+  push:
+    branches: [ "WNprolog-3.1" ]
+  pull_request:
+    branches: [ "WNprolog-3.1" ]
+
+jobs:
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - system: swi
+            version: stable
+          - system: swi
+            version: devel
+          - system: gnu
+            version: stable
+          - system: trealla
+            version: latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install the specific compiler for this matrix leg
+      - name: Setup SWI-Prolog
+        if: ${{ matrix.system == 'swi' }}
+        uses: logtalk-actions/setup-swi-prolog@v3
+        with:
+          swi-prolog-branch: ${{ matrix.version }}
+
+      - name: Setup GNU Prolog
+        if: ${{ matrix.system == 'gnu' }}
+        uses: logtalk-actions/setup-gnu-prolog@v3
+        with:
+          gnu-prolog-version: ${{ matrix.version }}
+
+      - name: Setup Trealla Prolog
+        if: ${{ matrix.system == 'trealla' }}
+        uses: logtalk-actions/setup-trealla-prolog@v3
+        with:
+          trealla-prolog-version: ${{ matrix.version }}
+
+      # Execution Commands using the correct "validation" goal
+      - name: Run wn_valid.pl on SWI-Prolog
+        if: ${{ matrix.system == 'swi' }}
+        run: swipl -g "validation, halt(0)." -t "halt(1)." -q -f wn_valid.pl
+
+      - name: Run wn_valid.pl on Trealla Prolog
+        if: ${{ matrix.system == 'trealla' }}
+        run: tpl -g "validation, halt(0)." -t "halt(1)." -q -f wn_valid.pl
+
+      - name: Run wn_valid.pl on GNU Prolog
+        if: ${{ matrix.system == 'gnu' }}
+        run: gprolog --entry-goal "validation, halt(0)" --consult-file wn_valid.pl
