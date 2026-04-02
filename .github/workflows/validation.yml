@@ -85,7 +85,7 @@ jobs:
       - name: Run wn_valid.pl on Trealla Prolog
         if: ${{ matrix.system == 'trealla' }}
         # The pipe forces it to ingest halt(1) if it drops to the REPL on an error
-        run: echo "halt(1)." | tpl -q wn_valid.pl
+        run: echo "halt(1)." | tpl wn_valid.pl
 
       # --- Diagnostic Output ---
       - name: Print validation output
