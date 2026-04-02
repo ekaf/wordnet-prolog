@@ -67,7 +67,7 @@ ord_memberchk(E, [H|T]) :-
     ).
 :- endif.
 
-:- if(\+ predicate_property(ord_insert(_, _),_ )).
+:- if(\+ predicate_property(ord_insert(_, _, _),_ )).
 % ord_insert(+Set, +Element, -NewSet)
 % Inserts Element into Set only if it is not already present, maintaining order.
 ord_insert([], E, [E]).
