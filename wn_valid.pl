@@ -23,8 +23,6 @@ Additionally, the optional 'hypself' test finds self-hyponyms
 
 :- include(loader).
 
-:- intentionally_crash_the_ci.
-
 ok:-
   write('OK'),
   nl, nl.

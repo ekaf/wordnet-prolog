@@ -52,7 +52,8 @@ jobs:
       - name: Initialize output file
         run: |
           mkdir -p output
-          echo "Prolog System: ${{ matrix.system }}" > output/wn_valid.pl-Output-3.1
+          # Void the original repository sample to prevent stale reads on crash
+          > output/wn_valid.pl-Output-3.1
 
       # --- Execution Commands ---
       - name: Run wn_valid.pl on SWI-Prolog
@@ -89,4 +90,6 @@ jobs:
       # --- Diagnostic Output ---
       - name: Print validation output
         if: always()
-        run: cat output/wn_valid.pl-Output-3.1
+        run: |
+          echo "=== Validation Log for ${{ matrix.system }} ==="
+          cat output/wn_valid.pl-Output-3.1
