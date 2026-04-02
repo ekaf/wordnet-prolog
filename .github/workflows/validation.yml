@@ -49,8 +49,10 @@ jobs:
           trealla-prolog-version: latest
 
       # --- Init ---
-      - name: Prepare output directory
-        run: mkdir -p output
+      - name: Initialize output file
+        run: |
+          mkdir -p output
+          echo "Prolog System: ${{ matrix.system }}" > output/wn_valid.pl-Output-3.1
 
       # --- Execution Commands ---
       - name: Run wn_valid.pl on SWI-Prolog
@@ -65,15 +67,15 @@ jobs:
           TRAILSZ: 100000
           GLOBALSZ: 700000
           MAX_ATOM: 600000
-        # < /dev/null forces an immediate EOF if it tries to open a REPL
-        run: gprolog --init-goal "consult('wn_valid.pl')" < /dev/null
+        # If it drops to the REPL, the pipe forces it to halt with exit code 1
+        run: echo "halt(1)." | gprolog --init-goal "consult('wn_valid.pl'), halt"
 
       - name: Run wn_valid.pl on Trealla Prolog
         if: ${{ matrix.system == 'trealla' }}
-        # < /dev/null forces an immediate EOF if it tries to open a REPL
-        run: tpl -q wn_valid.pl < /dev/null
+        # If it drops to the REPL, the pipe forces it to halt with exit code 1
+        run: echo "halt(1)." | tpl -q wn_valid.pl
 
       # --- Diagnostic Output ---
       - name: Print validation output
         if: always()
-        run: cat output/wn_valid.pl-Output-*
+        run: cat output/wn_valid.pl-Output-3.1
