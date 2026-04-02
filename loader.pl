@@ -18,9 +18,9 @@ iniloader:-
   ; assertz((
     safe_consult(File) :-
       (  already_loaded(File)
-         ->  format('~N Info: ~w already loaded. Skipping.~n', [File])
+         ->  format('~N% Info: ~w already loaded. Skipping.~n', [File])
          ; ( 
-             format('~N Consulting: ~w ... ', [File]),
+             format('~N% Consulting: ~w ... ', [File]),
              catch(flush_output, _, true),
              consult(File),
              assertz(already_loaded(File)),

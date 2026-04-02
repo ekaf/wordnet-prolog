@@ -221,7 +221,7 @@ run_tests:-
 run_tests.
 
 validation:-
-  safe_consult('wn_load.pl'),
+  safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_valid.pl-Output-',WV,F),
   tell(F),

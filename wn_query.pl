@@ -102,6 +102,7 @@ qini:-
   wn_version(WV),
   atom_concat('output/wn_query.pl-Output-',WV,F),
   tell(F),
+  store_pl,
   ensure_pred(s),
   load_type(semrels),
   member(W,['car','tree','house','check','line','London']),
