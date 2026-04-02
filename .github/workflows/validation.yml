@@ -57,8 +57,9 @@ jobs:
       # --- Execution Commands ---
       - name: Run wn_valid.pl on SWI-Prolog
         if: ${{ matrix.system == 'swi' }}
+        # --on-error=status forces halt(1) if any compilation errors occurred
         # -t halt completely disables the interactive top-level fallback
-        run: swipl -q -t halt -s wn_valid.pl
+        run: swipl -q --on-error=status -t halt -s wn_valid.pl
 
       - name: Run wn_valid.pl on GNU Prolog
         if: ${{ matrix.system == 'gnu' }}
@@ -67,12 +68,22 @@ jobs:
           TRAILSZ: 100000
           GLOBALSZ: 700000
           MAX_ATOM: 600000
-        # If it drops to the REPL, the pipe forces it to halt with exit code 1
-        run: echo "halt(1)." | gprolog --init-goal "consult('wn_valid.pl'), halt"
+        run: |
+          # 1. Run the engine and capture standard out/error, feeding it an EOF
+          LOG=$(gprolog --init-goal "consult('wn_valid.pl'), halt" < /dev/null 2>&1)
+          
+          # 2. Print the log so it is visible in GitHub Actions
+          echo "$LOG"
+          
+          # 3. Tripwire: Fail if the log contains swallowed exceptions or syntax errors
+          if echo "$LOG" | grep -iqE "exception|error|unknown directive"; then
+            echo "::error::GNU Prolog compilation failed!"
+            exit 1
+          fi
 
       - name: Run wn_valid.pl on Trealla Prolog
         if: ${{ matrix.system == 'trealla' }}
-        # If it drops to the REPL, the pipe forces it to halt with exit code 1
+        # The pipe forces it to ingest halt(1) if it drops to the REPL on an error
         run: echo "halt(1)." | tpl -q wn_valid.pl
 
       # --- Diagnostic Output ---
