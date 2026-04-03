@@ -171,7 +171,7 @@ Word query
 qword(W):-
 % Synonymy is symmetric
   irel(syn,W),
-  time_call(irel(thyp,W)),
+  irel(thyp,W),
   semrels(_,L),
   member(R,L),
   irel(R,W),
@@ -184,21 +184,25 @@ qword(_):-
 Test some word queries
 ------------------------------------------ */
 
-qini:-
-  safe_consult(wn_load),
-  wn_version(WV),
-  atom_concat('output/wn_query.pl-Output-',WV,F),
-  tells(F),
-  time_call(ensure_pred(s)),
-  time_call(load_type(semrels)),
+word_tests:-
   member(W,['car','tree','house','check','line','London']),
   % Note that 'London' is not a hyponym but an instance
   qword(W),
   false.
+word_tests.
+
 qini:-
+  safe_consult(wn_load),
+  wn_version(WV),
+  atom_concat('output/wn_query.pl-Output-',WV,F),
+  open(F, write, Out),
+  set_output(Out),
+  time_call(ensure_pred(s)),
+  time_call(load_type(semrels)),
+  time_call(word_tests),
   time_call(word_closure(hyp, 'rock hind')), % The deepest hyponym in WordNet
   time_call(ensure_pred(g)),
   test_all_hyp,
-  tolds.
+  close(Out).
 
 :- initialization(qini).

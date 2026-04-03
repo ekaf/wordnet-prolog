@@ -9,6 +9,7 @@ Licensed under the Apache License, Version 2.0
 ----------------------------------------------------------------- */
 
 :- include(timeit).
+:- include(isotell).
 
 dispatch_call(1, P, [A1])                 :- call(P, A1).
 dispatch_call(2, P, [A1, A2])             :- call(P, A1, A2).
@@ -32,7 +33,9 @@ ord_memberchk(E, [H|T]) :-
     ;   E @> H  % Continue searching (only if E > H)
     ->  ord_memberchk(E, T)
     ).
+:- endif.
 
+:- if(\+ predicate_property(ord_insert(_, _, _),_ )).
 % ord_insert(+Set, +Element, -NewSet)
 % Inserts Element into Set only if it is not already present, maintaining order.
 ord_insert([], E, [E]).

@@ -60,22 +60,26 @@ spdx:-
   ( H=='O' -> write('# SPDX-FileCopyrightText: 2025 Open English Wordnet Community'), nl; true ),
   write('# -----------------------------------------------------------'), nl.
 
-pred2file(P):-
+pred2file(P, Out):-
   atom_concat('csv/wn_',P,C1),
   atom_concat(C1,'.csv',C),
   format('Writing ~w~n',[C]),
-  tells(C),
+  open(C, write, Out),
+  set_output(Out),     
   spdx.
+
+convert_facts(P,A):-
+  dispatch_call(A,P,L),
+  args2csv(L,P,1),
+  false.
+convert_facts(_,_).
 
 out2csv(P):-
   ensure_pred(P),
   current_predicate(P/A),
-  pred2file(P),
-  dispatch_call(A,P,L),
-  args2csv(L,P,1),
-  false.
-out2csv(_):-
-  tolds.
+  pred2file(P, O),
+  convert_facts(P,A),
+  close(O).
 
 convert_wn:-
   allwn(L),
@@ -91,3 +95,5 @@ inicsv:-
   time_call(convert_wn).
 
 :- initialization(inicsv).
+
+
