@@ -9,7 +9,6 @@ Licensed under the Apache License, Version 2.0
 ----------------------------------------------------------------- */
 
 :- include(timeit).
-:- include(isotell).
 
 dispatch_call(1, P, [A1])                 :- call(P, A1).
 dispatch_call(2, P, [A1, A2])             :- call(P, A1, A2).
