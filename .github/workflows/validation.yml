@@ -1,0 +1,96 @@
+name: WordNet Portability Matrix
+
+on:
+  push:
+    branches: [ "WNprolog-3.1" ]
+  pull_request:
+    branches: [ "WNprolog-3.1" ]
+
+# Force all Javascript actions to use Node 24 to resolve the deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  test-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - system: swi
+            branch: stable
+          - system: swi
+            branch: devel
+          - system: gnu
+          - system: trealla
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --- Setup the Compilers ---
+      - name: Setup SWI-Prolog
+        if: ${{ matrix.system == 'swi' }}
+        uses: logtalk-actions/setup-swi-prolog@master
+        with:
+          swi-prolog-branch: ${{ matrix.branch }}
+          swi-prolog-version: latest
+
+      - name: Setup GNU Prolog
+        if: ${{ matrix.system == 'gnu' }}
+        uses: logtalk-actions/setup-gnu-prolog@master
+        with:
+          gnu-prolog-version: latest
+
+      - name: Setup Trealla Prolog
+        if: ${{ matrix.system == 'trealla' }}
+        uses: logtalk-actions/setup-trealla-prolog@master
+        with:
+          trealla-prolog-version: latest
+
+      # --- Init ---
+      - name: Initialize output file
+        run: |
+          mkdir -p output
+          # Void the original repository sample to prevent stale reads on crash
+          > output/wn_valid.pl-Output-3.1
+
+      # --- Execution Commands ---
+      - name: Run wn_valid.pl on SWI-Prolog
+        if: ${{ matrix.system == 'swi' }}
+        # --on-error=status forces halt(1) if any compilation errors occurred
+        # -t halt completely disables the interactive top-level fallback
+        run: swipl -q --on-error=status -t halt -s wn_valid.pl
+
+      - name: Run wn_valid.pl on GNU Prolog
+        if: ${{ matrix.system == 'gnu' }}
+        env:
+          LOCALSZ: 200000
+          TRAILSZ: 100000
+          GLOBALSZ: 700000
+          MAX_ATOM: 600000
+        run: |
+          # 1. Run the engine and capture standard out/error, feeding it an EOF
+          LOG=$(gprolog --init-goal "consult('wn_valid.pl'), halt" < /dev/null 2>&1)
+          
+          # 2. Print the log so it is visible in GitHub Actions
+          echo "$LOG"
+          
+          # 3. Tripwire: Fail if the log contains swallowed exceptions or syntax errors
+          if echo "$LOG" | grep -iqE "exception|error|unknown directive"; then
+            echo "::error::GNU Prolog compilation failed!"
+            exit 1
+          fi
+
+      - name: Run wn_valid.pl on Trealla Prolog
+        if: ${{ matrix.system == 'trealla' }}
+        # -g halt forces a clean exit(0) on success before the pipe can be read.
+        # If it crashes, it aborts the goal, drops to the REPL, and reads halt(1).
+        run: echo "halt(1)." | tpl -g halt wn_valid.pl
+
+      # --- Diagnostic Output ---
+      - name: Print validation output
+        if: always()
+        run: |
+          echo "=== Validation Log for ${{ matrix.system }} ==="
+          cat output/wn_valid.pl-Output-3.1

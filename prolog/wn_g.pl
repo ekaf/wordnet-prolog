@@ -7,7 +7,6 @@ SPDX-FileCopyrightText: 2011 Princeton University
 
 For more information, see: https://wordnet.princeton.edu
 -------------------------------------------------------- */
-:-encoding('iso_latin_1').
 g(100001740,'that which is perceived or known or inferred to have its own distinct existence (living or nonliving)').
 g(100001930,'an entity that has physical existence').
 g(100002137,'a general concept formed by extracting common features from specific examples').
