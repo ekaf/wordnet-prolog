@@ -54,6 +54,7 @@ load_type(Type):-
 load_type(_).
 
 load_wn:-
+  store_pl,
   allwn(L),
   member(P,L),
   ensure_pred(P),

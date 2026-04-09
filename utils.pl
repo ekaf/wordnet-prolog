@@ -10,6 +10,39 @@ Licensed under the Apache License, Version 2.0
 
 :- include(timeit).
 
+:- dynamic(pl_dialect/1).
+:- dynamic(pl_version/1).
+
+store_dialect :-
+  retractall(pl_dialect(_)),
+  %  Retrieve the system name (Dialect)
+  (   catch(current_prolog_flag(dialect, Dialect), _, fail)
+  ->  true
+  ;   Dialect = unknown
+  ),
+  assertz(pl_dialect(Dialect)),
+  write('System: '), write(Dialect).
+
+store_version :-
+  retractall(pl_version(_)),
+  % Retrieve the version (Check version_data first, fallback to version)
+  (   catch(current_prolog_flag(version_data, Version), _, fail)
+  ->  true
+  ;   catch(current_prolog_flag(version, Version), _, fail)
+  ->  true
+  ;   Version = unknown
+  ),
+  assertz(pl_version(Version)),
+  write(', Version: '), write(Version), nl.
+
+store_pl :-
+  store_dialect,
+  store_version.
+
+% ----------------------------------------------------------------------------------
+
+
+
 dispatch_call(1, P, [A1])                 :- call(P, A1).
 dispatch_call(2, P, [A1, A2])             :- call(P, A1, A2).
 dispatch_call(3, P, [A1, A2, A3])         :- call(P, A1, A2, A3).
@@ -47,4 +80,3 @@ ord_insert([H|T], E, NewSet) :-
         NewSet = [H|T1]
     ).
 :- endif.
-
