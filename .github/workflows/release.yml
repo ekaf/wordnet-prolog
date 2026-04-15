@@ -18,94 +18,41 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get branch name for tagged commit
+      - name: Get branch name
         id: branch
         run: |
-          # Get the commit hash of the tag
-          COMMIT_HASH=$(git rev-list -n 1 ${{ github.ref }})
-          
-          # Find all branches containing this commit
-          BRANCH=$(git branch -r --contains $COMMIT_HASH | grep -v HEAD | head -1 | sed 's/^[[:space:]]*origin\///')
-          
-          if [ -z "$BRANCH" ]; then
-            BRANCH="unknown"
-          fi
-          
-          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
-          echo "Branch: $BRANCH"
+          BRANCH=$(git branch -r --contains HEAD | grep -v HEAD | head -1 | sed 's/^[[:space:]]*origin\///')
+          echo "branch=${BRANCH:-unknown}" >> $GITHUB_OUTPUT
 
-      - name: Generate release notes from merged PRs
-        id: release_notes
+      - name: Generate release notes
+        id: notes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Extract version from tag
-          TAG=${{ github.ref }}
-          VERSION=${TAG#refs/tags/}
+          VERSION=${GITHUB_REF#refs/tags/}
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           
-          # Get the previous tag
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 ${TAG}^ 2>/dev/null || echo "")
+          PREV_TAG=$(git describe --tags --abbrev=0 ${GITHUB_REF}^ 2>/dev/null || echo "")
           
-          if [ -z "$PREVIOUS_TAG" ]; then
-            # If no previous tag, use all merged PRs
-            CHANGELOG=$(gh pr list --state merged --limit 500 --json title --jq '.[] | "- " + .title' | head -50)
-          else
-            # Get commits between tags and find associated merged PRs
-            COMMITS=$(git log ${PREVIOUS_TAG}..${TAG} --pretty=format:"%B" | grep -oP '#\d+' | sort -u)
-            
-            CHANGELOG=""
-            for pr_num in $COMMITS; do
-              PR_TITLE=$(gh pr view ${pr_num#\#} --json title --jq '.title' 2>/dev/null)
-              if [ -n "$PR_TITLE" ]; then
-                CHANGELOG="${CHANGELOG}$(echo "- $PR_TITLE")\n"
-              fi
-            done
-            
-            if [ -z "$CHANGELOG" ]; then
-              CHANGELOG="No merged PRs found since last release."
-            fi
+          if [ -n "$PREV_TAG" ]; then
+            CHANGELOG=$(git log ${PREV_TAG}..${GITHUB_REF} --pretty=format:"%B" | grep -oP '#\d+' | sort -u | while read pr; do
+              gh pr view ${pr#\#} --json title --jq '.title' 2>/dev/null
+            done | sed 's/^/- /')
           fi
           
-          # Store changelog in output variable
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo -e "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "${CHANGELOG:-No changes}" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Build release package
-        id: build
-        run: |
-          VERSION=${{ steps.release_notes.outputs.version }}
-          BRANCH=${{ steps.branch.outputs.branch }}
-          PACKAGE_NAME="wordnet-prolog-${BRANCH}-${VERSION}"
-          
-          # Create package directory
-          mkdir -p "${PACKAGE_NAME}"
-          
-          # Copy source files (customize as needed for your project)
-          cp -r wn_*.pl "${PACKAGE_NAME}/" 2>/dev/null || true
-          cp -r *.pl "${PACKAGE_NAME}/" 2>/dev/null || true
-          cp README.md LICENSE* NOTICE "${PACKAGE_NAME}/" 2>/dev/null || true
-          cp Makefile "${PACKAGE_NAME}/" 2>/dev/null || true
-          
-          # Create compressed archive
-          tar -czf "${PACKAGE_NAME}.tar.gz" "${PACKAGE_NAME}"
-          
-          echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT
-          echo "Package created: ${PACKAGE_NAME}.tar.gz"
-
-      - name: Create GitHub Release
+      - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.release_notes.outputs.version }}
-          name: "${{ steps.branch.outputs.branch }}-${{ steps.release_notes.outputs.version }}"
+          tag_name: ${{ steps.notes.outputs.version }}
+          name: "${{ steps.branch.outputs.branch }}-${{ steps.notes.outputs.version }}"
           body: |
-            ## Changes in ${{ steps.release_notes.outputs.version }}
+            ## Changes
             
-            ${{ steps.release_notes.outputs.changelog }}
-          files: |
-            ${{ steps.build.outputs.package_name }}.tar.gz
+            ${{ steps.notes.outputs.changelog }}
           draft: false
-          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
