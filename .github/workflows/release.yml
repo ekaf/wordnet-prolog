@@ -5,6 +5,9 @@ on:
     tags:
       - "v*"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write
   pull-requests: read
@@ -18,11 +21,29 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get branch name
+      - name: Get branch name from tag
         id: branch
         run: |
-          BRANCH=$(git branch -r --contains HEAD | grep -v HEAD | head -1 | sed 's/^[[:space:]]*origin\///')
-          echo "branch=${BRANCH:-unknown}" >> $GITHUB_OUTPUT
+          # Get all branches containing this tag
+          BRANCHES=$(git branch -r --contains ${{ github.ref }} | sed 's/^[[:space:]]*origin\///' | grep -v HEAD)
+          
+          # Count branches and handle accordingly
+          BRANCH_COUNT=$(echo "$BRANCHES" | wc -l)
+          
+          if [ $BRANCH_COUNT -eq 1 ]; then
+            # Only one branch, use it
+            BRANCH=$(echo "$BRANCHES" | head -1)
+          else
+            # Multiple branches: use the first non-main/master branch, or prompt user
+            BRANCH=$(echo "$BRANCHES" | grep -v -E '^(main|master)$' | head -1)
+            if [ -z "$BRANCH" ]; then
+              echo "::error::Tag exists on multiple branches ($BRANCHES). Please create a branch-specific tag."
+              exit 1
+            fi
+          fi
+          
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+          echo "::notice::Release branch: $BRANCH"
 
       - name: Generate release notes
         id: notes
@@ -35,13 +56,19 @@ jobs:
           PREV_TAG=$(git describe --tags --abbrev=0 ${GITHUB_REF}^ 2>/dev/null || echo "")
           
           if [ -n "$PREV_TAG" ]; then
-            CHANGELOG=$(git log ${PREV_TAG}..${GITHUB_REF} --pretty=format:"%B" | grep -oP '#\d+' | sort -u | while read pr; do
-              gh pr view ${pr#\#} --json title --jq '.title' 2>/dev/null
-            done | sed 's/^/- /')
+            LOG_RANGE="${PREV_TAG}..${GITHUB_REF}"
+            EMPTY_MSG="No changes"
+          else
+            LOG_RANGE="${GITHUB_REF}"
+            EMPTY_MSG="First release - no pull requests found in commit history"
           fi
           
+          CHANGELOG=$(git log ${LOG_RANGE} --pretty=format:"%B" | grep -Eo '#[0-9]+' | sort -u | while read -r pr; do
+            gh pr view ${pr#\#} --json title --jq '.title' 2>/dev/null
+          done | sed 's/^/- /')
+          
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo "${CHANGELOG:-No changes}" >> $GITHUB_OUTPUT
+          echo "${CHANGELOG:-$EMPTY_MSG}" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create release
