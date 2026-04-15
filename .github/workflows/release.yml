@@ -72,8 +72,14 @@ jobs:
           VERSION: ${{ steps.notes.outputs.version }}
         run: |
           PACKAGE_NAME="${BRANCH}-${VERSION}"
-          tar -czf "${PACKAGE_NAME}.tar.gz" --exclude='.git' --exclude='.github' .
-          zip -r -q "${PACKAGE_NAME}.zip" . -x '.git/*' '.github/*'
+          tar -czf "${PACKAGE_NAME}.tar.gz" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='*.tar.gz' \
+            --exclude='*.zip' \
+            .
+          zip -r -q "${PACKAGE_NAME}.zip" . \
+            -x '.git/*' '.github/*' '*.tar.gz' '*.zip'
           echo "packages=${PACKAGE_NAME}" >> $GITHUB_ENV
 
       - name: Create release
