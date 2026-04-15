@@ -20,13 +20,15 @@ jobs:
           fetch-depth: 0
 
       - id: b
-        run: echo "n=$(git branch -r --contains HEAD | sed 's/.*\///' | grep -v HEAD | head -1)" >> $GITHUB_OUTPUT
+        run: |
+          BRANCH=$(git branch -r --contains HEAD | sed 's/.*\///' | grep -v HEAD | head -1)
+          echo "n=${BRANCH:-${{ github.event.repository.default_branch }}}" >> $GITHUB_OUTPUT
 
       - run: |
           cd /tmp
           tar -czf ${{ steps.b.outputs.n }}-${{ github.ref_name }}.tar.gz -C ${{ github.workspace }} --exclude=.git --exclude=.github .
           zip -r -q ${{ steps.b.outputs.n }}-${{ github.ref_name }}.zip ${{ github.workspace }} -x '${{ github.workspace }}/.git/*' '${{ github.workspace }}/.github/*'
-          mv ${{ steps.b.outputs.n }}-${{ github.ref_name }}.* ${{ github.workspace }}/
+          mv -- ${{ steps.b.outputs.n }}-${{ github.ref_name }}.* ${{ github.workspace }}/
 
       - uses: softprops/action-gh-release@v1
         with:
