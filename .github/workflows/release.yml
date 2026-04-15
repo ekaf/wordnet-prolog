@@ -25,7 +25,7 @@ jobs:
       - run: |
           cd /tmp
           tar -czf ${{ steps.b.outputs.n }}-${{ github.ref_name }}.tar.gz -C ${{ github.workspace }} --exclude=.git --exclude=.github .
-          zip -r -q ${{ steps.b.outputs.n }}-${{ github.ref_name }}.zip -x '.git/*' '.github/*' ${{ github.workspace }}
+          zip -r -q ${{ steps.b.outputs.n }}-${{ github.ref_name }}.zip ${{ github.workspace }} -x '${{ github.workspace }}/.git/*' '${{ github.workspace }}/.github/*'
           mv ${{ steps.b.outputs.n }}-${{ github.ref_name }}.* ${{ github.workspace }}/
 
       - uses: softprops/action-gh-release@v1
