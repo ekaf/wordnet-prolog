@@ -10,90 +10,31 @@ env:
 
 permissions:
   contents: write
-  pull-requests: read
 
 jobs:
-  create-release:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Get branch name from tag
-        id: branch
-        run: |
-          BRANCHES=$(git branch -r --contains ${{ github.ref }} | sed 's/^[[:space:]]*origin\///' | grep -v HEAD)
-          BRANCH_COUNT=$(echo "$BRANCHES" | wc -l)
-          
-          if [ $BRANCH_COUNT -eq 1 ]; then
-            BRANCH=$(echo "$BRANCHES" | head -1)
-          else
-            BRANCH=$(echo "$BRANCHES" | grep -v -E '^(main|master)$' | head -1)
-            if [ -z "$BRANCH" ]; then
-              echo "::error::Tag exists on multiple branches ($BRANCHES). Please create a branch-specific tag."
-              exit 1
-            fi
-          fi
-          
-          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
-          echo "::notice::Release branch: $BRANCH"
+      - id: b
+        run: echo "n=$(git branch -r --contains HEAD | sed 's/.*\///' | grep -v HEAD | head -1)" >> $GITHUB_OUTPUT
 
-      - name: Generate release notes
-        id: notes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/}
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          
-          PREV_TAG=$(git describe --tags --abbrev=0 ${GITHUB_REF}^ 2>/dev/null || echo "")
-          
-          if [ -n "$PREV_TAG" ]; then
-            LOG_RANGE="${PREV_TAG}..${GITHUB_REF}"
-            EMPTY_MSG="No changes"
-          else
-            LOG_RANGE="${GITHUB_REF}"
-            EMPTY_MSG="First release - no pull requests found in commit history"
-          fi
-          
-          CHANGELOG=$(git log ${LOG_RANGE} --pretty=format:"%B" | grep -Eo '#[0-9]+' | sort -u | while read -r pr; do
-            gh pr view ${pr#\#} --json title --jq '.title' 2>/dev/null
-          done | sed 's/^/- /')
-          
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo "${CHANGELOG:-$EMPTY_MSG}" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+      - run: |
+          cd /tmp
+          tar -czf ${{ steps.b.outputs.n }}-${{ github.ref_name }}.tar.gz -C ${{ github.workspace }} --exclude=.git --exclude=.github .
+          zip -r -q ${{ steps.b.outputs.n }}-${{ github.ref_name }}.zip ${{ github.workspace }} -x '.git/*' '.github/*'
+          mv ${{ steps.b.outputs.n }}-${{ github.ref_name }}.* ${{ github.workspace }}/
 
-      - name: Create release packages
-        env:
-          BRANCH: ${{ steps.branch.outputs.branch }}
-          VERSION: ${{ steps.notes.outputs.version }}
-        run: |
-          PACKAGE_NAME="${BRANCH}-${VERSION}"
-          tar -czf "${PACKAGE_NAME}.tar.gz" \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='*.tar.gz' \
-            --exclude='*.zip' \
-            .
-          zip -r -q "${PACKAGE_NAME}.zip" . \
-            -x '.git/*' '.github/*' '*.tar.gz' '*.zip'
-          echo "packages=${PACKAGE_NAME}" >> $GITHUB_ENV
-
-      - name: Create release
-        uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.notes.outputs.version }}
-          name: "${{ steps.branch.outputs.branch }}-${{ steps.notes.outputs.version }}"
-          body: |
-            ## Changes
-            
-            ${{ steps.notes.outputs.changelog }}
+          tag_name: ${{ github.ref_name }}
+          name: ${{ steps.b.outputs.n }}-${{ github.ref_name }}
+          generate_release_notes: true
           files: |
-            ${{ env.packages }}.tar.gz
-            ${{ env.packages }}.zip
-          draft: false
+            ${{ github.workspace }}/${{ steps.b.outputs.n }}-${{ github.ref_name }}.tar.gz
+            ${{ github.workspace }}/${{ steps.b.outputs.n }}-${{ github.ref_name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
