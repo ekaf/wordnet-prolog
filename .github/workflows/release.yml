@@ -24,17 +24,12 @@ jobs:
       - name: Get branch name from tag
         id: branch
         run: |
-          # Get all branches containing this tag
           BRANCHES=$(git branch -r --contains ${{ github.ref }} | sed 's/^[[:space:]]*origin\///' | grep -v HEAD)
-          
-          # Count branches and handle accordingly
           BRANCH_COUNT=$(echo "$BRANCHES" | wc -l)
           
           if [ $BRANCH_COUNT -eq 1 ]; then
-            # Only one branch, use it
             BRANCH=$(echo "$BRANCHES" | head -1)
           else
-            # Multiple branches: use the first non-main/master branch, or prompt user
             BRANCH=$(echo "$BRANCHES" | grep -v -E '^(main|master)$' | head -1)
             if [ -z "$BRANCH" ]; then
               echo "::error::Tag exists on multiple branches ($BRANCHES). Please create a branch-specific tag."
@@ -71,6 +66,16 @@ jobs:
           echo "${CHANGELOG:-$EMPTY_MSG}" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
+      - name: Create release packages
+        env:
+          BRANCH: ${{ steps.branch.outputs.branch }}
+          VERSION: ${{ steps.notes.outputs.version }}
+        run: |
+          PACKAGE_NAME="${BRANCH}-${VERSION}"
+          tar -czf "${PACKAGE_NAME}.tar.gz" --exclude='.git' --exclude='.github' .
+          zip -r -q "${PACKAGE_NAME}.zip" . -x '.git/*' '.github/*'
+          echo "packages=${PACKAGE_NAME}" >> $GITHUB_ENV
+
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
@@ -80,6 +85,9 @@ jobs:
             ## Changes
             
             ${{ steps.notes.outputs.changelog }}
+          files: |
+            ${{ env.packages }}.tar.gz
+            ${{ env.packages }}.zip
           draft: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
