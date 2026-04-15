@@ -92,7 +92,9 @@ Type "make valid" or "make query" to run the Prolog programs,
 or "make csv" to generate CSV databases.
 
 
-## News (2020):
+## ChangeLog
+
+### 2020
 
 CSV versions of the WordNet databases (output by _wn2csv.pl_) are now
 available through the _wncsv_ project at:
@@ -100,7 +102,7 @@ available through the _wncsv_ project at:
 https://github.com/ekaf/wncsv
 
 
-## News (2025):
+### 2025
 
 - Added utils.pl: system-independent implementations of non-standard predicates.
 - Added timeit.pl to time predicate calls.
@@ -128,10 +130,14 @@ Or specify PL=gprolog to use gprolog instead of the default:
 make valid PL=gprolog
 
 
-## News (2026):
+### 2026
 
-- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
+- Transitive relation closures in linear time
 - Use no hard cut.
 - Use call/N instead of univ (=..).
 - Add loader.pl, to load files only once.
 - Quote strings and fix quotes in CSV output.
+- Add SPDX license and copyright tags
+- Portable output predicates
+- Portability validation workflow
+- Release workflow
