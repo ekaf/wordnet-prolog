@@ -14,31 +14,117 @@ Licensed under the Apache License, Version 2.0
 
 syn(A,A).
 
-/* ------------------------------------------------------
-Transitive closure of Relation R, starting at Node A
-Prevent transitive loops (f. ex. in original WordNet 3.0)
--------------------------------------------------------- */
+/* -------------------------------------------------------------------
+Transitive closure of Relation R from 'Start' synset.
 
-closure(Rel, Start, Visited, Result) :-
-    % 1. Find an immediate neighbour
-    call(Rel, Start, Next),
-    % 2. Check for cycles using ordered membercheck of the Visited set
-    \+ ord_memberchk(Next, Visited),
-    % 3. Branch: Either this is a result, or we recurse deeper
-    (   Result = Next
-    ;   ord_insert(Visited, Next, NewVisited),
-        closure(Rel, Next, NewVisited, Result)
-    ).
+We provide two backends for the "visited set":
 
-/* ----------------------------------------------
-Transitive closure of hypernymy, from Start node
+1) dynamic (visited/1):
+   - Uses a dynamic predicate visited/1 as a visited-set.
+   - If the Prolog system provides well-indexed dynamic predicates, the
+     visited/1 membership test and assert are typically amortized O(1).
+     In that case, the traversal cost is O(E+V) for the reachable subgraph.
+   - Collecting results with findall/3 and clearing visited/1 with
+     retractall/1 add O(V), so overall remains O(E+V) under the O(1) lookup
+     assumption.
+   - On some systems dynamic database operations have higher overhead, and
+     this backend may be slower in practice despite the asymptotic advantage.
+
+2) ordered (ordset list):
+   - Uses an ordered-list set (ord_memberchk/2 + ord_insert/3) for visited.
+   - For list-based ordsets (including our portable fallback in utils.pl),
+     ord_memberchk/2 is O(|Visited|) worst-case (with early cutoff due to
+     ordering) and ord_insert/3 is O(|Visited|) worst-case.
+   - Therefore, for a closure reaching V nodes and exploring E edges,
+     worst-case time is O(E*V + V^2) (often closer to O(V^2) on sparse graphs).
+   - Despite the worse asymptotics, this backend can be faster on systems
+     where dynamic predicate lookup/assert/retract are comparatively costly.
+
+Note: the dynamic backend yields results in traversal/dynamic-clause order;
+the ordered backend yields a sorted set (via sort/2).
+-------------------------------------------------------------------- 
+
+1. Dynamic approach
+
+Prevent transitive loops using dynamic visited/1 as an indexed set for
+closure traversal (assumes near O(1) lookup/assert on systems with
+dynamic indexing).
+-------------------------------------------------------------------- */
+
+:- dynamic(visited/1).
+
+closure_dyn(Rel, Start) :-
+  call(Rel, Start, Next),  % Find an immediate neighbour
+  \+ visited(Next),        % O(1) lookup to prevent loop
+  assertz(visited(Next)),  % Store result
+  closure_dyn(Rel, Next),  % More results: recurse #Next times
+  false.
+closure_dyn(_, _).
+
+/* -----------------------------------------------------------------------------
+2. Ordered sets:
+----------------- */
+
+closure_ord(Rel, Start, Visited, Result) :-
+  call(Rel, Start, Next),                         % Find an immediate neighbour
+  \+ ord_memberchk(Next, Visited),                %  O(|Visited|) worst-case lookup
+  ord_insert(Visited, Next, NewVisited),          % Store result
+  (   Result = Next                               % Return result
+    ; closure_ord(Rel, Next, NewVisited, Result)  % More results: recurse #Next times
+  ).
+
+% -----------------------------------------------------------------------------
+
+closure(ordered, Rel, Start, Set) :-
+  findall(Next, closure_ord(Rel, Start, [], Next), List),
+  sort(List, Set).
+
+closure(dynamic, Rel, Start, List) :-
+  closure_dyn(Rel, Start),
+  findall(Next, visited(Next), List),
+  retractall(visited(_)).
+
+/* ------------------------------------------------
+Transitive closure of hypernymy, from Start synset
 
 thyp(?Start, ?Hyper)
 Finds transitive hypernyms of Start.
 */
 
 thyp(Start, Hyper) :-
-    closure(hyp, Start, [], Hyper).
+    closure(ordered, hyp, Start, List),
+    member(Hyper, List).
+
+% -----------------------------------------------------------------
+
+test_all_hyp:-
+  % Comprehensive test for timing closure algorithm
+  findall(Id, g(Id,_), L),  % All synset Ids
+  time_call(count_hyp(L, ordered, 0)),
+  time_call(count_hyp(L, dynamic, 0)).
+
+count_hyp([], Algo, N):-          % N = sum of all closures sizes
+    format('All closures size (~w): ~w~n', [Algo, N]).
+count_hyp([H|T], Algo, N):-
+  closure(Algo, hyp, H, L),
+  length(L, N1),      % Nodes in this closure
+  N2 is N+N1,         % Add size to total size
+  count_hyp(T, Algo, N2).
+
+/*  ------------------------------------------------
+Transitive closure of Rel, starting at Word
+*/
+
+ss_words(Id):-
+  findall(W, s(Id,_,W,_,_,_), L),
+  format('~w: ~w~n',[Id,L]).
+
+word_closure(Rel, Word):-
+  format('Transitive ~w of ~w:~n', [Rel, Word]),
+  s(Id, _, Word, _, _, _),
+  closure(dynamic, Rel, Id, L),
+  forall(member(M,L), ss_words(M)),
+  write('OK'), nl.
 
 /* ------------------------------------------------------------------
 Word relations
@@ -85,7 +171,7 @@ Word query
 qword(W):-
 % Synonymy is symmetric
   irel(syn,W),
-  time_call(irel(thyp,W)),
+  irel(thyp,W),
   semrels(_,L),
   member(R,L),
   irel(R,W),
@@ -93,23 +179,30 @@ qword(W):-
 qword(_):-
   nl.
 
+
 /* ------------------------------------------
 Test some word queries
 ------------------------------------------ */
+
+word_tests:-
+  member(W,['car','tree','house','check','line','London']),
+  % Note that 'London' is not a hyponym but an instance
+  qword(W),
+  false.
+word_tests.
 
 qini:-
   safe_consult(wn_load),
   wn_version(WV),
   atom_concat('output/wn_query.pl-Output-',WV,F),
-  tell(F),
-  store_pl,
-  ensure_pred(s),
-  load_type(semrels),
-  member(W,['car','tree','house','check','line','London']),
-%  time_call(qword(W)),
-  qword(W),
-  false.
-qini:-
-  told.
+  open(F, write, Out),
+  set_output(Out),
+  time_call(ensure_pred(s)),
+  time_call(load_type(semrels)),
+  time_call(word_tests),
+  time_call(word_closure(hyp, 'rock hind')), % The deepest hyponym in WordNet
+  time_call(ensure_pred(g)),
+  test_all_hyp,
+  close(Out).
 
 :- initialization(qini).

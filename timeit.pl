@@ -42,10 +42,11 @@ time_call(Goal) :-
   % Measure the time taken to execute a given Goal once, and print the elapsed time.
   current_time(StartTime),
   call(Goal),  % Always execute the Goal
+  Goal =.. [P|_],
   (
   StartTime == error
-  -> format('Timing unavailable for ~w.~n', [Goal])
+  -> format('Timing unavailable for ~w.~n', [P])
   ; current_time(EndTime),
     Elapsed is EndTime - StartTime,
-    format('~w executed in ~2f seconds.~n', [Goal, Elapsed])
+    format('~w executed in ~2f seconds.~n', [P, Elapsed])
   ).

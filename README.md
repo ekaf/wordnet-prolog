@@ -133,11 +133,10 @@ make valid PL=gprolog
 ### 2026
 
 - Transitive relation closures in linear time
-- Use no hard cut.
-- Use call/N instead of univ (=..).
-- Add loader.pl, to load files only once.
-- Quote strings and fix quotes in CSV output.
+- Use no hard cut
+- Use call/N instead of univ (=..)
+- Add loader.pl, to load files only once
+- Quote strings and fix quotes in CSV output
 - Add SPDX license and copyright tags
-- Portable output predicates
-- Portability validation workflow
-- Release workflow
+- Improve portability
+- Check portability with Github Action
