@@ -20,6 +20,7 @@ jobs:
       - uses: softprops/action-gh-release@v3
         with:
           generate_release_notes: true
+          previous_tag: "oewn-2025-plus"
           draft: false
           make_latest: false
         env:
