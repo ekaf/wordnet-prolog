@@ -11,7 +11,7 @@
   11 documentation, including modifications that you make for internal  
   12 use or for distribution.  
   13   
-  14 WordNet 3.0 Copyright 2006 by Princeton University.  All rights reserved.  
+  14 WordNet 3.1 Copyright 2011 by Princeton University.  All rights reserved.  
   15   
   16 THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON  
   17 UNIVERSITY MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR  

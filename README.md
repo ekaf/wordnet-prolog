@@ -5,7 +5,7 @@ https://github.com/ekaf/wordnet-prolog
 *Wordnet-prolog* includes new versions of the _WNprolog_ databases,
 compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
-(c) 2006 Princeton University.
+(c) 2012 Princeton University.
 
 
 ## License
@@ -13,7 +13,7 @@ and bundled with a copy of the original WNprolog-3.0 documentation
 The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSES/Apache-2.0.txt)**.
 
 The WordNet documentation and database files in this release are subject to the following third-party license:
-* **WordNet 3.1:** Distributed under the [Princeton WordNet License](LICENSES/WordNet.txt).
+* **WordNet 3.0:** Distributed under the [Princeton WordNet License](LICENSES/WordNet.txt).
 
 Full attribution details and copyright notices are maintained in the **[NOTICE](NOTICE)** file.
 
@@ -76,11 +76,10 @@ only unique facts:
 - total: 809598
 
 
-
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
-with Prolog versions of WordNet 3.0 and Open English Wordnet.
+with Prolog versions of WordNet 3.1 and Open English Wordnet.
 
 These are available for download as compressed packages,
 from the Github Releases menu.
@@ -116,7 +115,9 @@ Type "make valid" or "make query" to run the Prolog programs,
 or "make csv" to generate CSV databases.
 
 
-## News (2020):
+## ChangeLog
+
+### 2020
 
 CSV versions of the WordNet databases (output by _wn2csv.pl_) are now
 available through the _wncsv_ project at:
@@ -124,7 +125,7 @@ available through the _wncsv_ project at:
 https://github.com/ekaf/wncsv
 
 
-## News (2025):
+### 2025
 
 - Added utils.pl: system-independent implementations of non-standard predicates.
 - Added timeit.pl to time predicate calls.
@@ -152,11 +153,13 @@ Or specify PL=gprolog to use gprolog instead of the default:
 make valid PL=gprolog
 
 
-## News (2026):
+### 2026
 
-- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
-- Use no hard cut.
-- Use call/N instead of univ (=..).
-- Add loader.pl, to load files only once.
-- Quote strings and fix quotes in CSV output.
+- Transitive relation closures in linear time
+- Use no hard cut
+- Use call/N instead of univ (=..)
+- Add loader.pl, to load files only once
+- Quote strings and fix quotes in CSV output
 - Add SPDX license and copyright tags
+- Improve portability
+- Check portability with Github Action
