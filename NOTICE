@@ -1,23 +1,18 @@
 SPDX-License-Identifier: Apache-2.0 AND WordNet AND CC-BY-4.0
 
-wordnet-prolog Repository (ewn25 branch)
-Copyright 2017-2026 Eric Kafe and contributors.
+WordNet Prolog
+Copyright 2017-present Eric Kafe
 
-This branch incorporates Open English WordNet (OEWN) data, which is licensed under the following terms:
+1. WordNet Prolog (Logic and Wrappers)
+   Copyright 2017-present Eric Kafe
+   Licensed under the Apache License, Version 2.0
 
-- **Princeton WordNet License**:
-  - Original portions of the WordNet database and documentation (including the `doc` directory) retain the Princeton WordNet License. See `LICENSE-WORDNET.md` for the full text.
+2. Princeton WordNet, version 3.1 (database and documentation)
+   Copyright 2011 by Princeton University. All rights reserved.
+   (Licensed under the WordNet License; see LICENSES/WordNet.txt)
 
-- **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**:
-  - Modifications and additions made by the OEWN community are licensed under CC-BY-4.0. See `LICENSE-CC-BY-4.0.md` for the full text.
-
-- **Code:**
-  - All code distributed in this branch is licensed under the Apache License 2.0.
-  - See `LICENSE.md` for the full text.
-
-File-level licenses are detailed in [SPDX headers](https://spdx.github.io/spdx-spec/) where applicable. The `doc` directory does not contain specific SPDX headers, but it is fully subject to the WordNet license as described above.
-
-Attribution Notice for OEWN:
-
-- Modifications: Open English WordNet © the OEWN community. Licensed under CC-BY-4.0 (see `LICENSE-CC-BY-4.0.md`).
-- WordNet: Princeton WordNet © 2006 and 2011 by Princeton University. Licensed under the Princeton WordNet License (see `LICENSE-WORDNET.md`).
+3. Open English WordNet (OEWN)
+   Copyright 2019-present by the Open English Wordnet team.
+   As per OEWN dual-licensing requirements, attribution is hereby 
+   given to both the Princeton WordNet and the Open English Wordnet team.
+   (Licensed under WordNet License / CC-BY 4.0; see LICENSES/OEWN.txt)

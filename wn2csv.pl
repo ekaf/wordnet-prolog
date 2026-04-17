@@ -49,44 +49,51 @@ args2csv([H|T], P, N) :-
 %---------------------------------------------------------
 
 spdx:-
-  write('# SPDX-License-Identifier: WordNet'),
   wn_version(V),
+  format('# WordNet-Version: ~w~n', [V]),
   atom_chars(V, [H,_,N|_]),
+  write('# SPDX-License-Identifier: WordNet'),
   ( H=='O' -> write(' AND CC-BY-4.0'); true ), nl,
   write('# SPDX-FileCopyrightText: '),
   ( N=='0' -> write('2006'); write('2011') ),
-  format(' Princeton University~n'),
-  ( H=='O' -> format('# SPDX-FileCopyrightText: 2025 Open English Wordnet Community~n'); true ),
+  write(' Princeton University'), nl,
+  ( H=='O' -> write('# SPDX-FileCopyrightText: 2025 Open English Wordnet Community'), nl; true ),
   write('# -----------------------------------------------------------'), nl.
 
-pred2file(P):-
+pred2file(P, Out):-
   atom_concat('csv/wn_',P,C1),
   atom_concat(C1,'.csv',C),
   format('Writing ~w~n',[C]),
-  tell(C),
+  open(C, write, Out),
+  set_output(Out),     
   spdx.
 
-out2csv(P):-
-  pred2file(P),
-  current_predicate(P/A),
+convert_facts(P,A):-
   dispatch_call(A,P,L),
   args2csv(L,P,1),
   false.
-out2csv(_):-
-  told.
+convert_facts(_,_).
+
+out2csv(P):-
+  ensure_pred(P),
+  current_predicate(P/A),
+  pred2file(P, O),
+  convert_facts(P,A),
+  close(O).
 
 convert_wn:-
   allwn(L),
   member(P,L),
-  ensure_pred(P),
   out2csv(P),
   false.
 convert_wn.
 
 inicsv:-
   safe_consult(wn_load),
-  load_wn, 
+  time_call(load_wn), 
   % loaded all dbs first, to time the conversion independently of consulting:
   time_call(convert_wn).
 
 :- initialization(inicsv).
+
+

@@ -33,7 +33,7 @@ current_time(T) :-
 time_to_seconds(T0, T) :-
   % Convert time to seconds if necessary (e.g., for GNU Prolog, which reports milliseconds).
   (
-  current_prolog_flag(dialect, gprolog)  % Detects GNU Prolog
+  pl_dialect(gprolog)  % Detects GNU Prolog
   -> T is T0 / 1000
   ; T = T0
   ).
@@ -42,10 +42,11 @@ time_call(Goal) :-
   % Measure the time taken to execute a given Goal once, and print the elapsed time.
   current_time(StartTime),
   call(Goal),  % Always execute the Goal
+  Goal =.. [P|_],
   (
   StartTime == error
-  -> format('Timing unavailable for ~w.~n', [Goal])
+  -> format('Timing unavailable for ~w.~n', [P])
   ; current_time(EndTime),
     Elapsed is EndTime - StartTime,
-    format('~w executed in ~2f seconds.~n', [Goal, Elapsed])
+    format('~w executed in ~2f seconds.~n', [P, Elapsed])
   ).

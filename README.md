@@ -7,22 +7,26 @@ compiled by Eric Kafe (https://github.com/ekaf/wordnet-prolog),
 and bundled with a copy of the original WNprolog-3.0 documentation
 (c) 2012 Princeton University.
 
+
 ## License
 
-This branch contains software and data under multiple licenses:
+The code and logic in this repository are licensed under the **[Apache License 2.0](LICENSES/Apache-2.0.txt)**.
 
-- **Code:**
-  - Licensed under the **Apache License 2.0**. See [LICENSE](LICENSE.md).
+The WordNet documentation and database files in this release are subject to the following third-party license:
+* **WordNet 3.1:** Distributed under the [Princeton WordNet License](LICENSES/WordNet.txt).
 
 - **Open English WordNet (OEWN) data:**
-  - Original WordNet data: Licensed under the **Princeton WordNet License**. See [LICENSE-WORDNET](LICENSE-WORDNET.md).
-  - Modifications and additions: Licensed under the **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**. See [LICENSE-CC-BY-4.0](LICENSE-CC-BY-4.0.md).
+  - Original WordNet data: Licensed under the **Princeton WordNet License**. See above.
+  - Modifications and additions: Licensed under the **Creative Commons Attribution 4.0 International License (CC-BY-4.0)**. See [LICENSE-CC-BY-4.0](LICENSES/CC-BY-4.0.txt).
 
-- **Documentation (`doc`):**
-  - The `doc` directory contains portions of the original WordNet 3.0 documentation (© 2006 by Princeton University). It is fully licensed under the **Princeton WordNet License**.
+
+## WNprolog-3.1
 
 See the [`NOTICE`](NOTICE) file for detailed license explanations and attribution requirements. Individual files also contain [SPDX headers](https://spdx.github.io/spdx-spec/) where applicable.
 
+Some missing links were added, in order to enforce full
+symmetry of the symmetric relations. Also, this version
+avoids duplicates, and contains only unique facts:
 
 ## WNprolog-OEWN-2025+
 
@@ -51,25 +55,33 @@ This version contains the following numbers of unique facts:
 - wn_ms.pl: 826
 - wn_per.pl: 8067
 - wn_ppl.pl: 73
-- wn_sa.pl: 4098
-- wn_sim.pl: 21452
-- wn_sk.pl: 203366
-- wn_s.pl: 203366
-- wn_syntax.pl: 929
-- wn_vgp.pl: 1726
-- total: 815341
+- wn_sa.pl: 4054
+- wn_sim.pl: 21434
+- wn_sk.pl: 207272
+- wn_s.pl: 207272
+- wn_syntax.pl: 1054
+- wn_vgp.pl: 1744
+- total: 810697
+
 
 ## Other Prolog versions of WordNet
 
 The wordnet-prolog repository also includes alternative branches
-with Prolog versions of WordNet 3.0 and Open English WordNet 2022.
+with Prolog versions of WordNet 3.0 and Open English Wordnet.
+
+These are available for download as compressed packages,
+from the Github Releases menu.
+
 
 ## Utilities:
 
-_wn_morphy.pl_ is a SWI-prolog lemmatizer, similar to _morphy_,
+The following are standard Prolog programs, intended for compatibility
+with the ISO-Prolog standard:
+
+_wn_morphy.pl_ is a Prolog lemmatizer, similar to _morphy_,
 the morphological processor from WordNet.
 
-_wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordNet:
+_wn_valid.pl_ is a Prolog program testing for some potential issues in WordNet:
 
 - check_keys: ambiguous sense keys, pointing to more than one synset
 - symcheck: missing symmetry in the symmetric relations
@@ -78,7 +90,7 @@ _wn_valid.pl_ is a SWI-prolog program testing for some potential issues in WordN
 - check_duplicates: find duplicate clauses
 
 
-The accompanying _wn_query.pl_ file is a SWI-prolog program
+The accompanying _wn_query.pl_ file is a Prolog program
 implementing some common WordNet use cases, and a few formal checks,
 like symmetry and transitive loop detection.
 
@@ -87,18 +99,21 @@ For convenient inter-operation with other projects, the _wn2csv.pl_ program
 converts the Prolog databases to comma-separated CSV files,
 which can be easily imported into most database systems.
 
-Type "make valid" or "make query" to run the SWI-prolog programs,
+Type "make valid" or "make query" to run the Prolog programs,
 or "make csv" to generate CSV databases.
 
 
-## News (2020):
+## ChangeLog
+
+### 2020
 
 CSV versions of the WordNet databases (output by _wn2csv.pl_) are now
 available through the _wncsv_ project at:
 
 https://github.com/ekaf/wncsv
 
-## News (2025):
+
+### 2025
 
 - Added utils.pl: system-independent implementations of non-standard predicates.
 - Added timeit.pl to time predicate calls.
@@ -126,12 +141,13 @@ Or specify PL=gprolog to use gprolog instead of the default:
 make valid PL=gprolog
 
 
-## News (2026):
+### 2026
 
-- Speed up the transitive relation closures, for ex. [_thyp_ in wn_query](wn_query.pl).
-- Use no hard cut.
-- Use call/N instead of univ (=..).
-- Add loader.pl, to load files only once.
-- Quote strings and fix quotes in CSV output.
-- Unescape sense keys
+- Transitive relation closures in linear time
+- Use no hard cut
+- Use call/N instead of univ (=..)
+- Add loader.pl, to load files only once
+- Quote strings and fix quotes in CSV output
 - Add SPDX license and copyright tags
+- Improve portability
+- Check portability with Github Action
